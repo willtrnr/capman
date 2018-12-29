@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bash
+pkgver=4.3.48
+pkgrel=1
+pkgdesc="The GNU Bourne Again shell"
+arch=('x86_64')
+url="http://www.gnu.org/software/bash/bash.html"
+license=('GPL')
+groups=('base')
+depends=('readline>=7.0' 'glibc' 'ncurses')
+optdepends=('bash-completions: for tab completion')
+provides=('sh')
+
+pkgver() {
+  /bin/bash --version | head -n1 | sed -E 's/.*version ([0-9\.]+).*/\1/'
+}
+
+package() {
+  install -d -m755 "$pkgdir/usr/local/bin"
+  ln -s /bin/bash "$pkgdir/usr/local/bin/bash"
+  ln -s /usr/bin/bash "$pkgdir/usr/local/bin/bashbug"
+  ln -s bash "$pkgdir/usr/local/bin/sh"
+}

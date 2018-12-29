@@ -7,11 +7,6 @@ class Pacman < Package
   source_url 'https://sources.archlinux.org/other/pacman/pacman-5.1.2.tar.gz'
   source_sha256 'ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6'
 
-  binary_url ({
-  })
-  binary_sha256 ({
-  })
-
   depends_on 'glibc'
   depends_on 'curl'
   depends_on 'gpgme'
@@ -24,9 +19,11 @@ class Pacman < Package
     system "./configure",
              "--prefix=#{CREW_PREFIX}",
              "--libdir=#{CREW_LIB_PREFIX}",
+             "--with-makepkg-template-dir=#{CREW_PREFIX}/share/makepkg-template",
              "--with-scriptlet-shell=/bin/bash",
              "--with-ldconfig=/sbin/ldconfig",
-             "--with-makepkg-template-dir=#{CREW_PREFIX}/share/makepkg-template",
+	     "--with-pkg-ext=.pkg.tar.xz",
+	     "--with-src-ext=.src.tar.gz",
              "--enable-doc"
     system "make"
   end

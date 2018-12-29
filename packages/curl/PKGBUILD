@@ -1,0 +1,18 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=curl
+pkgver=7.61.0
+pkgrel=1
+pkgdesc="An URL retrieval utility and library"
+arch=('x86_64')
+url="https://curl.haxx.se"
+license=('MIT')
+depends=('ca-certificates' 'krb5' 'libssh2' 'openssl' 'zlib' 'libpsl' 'libnghttp2')
+provides=('libcurl.so')
+options=(strip)
+source=("https://dl.bintray.com/chromebrew/chromebrew/$pkgname-$pkgver-chromeos-x86_64.tar.xz")
+sha256sums=('d59e500171ebe3369683425a5d68d90996f17f12cb21d5071134250fa815f427')
+
+package() {
+  cp -a usr "$pkgdir"
+}

@@ -11,15 +11,17 @@ groups=('base' 'base-devel')
 depends=('bash' 'glibc' 'libarchive' 'curl' 'gpgme')
 makedepends=('asciidoc')
 optdepends=('perl-locale-gettext: translation support in makepkg-template')
-backup=("usr/local/etc/pacman.conf"
-        "usr/local/etc/makepkg.conf")
+backup=(usr/local/etc/pacman.conf usr/local/etc/makepkg.conf)
 options=('strip')
-source=("https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz"
+validpgpkeys=('6645B0A8C7005E78DB1D7864F99FFE0FEAE999BD'  # Allan McRae <allan@archlinux.org>
+              'B8151B117037781095514CA7BBDFFC92306B1121') # Andrew Gregory (pacman) <andrew@archlinux.org>
+source=("https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz"{,.sig}
         pacman.conf
-	makepkg.conf)
+        makepkg.conf)
 sha256sums=('ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6'
+            'SKIP'
             '3525b63d24e2f4dba5cfed1a3d9afc3ab2aa93e991939533807ed134b98d2276'
-            '4af50b2c5a54b06233766d747d76e3e1786fc2402af717f5fbdbbdc5f53e8d9f')
+            '2d1e37e1488f0852b3deff9ead84e1ba1e9155909253282300e0eea9960523f3')
 
 build() {
   cd "$pkgname-$pkgver"
@@ -27,9 +29,9 @@ build() {
   ./configure \
     --prefix=/usr/local \
     --libdir=/usr/local/lib64 \
+    --with-makepkg-template-dir=/usr/local/share/makepkg-template \
     --with-scriptlet-shell=/bin/bash \
     --with-ldconfig=/sbin/ldconfig \
-    --with-makepkg-template-dir=/usr/local/share/makepkg-template \
     --enable-doc
 
   make V=1
@@ -40,7 +42,16 @@ package() {
 
   make DESTDIR="$pkgdir" install
 
-  install -dm755 "$pkgdir/usr/local/etc"
+  install -d -m755 "$pkgdir/usr/local/etc"
   install -m644 "$srcdir/pacman.conf" "$pkgdir/usr/local/etc"
   install -m644 "$srcdir/makepkg.conf" "$pkgdir/usr/local/etc"
+
+  # put bash_completion in the right location
+  install -d -m755 "$pkgdir/usr/local/share/bash-completion/completions"
+  mv "$pkgdir/usr/local/etc/bash_completion.d/pacman" "$pkgdir/usr/local/share/bash-completion/completions"
+  rmdir "$pkgdir/usr/local/etc/bash_completion.d"
+
+  for f in makepkg pacman-key; do
+    ln -s pacman "$pkgdir/usr/local/share/bash-completion/completions/$f"
+  done
 }
