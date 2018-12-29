@@ -12,10 +12,11 @@ class Pacman < Package
   binary_sha256 ({
   })
 
-  depends_on 'curl'
-  depends_on 'fakeroot'
   depends_on 'glibc'
+  depends_on 'curl'
   depends_on 'gpgme'
+  depends_on 'xzutils'
+  depends_on 'fakeroot'
   depends_on 'libarchive'
   depends_on 'asciidoc' => :build
 

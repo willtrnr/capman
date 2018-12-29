@@ -1,6 +1,4 @@
-# vim: set ts=2 sw=2 et:
-# Maintainer: Dan McGee <dan@archlinux.org>
-# Maintainer: Dave Reisner <dreisner@archlinux.org>
+# Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=pacman
 pkgver=5.1.2
@@ -10,14 +8,17 @@ arch=('x86_64')
 url="http://www.archlinux.org/pacman/"
 license=('GPL')
 groups=('base' 'base-devel')
-depends=('bash' 'glibc' 'libarchive' 'curl'
-         'gpgme' 'pacman-mirrorlist' 'archlinux-keyring')
+depends=('bash' 'glibc' 'libarchive' 'curl' 'gpgme')
 makedepends=('asciidoc')
 optdepends=('perl-locale-gettext: translation support in makepkg-template')
 backup=(usr/local/etc/pacman.conf usr/local/etc/makepkg.conf)
-options=('strip' 'debug')
-source=(https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz)
-sha256sums=('ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6')
+options=('strip')
+source=(https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz
+        pacman.conf
+	makepkg.conf)
+sha256sums=('ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6'
+            '3525b63d24e2f4dba5cfed1a3d9afc3ab2aa93e991939533807ed134b98d2276'
+            'cb16a48e6ab76d21eab10b58edfa9a06626f9b2d4a5d446e9024b5215b14c634')
 
 build() {
   cd "$pkgname-$pkgver"
@@ -36,4 +37,8 @@ package() {
   cd "$pkgname-$pkgver"
 
   make DESTDIR="$pkgdir" install
+
+  install -dm755 "$pkgdir/usr/local/etc"
+  install -m644 "$srcdir/pacman.conf" "$pkgdir/usr/local/etc"
+  install -m644 "$srcdir/makepkg.conf" "$pkgdir/usr/local/etc"
 }

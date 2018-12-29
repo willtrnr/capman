@@ -1,0 +1,33 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gpgme
+pkgver=1.12.0
+pkgrel=1
+pkgdesc="A C wrapper library for GnuPG"
+arch=('x86_64')
+url="http://www.gnupg.org/related_software/gpgme/"
+license=('LGPL')
+depends=('libgpg-error' 'gnupg>=2')
+makedepends=('libgpg-error' 'gnupg' 'python' 'python2' 'swig')
+options=('!emptydirs')
+source=("https://www.gnupg.org/ftp/gcrypt/${pkgname}/${pkgname}-${pkgver}.tar.bz2")
+sha256sums=('b4dc951c3743a60e2e120a77892e9e864fb936b2e58e7c77e8581f4d050e8cd8')
+
+build() {
+  cd ${pkgname}-${pkgver}
+
+  ./configure \
+    --prefix=/usr/local \
+    --libdir=/usr/local/lib64 \
+    --disable-fd-passing \
+    --disable-static \
+    --disable-gpgsm-test
+  
+  make
+}
+
+package() {
+  cd ${pkgname}-${pkgver}
+
+  make DESTDIR="${pkgdir}" install
+}

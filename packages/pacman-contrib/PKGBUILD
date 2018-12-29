@@ -1,0 +1,30 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pacman-contrib
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="Contributed scripts and tools for pacman systems"
+arch=('x86_64')
+url="https://git.archlinux.org/pacman-contrib.git/about/"
+license=('GPL')
+depends=('pacman' 'fakeroot')
+makedepends=('asciidoc')
+optdepends=('mlocate: pacdiff'
+            'findutils: pacdiff')
+source=(https://sources.archlinux.org/other/community/pacman-contrib/pacman-contrib-$pkgver.tar.gz)
+sha256sums=('308c3b8dc15ed8bd419cba1eb3103afe9250cf415626334a0c3a753b550549a6')
+
+build() {
+  cd pacman-contrib-$pkgver
+
+  ./configure \
+      --prefix=/usr/local \
+      --libdir=/usr/local/lib64
+  make
+}
+
+package() {
+  cd pacman-contrib-$pkgver
+
+  make DESTDIR="$pkgdir" install
+}
