@@ -1,0 +1,39 @@
+# vim: set ts=2 sw=2 et:
+# Maintainer: Dan McGee <dan@archlinux.org>
+# Maintainer: Dave Reisner <dreisner@archlinux.org>
+
+pkgname=pacman
+pkgver=5.1.2
+pkgrel=1
+pkgdesc="A library-based package manager with dependency support"
+arch=('x86_64')
+url="http://www.archlinux.org/pacman/"
+license=('GPL')
+groups=('base' 'base-devel')
+depends=('bash' 'glibc' 'libarchive' 'curl'
+         'gpgme' 'pacman-mirrorlist' 'archlinux-keyring')
+makedepends=('asciidoc')
+optdepends=('perl-locale-gettext: translation support in makepkg-template')
+backup=(usr/local/etc/pacman.conf usr/local/etc/makepkg.conf)
+options=('strip' 'debug')
+source=(https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz)
+sha256sums=('ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6')
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  ./configure \
+    --prefix=/usr/local \
+    --libdir=/usr/local/lib64 \
+    --with-scriptlet-shell=/bin/bash \
+    --with-ldconfig=/sbin/ldconfig \
+    --with-makepkg-template-dir=/usr/local/share/makepkg-template \
+    --enable-doc
+  make V=1
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  make DESTDIR="$pkgdir" install
+}
