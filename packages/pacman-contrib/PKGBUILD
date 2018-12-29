@@ -11,7 +11,7 @@ depends=('pacman' 'fakeroot')
 makedepends=('asciidoc')
 optdepends=('mlocate: pacdiff'
             'findutils: pacdiff')
-source=(https://sources.archlinux.org/other/community/pacman-contrib/pacman-contrib-$pkgver.tar.gz)
+source=("https://sources.archlinux.org/other/community/pacman-contrib/pacman-contrib-$pkgver.tar.gz")
 sha256sums=('308c3b8dc15ed8bd419cba1eb3103afe9250cf415626334a0c3a753b550549a6')
 
 build() {

@@ -1,0 +1,17 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glibc
+pkgver=2.23
+pkgrel=1
+pkgdesc="GNU C Library"
+arch=('x86_64')
+url="http://www.gnu.org/software/libc"
+license=('GPL' 'LGPL')
+groups=('base')
+options=(!strip staticlibs)
+source=("https://dl.bintray.com/chromebrew/chromebrew/$pkgname-$pkgver-chromeos-x86_64.tar.xz")
+sha256sums=('2d09f88f6de0f3fbd9f01ffcf9d61d43df688826bf1df63d8f193d6ed69ded11')
+
+package() {
+  cp -a usr "$pkgdir"
+}

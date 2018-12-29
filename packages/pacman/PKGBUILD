@@ -11,14 +11,15 @@ groups=('base' 'base-devel')
 depends=('bash' 'glibc' 'libarchive' 'curl' 'gpgme')
 makedepends=('asciidoc')
 optdepends=('perl-locale-gettext: translation support in makepkg-template')
-backup=(usr/local/etc/pacman.conf usr/local/etc/makepkg.conf)
+backup=("usr/local/etc/pacman.conf"
+        "usr/local/etc/makepkg.conf")
 options=('strip')
-source=(https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz
+source=("https://sources.archlinux.org/other/pacman/$pkgname-$pkgver.tar.gz"
         pacman.conf
 	makepkg.conf)
 sha256sums=('ce4eef1585fe64fd1c65c269e263577261edd7535fe2278240103012d74b6ef6'
             '3525b63d24e2f4dba5cfed1a3d9afc3ab2aa93e991939533807ed134b98d2276'
-            'cb16a48e6ab76d21eab10b58edfa9a06626f9b2d4a5d446e9024b5215b14c634')
+            '4af50b2c5a54b06233766d747d76e3e1786fc2402af717f5fbdbbdc5f53e8d9f')
 
 build() {
   cd "$pkgname-$pkgver"
@@ -30,6 +31,7 @@ build() {
     --with-ldconfig=/sbin/ldconfig \
     --with-makepkg-template-dir=/usr/local/share/makepkg-template \
     --enable-doc
+
   make V=1
 }
 

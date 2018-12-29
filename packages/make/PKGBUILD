@@ -1,0 +1,17 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=make
+pkgver=4.2.1
+pkgrel=1
+pkgdesc="GNU make utility to maintain groups of programs"
+arch=('x86_64')
+url="http://gcc.gnu.org"
+license=('GPL3')
+groups=('base-devel')
+depends=('glibc' 'guile')
+source=("https://dl.bintray.com/chromebrew/chromebrew/$pkgname-$pkgver-chromeos-x86_64.tar.xz")
+sha256sums=('ebab3261fbd37c88586894e3f79c1eedfbc3d24d999996bc5abb974a8a07980a')
+
+package() {
+  cp -a usr "$pkgdir"
+}

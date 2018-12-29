@@ -1,0 +1,18 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gcc7
+pkgver=7.3.0
+_pkgver=7.3.0-3
+pkgrel=1
+pkgdesc="The GNU Compiler Collection (7.x.x)"
+arch=('x86_64')
+url="http://gcc.gnu.org"
+license=('GPL' 'LGPL' 'FDL' 'custom')
+depends=('glibc' 'binutils' 'libmpc')
+options=(!emptydirs)
+source=("https://dl.bintray.com/chromebrew/chromebrew/$pkgname-$_pkgver-chromeos-x86_64.tar.xz")
+sha256sums=('992fa6556e3c4b45ae548b0ce64e1c5cafaffd109fe9aba5d857c6c569e5b33e')
+
+package() {
+  cp -a usr "$pkgdir"
+}
