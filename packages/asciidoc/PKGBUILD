@@ -1,0 +1,26 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=asciidoc
+_pkgname=asciidoc
+pkgver=8.6.9
+_pkgver=8.6.9
+pkgrel=1
+pkgdesc="AsciiDoc is a presentable text document format for writing articles, UNIX man pages and other small to medium sized documents."
+arch=('x86_64')
+url="http://asciidoc.org/"
+license=()
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/$_pkgname-$_pkgver-chromeos-x86_64.tar.xz")
+sha256sums=('048de56fd444c9c5542270fb8080b23f0264467e3c10853b9925b4add914b053')
+
+package() {
+  cp -a usr "$pkgdir"
+}
