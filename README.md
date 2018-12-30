@@ -28,8 +28,9 @@ Why
 ---
 
 You might be wondering why use pacman instead of Crostini, Crouton or
-Chromebrew, even more so since we need it for the installation this otherwise,
-here are a couple of motivations for this project:
+Chromebrew, even more so since we need it for the installation.
+
+Here are a couple of motivations for this project:
 
 - chroots are heavy in size since they have to bring in quite a lot of
   dependencies and sharing files gets a bit weird.
