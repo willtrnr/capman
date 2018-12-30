@@ -22,15 +22,15 @@ for pkg in ./crew/*; do
   name="$(basename "$pkg")"
 
   msg "Building '%s'..." "$name"
-  (cd "$pkg"; makepkg -d)
+  (cd "$pkg"; makepkg -d --sign)
 
   msg "Adding package '%s' to the repo..." "$name"
   repo-add "$REPO_DB" "$pkg/$name-"*.pkg.tar.xz
-  cp "$pkg/$name-"*.pkg.tar.xz "$REPO_PATH"
+  cp "$pkg/$name-"*.pkg.tar.xz{,.sig} "$REPO_PATH"
 
   msg "Cleaning up..."
   for f in "$pkg/"*; do
-    if [ "$(basename "$f")" != PKGBUILD ] && [[ "$f" != *.pkg.tar.xz ]]; then
+    if [ "$(basename "$f")" != PKGBUILD ] && [[ "$f" != *.pkg.tar.xz* ]]; then
       rm -r "$f"
     fi
   done

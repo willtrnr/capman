@@ -1,7 +1,4 @@
-core/*/*.tar.*
-core/*/pkg
-core/*/src
-crew/*/*.tar.*
-crew/*/pkg
-crew/*/src
+*.tar.*
+pkg/
 repo/
+src/

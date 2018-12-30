@@ -22,8 +22,8 @@ class Pacman < Package
              "--with-makepkg-template-dir=#{CREW_PREFIX}/share/makepkg-template",
              "--with-scriptlet-shell=/bin/bash",
              "--with-ldconfig=/sbin/ldconfig",
-	     "--with-pkg-ext=.pkg.tar.xz",
-	     "--with-src-ext=.src.tar.gz",
+             "--with-pkg-ext=.pkg.tar.xz",
+             "--with-src-ext=.src.tar.gz",
              "--enable-doc"
     system "make"
   end
