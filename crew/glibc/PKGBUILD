@@ -8,11 +8,16 @@ arch=('x86_64')
 url="http://www.gnu.org/software/libc"
 license=('GPL' 'LGPL')
 groups=('base')
-makedepends=('gd')
-options=(!strip staticlibs)
-source=("https://dl.bintray.com/chromebrew/chromebrew/$pkgname-$pkgver-chromeos-x86_64.tar.xz")
+depends=('filesystem' 'linux-api-headers>=4.10' 'tzdata')
+makedepends=()
+optdepends=('gd: for memusagestat')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glibc-2.23-chromeos-x86_64.tar.xz")
 sha256sums=('2d09f88f6de0f3fbd9f01ffcf9d61d43df688826bf1df63d8f193d6ed69ded11')
 
 package() {
-  cp -a usr "$pkgdir"
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
 }

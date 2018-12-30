@@ -1,3 +1,7 @@
-packages/*/src
-packages/*/pkg
-packages/*/*.tar.*
+core/*/*.tar.*
+core/*/pkg
+core/*/src
+crew/*/*.tar.*
+crew/*/pkg
+crew/*/src
+repo/

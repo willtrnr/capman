@@ -1,9 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libarchive
-_pkgname=libarchive
 pkgver=3.3.2
-_pkgver=3.3.2
 pkgrel=1
 pkgdesc="Multi-format archive and compression library"
 arch=('x86_64')
@@ -16,11 +14,10 @@ optdepends=()
 provides=('libarchive.so=13-64')
 conflicts=()
 replaces=()
-backup=()
-options=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/$_pkgname-$_pkgver-chromeos-x86_64.tar.xz")
+source=("https://dl.bintray.com/chromebrew/chromebrew/libarchive-3.3.2-chromeos-x86_64.tar.xz")
 sha256sums=('55d1f9d949edad46042e0a268c19cebc2398fc8711c99b1071e089d7588ccfef')
 
 package() {
-  cp -a usr "$pkgdir"
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
 }

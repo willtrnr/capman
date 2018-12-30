@@ -1,9 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=fakeroot
-_pkgname=fakeroot
 pkgver=1.23
-_pkgver=1.23
 pkgrel=1
 pkgdesc="Tool for simulating superuser privileges"
 arch=('x86_64')
@@ -11,16 +9,15 @@ url="http://packages.debian.org/fakeroot"
 license=('GPL')
 groups=('base-devel')
 depends=('filesystem' 'glibc' 'sed' 'sh' 'util-linux')
-makedepends=('po4a')
+makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-backup=()
-options=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/$_pkgname-$_pkgver-chromeos-x86_64.tar.xz")
+source=("https://dl.bintray.com/chromebrew/chromebrew/fakeroot-1.23-chromeos-x86_64.tar.xz")
 sha256sums=('8d7f3cb9052e264d43aa8c37eda7b7da2e3710f7f29061ada7fbca6c90b1f814')
 
 package() {
-  cp -a usr "$pkgdir"
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
 }

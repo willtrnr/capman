@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=asciidoc
+pkgver=8.6.9
+pkgrel=1
+pkgdesc="Text document format for short documents, articles, books and UNIX man pages."
+arch=('x86_64')
+url="http://www.methods.co.nz/asciidoc/"
+license=('GPL')
+groups=()
+depends=('docbook-xsl' 'libxslt' 'python2')
+makedepends=()
+optdepends=('dblatex: pdf generation'
+            'fop: alternative pdf generation'
+            'imagemagick: music-filter (used in conjunction with lilypond)'
+            'lilypond: music-filter'
+            'lynx: text generation'
+            'source-highlight: source-highlight-filter'
+            'w3m: text generation (alternative to lynx)')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/asciidoc-8.6.9-chromeos-x86_64.tar.xz")
+sha256sums=('048de56fd444c9c5542270fb8080b23f0264467e3c10853b9925b4add914b053')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}
