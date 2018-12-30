@@ -18,7 +18,7 @@ fi
 
 mkdir -p "$REPO_PATH"
 
-for pkg in ./crew/*; do
+for pkg in "$MUTINY_PKG_PATH/"*; do
   name="$(basename "$pkg")"
 
   msg "Building '%s'..." "$name"
