@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libdb
+pkgver=6.2.32
+pkgrel=1
+pkgdesc="Berkeley DB is a family of embedded key-value database libraries providing scalable high-performance data management services to applications."
+arch=('x86_64')
+url="http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libdb-6.2.32-chromeos-x86_64.tar.xz")
+sha256sums=('507cc3f213d01122b5214302b7433c9a9926b0f9f57551aeee1f9fcca8c90d2e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

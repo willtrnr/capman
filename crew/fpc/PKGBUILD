@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fpc
+pkgver=3.0.4
+pkgrel=1
+pkgdesc="Free Pascal Compiler, Turbo Pascal 7.0 and Delphi compatible."
+arch=('x86_64')
+url="http://www.freepascal.org/"
+license=('custom' 'GPL' 'LGPL')
+groups=()
+depends=('binutils' 'expat' 'make' 'ncurses' 'zlib')
+makedepends=('fpc')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build fpc
+  tar xf "fpc-3.0.4-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

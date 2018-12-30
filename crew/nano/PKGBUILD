@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nano
+pkgver=3.2
+pkgrel=1
+pkgdesc="Pico editor clone with enhancements"
+arch=('x86_64')
+url="http://www.nano-editor.org"
+license=('GPL')
+groups=('base')
+depends=('file' 'ncurses' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nano-3.2-1-chromeos-x86_64.tar.xz")
+sha256sums=('1c7fef9ce6e3d4a3a1e77824dba8f8ac3f96bcb6c581faf8ae5092186923e091')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

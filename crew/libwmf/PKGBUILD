@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libwmf
+pkgver=0.2.8.4
+pkgrel=1
+pkgdesc="A library for reading vector images in Microsoft's native Windows Metafile Format (WMF)"
+arch=('x86_64')
+url="http://wvware.sourceforge.net/libwmf.html"
+license=('LGPL')
+groups=()
+depends=('expat' 'freetype2' 'gsfonts' 'libjpeg' 'libx11')
+makedepends=()
+optdepends=('gdk-pixbuf2: for pixbuf loader')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libwmf-0.2.8.4-chromeos-x86_64.tar.xz")
+sha256sums=('2b215b744ad624b72b2974e8094a68af62fbd99c657df8c7d9c7e472fa03f156')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

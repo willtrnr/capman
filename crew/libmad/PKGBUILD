@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libmad
+pkgver=0.15.1b
+pkgrel=1
+pkgdesc="A high-quality MPEG audio decoder"
+arch=('x86_64')
+url="http://www.underbit.com/products/mad/"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libmad-0.15.1b-chromeos-x86_64.tar.xz")
+sha256sums=('502ea142d67c8d4d3cce64c7945c07c529cbda4e4efe0dd3aa770c29b168bd46')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

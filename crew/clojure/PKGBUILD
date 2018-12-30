@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=clojure
+pkgver=1.9.0
+pkgrel=1
+pkgdesc="A dialect of Lisp for the JVM"
+arch=('x86_64')
+url="https://clojure.org/"
+license=('EPL')
+groups=()
+depends=('java-environment')
+makedepends=()
+optdepends=('rlwrap: friendly shell with readline support')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/clojure-1.9.0-chromeos-x86_64.tar.xz")
+sha256sums=('5376b48364b9551fdb301315d501973a206bd2abc01f14d2613cbaab82295b96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

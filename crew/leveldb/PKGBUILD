@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=leveldb
+pkgver=1.20
+pkgrel=1
+pkgdesc="A fast and lightweight key/value database library"
+arch=('x86_64')
+url="https://github.com/google/leveldb"
+license=('BSD')
+groups=()
+depends=('gperftools' 'snappy')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/leveldb-1.20-1-chromeos-x86_64.tar.xz")
+sha256sums=('2f81ee50689c02e67f608f717d4956aee5106bea929c0498eb2b751f8c46b512')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

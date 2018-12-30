@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rgb
+pkgver=1.0.6
+pkgrel=1
+pkgdesc="X color name database"
+arch=('x86_64')
+url="https://gitlab.freedesktop.org/xorg/app/rgb"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/rgb-1.0.6-chromeos-x86_64.tar.xz")
+sha256sums=('021c3ce30ac996c8bfbcda435612a1d5d0a449f96ff1ae88f0b5c7903b7ca141')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

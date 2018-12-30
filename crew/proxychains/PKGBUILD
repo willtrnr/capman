@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=proxychains
+pkgver=4.2.0
+pkgrel=1
+pkgdesc="a tool that forces any TCP connection made by any given application to follow through proxy like TOR or any other SOCKS4, SOCKS5 or HTTP(S) proxy."
+arch=('x86_64')
+url="https://github.com/haad/proxychains"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/proxychains-4.2.0-chromeos-x86_64.tar.xz")
+sha256sums=('f5de3f217b624363140f63e68bf188ff8b8de93f18b3af946b51a62a8c0c3271')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

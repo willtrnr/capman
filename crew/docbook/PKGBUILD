@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=docbook
+pkgver=1.79.1
+pkgrel=1
+pkgdesc="DocBook is an XML vocabulary that lets you create documents in a presentation-neutral form that captures the logical structure of your content."
+arch=('x86_64')
+url="http://docbook.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/docbook-1.79.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('dd7a1d8bee46badac46d233176bc660d47c56cb9e3b4488b6107661bda90e83e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

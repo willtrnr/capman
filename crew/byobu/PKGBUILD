@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=byobu
+pkgver=5.125
+pkgrel=1
+pkgdesc="Byobu is a GPLv3 open source text-based window manager and terminal multiplexer."
+arch=('x86_64')
+url="http://byobu.org/"
+license=('custom')
+groups=()
+depends=('tmux')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/byobu-5.125-chromeos-x86_64.tar.xz")
+sha256sums=('f0a2933be3634409f9405e33979b06068f734d4a7b100dac01776a288fa3c843')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

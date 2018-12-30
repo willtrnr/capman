@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=s3cmd
+pkgver=2.0.1
+pkgrel=1
+pkgdesc="A command line client for Amazon S3"
+arch=('x86_64')
+url="http://s3tools.org/s3cmd"
+license=('GPL')
+groups=()
+depends=('python' 'python-dateutil')
+makedepends=()
+optdepends=('gnupg: encrypted file storage'
+            'python-magic: determine mimetype based on contents')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/s3cmd-2.0.1-chromeos-x86_64.tar.xz")
+sha256sums=('78677e4289aa1723623276fd4df256f059f812f788688680a494ae9835afd262')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

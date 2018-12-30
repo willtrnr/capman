@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lcms
+pkgver=2.9
+pkgrel=1
+pkgdesc="Little CMS intends to be an OPEN SOURCE small-footprint color management engine, with special focus on accuracy and performance."
+arch=('x86_64')
+url="http://www.littlecms.com/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lcms-2.9-chromeos-x86_64.tar.xz")
+sha256sums=('47e4c1c86f4a455920106d10bfa4ec8cd47f36e41b71ea27e3bac6551a09d68c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

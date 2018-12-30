@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=wp-cli
+pkgver=1.4.1
+pkgrel=1
+pkgdesc="The command line interface for WordPress"
+arch=('x86_64')
+url="https://wp-cli.org/"
+license=('custom')
+groups=()
+depends=('php7')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/wp_cli-1.4.1-chromeos-x86_64.tar.xz")
+sha256sums=('caa9a556ef4070dc74509f4d0f1b87620e4ce19263c8c85cf5c3b84e059dc84d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

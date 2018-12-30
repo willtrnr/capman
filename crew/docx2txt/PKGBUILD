@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=docx2txt
+pkgver=1.4
+pkgrel=1
+pkgdesc="Recovers text from DOCX files, with good formatting."
+arch=('x86_64')
+url="http://docx2txt.sourceforge.net"
+license=('GPL')
+groups=()
+depends=('perl' 'unzip')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build docx2txt
+  tar xf "docx2txt-1.4-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

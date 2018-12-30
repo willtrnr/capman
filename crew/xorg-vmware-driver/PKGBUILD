@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-vmware-driver
+pkgver=13.2.1
+pkgrel=1
+pkgdesc="The Xorg VMware Driver package contains the X.Org Video Driver for VMware SVGA virtual video cards."
+arch=('x86_64')
+url="https://01.org/linuxgraphics/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_vmware_driver-13.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('2f4c4dd3532057e2fa8bdfc6f09427987e840696eae2464a9806dcaac315aac8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

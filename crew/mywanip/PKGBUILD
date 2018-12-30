@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mywanip
+pkgver=ab4094
+pkgrel=1
+pkgdesc="Script to grab your WAN IP address using various means."
+arch=('x86_64')
+url="https://gist.github.com/DennisLfromGA/ab40940d37be84ae3a88"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mywanip-ab4094-chromeos-x86_64.tar.xz")
+sha256sums=('fb4fae274c359179e78f22147202ec456ff829c45cda9536038952848d4b3a6a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,25 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pinentry
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="Collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol"
+arch=('x86_64')
+url="http://gnupg.org/related_software/pinentry/"
+license=('GPL')
+groups=()
+depends=('libassuan' 'libcap' 'libsecret' 'ncurses')
+makedepends=()
+optdepends=('gcr: gnome3 backend'
+            'gtk2: gtk2 backend'
+            'qt5-base: qt backend')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pinentry-1.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('e9af08a3fcb09f6001c39438976c4be453fea946775391fbcaedd03d2700869a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

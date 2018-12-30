@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fontconfig
+pkgver=2.13.0
+pkgrel=1
+pkgdesc="A library for configuring and customizing font access"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/fontconfig/"
+license=('custom')
+groups=()
+depends=('expat' 'freetype2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fontconfig-2.13.0-chromeos-x86_64.tar.xz")
+sha256sums=('7df51056ad09bf3b74fc1e85e6049306322f55641b191f3a8fa0378281c71702')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

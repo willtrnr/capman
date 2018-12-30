@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=elfutils
+pkgver=0.170
+pkgrel=1
+pkgdesc="Utilities to handle ELF object files and DWARF debugging information"
+arch=('x86_64')
+url="https://sourceware.org/elfutils/"
+license=('GPL' 'GPL3' 'LGPL3')
+groups=()
+depends=('libelf=0.175-1')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/elfutils-0.170-chromeos-x86_64.tar.xz")
+sha256sums=('fad208a4c12d9b3bf9b75a607714fa132f11f3c16ac015de2857f0087fe7ce41')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

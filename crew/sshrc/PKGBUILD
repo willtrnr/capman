@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sshrc
+pkgver=0.6.1
+pkgrel=1
+pkgdesc="bring your .bashrc, .vimrc, etc. with you when you ssh"
+arch=('x86_64')
+url="https://github.com/Russell91/sshrc"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sshrc-0.6.1-chromeos-x86_64.tar.xz")
+sha256sums=('7d940b4d6e59da0868081379314f31a923bb37ca9cfc934c23e62892a24750b9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

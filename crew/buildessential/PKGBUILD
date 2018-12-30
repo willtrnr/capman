@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=buildessential
+pkgver=1.3
+pkgrel=1
+pkgdesc="A collection of tools essential to compile and build software."
+arch=('x86_64')
+url="homepage ''"
+license=('custom')
+groups=()
+depends=('gcc7' 'linuxheaders' 'make' 'pkgconfig' 'compressdoc' 'doxygen' 'filecmd' 'readline' 'sed' 'automake' 'libtool' 'intltool' 'patch' 'diffutils' 'bison' 'flex' 'util-macros' 'gettext' 'wget' 'gawk' 'lzip' 'unzip' 'zip' 'cmake')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build buildessential
+  tar xf "buildessential-1.3-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

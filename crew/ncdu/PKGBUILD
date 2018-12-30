@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ncdu
+pkgver=1.12
+pkgrel=1
+pkgdesc="Disk usage analyzer with an ncurses interface"
+arch=('x86_64')
+url="https://dev.yorhel.nl/ncdu"
+license=('custom:MIT')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ncdu-1.12-chromeos-x86_64.tar.xz")
+sha256sums=('5b764d5d1f4bc9186384e2aa3d7c51aa84c9c2ed1f6eb78a0ac3ed431d875745')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

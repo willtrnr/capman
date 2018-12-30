@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=arduino-ide
+pkgver=1.8.8
+pkgrel=1
+pkgdesc="Arduino is an open-source physical computing platform based on a simple I/O board and a development environment that implements the Processing/Wiring language."
+arch=('x86_64')
+url="https://www.arduino.cc/"
+license=('custom')
+groups=()
+depends=('xzutils' 'jdk8' 'sommelier')
+makedepends=('ant')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build arduino_ide
+  tar xf "arduino_ide-1.8.8-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

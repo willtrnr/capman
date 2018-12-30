@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=iperf3
+pkgver=3.2
+pkgrel=1
+pkgdesc="TCP, UDP, and SCTP network bandwidth measurement tool"
+arch=('x86_64')
+url="https://github.com/esnet/iperf"
+license=('BSD')
+groups=()
+depends=('openssl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/iperf3-3.2-chromeos-x86_64.tar.xz")
+sha256sums=('85870ca894afe74c83aeb6ffeab38da027a6a75eae6451f16afb964c0063a653')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

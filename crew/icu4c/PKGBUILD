@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=icu4c
+pkgver=62.1
+pkgrel=1
+pkgdesc="ICU is a mature, widely used set of C/C++ and Java libraries providing Unicode and Globalization support for software applications."
+arch=('x86_64')
+url="http://site.icu-project.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/icu4c-62.1-chromeos-x86_64.tar.xz")
+sha256sums=('3ac1b0401d0af3b4357a6874bd069deb8aca472dc1bd23d455e1f90ae7736262')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

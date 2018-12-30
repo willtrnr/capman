@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=apriconv
+pkgver=1.2.2
+pkgrel=1
+pkgdesc="a portable implementation of the iconv() library"
+arch=('x86_64')
+url="http://apr.apache.org/"
+license=('custom')
+groups=()
+depends=('apr' 'libtool')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/apriconv-1.2.2-chromeos-x86_64.tar.xz")
+sha256sums=('d3abcd64112eb46aef6bb090409471c9fbaf675cd258aff0220d696fed9b6771')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

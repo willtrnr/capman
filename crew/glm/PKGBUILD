@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glm
+pkgver=0.9.9.3
+pkgrel=1
+pkgdesc="C++ mathematics library for 3D software based on the OpenGL Shading Language (GLSL) specification"
+arch=('x86_64')
+url="http://glm.g-truc.net"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glm-0.9.9.3-chromeos-x86_64.tar.xz")
+sha256sums=('924036ad0453354eb0b2dc61405795022b8c25b9cd230592984b8dc1e4615882')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

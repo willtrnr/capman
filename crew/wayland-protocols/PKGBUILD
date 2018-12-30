@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=wayland-protocols
+pkgver=1.13
+pkgrel=1
+pkgdesc="Specifications of extended Wayland protocols"
+arch=('x86_64')
+url="https://wayland.freedesktop.org/"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/wayland_protocols-1.13-chromeos-x86_64.tar.xz")
+sha256sums=('3d3471f15e2f7e80cef25f272d1f0e29cb0e323e78beaa479df8d319f3b3d477')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

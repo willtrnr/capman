@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ld-default
+pkgver=1.2
+pkgrel=1
+pkgdesc="Select the default ld executable and check for libraries in #{CREW_LIB_PREFIX} first"
+arch=('x86_64')
+url="https://github.com/skycocker/chromebrew/wiki/FAQ"
+license=('custom')
+groups=()
+depends=('llvm')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build ld_default
+  tar xf "ld_default-1.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

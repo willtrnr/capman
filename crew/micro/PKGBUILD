@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=micro
+pkgver=1.3.3
+pkgrel=1
+pkgdesc="A modern and intuitive terminal-based text editor"
+arch=('x86_64')
+url="https://micro-editor.github.io/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/micro-1.3.3-chromeos-x86_64.tar.xz")
+sha256sums=('36bfbe54a6971ccd4b33687904677b98c43cc29155949aa664ae1ea428a1fa2a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

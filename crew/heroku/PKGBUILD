@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=heroku
+pkgver=7.16.0
+pkgrel=1
+pkgdesc="The Heroku Command Line Interface (CLI), formerly known as the Heroku Toolbelt, is a tool for creating and managing Heroku apps from the command line / shell of various operating systems."
+arch=('x86_64')
+url="https://devcenter.heroku.com/articles/heroku-cli"
+license=('custom')
+groups=()
+depends=('yarn')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/heroku-7.16.0-chromeos-x86_64.tar.xz")
+sha256sums=('da7204aacb05c99e034a4f2a9c95e9e44b2493bf9c0717126ab00af6948edb5b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

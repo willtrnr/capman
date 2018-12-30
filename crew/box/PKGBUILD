@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=box
+pkgver=2.7.5
+pkgrel=1
+pkgdesc="An application for building and managing Phars."
+arch=('x86_64')
+url="https://box-project.github.io/box2/"
+license=('custom')
+groups=()
+depends=('php')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/box-2.7.5-chromeos-x86_64.tar.xz")
+sha256sums=('97fa161d1715dac2b44d477e385bfa10bf55f182b7907d8ec125231ca82e6ca2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=commacd
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="A faster way to move around (Bash 3+)"
+arch=('x86_64')
+url="https://github.com/shyiko/commacd"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/commacd-0.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('33610884cc935710e12a5b3c7fff1b918549c3dc3fd1b61f604adca6ac751dd8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

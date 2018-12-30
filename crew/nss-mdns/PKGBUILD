@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nss-mdns
+pkgver=0.14.1
+pkgrel=1
+pkgdesc="glibc plugin providing host name resolution via mDNS"
+arch=('x86_64')
+url="http://0pointer.de/lennart/projects/nss-mdns/"
+license=('LGPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nss_mdns-0.14.1-chromeos-x86_64.tar.xz")
+sha256sums=('9d1ef607505356407946f743b4bd09dc659a83d0b003c0c9eaf724277ccc0a84')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=yelp-tools
+pkgver=3.27.90
+pkgrel=1
+pkgdesc="Collection of tools for building and converting documentation"
+arch=('x86_64')
+url="https://git.gnome.org/browse/yelp-tools"
+license=('GPL')
+groups=()
+depends=('docbook-xsl' 'itstool' 'libxml2' 'libxslt' 'yelp-xsl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/yelp_tools-3.27.90-chromeos-x86_64.tar.xz")
+sha256sums=('a1a3ab4fc4dfdf533e0962926a59ea9c3b609977c01db6c4824921b19a2333e1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

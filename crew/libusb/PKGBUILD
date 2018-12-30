@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libusb
+pkgver=1.0.21
+pkgrel=1
+pkgdesc="Library that provides generic access to USB devices"
+arch=('x86_64')
+url="http://libusb.info/"
+license=('LGPL')
+groups=()
+depends=('glibc' 'libsystemd')
+makedepends=()
+optdepends=()
+provides=('libusb-1.0.so=0-64' 'libusbx=1.0.22')
+conflicts=('libusbx')
+replaces=('libusb1' 'libusbx')
+source=("https://dl.bintray.com/chromebrew/chromebrew/libusb-1.0.21-chromeos-x86_64.tar.xz")
+sha256sums=('48e8aff964b38e7ed9b70e5c1d227ff4f7c16537d3bd199e224867560b9aaa9b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

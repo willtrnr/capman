@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=maven
+pkgver=3.5.2
+pkgrel=1
+pkgdesc="Java project management and project comprehension tool"
+arch=('x86_64')
+url="https://maven.apache.org"
+license=('APACHE')
+groups=()
+depends=('bash' 'java-environment>=7' 'procps-ng')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/maven-3.5.2-chromeos-x86_64.tar.xz")
+sha256sums=('62475788ab2144a67de31b08a946d613c277f9557f2122aff8cc996bd87bde2f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

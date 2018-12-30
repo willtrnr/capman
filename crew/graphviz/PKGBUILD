@@ -1,0 +1,33 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=graphviz
+pkgver=2.40.1
+pkgrel=1
+pkgdesc="Graph visualization software"
+arch=('x86_64')
+url="http://www.graphviz.org/"
+license=('EPL')
+groups=()
+depends=('gd' 'ghostscript' 'gsfonts' 'gts' 'libltdl' 'libnsl' 'librsvg' 'libxaw' 'pango')
+makedepends=()
+optdepends=('gtk2: gtk output plugin'
+            'guile: guile bindings'
+            'lua: lua bindings'
+            'mono: sharp bindings'
+            'ocaml: ocaml bindings'
+            'perl: perl bindings'
+            'python2: python bindings'
+            'qt4: gvedit'
+            'r: r bindings'
+            'tcl: tcl bindings'
+            'xterm: vimdot')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/graphviz-2.40.1-chromeos-x86_64.tar.xz")
+sha256sums=('d27c0177f7c154aacf6c69cbe0ae85c9a36a0aa2946fe32d5f4c9fd39772ce5a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

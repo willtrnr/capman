@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libepoxy
+pkgver=1.4.3
+pkgrel=1
+pkgdesc="Library handling OpenGL function pointer management"
+arch=('x86_64')
+url="https://github.com/anholt/libepoxy"
+license=('MIT')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libepoxy-1.4.3-chromeos-x86_64.tar.xz")
+sha256sums=('24975e424f08d7f7afceafcfb76e75ebd4d864b101cea5de7a28d9c1edef6a40')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

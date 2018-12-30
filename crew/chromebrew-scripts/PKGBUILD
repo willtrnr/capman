@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=chromebrew-scripts
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="Useful bash utility scripts for Chrome/Chromium OS systems."
+arch=('x86_64')
+url="https://github.com/uberhacker/chromebrew-scripts"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/chromebrew_scripts-1.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('a0131789ac972ebe470bf4a8d7768b6cd0b1044b9a32838b9341a40a40618527')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

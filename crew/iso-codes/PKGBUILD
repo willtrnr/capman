@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=iso-codes
+pkgver=4.1
+pkgrel=1
+pkgdesc="Lists of the country, language, and currency names"
+arch=('x86_64')
+url="https://salsa.debian.org/iso-codes-team/iso-codes"
+license=('LGPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/iso_codes-4.1-chromeos-x86_64.tar.xz")
+sha256sums=('5491ddcffd603df2cecdaa60f4ea498f290f117cf1202aa1bfc85af35e19772c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

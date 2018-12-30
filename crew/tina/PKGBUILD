@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tina
+pkgver=0.1.12
+pkgrel=1
+pkgdesc="Tina is a personal information manager with a curses interface."
+arch=('x86_64')
+url="http://devel.ringlet.net/misc/tina/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tina-0.1.12-chromeos-x86_64.tar.xz")
+sha256sums=('5112dcef239f9f6e8b68eb420529d01e889fe84ae9f009e86bc21030096e2273')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

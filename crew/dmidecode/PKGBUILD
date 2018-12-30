@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dmidecode
+pkgver=3.2
+pkgrel=1
+pkgdesc="Desktop Management Interface table related utilities"
+arch=('x86_64')
+url="http://www.nongnu.org/dmidecode"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dmidecode-3.2-chromeos-x86_64.tar.xz")
+sha256sums=('fef3f3b044cf9a7e00678b1a8eee3881611f92053af7da334f1cffcab88b7772')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

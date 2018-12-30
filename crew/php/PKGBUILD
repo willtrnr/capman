@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=php
+pkgver=5.6.39
+pkgrel=1
+pkgdesc="A general-purpose scripting language that is especially suited to web development"
+arch=('x86_64')
+url="https://secure.php.net/"
+license=('PHP')
+groups=()
+depends=('argon2' 'curl' 'libxml2' 'libzip' 'pcre2')
+makedepends=()
+optdepends=()
+provides=('php-ldap=7.3.0')
+conflicts=('php-ldap')
+replaces=('php-ldap')
+source=("https://dl.bintray.com/chromebrew/chromebrew/php7-7.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('c58287f53287258d2ce073f69a318cceed8cae541cdb3ff0a31998153df3c439')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

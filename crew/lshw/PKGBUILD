@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lshw
+pkgver=B.02.18
+pkgrel=1
+pkgdesc="A small tool to provide detailed information on the hardware configuration of the machine."
+arch=('x86_64')
+url="http://ezix.org/project/wiki/HardwareLiSter"
+license=('GPL')
+groups=()
+depends=('gcc-libs' 'hwids')
+makedepends=()
+optdepends=('gtk2')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lshw-B.02.18-chromeos-x86_64.tar.xz")
+sha256sums=('fe6c4b1a6936defcc6685777898cfbe2f9793c897fa5bdcc18d9518907c65406')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,30 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=duplicity
+pkgver=0.7.15
+pkgrel=1
+pkgdesc="A utility for encrypted, bandwidth-efficient backups using the rsync algorithm."
+arch=('x86_64')
+url="http://www.nongnu.org/duplicity/"
+license=('GPL')
+groups=()
+depends=('gnupg' 'librsync' 'ncftp' 'python2-fasteners' 'python2-paramiko')
+makedepends=()
+optdepends=('gvfs: GIO backend'
+            'lftp: FTPS backend'
+            'python2-boto: Amazon S3 and Google Cloud Storage backend'
+            'python2-dropbox: Dropbox backend'
+            'python2-gdata: Google Docs backend'
+            'python2-gobject: GIO backend'
+            'python2-requests-oauthlib: OneDrive backend'
+            'rsync: rsync backend')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/duplicity-0.7.15-chromeos-x86_64.tar.xz")
+sha256sums=('e122233caf601a05b85b1816ae690be8c1d6e82a83953351c8ecd0ca6046706e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libnftnl
+pkgver=1.1.1
+pkgrel=1
+pkgdesc="Netfilter library providing interface to the nf_tables subsystem"
+arch=('x86_64')
+url="https://netfilter.org/projects/libnftnl/"
+license=('GPL2')
+groups=()
+depends=('libmnl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libnftnl-1.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('a0482c543920370b4fc428b50b48c4071efd60c2ecb83fdaae4d8e77bea70b92')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libvoamrwbenc
+pkgver=0.1.3
+pkgrel=1
+pkgdesc="Audio codecs extracted from Android Open Source Project."
+arch=('x86_64')
+url="https://sourceforge.net/projects/opencore-amr/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libvoamrwbenc-0.1.3-0-chromeos-x86_64.tar.xz")
+sha256sums=('10da147ed2bd9987882cd7dcaf9a755c1e8395a9719a3caed66710d7d4e8d332')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

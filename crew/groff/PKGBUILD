@@ -1,0 +1,25 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=groff
+pkgver=1.22.3
+pkgrel=1
+pkgdesc="GNU troff text-formatting system"
+arch=('x86_64')
+url="https://www.gnu.org/software/groff/groff.html"
+license=('GPL')
+groups=('base-devel')
+depends=('gcc-libs' 'perl')
+makedepends=()
+optdepends=('libxaw: for gxditview'
+            'netpbm: for use together with man -H command interaction in browsers'
+            'psutils: for use together with man -H command interaction in browsers')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/groff-1.22.3-1-chromeos-x86_64.tar.xz")
+sha256sums=('fcd0399b5ec6e0186294a9374571b15f228931e5ca89de8fbbca8702a9c506e1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

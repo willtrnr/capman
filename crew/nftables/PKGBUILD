@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nftables
+pkgver=0.9.0
+pkgrel=1
+pkgdesc="Netfilter tables userspace tools"
+arch=('x86_64')
+url="https://netfilter.org/projects/nftables/"
+license=('GPL2')
+groups=()
+depends=('gmp' 'jansson' 'libmnl' 'libnftnl' 'ncurses' 'readline')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nftables-0.9.0-chromeos-x86_64.tar.xz")
+sha256sums=('60cb68a70ecc066d7c6b92617db9f38593692f056c3620a3a42c7df0dd6a2ae7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

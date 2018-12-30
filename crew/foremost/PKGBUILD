@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=foremost
+pkgver=1.5.7
+pkgrel=1
+pkgdesc="A console program to recover files based on their headers, footers, and internal data structures"
+arch=('x86_64')
+url="http://foremost.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/foremost-1.5.7-chromeos-x86_64.tar.xz")
+sha256sums=('541f63cd095bd5ba0ace2c7943de31c341fa2419ca7ea7b4b7ed1058f17c6039')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

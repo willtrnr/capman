@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glide
+pkgver=0.12.3
+pkgrel=1
+pkgdesc="Dependency management and vendoring for Go projects"
+arch=('x86_64')
+url="https://github.com/Masterminds/glide"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glide-0.12.3-chromeos-x86_64.tar.xz")
+sha256sums=('00b2581e5d851bb92ba622e73ffce9f5c73e65e94a53a284f08d798a0b76a025')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

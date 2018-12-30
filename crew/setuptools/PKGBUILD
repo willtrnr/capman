@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=setuptools
+pkgver=40.4.2
+pkgrel=1
+pkgdesc="Easily download, build, install, upgrade, and uninstall Python packages"
+arch=('x86_64')
+url="https://pypi.org/project/setuptools/"
+license=('custom')
+groups=()
+depends=('python27' 'python3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/setuptools-40.4.2-chromeos-x86_64.tar.xz")
+sha256sums=('aaacaa06bc21e765772d65995f2c1a3d14609ce7a8da49539448c47e284c8d0d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

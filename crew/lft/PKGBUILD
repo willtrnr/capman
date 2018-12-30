@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lft
+pkgver=3.79
+pkgrel=1
+pkgdesc=" that often works much faster (than the commonly-used Van Jacobson method) and goes through many configurations of packet-filters (firewalls)."
+arch=('x86_64')
+url="http://pwhois.org/lft/"
+license=('custom')
+groups=()
+depends=('libpcap')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lft-3.79-chromeos-x86_64.tar.xz")
+sha256sums=('c8d1a84ea31451c0dab2dbde533da95315ee71c7bd7644fb3daa6b86facc259c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

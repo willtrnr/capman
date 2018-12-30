@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=irssi
+pkgver=1.0.5
+pkgrel=1
+pkgdesc="Modular text mode IRC client with Perl scripting"
+arch=('x86_64')
+url="https://irssi.org/"
+license=('GPL')
+groups=()
+depends=('glib2' 'openssl')
+makedepends=()
+optdepends=('perl-libwww: for the scriptassist script')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/irssi-1.0.5-chromeos-x86_64.tar.xz")
+sha256sums=('52182ab6c6618589a8a792cc3d4b98503a3eee71dc04974e3590ce55cc80d3e9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

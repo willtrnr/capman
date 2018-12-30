@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libcyrussasl
+pkgver=2.1.27
+pkgrel=1
+pkgdesc="Simple Authentication and Security Layer (SASL) is a specification that describes how authentication mechanisms can be plugged into an application protocol on the wire. Cyrus SASL is an implementation of SASL that makes it easy for application developers to integrate authentication mechanisms into their application in a generic way."
+arch=('x86_64')
+url="https://www.cyrusimap.org/sasl"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libcyrussasl-2.1.27-rc6-chromeos-x86_64.tar.xz")
+sha256sums=('6805027f33905debcfc530f7342e184d6ed9b613b1c9c27f18aa557c47163438')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

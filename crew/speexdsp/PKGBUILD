@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=speexdsp
+pkgver=1.2rc3
+pkgrel=1
+pkgdesc="DSP library derived from Speex"
+arch=('x86_64')
+url="http://www.speex.org/"
+license=('BSD')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/speexdsp-1.2rc3-chromeos-x86_64.tar.xz")
+sha256sums=('8a83dac7387460d2dbeb3602712cd7b1d0999ba5b6e3f86449e8f215b4a83682')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=chruby
+pkgver=0.3.9
+pkgrel=1
+pkgdesc="Changes the current Ruby"
+arch=('x86_64')
+url="https://github.com/postmodern/chruby"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/chruby-0.3.9-chromeos-x86_64.tar.xz")
+sha256sums=('b33bbb7216f5599f57b1a19e0db653345199a8818e27e41944f2b46fc580bc2d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tcl
+pkgver=8.6.8
+pkgrel=1
+pkgdesc="The Tcl scripting language"
+arch=('x86_64')
+url="http://tcl.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tcl-8.6.8-chromeos-x86_64.tar.xz")
+sha256sums=('c87a5444244e428a72baa10f2d8560f22efc3be47ffa9f93121312fdc4939188')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

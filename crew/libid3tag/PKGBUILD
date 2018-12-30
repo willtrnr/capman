@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libid3tag
+pkgver=0.15.1b
+pkgrel=1
+pkgdesc="library for id3 tagging"
+arch=('x86_64')
+url="http://www.underbit.com/products/mad/"
+license=('GPL')
+groups=()
+depends=('zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libid3tag-0.15.1b-chromeos-x86_64.tar.xz")
+sha256sums=('49449a7a53c03eaa8293427db604db65954123c4e1fdbe1207aae80d934da070')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

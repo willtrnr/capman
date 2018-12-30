@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cros-resize
+pkgver=6b01b7
+pkgrel=1
+pkgdesc="A partition resizing tool for Chrome OS devices."
+arch=('x86_64')
+url="https://github.com/ethanmad/chromeos-resize"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build cros_resize
+  tar xf "cros_resize-6b01b7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

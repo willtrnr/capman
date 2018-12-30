@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fossil
+pkgver=2.6
+pkgrel=1
+pkgdesc="Simple, high-reliability, distributed software configuration management"
+arch=('x86_64')
+url="http://www.fossil-scm.org"
+license=('BSD')
+groups=()
+depends=('openssl' 'sqlite' 'zlib')
+makedepends=()
+optdepends=('tcl')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fossil-2.6-chromeos-x86_64.tar.xz")
+sha256sums=('e3de20c2f0f7d49d2cac73d9076fd866d8df5f781105473b15107fcc3c45b69d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

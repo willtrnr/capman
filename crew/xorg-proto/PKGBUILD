@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-proto
+pkgver=2018.4
+pkgrel=1
+pkgdesc="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
+arch=('x86_64')
+url="https://www.x.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_proto-2018.4-chromeos-x86_64.tar.xz")
+sha256sums=('1285c5962d32f9ca776261cd0a7ccf78b8fda8878d11032673932892c98e5b88')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

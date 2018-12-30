@@ -1,0 +1,35 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=neofetch
+pkgver=3.3.0
+pkgrel=1
+pkgdesc="A CLI system information tool written in BASH that supports displaying images."
+arch=('x86_64')
+url="https://github.com/dylanaraps/neofetch"
+license=('MIT')
+groups=()
+depends=('bash')
+makedepends=()
+optdepends=('catimg: Display Images'
+            'feh: Wallpaper Display'
+            'imagemagick: Image cropping / Thumbnail creation / Take a screenshot'
+            'jp2a: Display Images'
+            'libcaca: Display Images'
+            'nitrogen: Wallpaper Display'
+            'pacman-contrib: Display package count'
+            'w3m: Display Images'
+            'xdotool: See https://github.com/dylanaraps/neofetch/wiki/Images-in-the-terminal'
+            'xorg-xdpyinfo: Resolution detection (Single Monitor)'
+            'xorg-xprop: Desktop Environment and Window Manager'
+            'xorg-xrandr: Resolution detection (Multi Monitor + Refresh rates)'
+            'xorg-xwininfo: See https://github.com/dylanaraps/neofetch/wiki/Images-in-the-terminal')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/neofetch-3.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('f3ffcb5a6b7c3c5e5f663293db150fd6fde371b65067cc5dc3306a449e8eca75')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

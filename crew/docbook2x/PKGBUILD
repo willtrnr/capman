@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=docbook2x
+pkgver=0.8.8
+pkgrel=1
+pkgdesc="A software package that converts DocBook documents into the traditional Unix man page format and the GNU Texinfo format."
+arch=('x86_64')
+url="http://docbook2x.sourceforge.net"
+license=('MIT')
+groups=()
+depends=('glibc' 'jade' 'libxslt' 'perl-sgmls' 'perl-xml-parser' 'perl-xml-sax' 'perl-xml-sax-expat')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/docbook2x-0.8.8-chromeos-x86_64.tar.xz")
+sha256sums=('dca6f49d1bae407301a334edbde810845fa2aa6e2000b1cd1d658aac681cbdbe')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

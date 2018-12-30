@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xz-java
+pkgver=1.8
+pkgrel=1
+pkgdesc="A complete implementation of XZ data de/compression in pure Java."
+arch=('x86_64')
+url="http://tukaani.org/xz/java.html"
+license=('custom')
+groups=()
+depends=('jdk8')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xz_java-1.8-chromeos-x86_64.tar.xz")
+sha256sums=('911b67621907a1fca84fbdf3fce3cb3910a508bdf0b73731e0bf9c9a76920c29')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

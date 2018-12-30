@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bashdb
+pkgver=4.3
+pkgrel=1
+pkgdesc="The Bash Debugger Project is a source-code debugger for bash that follows the gdb command syntax."
+arch=('x86_64')
+url="http://bashdb.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bashdb-4.3-0.91-chromeos-x86_64.tar.xz")
+sha256sums=('b86e37e76d360d4cd0ec70d2658770844eec81fed829ca0a51fc0bb3da0efa96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

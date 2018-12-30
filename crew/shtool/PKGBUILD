@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=shtool
+pkgver=2.0.8
+pkgrel=1
+pkgdesc="GNU shtool is a compilation of small but very stable and portable shell scripts into a single shell tool."
+arch=('x86_64')
+url="http://savannah.gnu.org/projects/shtool"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/shtool-2.0.8-chromeos-x86_64.tar.xz")
+sha256sums=('1ba8270fd8bfc04dbaa68cfec0f257c94e7bcd3b8e1a62637e80681dde3cb85f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

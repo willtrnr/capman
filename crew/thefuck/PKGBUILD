@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=thefuck
+pkgver=3.26
+pkgrel=1
+pkgdesc="Magnificent app which corrects your previous console command"
+arch=('x86_64')
+url="https://github.com/nvbn/thefuck"
+license=('MIT')
+groups=()
+depends=('python-colorama' 'python-decorator' 'python-psutil' 'python-pyte' 'python-setuptools' 'python-six')
+makedepends=('python-pip')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build thefuck
+  tar xf "thefuck-3.26-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

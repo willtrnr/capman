@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-xml-simple
+pkgver=2.25
+pkgrel=1
+pkgdesc="Simple XML parser for perl"
+arch=('x86_64')
+url="http://search.cpan.org/dist/XML-Simple/"
+license=('PerlArtistic')
+groups=()
+depends=('perl-xml-sax-expat')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_xml_simple-2.25-chromeos-x86_64.tar.xz")
+sha256sums=('c7add802bb163ef97c3e5e3746c0af744cb811477f0d915c2b3b46d01fa03908')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

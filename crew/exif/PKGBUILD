@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=exif
+pkgver=0.6.21
+pkgrel=1
+pkgdesc="A small command-line utility to show EXIF information hidden in JPEG files"
+arch=('x86_64')
+url="https://libexif.github.io/"
+license=('custom')
+groups=()
+depends=('libexif' 'popt')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/exif-0.6.21-chromeos-x86_64.tar.xz")
+sha256sums=('5d99ef721aafe110f565698a8ee42d258d89748cbb37073175781af7ec7cc617')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

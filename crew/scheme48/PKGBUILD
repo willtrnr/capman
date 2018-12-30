@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=scheme48
+pkgver=1.9.2
+pkgrel=1
+pkgdesc="Scheme byte-code interpreter"
+arch=('x86_64')
+url="http://s48.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/scheme48-1.9.2-chromeos-x86_64.tar.xz")
+sha256sums=('576f041ade2a539f3ed8a9c9dd5e20f0bf831620f8e8847fec7064b81804807c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

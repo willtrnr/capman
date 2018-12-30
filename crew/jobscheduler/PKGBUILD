@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jobscheduler
+pkgver=1.12.3
+pkgrel=1
+pkgdesc="The JobScheduler is an Open Source solution for enterprise level workload automation."
+arch=('x86_64')
+url="http://www.sos-berlin.com/jobscheduler"
+license=('custom')
+groups=()
+depends=('jdk8')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jobscheduler-1.12.3-chromeos-x86_64.tar.xz")
+sha256sums=('b103672e6f0fbfe82ce2f81de472df9d607cf69bb2110d4c4b8265e1f9aa189b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,25 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gdal
+pkgver=2.2.3
+pkgrel=1
+pkgdesc="A translator library for raster geospatial data formats"
+arch=('x86_64')
+url="http://www.gdal.org/"
+license=('custom')
+groups=()
+depends=('cfitsio' 'curl' 'geos' 'giflib' 'hdf5' 'json-c' 'libgeotiff' 'libjpeg-turbo' 'libmariadbclient' 'libpng' 'libspatialite' 'libtiff' 'netcdf' 'openjpeg2' 'poppler' 'postgresql-libs' 'sqlite' 'xerces-c')
+makedepends=()
+optdepends=('mariadb: mariadb database support'
+            'perl: perl binding support'
+            'postgresql: postgresql database support')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdal-2.2.3-chromeos-x86_64.tar.xz")
+sha256sums=('f7a43568512f9426a7951b90006507e4d7080cb61d68fa152a3723c3e0c4e90e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

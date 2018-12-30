@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aalib
+pkgver=1.4rc5
+pkgrel=1
+pkgdesc="A portable ASCII art graphic library"
+arch=('x86_64')
+url="http://aa-project.sourceforge.net/aalib/"
+license=('LGPL')
+groups=()
+depends=('gpm' 'libx11')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aalib-1.4rc5-chromeos-x86_64.tar.xz")
+sha256sums=('9b5fbeb2099e6428eb675fda16077b14ceb4fd22e017a4c041bafe7542bdfe15')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=komodo
+pkgver=11.1.0
+pkgrel=1
+pkgdesc="re looking for something powerful, yet simple."
+arch=('x86_64')
+url="https://www.activestate.com/products/komodo-edit/"
+license=('custom')
+groups=()
+depends=('gtk2' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build komodo
+  tar xf "komodo-11.1.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

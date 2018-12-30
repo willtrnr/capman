@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=screenfetch
+pkgver=3.8.0
+pkgrel=1
+pkgdesc="CLI Bash script to show system/theme info in screenshots"
+arch=('x86_64')
+url="https://github.com/KittyKatt/screenFetch"
+license=('GPL')
+groups=()
+depends=('bash' 'bc' 'xorg-xdpyinfo' 'xorg-xprop')
+makedepends=()
+optdepends=('scrot: to take screenshot')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/screenfetch-3.8.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('0263d3a55d4d86358aac7a8f828b7747a57c13b78daee3a355b729ea8c8e7f54')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

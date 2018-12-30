@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gsl
+pkgver=2.4
+pkgrel=1
+pkgdesc="The GNU Scientific Library (GSL) is a modern numerical library for C and C++ programmers"
+arch=('x86_64')
+url="http://www.gnu.org/software/gsl/gsl.html"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gsl-2.4-chromeos-x86_64.tar.xz")
+sha256sums=('865aefb630aae6987c0c4d56bf4c29f3279f61262552b9bec1ae970948b3868a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

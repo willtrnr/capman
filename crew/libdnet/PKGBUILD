@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libdnet
+pkgver=1.12
+pkgrel=1
+pkgdesc="A simplified, portable interface to several low-level networking routines"
+arch=('x86_64')
+url="https://github.com/dugsong/libdnet"
+license=('BSD')
+groups=()
+depends=()
+makedepends=()
+optdepends=('python2')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libdnet-1.12-chromeos-x86_64.tar.xz")
+sha256sums=('2e0d5a27088afe410e48aeb4266dc6ffa010f97b1e0e0eb897fad10af94c00be')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

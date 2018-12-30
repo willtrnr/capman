@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=git-lfs
+pkgver=2.2.1
+pkgrel=1
+pkgdesc="Git extension for versioning large files"
+arch=('x86_64')
+url="https://git-lfs.github.com"
+license=('MIT')
+groups=()
+depends=('git')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/git_lfs-2.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('10a0ed5b9ec97692c89314d2fbfb38e173e23414d6724464b71a310db11c18be')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

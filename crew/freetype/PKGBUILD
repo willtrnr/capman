@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=freetype
+pkgver=2.9.1
+pkgrel=1
+pkgdesc="FreeType is a freely available software library to render fonts."
+arch=('x86_64')
+url="https://www.freetype.org/"
+license=('custom')
+groups=()
+depends=('expat' 'libpng' 'bz2' 'harfbuzz')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/freetype-2.9.1-chromeos-x86_64.tar.xz")
+sha256sums=('2474ed8846e36917b2a1864416affb6de8dde1f8a61b1fc0a587ada3a7592fca')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

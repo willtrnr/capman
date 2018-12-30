@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=miniconda3
+pkgver=4.5.11
+pkgrel=1
+pkgdesc="s most popular Python data science platform."
+arch=('x86_64')
+url="https://conda.io/miniconda.html"
+license=('custom')
+groups=()
+depends=('python3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/miniconda3-4.5.11-chromeos-x86_64.tar.xz")
+sha256sums=('18f8b5c8e75dc03a441358616eb17c9000425d720df45cb446bbbfe7f84c94f9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

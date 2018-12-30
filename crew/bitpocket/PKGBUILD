@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bitpocket
+pkgver=0.2
+pkgrel=1
+pkgdesc="2-way directory (r)sync with proper deletion""
+arch=('x86_64')
+url="https://github.com/sickill/bitpocket"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bitpocket-0.2-chromeos-x86_64.tar.xz")
+sha256sums=('65b995eb9ea17bbce09c47d786cb1c38afac27952f2795fbcc4208b971e9de4a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

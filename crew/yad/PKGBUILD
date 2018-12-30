@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=yad
+pkgver=0.40.0
+pkgrel=1
+pkgdesc="display graphical dialogs from shell scripts or command line."
+arch=('x86_64')
+url="https://sourceforge.net/projects/yad-dialog/"
+license=('custom')
+groups=()
+depends=('gtk3' 'rgb')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/yad-0.40.0-chromeos-x86_64.tar.xz")
+sha256sums=('1fdac4030f16b26ff16102a570c6d2ec58a5228fd8f89752e4e6da58555a6604')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

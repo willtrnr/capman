@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=autosetup
+pkgver=0.6.7
+pkgrel=1
+pkgdesc="autosetup is a tool, similar to autoconf, to configure a build system"
+arch=('x86_64')
+url="http://msteveb.github.io/autosetup/"
+license=('custom')
+groups=()
+depends=('tcl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build autosetup
+  tar xf "autosetup-0.6.7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

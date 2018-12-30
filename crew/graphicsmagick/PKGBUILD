@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=graphicsmagick
+pkgver=1.3.30
+pkgrel=1
+pkgdesc="Image processing system"
+arch=('x86_64')
+url="http://www.graphicsmagick.org/"
+license=('MIT')
+groups=()
+depends=('bzip2' 'freetype2' 'lcms2' 'libltdl' 'libsm' 'libxext' 'xz')
+makedepends=()
+optdepends=('ghostscript: pdf, ps modules'
+            'jasper: jp2 module'
+            'libpng: png module'
+            'libtiff: ps2, ps3, tiff modules'
+            'libwmf: wmf module'
+            'libxml2: msl, svg, url modules')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/graphicsmagick-1.3.30-chromeos-x86_64.tar.xz")
+sha256sums=('8554b70d6ba8428089a26b61d1534874691d55fda6fedc6d69e79af53c3c7526')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

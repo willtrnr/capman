@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lsscsi
+pkgver=0.28
+pkgrel=1
+pkgdesc="A tool that lists devices connected via SCSI and its transports"
+arch=('x86_64')
+url="http://sg.danny.cz/scsi/lsscsi.html"
+license=('GPL')
+groups=()
+depends=('sysfsutils')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lsscsi-0.28-chromeos-x86_64.tar.xz")
+sha256sums=('2961c41e2a8676ab3f92f3873b0b39b195d834da07ee030607c91ed4ee04476d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

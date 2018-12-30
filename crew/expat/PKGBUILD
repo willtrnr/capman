@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=expat
+pkgver=2.2.6
+pkgrel=1
+pkgdesc="An XML parser library"
+arch=('x86_64')
+url="https://libexpat.github.io/"
+license=('custom')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/expat-2.2.6-chromeos-x86_64.tar.xz")
+sha256sums=('9e37b6a5b6ec892b3da12fbd984685e375b3641ed53074da98bd43a7faf75161')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

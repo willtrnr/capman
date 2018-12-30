@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=itstool
+pkgver=2.0.4
+pkgrel=1
+pkgdesc="XML to PO and back again"
+arch=('x86_64')
+url="http://itstool.org/"
+license=('GPL3')
+groups=()
+depends=('docbook-xml' 'libxml2' 'python2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/itstool-2.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('1a2b5ed97e30e42bb37140eef1d0b09055c7f00e34b7b9748a3387fd38426f6a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

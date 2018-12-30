@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=spacefm
+pkgver=1.0.6
+pkgrel=1
+pkgdesc="SpaceFM is a multi-panel tabbed file and desktop manager for Linux with built-in VFS, udev- or HAL-based device manager, customisable menu system, and bash-GTK integration."
+arch=('x86_64')
+url="https://ignorantguru.github.io/spacefm/"
+license=('custom')
+groups=()
+depends=('gtk2' 'gtk3' 'ffmpegthumbnailer' 'hicolor-icon-theme' 'desktop-file-utilities' 'shared-mime-info' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/spacefm-1.0.6-chromeos-x86_64.tar.xz")
+sha256sums=('9a347033bb9eb459beddbc793b86f9462f523a28e45250072def822e91adcdf7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

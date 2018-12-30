@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=zile
+pkgver=2.4.14
+pkgrel=1
+pkgdesc="A small, fast, and powerful Emacs clone"
+arch=('x86_64')
+url="http://www.gnu.org/software/zile/"
+license=('GPL3')
+groups=()
+depends=('acl' 'gc' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/zile-2.4.14-chromeos-x86_64.tar.xz")
+sha256sums=('7acde7380f56dc54d6c74ec5cf7fd9f7ebb666524144d4c1d229ff31e2c66da3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

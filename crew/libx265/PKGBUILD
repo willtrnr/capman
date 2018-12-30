@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libx265
+pkgver=2.6
+pkgrel=1
+pkgdesc="x265 is a H.265 / HEVC video encoder application library."
+arch=('x86_64')
+url="http://x265.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libx265-2.6-chromeos-x86_64.tar.xz")
+sha256sums=('4bd7fd7b202ab7f59f338e51ea832a5dbef00775af2cf7e7ae6ba6cacee93fac')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

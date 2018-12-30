@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=feh
+pkgver=3.1.1
+pkgrel=1
+pkgdesc="Fast and light imlib2-based image viewer"
+arch=('x86_64')
+url="https://feh.finalrewind.org/"
+license=('custom:MIT')
+groups=()
+depends=('curl' 'imlib2' 'libexif' 'libxinerama')
+makedepends=()
+optdepends=('imagemagick: support more file formats'
+            'jpegexiforient: set exif rotation tag')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/feh-3.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('4183106490b301341bb7d8c4cf37f6071e61231580c5d2d6ff1e108874c681f7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

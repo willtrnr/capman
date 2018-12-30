@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xterm
+pkgver=341
+pkgrel=1
+pkgdesc="X Terminal Emulator"
+arch=('x86_64')
+url="http://invisible-island.net/xterm/"
+license=('custom')
+groups=()
+depends=('libutempter' 'libxaw' 'libxft' 'libxkbfile' 'ncurses' 'xbitmaps' 'xorg-luit')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xterm-341-1-chromeos-x86_64.tar.xz")
+sha256sums=('c93930b998ed21cccde94dc81c2aa5e0f91d986d9f193c4c61ca2714d10a8956')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

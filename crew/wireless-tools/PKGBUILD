@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=wireless-tools
+pkgver=2.9
+pkgrel=1
+pkgdesc="Wireless Tools for Linux"
+arch=('x86_64')
+url="https://github.com/HewlettPackard/wireless-tools"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/wireless_tools-2.9-chromeos-x86_64.tar.xz")
+sha256sums=('23de1b7f6dd37177fbd6a3c5ac8917c7c61db74ce774606cbb3f5efe4da03e88')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=guile
+pkgver=2.2.3
+pkgrel=1
+pkgdesc="Portable, embeddable Scheme implementation written in C"
+arch=('x86_64')
+url="https://www.gnu.org/software/guile/"
+license=('GPL')
+groups=()
+depends=('gc' 'gmp' 'libffi' 'libltdl' 'libunistring' 'ncurses' 'texinfo')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/guile-2.2.3-1-chromeos-x86_64.tar.xz")
+sha256sums=('11a28901148adef29d90c96b6b28e2ff0caee7479588683cf3a919b9cea825e9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

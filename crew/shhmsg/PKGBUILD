@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=shhmsg
+pkgver=1.4.2
+pkgrel=1
+pkgdesc="Library for displaying messages"
+arch=('x86_64')
+url="http://shh.thathost.com/pub-unix"
+license=('PerlArtistic')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/shhmsg-1.4.2-2-chromeos-x86_64.tar.xz")
+sha256sums=('8b931183312312ca51ebc29d9e9a3c87d64212a561dfbee32446c93ea8126c96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nanomsg
+pkgver=1.0,0
+pkgrel=1
+pkgdesc="Simple high-performance implementation of several "scalability protocols""
+arch=('x86_64')
+url="http://nanomsg.org/"
+license=('MIT')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nanomsg-1.0,0-chromeos-x86_64.tar.xz")
+sha256sums=('2e72f87a5c259bcadbef06b3212ef20a1fe7186980634b0f3e00085d62da312f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=termcap
+pkgver=1.3.1
+pkgrel=1
+pkgdesc="A library for sending terminal control codes."
+arch=('x86_64')
+url="https://www.gnu.org/software/termutils/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/termcap-1.3.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('f57bd2e1b4cd1893ce97d3038c9fe8a67664ef448c8249b67148749da350542c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

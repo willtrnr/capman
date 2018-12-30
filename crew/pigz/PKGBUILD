@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pigz
+pkgver=2.4
+pkgrel=1
+pkgdesc="Parallel implementation of the gzip file compressor"
+arch=('x86_64')
+url="https://www.zlib.net/pigz"
+license=('custom')
+groups=()
+depends=('zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pigz-2.4-chromeos-x86_64.tar.xz")
+sha256sums=('7254da818fd1658337f052cf2eaf4ecef66d1932eb3092703f335a847ccf7382')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

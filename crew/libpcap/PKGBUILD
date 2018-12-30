@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libpcap
+pkgver=1.8.1
+pkgrel=1
+pkgdesc="A system-independent interface for user-level packet capture"
+arch=('x86_64')
+url="http://www.tcpdump.org/"
+license=('BSD')
+groups=()
+depends=('dbus' 'glibc' 'libnl' 'libusbx' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libpcap-1.8.1-0-chromeos-x86_64.tar.xz")
+sha256sums=('f6b91e914ff739c6b17160da29566af9746b4c38ad7ff24394b43594d62eb8b6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

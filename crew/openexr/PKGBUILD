@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=openexr
+pkgver=2.3.0
+pkgrel=1
+pkgdesc="An high dynamic-range image file format library"
+arch=('x86_64')
+url="http://www.openexr.com/"
+license=('BSD')
+groups=()
+depends=('ilmbase' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/openexr-2.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('4db94a6aa538bdfb6ab6b41f24d03afab0b81c827d64b2b4bf44d004a8c72d15')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

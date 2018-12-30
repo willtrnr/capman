@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=terraform
+pkgver=0.11.1
+pkgrel=1
+pkgdesc="Tool for building, changing, and versioning infrastructure safely and efficiently"
+arch=('x86_64')
+url="http://www.terraform.io/"
+license=('MPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/terraform-0.11.1-chromeos-x86_64.tar.xz")
+sha256sums=('cd1bb823657e6ab6199403db138ddf83141fbe4728d6801b5dae897e782aaf29')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

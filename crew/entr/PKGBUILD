@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=entr
+pkgver=4.0
+pkgrel=1
+pkgdesc="Run arbitrary commands when files change"
+arch=('x86_64')
+url="http://entrproject.org"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/entr-4.0-chromeos-x86_64.tar.xz")
+sha256sums=('6efb1d26f5472c55ac84d32807bae88c444df2bdb4128a9e2d6ba2349f60e591')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

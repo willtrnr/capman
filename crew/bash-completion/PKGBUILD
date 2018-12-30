@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bash-completion
+pkgver=2.8
+pkgrel=1
+pkgdesc="Programmable completion for the bash shell"
+arch=('x86_64')
+url="https://github.com/scop/bash-completion"
+license=('GPL2')
+groups=()
+depends=('bash')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bash_completion-2.8-chromeos-x86_64.tar.xz")
+sha256sums=('9efbe3b29ab29977df9c6f1cce34fb06677590bd2a4c44ad6da5b3d49b5f7d9c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

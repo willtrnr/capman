@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fop
+pkgver=2.2
+pkgrel=1
+pkgdesc="XSL-FO implementation in Java."
+arch=('x86_64')
+url="http://xmlgraphics.apache.org/fop/"
+license=('APACHE')
+groups=()
+depends=('java-avalon-framework' 'java-batik' 'java-commons-io' 'java-commons-logging' 'java-xmlgraphics-commons')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fop-2.2-chromeos-x86_64.tar.xz")
+sha256sums=('84e05f40cee9b05976efe47579718b3eb6ffa5080e65a3aa98a558a8b46e1934')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

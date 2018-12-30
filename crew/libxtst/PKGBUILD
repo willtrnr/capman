@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxtst
+pkgver=1.2.3
+pkgrel=1
+pkgdesc="X11 Testing -- Resource extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('inputproto' 'libxext' 'libxfixes' 'libxi' 'recordproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxtst-1.2.3-chromeos-x86_64.tar.xz")
+sha256sums=('0649bbebfbe8c632cd06507115fc3d546aaf5c851248f8b052119bbdbaee699a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

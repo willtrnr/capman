@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=shmux
+pkgver=1.0.2
+pkgrel=1
+pkgdesc="shell multiplexor"
+arch=('x86_64')
+url="https://github.com/shmux/shmux"
+license=('custom')
+groups=()
+depends=('pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/shmux-1.0.2-chromeos-x86_64.tar.xz")
+sha256sums=('b29380a06c522510e36119614187713594a03c39d280b16015a42af336bc126a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

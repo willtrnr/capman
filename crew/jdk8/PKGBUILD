@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jdk8
+pkgver=8u192
+pkgrel=1
+pkgdesc="The JDK is a development environment for building applications, applets, and components using the Java programming language."
+arch=('x86_64')
+url="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jdk8-8u192-chromeos-x86_64.tar.xz")
+sha256sums=('63dda2c18271c4f1d1afd266b3817545f238dbd712b9559146516fdc08dbf8b3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

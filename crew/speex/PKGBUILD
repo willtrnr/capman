@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=speex
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="A free codec for free speech"
+arch=('x86_64')
+url="https://speex.org/"
+license=('BSD')
+groups=()
+depends=('libogg' 'speexdsp')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/speex-1.2.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('868c4f618a5a0679ce908774963b73d630b7dddc1b9256fede1aa26c0b09a5d5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

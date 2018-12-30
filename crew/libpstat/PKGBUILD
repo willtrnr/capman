@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libpstat
+pkgver=030f37
+pkgrel=1
+pkgdesc="Library for getting information about running processes"
+arch=('x86_64')
+url="https://github.com/jcnelson/libpstat"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libpstat-030f37-1-chromeos-x86_64.tar.xz")
+sha256sums=('cdad40a37cc12d312078d4390963f3337260232e1164d5adbca787c9c60f56f5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

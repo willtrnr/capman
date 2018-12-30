@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rack
+pkgver=1.2
+pkgrel=1
+pkgdesc="The Rackspace Command Line Interface (rack CLI) is a unified tool for managing your Rackspace services."
+arch=('x86_64')
+url="https://github.com/rackspace/rack"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/rack-1.2-chromeos-x86_64.tar.xz")
+sha256sums=('7a80c8cd2dbb9591844f24f06d7ec5d7ee3e07687ef4bc0d564223a7d7d6a609')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

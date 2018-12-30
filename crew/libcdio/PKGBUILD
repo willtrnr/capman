@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libcdio
+pkgver=2.0.0
+pkgrel=1
+pkgdesc="GNU Compact Disc Input and Control Library"
+arch=('x86_64')
+url="https://www.gnu.org/software/libcdio/"
+license=('GPL3')
+groups=()
+depends=('gcc-libs' 'libcddb' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libcdio-2.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('b3e6ab517eaae30320ffbdc3f6874b250f59783dfb35708590e6fd22782e89ac')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

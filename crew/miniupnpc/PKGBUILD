@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=miniupnpc
+pkgver=2.1
+pkgrel=1
+pkgdesc="Small UPnP client library/tool to access Internet Gateway Devices"
+arch=('x86_64')
+url="https://miniupnp.tuxfamily.org/"
+license=('BSD')
+groups=()
+depends=('sh')
+makedepends=()
+optdepends=()
+provides=('libminiupnpc.so=17-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/miniupnpc-2.1-chromeos-x86_64.tar.xz")
+sha256sums=('cc39583447b82b0599b6fd6807f6df3f728b35089d9d9a99d4c9064f58eb4fa0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

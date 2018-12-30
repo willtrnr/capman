@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=radare2
+pkgver=2.4.0
+pkgrel=1
+pkgdesc="Open-source tools to disasm, debug, analyze and manipulate binary files"
+arch=('x86_64')
+url="https://radare.org"
+license=('GPL3' 'LGPL3')
+groups=()
+depends=('capstone' 'libzip' 'openssl' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/radare2-2.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('fcde3ae52954bf875ecbc650d0e0392ef80175f3df4c7b7f560aeb0535ed1969')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ibmonitor
+pkgver=1.4
+pkgrel=1
+pkgdesc="ibmonitor is an interactive bandwidth monitor console application."
+arch=('x86_64')
+url="http://ibmonitor.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('filecmd' 'perl-read-key' 'perl-term-ansicolor' 'perl-time-hires')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ibmonitor-1.4-chromeos-x86_64.tar.xz")
+sha256sums=('1c56681a1f5c22ccd9bb42a0610937e0097371503ac1d8dd599c7cf945948009')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

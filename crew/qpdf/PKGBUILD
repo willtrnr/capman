@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=qpdf
+pkgver=7.1.1
+pkgrel=1
+pkgdesc="QPDF: A Content-Preserving PDF Transformation System"
+arch=('x86_64')
+url="https://github.com/qpdf/qpdf"
+license=('Apache' 'custom:Artistic-2.0')
+groups=()
+depends=('libjpeg-turbo' 'zlib')
+makedepends=()
+optdepends=('perl: required for fix-qdf')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/qpdf-7.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('32069b9fb1bcb81e9024eef707b5ab9e61bacc87fa8141f8de51ba4293fefa98')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

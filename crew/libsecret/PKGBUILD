@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libsecret
+pkgver=0.18.6
+pkgrel=1
+pkgdesc="Library for storing and retrieving passwords and other secrets"
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/Libsecret"
+license=('LGPL')
+groups=()
+depends=('glib2' 'libgcrypt')
+makedepends=()
+optdepends=('gnome-keyring: key storage service (or use any other service implementing org.freedesktop.secrets)')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libsecret-0.18.6-chromeos-x86_64.tar.xz")
+sha256sums=('86dc9e5d3b2b360cb5f3396fcc0a83e3805dfcc877e583bf1a962ebf05d72d6f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gmp
+pkgver=6.1.2
+pkgrel=1
+pkgdesc="A free library for arbitrary precision arithmetic"
+arch=('x86_64')
+url="http://gmplib.org/"
+license=('GPL' 'LGPL3')
+groups=()
+depends=('gcc-libs' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gmp-6.1.2-3-chromeos-x86_64.tar.xz")
+sha256sums=('cc5af938f7de17899ee55850dc74f1ede4f67e91473597c82687cdad68a01247')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

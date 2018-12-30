@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libnl3
+pkgver=3.2.25
+pkgrel=1
+pkgdesc="Library for applications dealing with netlink sockets."
+arch=('x86_64')
+url="http://www.infradead.org/~tgr/libnl/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libnl3-3.2.25-0-chromeos-x86_64.tar.xz")
+sha256sums=('4494bd6d1919090838d86f75d6cc1ea86becc467400d58dffc4e905d27a373da')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

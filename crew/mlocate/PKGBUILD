@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mlocate
+pkgver=0.26
+pkgrel=1
+pkgdesc="Merging locate/updatedb implementation"
+arch=('x86_64')
+url="https://pagure.io/mlocate"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mlocate-0.26-1-chromeos-x86_64.tar.xz")
+sha256sums=('f943fe00ad4666f5a9c7bf12d710cd8f2e136a33ad94568863b92dd45526d7eb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

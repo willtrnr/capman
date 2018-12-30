@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pwgen
+pkgver=2.07
+pkgrel=1
+pkgdesc="Password generator for creating easily memorable passwords"
+arch=('x86_64')
+url="https://sourceforge.net/projects/pwgen/"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pwgen-2.07-chromeos-x86_64.tar.xz")
+sha256sums=('8f3a0751bda9fd08f77608ae22a43529844bf3f11f33f4363541cd144f333aa2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

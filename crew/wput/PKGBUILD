@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=wput
+pkgver=0.6.2
+pkgrel=1
+pkgdesc="wput is a command line file upload tool, the opposite of wget"
+arch=('x86_64')
+url="http://wput.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('gnutls')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/wput-0.6.2-chromeos-x86_64.tar.xz")
+sha256sums=('f2b7ed34899a4d0ea18cc553d0028d16683fcebe0915eed11098911aa663c40b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=manpages
+pkgver=4.16
+pkgrel=1
+pkgdesc="The Linux man-pages project documents the Linux kernel and C library interfaces that are employed by user-space programs."
+arch=('x86_64')
+url="https://www.kernel.org/doc/man-pages/"
+license=('custom')
+groups=()
+depends=('mandb')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/manpages-4.16-chromeos-x86_64.tar.xz")
+sha256sums=('2954a0b3aad52ea863273182dca083c0e3417ad4ffb3ecf8480ea83c69d7b0c7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

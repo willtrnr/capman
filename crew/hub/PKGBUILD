@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=hub
+pkgver=2.4.0
+pkgrel=1
+pkgdesc="cli interface for Github"
+arch=('x86_64')
+url="https://hub.github.com"
+license=('MIT')
+groups=()
+depends=('git')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/hub-2.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('6b06e10fc0aa5ae7be07cd74bbae122eca0815d4e2c52dc92f5e11000282bf24')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=strace
+pkgver=4.19
+pkgrel=1
+pkgdesc="A diagnostic, debugging and instructional userspace tracer"
+arch=('x86_64')
+url="https://strace.io/"
+license=('BSD')
+groups=()
+depends=('libunwind' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/strace-4.19-chromeos-x86_64.tar.xz")
+sha256sums=('3e55cfd9b94a71ad590e023d24ec1a5830c4780f1d9e35eacd462fd3086c0dc3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sbt
+pkgver=0.13.15
+pkgrel=1
+pkgdesc="The interactive build tool"
+arch=('x86_64')
+url="http://www.scala-sbt.org/"
+license=('BSD')
+groups=()
+depends=('java-runtime-headless' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sbt-0.13.15-chromeos-x86_64.tar.xz")
+sha256sums=('f5b3e18adb0253ab7905bc05fb4e9999e9db69df5a584537c7ad04713f4f8cb6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

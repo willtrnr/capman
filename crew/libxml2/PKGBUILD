@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxml2
+pkgver=2.9.8
+pkgrel=1
+pkgdesc="XML parsing library, version 2"
+arch=('x86_64')
+url="http://www.xmlsoft.org/"
+license=('MIT')
+groups=()
+depends=('icu' 'ncurses' 'readline' 'xz' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxml2-2.9.8-2-chromeos-x86_64.tar.xz")
+sha256sums=('2b1ecd272734fd960d79d75187313e581911971466ad99f360e24a5fc0e19e6a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

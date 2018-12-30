@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gnutls
+pkgver=3.6.3
+pkgrel=1
+pkgdesc="A library which provides a secure layer over a reliable transport layer"
+arch=('x86_64')
+url="https://www.gnutls.org/"
+license=('GPL3' 'LGPL2.1')
+groups=()
+depends=('gcc-libs' 'libidn2' 'libtasn1' 'libunistring' 'nettle' 'p11-kit' 'readline' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnutls-3.6.3-1-chromeos-x86_64.tar.xz")
+sha256sums=('70a7b1753ab61e09249f599bbad21e16e8eff71848787c8ad4e77c90582a6f1b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

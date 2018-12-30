@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=docbook-xsl
+pkgver=1.79.2
+pkgrel=1
+pkgdesc="XML stylesheets for Docbook-xml transformations"
+arch=('x86_64')
+url="http://docbook.org/"
+license=('custom')
+groups=()
+depends=('docbook-xml' 'libxml2' 'libxslt' 'sed')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/docbook_xsl-1.79.2-chromeos-x86_64.tar.xz")
+sha256sums=('614d4499046ae97483544777e0ac75d915c51ac734b28361843d82493e2b45ee')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

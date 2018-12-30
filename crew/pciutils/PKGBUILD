@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pciutils
+pkgver=3.5.6
+pkgrel=1
+pkgdesc="PCI bus configuration space access library and tools"
+arch=('x86_64')
+url="http://mj.ucw.cz/sw/pciutils/"
+license=('GPL2')
+groups=('base')
+depends=('glibc' 'hwids' 'kmod')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pciutils-3.5.6-chromeos-x86_64.tar.xz")
+sha256sums=('9842f4c3c91ec9e60580a7658dc590c3c1c30310513b4825b6e67a5029536306')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

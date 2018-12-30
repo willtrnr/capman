@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libuuid
+pkgver=1.0.3
+pkgrel=1
+pkgdesc="Portable UUID C library"
+arch=('x86_64')
+url="https://sourceforge.net/projects/libuuid/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build libuuid
+  tar xf "libuuid-1.0.3-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

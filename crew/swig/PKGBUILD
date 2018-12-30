@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=swig
+pkgver=3.0.12
+pkgrel=1
+pkgdesc="Generate scripting interfaces to C/C++ code"
+arch=('x86_64')
+url="http://www.swig.org/"
+license=('custom')
+groups=()
+depends=('gcc-libs' 'pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/swig-3.0.12-chromeos-x86_64.tar.xz")
+sha256sums=('1ada3fd45ea500a386c1ed491b0520ceb0a822f151d70fe0019446f0b05cc8e8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

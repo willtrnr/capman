@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-read-key
+pkgver=2.37
+pkgrel=1
+pkgdesc="Character mode terminal access for Perl Term::ReadKey"
+arch=('x86_64')
+url="https://metacpan.org/source/JSTOWE/TermReadKey-2.37/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_read_key-2.37-chromeos-x86_64.tar.xz")
+sha256sums=('966e8c16894a81003dd29af9c5ceb69d5e2a509c56a8701ff680fe4a2f21868d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

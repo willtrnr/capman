@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kotlin
+pkgver=1.2.21
+pkgrel=1
+pkgdesc="Statically typed programming language that can interoperate with Java"
+arch=('x86_64')
+url="https://kotlinlang.org/"
+license=('APACHE' 'custom')
+groups=()
+depends=('java-environment>=8')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/kotlin-1.2.21-chromeos-x86_64.tar.xz")
+sha256sums=('eb3b89c6bde5a07a7a4e32225c62dfb06a636e55ae640c3f35add313bedec5d0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gtk-doc
+pkgver=1.29
+pkgrel=1
+pkgdesc="Documentation tool for public library API"
+arch=('x86_64')
+url="https://www.gtk.org/gtk-doc/"
+license=('FDL' 'GPL')
+groups=()
+depends=('docbook-xml' 'docbook-xsl' 'glib2-docs' 'python-anytree' 'python-lxml' 'python-pygments' 'source-highlight')
+makedepends=()
+optdepends=('dblatex: PDF support')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtk_doc-1.29-chromeos-x86_64.tar.xz")
+sha256sums=('53adc04a62779005099e257fc2ba6df76c0b8a9dce8cc31bd6eac6f4181b69c4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

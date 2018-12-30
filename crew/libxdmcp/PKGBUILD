@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxdmcp
+pkgver=1.1.2
+pkgrel=1
+pkgdesc="X11 Display Manager Control Protocol library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('glibc' 'xproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxdmcp-1.1.2-0-chromeos-x86_64.tar.xz")
+sha256sums=('b9b1a87572a321a7ff1be4bcb9c20b25c67b4a80fb5fe8867d0f24d29ecce5ae')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

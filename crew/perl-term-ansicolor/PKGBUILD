@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-term-ansicolor
+pkgver=4.06
+pkgrel=1
+pkgdesc="Character mode terminal access for Perl Term::ANSIColor"
+arch=('x86_64')
+url="https://www.eyrie.org/~eagle/software/ansicolor/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_term_ansicolor-4.06-chromeos-x86_64.tar.xz")
+sha256sums=('87c9ab464473d6d6b155bb28a40ed5738b7485452e85fe9bf2c8e86e17a27635')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ondir
+pkgver=0.2.2
+pkgrel=1
+pkgdesc="On Dir is a program that automatically executes scripts as you traverse directories at a terminal."
+arch=('x86_64')
+url="https://swapoff.org/ondir.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ondir-0.2.2-chromeos-x86_64.tar.xz")
+sha256sums=('1e52a3786e60afcc222911f6c143b9747238e6263f027030bd5862a8674ad99c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

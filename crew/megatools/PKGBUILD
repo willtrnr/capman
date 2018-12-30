@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=megatools
+pkgver=1.9.98
+pkgrel=1
+pkgdesc="Megatools is a collection of programs for accessing Mega.nz service from a command line of your desktop or server."
+arch=('x86_64')
+url="https://megatools.megous.com/"
+license=('custom')
+groups=()
+depends=('asciidoc' 'glib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/megatools-1.9.98-chromeos-x86_64.tar.xz")
+sha256sums=('39ac4b9d1aa152c12ba1b2cd162d07a8dad6b2206e6f67a6b87377b5c907ede4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

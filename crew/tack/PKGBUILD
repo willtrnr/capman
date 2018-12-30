@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tack
+pkgver=1.08
+pkgrel=1
+pkgdesc="terminfo action checker"
+arch=('x86_64')
+url="https://www.gnu.org/software/ncurses/"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tack-1.08-chromeos-x86_64.tar.xz")
+sha256sums=('c45d3013d0874dd8d6203e4b3871f94b1cc84beb33c5576d3a8d1840e8ccd9f5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

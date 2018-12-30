@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=proj4
+pkgver=5.0.1
+pkgrel=1
+pkgdesc="proj.4 is a standard Unix filter function which converts geographic longitude and latitude coordinates into cartesian coordinates (and vice versa), and it is a C API for software developers to include coordinate transformation in their own software."
+arch=('x86_64')
+url="http://proj4.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/proj4-5.0.1-chromeos-x86_64.tar.xz")
+sha256sums=('7a95e9781c0f6ab0c6a9086988a58e72eff016a803cb0a2c249eb8862b51be34')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

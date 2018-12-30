@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mtdev
+pkgver=1.1.5
+pkgrel=1
+pkgdesc="A stand-alone library which transforms all variants of kernel MT events to the slotted type B protocol"
+arch=('x86_64')
+url="http://bitmath.org/code/mtdev/"
+license=('custom:MIT')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mtdev-1.1.5-0-chromeos-x86_64.tar.xz")
+sha256sums=('ef6142c6cbaa71698acbb2cfcc3c40d5e9674931adfbb7352ce71b9b45c1027f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

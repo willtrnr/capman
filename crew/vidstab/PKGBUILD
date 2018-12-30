@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=vidstab
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="Transcode video stabilization plugin."
+arch=('x86_64')
+url="http://public.hronopik.de/vid.stab/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/vidstab-1.1.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('c722ad0d35766647406425bd512bf05058909045634b75ec42450fe3b42e4592')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

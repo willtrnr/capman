@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=traceroute
+pkgver=2.1.0
+pkgrel=1
+pkgdesc="Tracks the route taken by packets over an IP network"
+arch=('x86_64')
+url="http://traceroute.sourceforge.net/"
+license=('GPL2')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/traceroute-2.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('db706290793033ec37f81c512f914f101fd4c36df7bc8e48e03f0f19ea2f5b6e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

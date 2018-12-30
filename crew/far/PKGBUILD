@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=far
+pkgver=2.0.2
+pkgrel=1
+pkgdesc="Search and replace operations on file content across multiple files."
+arch=('x86_64')
+url="http://findandreplace.sourceforge.net"
+license=('custom')
+groups=()
+depends=('jdk8' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build far
+  tar xf "far-2.0.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

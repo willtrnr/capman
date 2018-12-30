@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=halibut
+pkgver=1.2
+pkgrel=1
+pkgdesc="Halibut is a documentation production system, with elements similar to TeX, debiandoc-sgml, TeXinfo, and others."
+arch=('x86_64')
+url="https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/halibut-1.2-chromeos-x86_64.tar.xz")
+sha256sums=('93bd79b97de9b7be01ccbe82ab3272ad9be6ead4e26376ac2ce4529e5b50a9dc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

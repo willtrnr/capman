@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pipes-sh
+pkgver=1.3.0
+pkgrel=1
+pkgdesc="Animated pipes terminal screensaver"
+arch=('x86_64')
+url="https://pipeseroni.github.io/"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build pipes_sh
+  tar xf "pipes_sh-1.3.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

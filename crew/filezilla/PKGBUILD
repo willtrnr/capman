@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=filezilla
+pkgver=1.6.3
+pkgrel=1
+pkgdesc="Fast and reliable FTP, FTPS and SFTP client"
+arch=('x86_64')
+url="http://filezilla-project.org/"
+license=('GPL')
+groups=()
+depends=('dbus' 'gnutls' 'hicolor-icon-theme' 'libfilezilla' 'libidn' 'sqlite' 'wxgtk3' 'xdg-utils')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/filezilla-1.6.3-chromeos-x86_64.tar.xz")
+sha256sums=('683cb597524c179fff8e0f2748a296d633c8429cdb948eaab70069609b2379f3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

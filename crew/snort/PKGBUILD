@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=snort
+pkgver=2.9.11.1
+pkgrel=1
+pkgdesc="Snort is an open source intrusion prevention system capable of real-time traffic analysis and packet logging."
+arch=('x86_64')
+url="https://www.snort.org/"
+license=('custom')
+groups=()
+depends=('daq' 'libdnet' 'libtirpc' 'pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/snort-2.9.11.1-chromeos-x86_64.tar.xz")
+sha256sums=('7f0a4f0c370300784ac9216c490055b636ecb3f3d846c6447f8835f800ba81e7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cabal
+pkgver=2.2.0.0
+pkgrel=1
+pkgdesc="Common Architecture for Building Applications and Libraries"
+arch=('x86_64')
+url="https://www.haskell.org/cabal/"
+license=('custom')
+groups=()
+depends=('ghc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build cabal
+  tar xf "cabal-2.2.0.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

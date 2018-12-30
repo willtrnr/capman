@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libiconv
+pkgver=1.15
+pkgrel=1
+pkgdesc="GNU charset conversion library for libc which does not implement it."
+arch=('x86_64')
+url="https://www.gnu.org/software/libiconv/"
+license=('custom')
+groups=()
+depends=('glibc' 'manpages')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libiconv-1.15-chromeos-x86_64.tar.xz")
+sha256sums=('8689ee2b4acc0440df6eec9eb0fb19aa8393b68bd64517cbca65d98041a2c7cc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

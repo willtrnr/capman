@@ -1,0 +1,25 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cmatrix
+pkgver=1.2
+pkgrel=1
+pkgdesc="A curses-based scrolling 'Matrix'-like screen"
+arch=('x86_64')
+url="http://www.asty.org/cmatrix/"
+license=('GPL3')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=('fontconfig: custom font'
+            'kbd: cmatrix-tty custom font'
+            'xterm: cmatrix-tty custom font')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cmatrix-1.2-chromeos-x86_64.tar.xz")
+sha256sums=('0aee56b9ea46a56508c44cb47e12308907aef1a9cf2c748f720c4d6cf21fe503')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=csvkit
+pkgver=1.0.3
+pkgrel=1
+pkgdesc="A suite of utilities for converting to and working with CSV, the king of tabular file formats."
+arch=('x86_64')
+url="http://csvkit.rtfd.org/"
+license=('custom')
+groups=()
+depends=('setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/csvkit-1.0.3-chromeos-x86_64.tar.xz")
+sha256sums=('0f56661e9e4d3d9bc7c72b1bc12d8558f8ec622e9310f18a155ac7601e2ba9e0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

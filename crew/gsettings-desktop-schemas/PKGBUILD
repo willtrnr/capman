@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gsettings-desktop-schemas
+pkgver=3.28.0
+pkgrel=1
+pkgdesc="Shared GSettings schemas for the desktop"
+arch=('x86_64')
+url="https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas"
+license=('GPL')
+groups=()
+depends=('dconf' 'glib2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gsettings_desktop_schemas-3.28.0-chromeos-x86_64.tar.xz")
+sha256sums=('ff3bcf36058e651fe7662433fb961d9c1dc1f8db5ab17c11788ee4c3c26c99f2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

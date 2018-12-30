@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=flex
+pkgver=2.6.4
+pkgrel=1
+pkgdesc="A tool for generating text-scanning programs"
+arch=('x86_64')
+url="https://github.com/westes/flex"
+license=('custom')
+groups=('base-devel')
+depends=('glibc' 'm4' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/flex-2.6.4-chromeos-x86_64.tar.xz")
+sha256sums=('805be1fdbf4d9d2ce81a652a064c6972eaf91824bb866867eb57c407dd9c2313')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

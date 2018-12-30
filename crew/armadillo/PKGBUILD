@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=armadillo
+pkgver=8.400.0
+pkgrel=1
+pkgdesc="Armadillo is a high quality linear algebra library (matrix maths) for the C++ language, aiming towards a good balance between speed and ease of use"
+arch=('x86_64')
+url="http://arma.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('openblas')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/armadillo-8.400.0-chromeos-x86_64.tar.xz")
+sha256sums=('d2dc68a222aa585676e5ea325970ded3015ad817027aca890199bc7f5c090799')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lzop
+pkgver=1.04
+pkgrel=1
+pkgdesc="File compressor using lzo lib"
+arch=('x86_64')
+url="http://www.lzop.org/"
+license=('GPL')
+groups=()
+depends=('lzo')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lzop-1.04-chromeos-x86_64.tar.xz")
+sha256sums=('d51dfeaafb14d3e4927957627c4c19f5fca9c8aa0a2b5c977045eeb1caac9728')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mysqltuner
+pkgver=1.7.7
+pkgrel=1
+pkgdesc="MySQLTuner is a script written in Perl that allows you to review a MySQL installation quickly and make adjustments to increase performance and stability."
+arch=('x86_64')
+url="https://github.com/major/MySQLTuner-perl"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build mysqltuner
+  tar xf "mysqltuner-1.7.7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

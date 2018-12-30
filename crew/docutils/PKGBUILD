@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=docutils
+pkgver=0.14
+pkgrel=1
+pkgdesc="Docutils is an open-source text processing system for processing plaintext documentation into useful formats, such as HTML, LaTeX, man-pages, open-document or XML."
+arch=('x86_64')
+url="http://docutils.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('python3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/docutils-0.14-chromeos-x86_64.tar.xz")
+sha256sums=('d551a697f37dc6d03b77d2740637c3c1c36a0fa74fbac813e5dcb16745f4cd32')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

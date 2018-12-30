@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libunbound
+pkgver=1.8.0
+pkgrel=1
+pkgdesc="Unbound is a validating, recursive, and caching DNS resolver."
+arch=('x86_64')
+url="https://www.unbound.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libunbound-1.8.0-chromeos-x86_64.tar.xz")
+sha256sums=('8668a925a7f46f477106661f561a2f6085cf23e389e26f86a23a46c0db064f12')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

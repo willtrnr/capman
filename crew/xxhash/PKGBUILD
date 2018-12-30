@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xxhash
+pkgver=0.6.3
+pkgrel=1
+pkgdesc="Extremely fast non-cryptographic hash algorithm"
+arch=('x86_64')
+url="http://www.xxhash.com/"
+license=('BSD' 'GPL2')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=('libxxhash.so=0-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xxhash-0.6.3-chromeos-x86_64.tar.xz")
+sha256sums=('8996d96cc1981728bc2a826f139c0f7b6189d93075e20d7f2cb56cbd4d119a3e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

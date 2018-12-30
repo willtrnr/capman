@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jsonc
+pkgver=0.13
+pkgrel=1
+pkgdesc="JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
+arch=('x86_64')
+url="https://github.com/json-c/json-c/wiki"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jsonc-0.13-nodoc-chromeos-x86_64.tar.xz")
+sha256sums=('ecfa4db7850b31558d70ac0d92f372c4fd1082fcd04130a51b4520f591bcb5fb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

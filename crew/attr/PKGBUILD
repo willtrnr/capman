@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=attr
+pkgver=2.4.48
+pkgrel=1
+pkgdesc="Extended attribute support library for ACL support"
+arch=('x86_64')
+url="http://savannah.nongnu.org/projects/attr"
+license=('LGPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=('xfsattr')
+conflicts=('xfsattr')
+replaces=('xfsattr')
+source=("https://dl.bintray.com/chromebrew/chromebrew/attr-2.4.48-chromeos-x86_64.tar.xz")
+sha256sums=('876f464fc3b2185e2076569d06ccf5df957405ce78b92c49a779582d30ee75a4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

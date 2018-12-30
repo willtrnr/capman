@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=yelp-xsl
+pkgver=3.27.90
+pkgrel=1
+pkgdesc="Document transformations from Yelp"
+arch=('x86_64')
+url="https://gitlab.gnome.org/GNOME/yelp-xsl"
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/yelp_xsl-3.27.90-chromeos-x86_64.tar.xz")
+sha256sums=('c3be835828187766de18110d03f8daed3a7700cdd6aada7e1334042e6a8d0143')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

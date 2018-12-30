@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kbd
+pkgver=2.0.4
+pkgrel=1
+pkgdesc="Keytable files and keyboard utilities"
+arch=('x86_64')
+url="http://www.kbd-project.org"
+license=('GPL')
+groups=()
+depends=('glibc' 'pam')
+makedepends=()
+optdepends=()
+provides=('vlock')
+conflicts=('vlock')
+replaces=('vlock')
+source=("https://dl.bintray.com/chromebrew/chromebrew/kbd-2.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('7e16b148b66c8466ec6dc2685da62c83feb09a915e21ed0b5b7fb5d9be0e14a1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

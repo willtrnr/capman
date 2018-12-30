@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=snap
+pkgver=1.0
+pkgrel=1
+pkgdesc="Server stack which includes sqlite, nginx and php"
+arch=('x86_64')
+url="homepage ''"
+license=('custom')
+groups=()
+depends=('nginx' 'sqlite' 'php')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build snap
+  tar xf "snap-1.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

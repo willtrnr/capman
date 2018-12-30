@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glib
+pkgver=2.56.1
+pkgrel=1
+pkgdesc="GLib provides the core application building blocks for libraries and applications written in C."
+arch=('x86_64')
+url="https://developer.gnome.org/glib"
+license=('custom')
+groups=()
+depends=('util-linux' 'six')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glib-2.56.1-chromeos-x86_64.tar.xz")
+sha256sums=('fd6aea5f310ed045f3e9c132af14d11e63c5d50e04871369eb4888dfef9aee66')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

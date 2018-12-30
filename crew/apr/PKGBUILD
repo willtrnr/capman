@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=apr
+pkgver=1.6.3
+pkgrel=1
+pkgdesc="The Apache Portable Runtime"
+arch=('x86_64')
+url="http://apr.apache.org/"
+license=('APACHE')
+groups=()
+depends=('util-linux')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/apr-1.6.3-chromeos-x86_64.tar.xz")
+sha256sums=('c22341487a85273be410903c4ef4dfef849e4a01815f974aa23346a7488ea568')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

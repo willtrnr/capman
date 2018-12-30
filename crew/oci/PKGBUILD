@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=oci
+pkgver=2.4.23
+pkgrel=1
+pkgdesc="Command Line Interface for Oracle Cloud Infrastructure"
+arch=('x86_64')
+url="https://github.com/oracle/oci-cli"
+license=('custom')
+groups=()
+depends=('setuptools' 'virtualenv')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/oci-2.4.23-chromeos-x86_64.tar.xz")
+sha256sums=('c99356e8373dde7f00b3a24351e0eacdaf2037b47d30f52fedfc7c2233a2300b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

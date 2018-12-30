@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=httpd
+pkgver=2.4.29
+pkgrel=1
+pkgdesc="The Apache HTTP Server Project is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows."
+arch=('x86_64')
+url="http://httpd.apache.org/"
+license=('custom')
+groups=()
+depends=('apr' 'aprutil' 'libtool' 'pcre' 'expat')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/httpd-2.4.29-chromeos-x86_64.tar.xz")
+sha256sums=('6a7f76c58667d384c149a215e114be5a087e4544b67a6864d293bae4221c6215')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=diskscan
+pkgver=0.20
+pkgrel=1
+pkgdesc="diskscan is intended to find sectors of a storage medium (hard disk, flash drive or pendrive, etc.) which are bad or in the process of going bad."
+arch=('x86_64')
+url="http://blog.disksurvey.org/proj/diskscan/"
+license=('custom')
+groups=()
+depends=('termcap')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/diskscan-0.20-chromeos-x86_64.tar.xz")
+sha256sums=('e56c72291e6dbb53b30e41a227404e6b446a37e112442d2d7463a609d577170c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=hexedit
+pkgver=1.2.13
+pkgrel=1
+pkgdesc="View and edit files in hexadecimal or in ASCII"
+arch=('x86_64')
+url="http://rigaux.org/hexedit.html"
+license=('GPL')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/hexedit-1.2.13-chromeos-x86_64.tar.xz")
+sha256sums=('ff405baf2783242b6af5d3e7a86268ebbe51ab3cf1a3dedd33e1fe1e46dcd74b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

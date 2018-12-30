@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fnotifystat
+pkgver=0.01.17
+pkgrel=1
+pkgdesc="Fnotifystat is a program that dumps the file system activity in a given period of time."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/fnotifystat/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fnotifystat-0.01.17-chromeos-x86_64.tar.xz")
+sha256sums=('eaec7dd57a936028af07522923cfd5b9c893499106751f811be3b70683d2120f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

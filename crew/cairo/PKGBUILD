@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cairo
+pkgver=1.15.10
+pkgrel=1
+pkgdesc="2D graphics library with support for multiple output devices"
+arch=('x86_64')
+url="https://cairographics.org/"
+license=('LGPL' 'MPL')
+groups=()
+depends=('fontconfig' 'glib2' 'libpng' 'libxext' 'libxrender' 'lzo' 'pixman')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cairo-1.15.10-0-chromeos-x86_64.tar.xz")
+sha256sums=('1cf92bcaf00709c297227f6f2ac1388d06f8978a89fc6207ba1ab0cee7a777fd')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

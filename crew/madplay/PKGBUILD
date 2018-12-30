@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=madplay
+pkgver=0.15.2b
+pkgrel=1
+pkgdesc="Decode and play MPEG audio files"
+arch=('x86_64')
+url="https://www.underbit.com/products/mad/"
+license=('custom')
+groups=()
+depends=('libmad' 'libid3tag')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/madplay-0.15.2b-chromeos-x86_64.tar.xz")
+sha256sums=('e24353e4a61f0b8d5e4a8fda4bc2d5a3d3e94f55147aa666e2f271b1e7671900')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

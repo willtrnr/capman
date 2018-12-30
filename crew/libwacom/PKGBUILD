@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libwacom
+pkgver=0.28
+pkgrel=1
+pkgdesc="Library to identify Wacom tablets and their features"
+arch=('x86_64')
+url="https://github.com/linuxwacom/libwacom/wiki"
+license=('MIT')
+groups=()
+depends=('glib2' 'libgudev' 'systemd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libwacom-0.28-0-chromeos-x86_64.tar.xz")
+sha256sums=('2ffb5dbd3620667a758b6e66f42a339474cdc9363bb942a8a696bc952b486b0b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

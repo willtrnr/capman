@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dehtml
+pkgver=1.8
+pkgrel=1
+pkgdesc="Dehtml removes HTML constructs from documents for indexing, spell checking and so on."
+arch=('x86_64')
+url="http://www.moria.de/~michael/dehtml/"
+license=('custom')
+groups=()
+depends=('icu4c')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dehtml-1.8-chromeos-x86_64.tar.xz")
+sha256sums=('76346ded317eea0d12ac0d02dbf8947f4b3251333dcdfb1af5fbab03eb334e66')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

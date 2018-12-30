@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=patchutils
+pkgver=0.3.4
+pkgrel=1
+pkgdesc="A small collection of programs that operate on patch files"
+arch=('x86_64')
+url="http://cyberelk.net/tim/patchutils/"
+license=('GPL')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/patchutils-0.3.4-chromeos-x86_64.tar.xz")
+sha256sums=('47995cc77fbf3bf7dbea906fc2bb7ffd28be265fdf64f970e00cfa85edc55ace')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

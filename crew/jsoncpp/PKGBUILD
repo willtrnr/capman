@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jsoncpp
+pkgver=1.8.4
+pkgrel=1
+pkgdesc="C++ library for interacting with JSON"
+arch=('x86_64')
+url="https://github.com/open-source-parsers/jsoncpp"
+license=('custom:Public_Domain' 'MIT')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=('jsoncpp-doc: documentation')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jsoncpp-1.8.4-chromeos-x86_64.tar.xz")
+sha256sums=('0ae17bea20bcd7daeb5a80b45e9b49601c288a7c75077c26c3bb64d8d1ea8dd5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

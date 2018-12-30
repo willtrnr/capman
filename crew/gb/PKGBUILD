@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gb
+pkgver=0.4.4
+pkgrel=1
+pkgdesc="A project based build tool for the Go programming language."
+arch=('x86_64')
+url="https://getgb.io/"
+license=('custom')
+groups=()
+depends=('go')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gb-0.4.4-chromeos-x86_64.tar.xz")
+sha256sums=('a2dd8c25947630b4aefd78ac0d7c38a31bf5db0995b44028e735e781f6253738')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

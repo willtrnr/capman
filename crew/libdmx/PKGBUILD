@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libdmx
+pkgver=1.1.3
+pkgrel=1
+pkgdesc="X11 Distributed Multihead extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('dmxproto' 'libxext')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libdmx-1.1.3-0-chromeos-x86_64.tar.xz")
+sha256sums=('afefd087d3752574ab61951788c05452944239c1b797753381c69ffb88a93e13')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

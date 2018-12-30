@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aws
+pkgver=1.16.25
+pkgrel=1
+pkgdesc="The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services."
+arch=('x86_64')
+url="https://aws.amazon.com/documentation/cli/"
+license=('custom')
+groups=()
+depends=('python3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aws-1.16.25-chromeos-x86_64.tar.xz")
+sha256sums=('a4b818f502f67f96ff727736304cef7db926384ee3baf4405890033480d6c110')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sleuthkit
+pkgver=4.6.0
+pkgrel=1
+pkgdesc="File system and media management forensic analysis tools"
+arch=('x86_64')
+url="http://www.sleuthkit.org/sleuthkit"
+license=('CPL' 'custom:"IBM Public Licence"' 'GPL2')
+groups=()
+depends=('libewf' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sleuthkit-4.6.0-chromeos-x86_64.tar.xz")
+sha256sums=('ec404bf9be6b70fd1638e45a997f26b74ad5522fa878a20a311d962d51562685')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

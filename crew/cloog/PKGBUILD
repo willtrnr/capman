@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cloog
+pkgver=0.20.0
+pkgrel=1
+pkgdesc="The CLooG Code Generator in the Polytope Model"
+arch=('x86_64')
+url="https://github.com/periscop/cloog"
+license=('custom')
+groups=()
+depends=('isl' 'osl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cloog-0.20.0-chromeos-x86_64.tar.xz")
+sha256sums=('d31e2c02736dfa446b5058b4f947e2f6ed9a2aff0268adb616fedae1c716f012')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

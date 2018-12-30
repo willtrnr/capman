@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bmon
+pkgver=4.0
+pkgrel=1
+pkgdesc="Portable bandwidth monitor and rate estimator"
+arch=('x86_64')
+url="http://github.com/tgraf/bmon/"
+license=('BSD' 'MIT')
+groups=()
+depends=('confuse' 'libnl' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bmon-4.0-chromeos-x86_64.tar.xz")
+sha256sums=('e12f42c3d028678a37bf083ca9884ab4ad453de414f57a63eedec43c08705146')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

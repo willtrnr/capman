@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=expect
+pkgver=5.45.4
+pkgrel=1
+pkgdesc="A tool for automating interactive applications"
+arch=('x86_64')
+url="http://www.nist.gov/el/msid/expect.cfm"
+license=('custom')
+groups=()
+depends=('tcl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/expect-5.45.4-chromeos-x86_64.tar.xz")
+sha256sums=('ccdf8484e01563ffce6f5f112340948e06ce6a71a8cb3afc22d8cea0fb15c9fe')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

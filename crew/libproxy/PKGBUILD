@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libproxy
+pkgver=0.4.15
+pkgrel=1
+pkgdesc="A library that provides automatic proxy configuration management"
+arch=('x86_64')
+url="http://libproxy.github.io/libproxy/"
+license=('LGPL')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=('glib2: gsettings configuration module'
+            'networkmanager: NetworkManager configuration module'
+            'perl: Perl bindings'
+            'python: Python 3.x bindings'
+            'python2: Python 2.x bindings'
+            'webkit2gtk: PAC proxy support (Webkit2gtk engine)')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libproxy-0.4.15-chromeos-x86_64.tar.xz")
+sha256sums=('896073cbf37b750da1856e37c58111f4c1350196ddb6fef5ce7799197d7a9f27')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

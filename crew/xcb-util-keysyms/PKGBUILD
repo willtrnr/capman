@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xcb-util-keysyms
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="Utility libraries for XC Binding - Standard X key constants and conversion to/from keycodes"
+arch=('x86_64')
+url="https://xcb.freedesktop.org"
+license=('custom')
+groups=()
+depends=('libxcb>=1.7')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_util_keysyms-0.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('97059f05132bfc7c5238711bc0877017f6354596e40849370252a3b519478581')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=modemmanager
+pkgver=1.8.2
+pkgrel=1
+pkgdesc="Mobile broadband modem management service"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/ModemManager/"
+license=('GPL2' 'LGPL2.1')
+groups=()
+depends=('libgudev' 'libmbim' 'libmm-glib' 'libqmi' 'polkit' 'ppp' 'systemd')
+makedepends=()
+optdepends=('usb_modeswitch: install if your modem shows up as a storage drive')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/modemmanager-1.8.2-chromeos-x86_64.tar.xz")
+sha256sums=('bb5304352a96304749c0f969e24dde97e2c58a307f73ed53882afdb293648f55')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

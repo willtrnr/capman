@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libtifiles2
+pkgver=1.1.7
+pkgrel=1
+pkgdesc="Libtifiles2 offers the library used to properly manipulate files on TI calculators."
+arch=('x86_64')
+url="http://lpg.ticalc.org/prj_tilp/"
+license=('custom')
+groups=()
+depends=('libticonv' 'libarchive')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build libtifiles2
+  tar xf "libtifiles2-1.1.7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

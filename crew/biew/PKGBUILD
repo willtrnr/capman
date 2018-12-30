@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=biew
+pkgver=6.1.0
+pkgrel=1
+pkgdesc="EYE (Binary EYE) is a free, portable, advanced file viewer with built-in editor for binary, hexadecimal and disassembler modes."
+arch=('x86_64')
+url="https://sourceforge.net/projects/beye/"
+license=('custom')
+groups=()
+depends=('apriconv' 'ncurses' 'slang')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/biew-6.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('140bc619e0495b7bbec4b3ca934ddb0e12cb46b793b27197dd677b73d4819ddd')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

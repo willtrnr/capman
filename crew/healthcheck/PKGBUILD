@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=healthcheck
+pkgver=1cace5
+pkgrel=1
+pkgdesc="Linux system health check."
+arch=('x86_64')
+url="https://github.com/SimplyLinuxFAQ/health-check-script"
+license=('custom')
+groups=()
+depends=('lsb-release' 'dmidecode' 'sysstat')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/healthcheck-1cace5-chromeos-x86_64.tar.xz")
+sha256sums=('e73a9d6a5d50c759d0f0de7c9c862aba28d4d2fbee17c9f5aa1b7b04e374fb96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

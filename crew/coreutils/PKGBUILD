@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=coreutils
+pkgver=8.29
+pkgrel=1
+pkgdesc="The basic file, shell and text manipulation utilities of the GNU operating system"
+arch=('x86_64')
+url="https://www.gnu.org/software/coreutils/"
+license=('GPL3')
+groups=('base')
+depends=('acl' 'attr' 'glibc' 'gmp' 'libcap' 'openssl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/coreutils-8.29-chromeos-x86_64.tar.xz")
+sha256sums=('26c43836ce9581f9daeddc1b50f88a88d5c1f8417cd545ee417729f94ad59621')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

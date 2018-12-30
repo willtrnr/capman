@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=newlisp
+pkgver=10.7.1
+pkgrel=1
+pkgdesc="newLISP is a Lisp-like, general-purpose scripting language."
+arch=('x86_64')
+url="http://www.newlisp.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/newlisp-10.7.1-chromeos-x86_64.tar.xz")
+sha256sums=('6d99a70774a279318953fb48e6c213133426de82175060cb8a03b30b1087662e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

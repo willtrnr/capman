@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=go
+pkgver=1.11.1
+pkgrel=1
+pkgdesc="Core compiler tools for the Go programming language"
+arch=('x86_64')
+url="https://golang.org/"
+license=('BSD')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/go-1.11.1-chromeos-x86_64.tar.xz")
+sha256sums=('5bccebc7b426d01ddfb9919b9ac7e2ab3e47776a131a21da70a54d2639c361c0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

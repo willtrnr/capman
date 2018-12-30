@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nettle
+pkgver=3.4
+pkgrel=1
+pkgdesc="A low-level cryptographic library"
+arch=('x86_64')
+url="https://www.lysator.liu.se/~nisse/nettle"
+license=('GPL2')
+groups=()
+depends=('gmp')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nettle-3.4-chromeos-x86_64.tar.xz")
+sha256sums=('80b08e171c27c98468dbb55f6f57fb742ced7708101e05cb04e40a9224ec3624')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

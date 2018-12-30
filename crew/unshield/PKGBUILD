@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=unshield
+pkgver=1.4.2
+pkgrel=1
+pkgdesc="Extracts CAB files from InstallShield installers"
+arch=('x86_64')
+url="https://github.com/twogood/unshield"
+license=('custom')
+groups=()
+depends=('openssl' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/unshield-1.4.2-chromeos-x86_64.tar.xz")
+sha256sums=('15626e07093863254c8b3c1c264fa110416fbbe13952876ec2005ef47c46a366')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

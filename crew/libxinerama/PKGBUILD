@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxinerama
+pkgver=1.1.3
+pkgrel=1
+pkgdesc="X11 Xinerama extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxext' 'xineramaproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxinerama-1.1.3-chromeos-x86_64.tar.xz")
+sha256sums=('73f25bf7cf51787d00e2fbe46cf6589e321c465333e8d2c9dc3d97bfa93a70da')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

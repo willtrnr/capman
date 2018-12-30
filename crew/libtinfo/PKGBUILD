@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libtinfo
+pkgver=0.22
+pkgrel=1
+pkgdesc="Missing ncurses library reference."
+arch=('x86_64')
+url="https://www.gnu.org/software/ncurses/"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build libtinfo
+  tar xf "libtinfo-0.22-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

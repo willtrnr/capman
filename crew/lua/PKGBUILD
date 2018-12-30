@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lua
+pkgver=5.3.5
+pkgrel=1
+pkgdesc="Powerful lightweight programming language designed for extending applications"
+arch=('x86_64')
+url="http://www.lua.org/"
+license=('MIT')
+groups=()
+depends=('readline')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lua-5.3.5-chromeos-x86_64.tar.xz")
+sha256sums=('0c8aa3d1cda909e7f8a9f28c36acc459bdcae9091e300980fc6e7dcf2caf1313')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

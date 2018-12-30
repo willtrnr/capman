@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gnome-themes-standard
+pkgver=3.27.92
+pkgrel=1
+pkgdesc="Standard Themes for GNOME Applications."
+arch=('x86_64')
+url="https://git.gnome.org/browse/gnome-themes-standard/"
+license=('custom')
+groups=()
+depends=('gtk3' 'gtk2' 'librsvg' 'gdk-pixbuf' 'gnome-common')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_themes_standard-3.27.92-0-chromeos-x86_64.tar.xz")
+sha256sums=('d9771b38d88749626f0a7da9d66a43bd5c8e71df6eac868e90343f2bc994c22d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

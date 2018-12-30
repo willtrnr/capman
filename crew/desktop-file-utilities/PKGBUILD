@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=desktop-file-utilities
+pkgver=0.23
+pkgrel=1
+pkgdesc="contains a few command line utilities for working with desktop entries"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/desktop-file-utils/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/desktop_file_utilities-0.23-chromeos-x86_64.tar.xz")
+sha256sums=('46250a48e6d83c2944ccfc3e59f79ccd2d0c4d883088be90f77d540030b0d554')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

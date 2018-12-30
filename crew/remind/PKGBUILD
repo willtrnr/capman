@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=remind
+pkgver=03.01.15
+pkgrel=1
+pkgdesc="A sophisticated calendar and alarm program."
+arch=('x86_64')
+url="https://roaringpenguin.com/products/remind"
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=('tcl: for cm2rem.tcl'
+            'tk: for tkremind')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/remind-03.01.15-chromeos-x86_64.tar.xz")
+sha256sums=('93144719846bf23d63c0b31c688ce5815b74e6600fe034d9c783cdd6887c7b0f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-locale-messages
+pkgver=1.29
+pkgrel=1
+pkgdesc="Perl Locale::Messages - Gettext Like Message Retrieval."
+arch=('x86_64')
+url="https://metacpan.org/pod/Locale::Messages"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_locale_messages-1.29-chromeos-x86_64.tar.xz")
+sha256sums=('d4e294eaee1da9208dbe5d7fd844a455e106d20eff826e7e6339e2e11c6ed5c3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

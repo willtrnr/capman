@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=od1n
+pkgver=2.3
+pkgrel=1
+pkgdesc="0d1n is a tool for automating customized attacks against web applications."
+arch=('x86_64')
+url="https://github.com/CoolerVoid/0d1n"
+license=('custom')
+groups=()
+depends=('curl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/od1n-2.3-chromeos-x86_64.tar.xz")
+sha256sums=('38b19eb0cb14694e30040105ac05fd0e250ced2bbac6c0e7428b8adbd495dd2c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

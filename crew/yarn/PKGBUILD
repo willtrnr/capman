@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=yarn
+pkgver=1.12.3
+pkgrel=1
+pkgdesc="Fast, reliable, and secure dependency management"
+arch=('x86_64')
+url="http://yarnpkg.com"
+license=('BSD')
+groups=()
+depends=('nodejs')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build yarn
+  tar xf "yarn-1.12.3-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

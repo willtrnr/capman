@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libprelude
+pkgver=4.1.0
+pkgrel=1
+pkgdesc=" (SIEM) system."
+arch=('x86_64')
+url="https://www.prelude-siem.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libprelude-4.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('f7642b1ffb9a0b5ee5c22a3f1345fbc0ff8b7e334a9839c7d24b7108fd069806')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

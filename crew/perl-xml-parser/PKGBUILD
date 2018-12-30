@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-xml-parser
+pkgver=2.44
+pkgrel=1
+pkgdesc="Expat-based XML parser module for perl"
+arch=('x86_64')
+url="http://search.cpan.org/dist/XML-Parser/"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('expat' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_xml_parser-2.44-1-chromeos-x86_64.tar.xz")
+sha256sums=('3ad7284bc32559076decee33bbb633e0bc3465f37f4af9c55ebff66bf662a288')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

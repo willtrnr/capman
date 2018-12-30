@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cmake
+pkgver=3.13.2
+pkgrel=1
+pkgdesc="A cross-platform open-source make system"
+arch=('x86_64')
+url="http://www.cmake.org/"
+license=('custom')
+groups=()
+depends=('curl' 'jsoncpp' 'libarchive' 'libuv' 'rhash' 'shared-mime-info')
+makedepends=()
+optdepends=('libxkbcommon-x11: cmake-gui'
+            'qt5-base: cmake-gui')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cmake-3.13.2-chromeos-x86_64.tar.xz")
+sha256sums=('266148894803c26d92a0aef1126b3cfe8c025e4d3336a3338e81f63f41c63241')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

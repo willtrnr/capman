@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ansifilter
+pkgver=2.10
+pkgrel=1
+pkgdesc="Ansifilter parses common ANSI codes to remove them or to convert them to another colored text file format (HTML, TeX, LaTeX, RTF, Pango or BBCode)."
+arch=('x86_64')
+url="http://www.andre-simon.de/doku/ansifilter/en/ansifilter.php"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ansifilter-2.10-chromeos-x86_64.tar.xz")
+sha256sums=('af4c1a4f1b9fddd1efa5dabded1664880bd25fc17b52290af956d4d5d7dedf5c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

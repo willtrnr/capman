@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bats
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="Bash Automated Testing System"
+arch=('x86_64')
+url="https://github.com/sstephenson/bats"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bats-0.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('8170fb0e171d68a1277c96f400845a42abfedd2d7b8edf761cd99b4088e7e56b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rtmpdump
+pkgver=fa8646dae
+pkgrel=1
+pkgdesc="Tool to download rtmp streams"
+arch=('x86_64')
+url="https://rtmpdump.mplayerhq.hu/"
+license=('GPL2' 'LGPL2.1')
+groups=()
+depends=('glibc' 'gnutls' 'zlib')
+makedepends=()
+optdepends=()
+provides=('librtmp.so=1-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/rtmpdump-fa8646dae-chromeos-x86_64.tar.xz")
+sha256sums=('163c47847d3cfcfe9178995c96511e7642991a1bb567f90d33f26e36e85d16e6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

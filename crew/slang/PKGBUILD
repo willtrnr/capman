@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=slang
+pkgver=2.3.2
+pkgrel=1
+pkgdesc="S-Lang is a powerful interpreted language"
+arch=('x86_64')
+url="http://www.jedsoft.org/slang/"
+license=('GPL')
+groups=()
+depends=('pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/slang-2.3.2-chromeos-x86_64.tar.xz")
+sha256sums=('6d7968b8a251a184c06d96e0466c9c7fabae9033c7be9ad9fc4b2b60816eaa37')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=zsh
+pkgver=5.0.7
+pkgrel=1
+pkgdesc="A very advanced and programmable command interpreter (shell) for UNIX"
+arch=('x86_64')
+url="http://www.zsh.org/"
+license=('custom')
+groups=()
+depends=('gdbm' 'libcap' 'pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/zsh-5.0.7-1-chromeos-x86_64.tar.xz")
+sha256sums=('132f36ade3c10430d8f702112f82065fab8449ebd8dc409542930de5cc95e3c2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

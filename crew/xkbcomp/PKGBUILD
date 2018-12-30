@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xkbcomp
+pkgver=1.4.1
+pkgrel=1
+pkgdesc="Compile XKB keyboard"
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=('mesa' 'xcb-util')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xkbcomp-1.4.1-chromeos-x86_64.tar.xz")
+sha256sums=('ef2d4699d40b67b73d44691ebc83f722a70374ec5849e11e56525606ddf04e83')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

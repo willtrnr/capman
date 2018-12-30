@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=diffutils
+pkgver=3.6
+pkgrel=1
+pkgdesc="Utility programs used for creating patch files"
+arch=('x86_64')
+url="https://www.gnu.org/software/diffutils"
+license=('GPL3')
+groups=('base')
+depends=('bash' 'glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/diffutils-3.6-chromeos-x86_64.tar.xz")
+sha256sums=('d1d6cfc14b969ffb340b99c5fb66791745209ad43198ef1b990ffccb3ac2cb3e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xmlclitools
+pkgver=1.61
+pkgrel=1
+pkgdesc="xmlclitools provides four command-line tools for searching, modifying, and formating XML data. The tools are designed to work in conjunction with standard *nix utilities such as grep, sort, and shell scripts."
+arch=('x86_64')
+url="http://freecode.com/projects/xmlclitools"
+license=('custom')
+groups=()
+depends=('glib' 'pcre' 'libxml2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xmlclitools-1.61-1-chromeos-x86_64.tar.xz")
+sha256sums=('eb02a6633241f4bf4584f212d5bb693b3e22fa7e938f4885a8d1890d109cad7d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

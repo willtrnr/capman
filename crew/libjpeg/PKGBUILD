@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libjpeg
+pkgver=9.0
+pkgrel=1
+pkgdesc="JPEG is a free library for image compression."
+arch=('x86_64')
+url="http://www.ijg.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libjpeg-9.0-c-chromeos-x86_64.tar.xz")
+sha256sums=('d60d7686e7f8b5808bc5f96518da10061c507d0f1da59021d2869ff1662432b6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

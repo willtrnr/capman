@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=txt2man
+pkgver=1.5.6
+pkgrel=1
+pkgdesc="Converts flat ASCII text to man page format"
+arch=('x86_64')
+url="https://github.com/mvertes/txt2man"
+license=('GPL')
+groups=()
+depends=('bash' 'gawk')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/txt2man-1.5.6-1-chromeos-x86_64.tar.xz")
+sha256sums=('e0776d50fcdc817d6646b9424029ab244bcfcfaa4a16c209bfb7b29bb5e14dab')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

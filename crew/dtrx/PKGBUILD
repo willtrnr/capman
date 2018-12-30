@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dtrx
+pkgver=7.1
+pkgrel=1
+pkgdesc="s a tool for Unix-like systems that takes all the hassle out of extracting archives."
+arch=('x86_64')
+url="https://brettcsmith.org/2007/dtrx/"
+license=('custom')
+groups=()
+depends=('binutils' 'bz2' 'cabextract' 'cpio' 'lha' 'python27' 'unrar' 'unshield' 'unzip')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dtrx-7.1-chromeos-x86_64.tar.xz")
+sha256sums=('4817af93d2c30c4ced5c8fb5a4e0ebc7ebb51fb6fbfb2300380b27221b6b5c49')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

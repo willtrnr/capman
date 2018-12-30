@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ilmbase
+pkgver=2.3.0
+pkgrel=1
+pkgdesc="Base libraries from ILM for OpenEXR"
+arch=('x86_64')
+url="http://www.openexr.com"
+license=('custom')
+groups=()
+depends=('gcc-libs' 'glu')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ilmbase-2.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('76a019fd719ce2bc922396ca3ff5297f45fdbedf29a509fdcc853e36a61b17f5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

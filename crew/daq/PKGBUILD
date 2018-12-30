@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=daq
+pkgver=2.0.6
+pkgrel=1
+pkgdesc="Data Acquisition library, for packet I/O."
+arch=('x86_64')
+url="https://www.snort.org"
+license=('custom')
+groups=()
+depends=('libpcap')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/daq-2.0.6-chromeos-x86_64.tar.xz")
+sha256sums=('db3de1a94b02f47c15ae68b905f53fc7c6e6aef0845c28b03d4dd35f51d8f00b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

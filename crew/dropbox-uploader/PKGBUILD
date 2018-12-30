@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dropbox-uploader
+pkgver=1.0
+pkgrel=1
+pkgdesc="Dropbox Uploader is a BASH script which can be used to upload, download, list or delete files from Dropbox, an online file sharing, synchronization and backup service."
+arch=('x86_64')
+url="https://github.com/andreafabrizi/Dropbox-Uploader"
+license=('custom')
+groups=()
+depends=('curl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dropbox_uploader-1.0-chromeos-x86_64.tar.xz")
+sha256sums=('de141ac2bbc1a53d30776f5a280af3733222a92ca09465f13ea5b9d6000b2731')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

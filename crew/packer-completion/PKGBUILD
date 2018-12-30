@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=packer-completion
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Add bash autocompletion for packer."
+arch=('x86_64')
+url="https://github.com/mrolli/packer-bash-completion"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/packer_completion-1.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('72db1d2343fc28baaaef56b8aaca87442b3d713f99ca3e3889b920a816f2c4b2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

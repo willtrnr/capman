@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=elixir
+pkgver=1.6.4
+pkgrel=1
+pkgdesc="a functional meta-programming aware language built on top of the Erlang VM"
+arch=('x86_64')
+url="http://elixir-lang.org"
+license=('Apache' 'custom:EPL')
+groups=()
+depends=('erlang-nox')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/elixir-1.6.4-chromeos-x86_64.tar.xz")
+sha256sums=('1d185f98a47c2924ba747521bf46781bc36846953cfa8a81818f39f03c7d6013')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxfont
+pkgver=2.0.1
+pkgrel=1
+pkgdesc="library for the X window system"
+arch=('x86_64')
+url="https://x.org"
+license=('custom')
+groups=()
+depends=('libfontenc' 'freetype')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxfont-2.0.1-chromeos-x86_64.tar.xz")
+sha256sums=('a39664217180079324ce09fb7d341b3d02c9eb479b32c709447d9fea8561ecaf')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

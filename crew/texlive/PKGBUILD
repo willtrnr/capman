@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=texlive
+pkgver=2017
+pkgrel=1
+pkgdesc="TeX Live is an easy way to get up and running with the TeX document production system."
+arch=('x86_64')
+url="https://www.tug.org/texlive/"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/texlive-2017-chromeos-x86_64.tar.xz")
+sha256sums=('b8d927bc0abb8a17a440d235459a90cb50a49c343b8f0a43c9be853cbe0f26b3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

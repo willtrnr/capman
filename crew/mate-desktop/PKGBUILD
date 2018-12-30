@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mate-desktop
+pkgver=1.20
+pkgrel=1
+pkgdesc="Library with common API for various MATE modules"
+arch=('x86_64')
+url="http://mate-desktop.org"
+license=('GPL' 'LGPL')
+groups=('mate')
+depends=('gtk3' 'startup-notification')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=('mate-desktop-gtk3' 'mate-desktop-schemas')
+replaces=('mate-desktop-gtk3' 'mate-desktop-schemas')
+source=("https://dl.bintray.com/chromebrew/chromebrew/mate_desktop-1.20-0-chromeos-x86_64.tar.xz")
+sha256sums=('51c066b5ebf3806fbcfa0cd58bc2ebc7874e2889e16e2a6efd97bdfa22c77388')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

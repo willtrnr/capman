@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=freetype-sub
+pkgver=2.9
+pkgrel=1
+pkgdesc="Freetype_sub is a version without harfbuzz. It is intended to handle circular dependency betwwen freetype and harfbuzz."
+arch=('x86_64')
+url="https://www.freetype.org/"
+license=('custom')
+groups=()
+depends=('expat' 'libpng' 'bz2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/freetype_sub-2.9-chromeos-x86_64.tar.xz")
+sha256sums=('3ccd3b201456c5d9f2dac55311ed3f337edd230a894fae5e821072515a3d5d5f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

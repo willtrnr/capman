@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ncat
+pkgver=7.60
+pkgrel=1
+pkgdesc="Ncat - Netcat for the 21st Century - a modern netcat with extra features from the makers of nmap."
+arch=('x86_64')
+url="https://nmap.org/ncat"
+license=('custom')
+groups=()
+depends=('filecmd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ncat-7.60-chromeos-x86_64.tar.xz")
+sha256sums=('5660ea321436f1b9642d318a77e9b0b5c379825ac0611daaf5f82dd794753598')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

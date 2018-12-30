@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tilp
+pkgver=1.18
+pkgrel=1
+pkgdesc=" graphing calculators."
+arch=('x86_64')
+url="http://lpg.ticalc.org/prj_tilp/"
+license=('custom')
+groups=()
+depends=('tilp2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build tilp
+  tar xf "tilp-1.18-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

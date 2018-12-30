@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=npth
+pkgver=1.5
+pkgrel=1
+pkgdesc="New portable threads library"
+arch=('x86_64')
+url="http://git.gnupg.org/cgi-bin/gitweb.cgi?p=npth.git"
+license=('LGPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/npth-1.5-1-chromeos-x86_64.tar.xz")
+sha256sums=('29fcbdfa008f0e487ceebb1ca221eea79a56bd2937392c29ab01049d0d71699b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

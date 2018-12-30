@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gnome-icon-theme
+pkgver=3.12.0
+pkgrel=1
+pkgdesc="GNOME icon theme"
+arch=('x86_64')
+url="http://www.gnome.org"
+license=('GPL')
+groups=()
+depends=('gnome-icon-theme-symbolic' 'gtk-update-icon-cache' 'hicolor-icon-theme')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_icon_theme-3.12.0-chromeos-x86_64.tar.xz")
+sha256sums=('43f0676b7b5a59eab61f54b3e4213f27e7397c591c77d738349f1cb971886ffd')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

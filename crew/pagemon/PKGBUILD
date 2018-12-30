@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pagemon
+pkgver=0.01.10
+pkgrel=1
+pkgdesc="Pagemon is an interactive memory/page monitoring tool allowing one to browse the memory map of an active running process."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/pagemon/"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pagemon-0.01.10-chromeos-x86_64.tar.xz")
+sha256sums=('084d8ab1ccd2ba203554523f4a5f579be554f58a31cf360524a3f3ca10343a9e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

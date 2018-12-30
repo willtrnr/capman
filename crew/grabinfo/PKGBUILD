@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=grabinfo
+pkgver=1.71
+pkgrel=1
+pkgdesc="Navigates the /proc filesystem and executes commands in order to gather information about the state of your machine."
+arch=('x86_64')
+url="https://sourceforge.net/projects/grabinfo/"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/grabinfo-1.71-1-chromeos-x86_64.tar.xz")
+sha256sums=('7fe45b72e711b264d61cacb333f6f240e965bb409c006c29d15a2cbccf43e52c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

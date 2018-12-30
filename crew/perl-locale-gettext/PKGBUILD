@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-locale-gettext
+pkgver=1.07
+pkgrel=1
+pkgdesc="Permits access from Perl to the gettext() family of functions"
+arch=('x86_64')
+url="http://search.cpan.org/dist/Locale-gettext/"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('gettext' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_locale_gettext-1.07-chromeos-x86_64.tar.xz")
+sha256sums=('034808aee7e907baa2cd7d46c9892cd12e1f6be4932444ee272575e527d6176e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libuv
+pkgver=1.19.2
+pkgrel=1
+pkgdesc="Multi-platform support library with a focus on asynchronous I/O"
+arch=('x86_64')
+url="https://github.com/libuv/libuv"
+license=('custom')
+groups=()
+depends=('glibc' 'libnsl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libuv-1.19.2-chromeos-x86_64.tar.xz")
+sha256sums=('ac00cf539fcdf67bb88ff6994d41672578e9e4dd93a26e0b11bd7ffb850ccd37')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

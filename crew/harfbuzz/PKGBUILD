@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=harfbuzz
+pkgver=1.7.6
+pkgrel=1
+pkgdesc="OpenType text shaping engine"
+arch=('x86_64')
+url="http://www.freedesktop.org/wiki/Software/HarfBuzz"
+license=('MIT')
+groups=()
+depends=('freetype2' 'glib2' 'graphite')
+makedepends=()
+optdepends=('cairo: hb-view program')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/harfbuzz-1.7.6-0-chromeos-x86_64.tar.xz")
+sha256sums=('3dd360778d0ffbd12b23a9d1e2fe5d3031f8a93eb9f9618cd430dc91349bee7d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

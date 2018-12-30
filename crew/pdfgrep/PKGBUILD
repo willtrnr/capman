@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pdfgrep
+pkgver=2.0.1
+pkgrel=1
+pkgdesc="A tool to search text in PDF files"
+arch=('x86_64')
+url="http://pdfgrep.sourceforge.net/"
+license=('GPL')
+groups=()
+depends=('poppler')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pdfgrep-2.0.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('6bcca42a2012f845c17f3c4111d9ec104a212c809bc98ce75985f21bb03e010c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

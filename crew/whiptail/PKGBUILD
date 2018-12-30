@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=whiptail
+pkgver=0.52.20
+pkgrel=1
+pkgdesc="displays dialog boxes from shell scripts."
+arch=('x86_64')
+url="http://www.linuxfromscratch.org/blfs/view/cvs/general/newt.html"
+license=('custom')
+groups=()
+depends=('popt' 'slang')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/whiptail-0.52.20-chromeos-x86_64.tar.xz")
+sha256sums=('37464683ae2aec9af4788ab3159ea8de3b407092cc1bb06bdc94937291ec5a93')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

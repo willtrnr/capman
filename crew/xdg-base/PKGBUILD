@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xdg-base
+pkgver=0.7
+pkgrel=1
+pkgdesc="XDG Base Directory Specification Configuration"
+arch=('x86_64')
+url="https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build xdg_base
+  tar xf "xdg_base-0.7-2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

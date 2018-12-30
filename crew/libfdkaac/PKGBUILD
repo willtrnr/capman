@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libfdkaac
+pkgver=0.1.6
+pkgrel=1
+pkgdesc="A standalone library of the Fraunhofer FDK AAC code from Android."
+arch=('x86_64')
+url="https://github.com/mstorsjo/fdk-aac/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libfdkaac-0.1.6-chromeos-x86_64.tar.xz")
+sha256sums=('6647c1bd76d4ae09c998816512be25d7b3669c1a99fb2959246102a46917ca07')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

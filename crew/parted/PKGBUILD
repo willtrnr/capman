@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=parted
+pkgver=3.2
+pkgrel=1
+pkgdesc="A program for creating, destroying, resizing, checking and copying partitions"
+arch=('x86_64')
+url="http://www.gnu.org/software/parted/parted.html"
+license=('GPL3')
+groups=()
+depends=('device-mapper' 'libutil-linux')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/parted-3.2-chromeos-x86_64.tar.xz")
+sha256sums=('c5972a1b389e4a9454a6e6ea0e4eb2d30f5f294131d3bb97ccaff523fdbe08f9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

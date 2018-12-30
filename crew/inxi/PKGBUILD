@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=inxi
+pkgver=811a19
+pkgrel=1
+pkgdesc="inxi is a full featured CLI system information tool."
+arch=('x86_64')
+url="https://smxi.org/docs/inxi.htm"
+license=('custom')
+groups=()
+depends=('gawk' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/inxi-811a19-chromeos-x86_64.tar.xz")
+sha256sums=('6226f1fb5fbeb93ab9ad7237de9f1e8f21bba3e47e035f1b2776c4733972e197')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

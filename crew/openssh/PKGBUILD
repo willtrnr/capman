@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=openssh
+pkgver=7.6
+pkgrel=1
+pkgdesc="Premier connectivity tool for remote login with the SSH protocol"
+arch=('x86_64')
+url="https://www.openssh.com/portable.html"
+license=('custom:BSD')
+groups=()
+depends=('krb5' 'ldns' 'libedit' 'openssl')
+makedepends=()
+optdepends=('x11-ssh-askpass: input passphrase in X'
+            'xorg-xauth: X11 forwarding')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/openssh-7.6-chromeos-x86_64.tar.xz")
+sha256sums=('22e4e13c61d74f4b49737031644ce1d5e22a131c5f3c9e32e4b769e27092d188')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libpeas
+pkgver=1.22.0
+pkgrel=1
+pkgdesc="A GObject plugins library"
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/Libpeas"
+license=('GPL2')
+groups=()
+depends=('gobject-introspection-runtime' 'gtk3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libpeas-1.22.0-chromeos-x86_64.tar.xz")
+sha256sums=('1e5dab28a55d3e2209ed4535b0cbaf94c5260a79792a987d6ca9de19c3168952')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

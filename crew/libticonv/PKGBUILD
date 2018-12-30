@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libticonv
+pkgver=1.1.5
+pkgrel=1
+pkgdesc="Libticonv offers support for performing operations on TI calculators involving charsets."
+arch=('x86_64')
+url="http://lpg.ticalc.org/prj_tilp/"
+license=('custom')
+groups=()
+depends=('glib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build libticonv
+  tar xf "libticonv-1.1.5-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

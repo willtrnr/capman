@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=shrinkpdf
+pkgver=2014
+pkgrel=1
+pkgdesc="A simple wrapper around Ghostscript to shrink PDFs (as in reduce filesize) under Linux."
+arch=('x86_64')
+url="http://alfredklomp.com/programming/shrinkpdf/"
+license=('custom')
+groups=()
+depends=('ghostscript')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/shrinkpdf-2014-chromeos-x86_64.tar.xz")
+sha256sums=('92e7bddf8ead1324927547c1591e7f6192c2b195a8137a3365597c08d802f950')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

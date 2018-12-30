@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=datamash
+pkgver=1.3
+pkgrel=1
+pkgdesc="Performs basic numeric,textual and statistical operations on input textual data files"
+arch=('x86_64')
+url="https://www.gnu.org/software/datamash/"
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/datamash-1.3-chromeos-x86_64.tar.xz")
+sha256sums=('488eaf7f76c84ca7632aacf55e87293a2602129d68bfe9f7780ac51f0af56f52')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

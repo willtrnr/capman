@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xcb-util-renderutil
+pkgver=0.3.9
+pkgrel=1
+pkgdesc="Utility libraries for XC Binding - Convenience functions for the Render extension"
+arch=('x86_64')
+url="https://xcb.freedesktop.org"
+license=('custom')
+groups=()
+depends=('libxcb>=1.7')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_util_renderutil-0.3.9-chromeos-x86_64.tar.xz")
+sha256sums=('31db25a833ede1ba59652737de86228e024157e903682dba095de797d5dfe800')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

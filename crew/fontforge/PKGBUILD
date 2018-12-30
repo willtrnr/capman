@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fontforge
+pkgver=20170731
+pkgrel=1
+pkgdesc="Outline and bitmap font editor"
+arch=('x86_64')
+url="https://fontforge.github.io/"
+license=('BSD')
+groups=()
+depends=('desktop-file-utils' 'giflib' 'gtk-update-icon-cache' 'hicolor-icon-theme' 'libspiro' 'libtiff' 'libtool' 'libunicodenames' 'libxi' 'libxkbui' 'libxml2' 'pango' 'python' 'zeromq')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fontforge-20170731-chromeos-x86_64.tar.xz")
+sha256sums=('c7bd918c9064f5ade5f0c5040d11a67ff3addb42f5073b76afbeb51ba32b73cc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

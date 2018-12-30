@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tinycore
+pkgver=9.0
+pkgrel=1
+pkgdesc="description 'TinyCore Linux is a distro based on loop-device mounted programs, like Snaps."
+arch=('x86_64')
+url="https://distro.ibiblio.org/tinycorelinux/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build tinycore
+  tar xf "tinycore-9.0-0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libuninum
+pkgver=2.7
+pkgrel=1
+pkgdesc="This is a library for converting Unicode strings to numbers and numbers to Unicode strings."
+arch=('x86_64')
+url="http://billposer.org/Software/libuninum.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libuninum-2.7-0-chromeos-x86_64.tar.xz")
+sha256sums=('f2119fada66d21f242a33068c46267c1f05cdcb517dcbe76ab9476ca556e22cc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

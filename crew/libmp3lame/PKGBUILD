@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libmp3lame
+pkgver=3.100
+pkgrel=1
+pkgdesc="LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under the LGPL."
+arch=('x86_64')
+url="http://lame.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libmp3lame-3.100-chromeos-x86_64.tar.xz")
+sha256sums=('35a440b069c4734ec6c8100db2dfb541ceeddfbc96bb4aa176ebe2546c51d355')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

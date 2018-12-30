@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aide
+pkgver=0.15.1
+pkgrel=1
+pkgdesc="A file integrity checker and intrusion detection program."
+arch=('x86_64')
+url="http://aide.sourceforge.net/"
+license=('GPL')
+groups=()
+depends=('acl' 'e2fsprogs' 'elfutils' 'mhash' 'pcre')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aide-0.15.1-chromeos-x86_64.tar.xz")
+sha256sums=('74b87dbc5ca9a9bfa16420b136afba5fa513da3c75b13993bb11051d14c2a5f6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

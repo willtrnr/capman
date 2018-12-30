@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=colordiff
+pkgver=1.0.18
+pkgrel=1
+pkgdesc="A Perl script wrapper for 'diff' that produces the same output but with pretty 'syntax' highlighting"
+arch=('x86_64')
+url="http://www.colordiff.org/"
+license=('GPL')
+groups=()
+depends=('diffutils' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/colordiff-1.0.18-chromeos-x86_64.tar.xz")
+sha256sums=('d0cafc057a6967a0232ec57769a9b013e1e4cc8412b3b0ece257cc622f2a3234')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

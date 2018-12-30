@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sane-backends
+pkgver=1.0.27
+pkgrel=1
+pkgdesc="Scanner Access Now Easy - Backends"
+arch=('x86_64')
+url="http://www.sane-project.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sane_backends-1.0.27-chromeos-x86_64.tar.xz")
+sha256sums=('b585e6efcc75a0d54dc1468d6e9fa00445af1a5ceb01752dc11d7ad65a101efc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-module-build
+pkgver=0.4224
+pkgrel=1
+pkgdesc="Build, test, and install Perl modules"
+arch=('x86_64')
+url="http://search.cpan.org/dist/Module-Build"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('perl' 'perl-cpan-meta' 'perl-inc-latest')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_module_build-0.4224-chromeos-x86_64.tar.xz")
+sha256sums=('4e32b1519375b8b3b2b7262e864f2ba1d4d777dda64e96bdfb2c79d82cd9914b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

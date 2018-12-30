@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-wacom-driver
+pkgver=0.36.0
+pkgrel=1
+pkgdesc="The Xorg Wacom Driver package contains the X.Org X11 driver and SDK for Wacom and Wacom-like tablets. It is not required to use a Wacom tablet, the xf86-input-evdev driver can handle these devices without problems."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_wacom_driver-0.36.0-chromeos-x86_64.tar.xz")
+sha256sums=('bb728fe3c71174876921f48677d5c796a44789d42f919f4169bc64ad08757258')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

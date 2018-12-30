@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxv
+pkgver=1.0.11
+pkgrel=1
+pkgdesc="X11 Video extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxext' 'videoproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxv-1.0.11-0-chromeos-x86_64.tar.xz")
+sha256sums=('8f3ee446b50d160561283024caff13c7103074e366b65351f69b16c59e41b95d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=six
+pkgver=1.11.0
+pkgrel=1
+pkgdesc="Six is a Python 2 and 3 compatibility library."
+arch=('x86_64')
+url="https://github.com/benjaminp/six"
+license=('custom')
+groups=()
+depends=('python3' 'python27')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/six-1.11.0-chromeos-x86_64.tar.xz")
+sha256sums=('9b3e2de8109ab192bd6b5522619fd6fe4b39b44beb0d89b45091d82805123b2c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

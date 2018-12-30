@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dstat
+pkgver=0.7.3
+pkgrel=1
+pkgdesc="A versatile resource statistics tool"
+arch=('x86_64')
+url="http://dag.wieers.com/home-made/dstat/"
+license=('GPL')
+groups=()
+depends=('python2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dstat-0.7.3-chromeos-x86_64.tar.xz")
+sha256sums=('d37062db82e51d3bdfa30974b330442d8297f4e41d9a8705e4e51c41bfb604ba')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

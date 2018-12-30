@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pngcheck
+pkgver=2.3.0
+pkgrel=1
+pkgdesc="pngcheck verifies the integrity of PNG, JNG and MNG files"
+arch=('x86_64')
+url="http://www.libpng.org/pub/png/apps/pngcheck.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build pngcheck
+  tar xf "pngcheck-2.3.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

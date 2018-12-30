@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libgd
+pkgver=2.2.5
+pkgrel=1
+pkgdesc="GD is an open source code library for the dynamic creation of images by programmers."
+arch=('x86_64')
+url="https://libgd.github.io/"
+license=('custom')
+groups=()
+depends=('cmake' 'libpng')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libgd-2.2.5-chromeos-x86_64.tar.xz")
+sha256sums=('a3497051dc1dfe8cbc764d21097288bf49a491688e4f960ac41d11c1f6d39942')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,34 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=atool
+pkgver=0.39
+pkgrel=1
+pkgdesc="A script for managing file archives of various types"
+arch=('x86_64')
+url="http://www.nongnu.org/atool/"
+license=('GPL3')
+groups=()
+depends=('file' 'perl')
+makedepends=()
+optdepends=('bzip2: for using atool with bzip2 compressed archives'
+            'cpio: for using atool with cpio archives'
+            'gzip: for using atool with gzip compressed archives'
+            'lha: for using atool with lha, lharc and similar archives'
+            'lzop: for using atool with lzop compressed archives'
+            'p7zip: for using atool with 7z archives'
+            'tar: for using atool with tar archives'
+            'unace: for using atool with ace archives'
+            'unrar: for using atool with rar archives'
+            'unzip: for using atool for unpacking archives'
+            'xz: for using atool with lzma compressed archives'
+            'zip: for using atool for creating zip archives')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/atool-0.39-chromeos-x86_64.tar.xz")
+sha256sums=('e8e9a3db6efd80ad3b5b18725c4c5c4816e56fc101ca273de072af489f8c0d1e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

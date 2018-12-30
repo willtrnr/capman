@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=zsync
+pkgver=0.6.2
+pkgrel=1
+pkgdesc="A file transfer program that's able to connect to rsync servers"
+arch=('x86_64')
+url="http://zsync.moria.org.uk/"
+license=('custom:Artistic')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/zsync-0.6.2-chromeos-x86_64.tar.xz")
+sha256sums=('ce5a3c89fec4f13638ade49db7c2c45ca169e86b34687b3c55710f534789aba6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ldc
+pkgver=1.7.0
+pkgrel=1
+pkgdesc="A D Compiler based on the LLVM Compiler Infrastructure including D runtime and libphobos2"
+arch=('x86_64')
+url="https://github.com/ldc-developers/ldc"
+license=('BSD')
+groups=('dlang' 'dlang-ldc')
+depends=('compiler-rt' 'gcc' 'liblphobos' 'llvm-libs')
+makedepends=()
+optdepends=()
+provides=('d-compiler=2.083.1')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ldc-1.7.0-chromeos-x86_64.tar.xz")
+sha256sums=('6730100e809fc14d8b42f6d39fce4699917d24b971438eceb819e9c9264fbeaa')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

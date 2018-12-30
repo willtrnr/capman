@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gtkmm2
+pkgver=2.24.5
+pkgrel=1
+pkgdesc="The Gtkmm2 package provides a C++ interface to GTK+ 2."
+arch=('x86_64')
+url="https://www.gtkmm.org/"
+license=('custom')
+groups=()
+depends=('atkmm' 'gtk2' 'pangomm')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtkmm2-2.24.5-chromeos-x86_64.tar.xz")
+sha256sums=('ee4cb765b361813661d8be16a85f74ff60d5426cd34ac11eeecd2c4dadce3599')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

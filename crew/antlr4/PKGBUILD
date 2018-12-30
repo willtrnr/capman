@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=antlr4
+pkgver=4.7.1
+pkgrel=1
+pkgdesc="Parser generator for reading, processing, executing, or translating structured text or binary files"
+arch=('x86_64')
+url="http://www.antlr.org/index.html"
+license=('BSD')
+groups=()
+depends=('java-environment>=6')
+makedepends=()
+optdepends=()
+provides=('antlr=4.7.1')
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build antlr4
+  tar xf "antlr4-4.7.1-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

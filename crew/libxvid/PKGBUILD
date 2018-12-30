@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxvid
+pkgver=1.3.5
+pkgrel=1
+pkgdesc="The free video codec that is strong in compression and quality."
+arch=('x86_64')
+url="https://www.xvid.com/"
+license=('custom')
+groups=()
+depends=('yasm')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxvid-1.3.5-chromeos-x86_64.tar.xz")
+sha256sums=('e990606cef5b83dcffa96e6595538240934c6f926ca49701c165322811f8a44f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

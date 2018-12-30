@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=plowshare
+pkgver=2.1.7
+pkgrel=1
+pkgdesc="Command-line downloader and uploader for Rapidshare, Mediafire and other file sharing websites."
+arch=('x86_64')
+url="https://github.com/mcrapet/plowshare"
+license=('GPL3')
+groups=()
+depends=('curl' 'git' 'js52' 'recode')
+makedepends=()
+optdepends=('bash-completion: enable bash auto completion'
+            'fbida: framebuffer picture viewer for captchas'
+            'feh: X11 picture viewer for captchas'
+            'imagemagick: X11 picture viewer for captchas'
+            'libcaca: framebuffer ascii picture viewer for captchas'
+            'qiv: X11 picture viewer for captchas'
+            'sxiv: X11 picture viewer for captchas')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/plowshare-2.1.7-chromeos-x86_64.tar.xz")
+sha256sums=('5d416217cb31c3fc9ab7b33cdcd78c5c9c49b7334145b7bbe99465a4b3c7f995')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

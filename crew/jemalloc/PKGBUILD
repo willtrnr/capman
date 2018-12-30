@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jemalloc
+pkgver=5.0.1
+pkgrel=1
+pkgdesc="General-purpose scalable concurrent malloc implementation"
+arch=('x86_64')
+url="http://www.canonware.com/jemalloc/"
+license=('BSD')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=('perl: for jeprof')
+provides=('libjemalloc.so=2-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jemalloc-5.0.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('c2d0a38655d5af85c08dfc2ef96881b42acb328e0a0b4d72a8c1cbfa82d61f7f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

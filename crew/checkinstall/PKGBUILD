@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=checkinstall
+pkgver=1.6.2
+pkgrel=1
+pkgdesc="CheckInstall is a computer program for Unix-like operating systems which eases the installation and uninstallation of software compiled from source by making use of package management systems."
+arch=('x86_64')
+url="http://asic-linux.com.mx/~izto/checkinstall/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build checkinstall
+  tar xf "checkinstall-1.6.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

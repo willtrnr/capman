@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=phive
+pkgver=0.9.0
+pkgrel=1
+pkgdesc="The PHAR Installation and Verification Environment (PHIVE)"
+arch=('x86_64')
+url="https://phar.io/"
+license=('custom')
+groups=()
+depends=('composer')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/phive-0.9.0-chromeos-x86_64.tar.xz")
+sha256sums=('49b75dfccdf0f14a516c67dc923603d579ea4bd9dcac49892eb483e578aaaf49')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

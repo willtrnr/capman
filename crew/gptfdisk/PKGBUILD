@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gptfdisk
+pkgver=1.0.3
+pkgrel=1
+pkgdesc="A text-mode partitioning tool that works on GUID Partition Table (GPT) disks"
+arch=('x86_64')
+url="https://www.rodsbooks.com/gdisk/"
+license=('GPL2')
+groups=()
+depends=('gcc-libs' 'libncursesw.so=6-64' 'libuuid.so=1-64' 'popt')
+makedepends=()
+optdepends=()
+provides=('gdisk=1.0.4')
+conflicts=('gdisk')
+replaces=('gdisk')
+source=("https://dl.bintray.com/chromebrew/chromebrew/gptfdisk-1.0.3-1-chromeos-x86_64.tar.xz")
+sha256sums=('eb8dd86aff1b9610681d764eef74351ed687ed307c519ef646ae2c8448017946')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cpputest
+pkgver=3.8
+pkgrel=1
+pkgdesc="Unit testing and mocking framework for C/C++."
+arch=('x86_64')
+url="https://cpputest.github.io/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cpputest-3.8-chromeos-x86_64.tar.xz")
+sha256sums=('8813aacc9f17fbafe7a49fd45e4e3989b201698fa0db1258f55954735b7d6ee3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

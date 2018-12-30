@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lsb-release
+pkgver=1.4
+pkgrel=1
+pkgdesc="LSB version query program"
+arch=('x86_64')
+url="http://www.linuxbase.org/"
+license=('GPL2')
+groups=()
+depends=('bash')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build lsb_release
+  tar xf "lsb_release-1.4-1-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

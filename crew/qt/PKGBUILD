@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=qt
+pkgver=5.11.2
+pkgrel=1
+pkgdesc="Qt is a comprehensive cross-platform framework and toolkit that helps you create and build native applications and user interfaces for all the screens of your end user."
+arch=('x86_64')
+url="https://info.qt.io/download-qt-for-application-development"
+license=('custom')
+groups=()
+depends=('xdg-base' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build qt
+  tar xf "qt-5.11.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

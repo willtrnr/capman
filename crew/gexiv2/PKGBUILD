@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gexiv2
+pkgver=0.10.8
+pkgrel=1
+pkgdesc="gexiv2 is a GObject wrapper around the Exiv2 photo metadata library."
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/gexiv2/"
+license=('custom')
+groups=()
+depends=('libexiv2' 'gobject-introspection')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gexiv2-0.10.8-chromeos-x86_64.tar.xz")
+sha256sums=('bda3197ee000806a1151f44587eb422b0afedc3b8b6b28c9def8ca490ff8db6a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

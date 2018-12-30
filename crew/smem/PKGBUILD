@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=smem
+pkgver=1.4
+pkgrel=1
+pkgdesc="Generate reports on memory usage."
+arch=('x86_64')
+url="http://www.selenic.com/smem/"
+license=('GPL')
+groups=()
+depends=('python')
+makedepends=()
+optdepends=('python-matplotlib: for chart generation')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/smem-1.4-chromeos-x86_64.tar.xz")
+sha256sums=('aff43254df620f1dcd080a5071a0f58b223d57b6f48d8545ed453062c115ada6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

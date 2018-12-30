@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libglu
+pkgver=9.0.0
+pkgrel=1
+pkgdesc="Mesa OpenGL Utility library"
+arch=('x86_64')
+url="https://www.mesa3d.org/"
+license=('custom')
+groups=()
+depends=('mesa' 'xorg-lib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libglu-9.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('3eb2f46c684da6c34ab4f35b213d82be693afdb1203493a10f65edffeeb98cc7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

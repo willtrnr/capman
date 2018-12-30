@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-unicode-eastasianwidth
+pkgver=1.33
+pkgrel=1
+pkgdesc="Perl Unicode::EastAsianWidth - East Asian Width properties."
+arch=('x86_64')
+url="https://metacpan.org/pod/Unicode::EastAsianWidth"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_unicode_eastasianwidth-1.33-chromeos-x86_64.tar.xz")
+sha256sums=('ca7516e05ea52ad7c988209ee0fdce1aebf32434eb2ba7f6fc03015588088a6f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=elinks
+pkgver=0.11.7
+pkgrel=1
+pkgdesc="An advanced and well-established feature-rich text mode web browser."
+arch=('x86_64')
+url="http://elinks.or.cz"
+license=('GPL')
+groups=()
+depends=('bzip2' 'expat>=2.0' 'gc' 'gpm>=1.20.4' 'libidn' 'lua51' 'openssl' 'tre' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/elinks-0.11.7-chromeos-x86_64.tar.xz")
+sha256sums=('6473794b1cad1f09965ae540adf4f8fe0e8bb9a957d9d37477ff06e6f99095d0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

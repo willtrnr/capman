@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-lib
+pkgver=0.1
+pkgrel=1
+pkgdesc="A collection of xorg libraries."
+arch=('x86_64')
+url="homepage ''"
+license=('custom')
+groups=()
+depends=('libxtrans' 'libx11' 'libxext' 'libfontenc' 'libxinerama' 'libxdamage' 'libxtst' 'libpciaccess' 'libxkbfile' 'libxshmfence' 'libxi' 'libxcursor' 'libxrender' 'libxfixes' 'libdmx' 'libfs' 'libice' 'libsm' 'libxaw' 'libxfont2' 'libxft' 'libxmu' 'libxpm' 'libxrandr' 'libxres' 'libxt' 'libxv' 'libxvmc' 'libxxf86dga' 'libxxf86vm' 'libxcomposite' 'libxscrnsaver')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build xorg_lib
+  tar xf "xorg_lib-0.1-0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

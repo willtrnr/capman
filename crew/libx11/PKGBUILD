@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libx11
+pkgver=1.6.5
+pkgrel=1
+pkgdesc="X11 client-side library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('kbproto' 'libxcb' 'xproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libx11-1.6.5-1-chromeos-x86_64.tar.xz")
+sha256sums=('566173764c75b30509d33f16efb13d59244a79274b5af833b17a2e1483e26e97')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

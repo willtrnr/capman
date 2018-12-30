@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=quakespasm
+pkgver=0.93.1
+pkgrel=1
+pkgdesc="A modern, cross-platform Quake game engine based on FitzQuake."
+arch=('x86_64')
+url="http://quakespasm.sourceforge.net"
+license=('custom')
+groups=()
+depends=('libglu' 'libsdl' 'libvorbis' 'libmad' 'freeglut')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/quakespasm-0.93.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('16afe97af889bd2c5c4f8e4c835fd044c3313f76e91bb584f27a44740c454e17')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

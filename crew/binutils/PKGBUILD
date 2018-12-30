@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=binutils
+pkgver=2.31.1
+pkgrel=1
+pkgdesc="A set of programs to assemble and manipulate binary and object files"
+arch=('x86_64')
+url="http://www.gnu.org/software/binutils/"
+license=('GPL')
+groups=('base-devel')
+depends=('glibc' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=('binutils-multilib')
+replaces=('binutils-multilib')
+source=("https://dl.bintray.com/chromebrew/chromebrew/binutils-2.31.1-chromeos-x86_64.tar.xz")
+sha256sums=('d02caabe18956f1e03a7f59539fa5470622ebe833a635ef69535b2277b802222')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

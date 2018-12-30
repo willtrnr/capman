@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=openconnect
+pkgver=7.08
+pkgrel=1
+pkgdesc="Open client for Cisco AnyConnect VPN"
+arch=('x86_64')
+url="http://www.infradead.org/openconnect.html"
+license=('LGPL2.1')
+groups=()
+depends=('gnutls' 'krb5' 'libproxy' 'libxml2' 'lz4' 'pcsclite' 'vpnc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/openconnect-7.08-1-chromeos-x86_64.tar.xz")
+sha256sums=('e76d8af2e66e08618b40ca788442dcd317dc334c145748332ce3fcd5f03ddf29')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

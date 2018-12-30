@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xcb-util-image
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="Utility libraries for XC Binding - Port of Xlib's XImage and XShmImage functions"
+arch=('x86_64')
+url="https://xcb.freedesktop.org"
+license=('custom')
+groups=()
+depends=('libxcb>=1.7' 'xcb-util>=0.3.9')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_util_image-0.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('c0937fb88402aca9aa214737505b5686274520e100007f567991f26dbccec259')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

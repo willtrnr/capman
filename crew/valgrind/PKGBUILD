@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=valgrind
+pkgver=3.13.0
+pkgrel=1
+pkgdesc="Tool to help find memory-management problems in programs"
+arch=('x86_64')
+url="http://valgrind.org/"
+license=('GPL')
+groups=()
+depends=('glibc' 'perl')
+makedepends=()
+optdepends=('lib32-glibc: 32-bit ABI support'
+            'openmpi: MPI support')
+provides=('valgrind-multilib')
+conflicts=()
+replaces=('valgrind-multilib')
+source=("https://dl.bintray.com/chromebrew/chromebrew/valgrind-3.13.0-3-chromeos-x86_64.tar.xz")
+sha256sums=('c468df7dad7a385b6759833b0939f2551804dde400bb3b2629315c8ee80c8b45')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

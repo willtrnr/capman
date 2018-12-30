@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sqlmap
+pkgver=1.2
+pkgrel=1
+pkgdesc="Automatic SQL injection and database takeover tool"
+arch=('x86_64')
+url="http://sqlmap.org"
+license=('GPL2')
+groups=()
+depends=('python2' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sqlmap-1.2-chromeos-x86_64.tar.xz")
+sha256sums=('a4bf8317eb465acdf4bc743d6fddc838b16de909144cfa5706f6fbc45d942e7e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

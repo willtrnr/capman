@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=bluefish
+pkgver=2.2.10
+pkgrel=1
+pkgdesc="A powerful HTML editor for experienced web designers and programmers"
+arch=('x86_64')
+url="http://bluefish.openoffice.nl/"
+license=('GPL3')
+groups=()
+depends=('enchant' 'gtk3' 'python2')
+makedepends=()
+optdepends=('gucharmap: for using the charmap plugin')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/bluefish-2.2.10-chromeos-x86_64.tar.xz")
+sha256sums=('7403531e5aef2c5d7afe05433fa4d6c3b5b74797a3b4e81ef4ebd20c32de228d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

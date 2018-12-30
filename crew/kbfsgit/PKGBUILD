@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kbfsgit
+pkgver=1.0.40
+pkgrel=1
+pkgdesc="Keybase encrypted git repositories."
+arch=('x86_64')
+url="https://keybase.io/docs/kbfs"
+license=('custom')
+groups=()
+depends=('keybase')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/kbfsgit-1.0.40-chromeos-x86_64.tar.xz")
+sha256sums=('a6d5354a474c40cac6183e716912ace7cc8144e086ac0e6ea733e07a3c590c4c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

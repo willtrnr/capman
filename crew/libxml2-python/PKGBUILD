@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxml2-python
+pkgver=2.9.8
+pkgrel=1
+pkgdesc="Libxml2 (python module) is the XML C parser and toolkit developed for the Gnome project."
+arch=('x86_64')
+url="http://xmlsoft.org/"
+license=('custom')
+groups=()
+depends=('python27' 'libxml2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxml2_python-2.9.8-chromeos-x86_64.tar.xz")
+sha256sums=('37e3c41d54d34e190e955c7e02dc8028c3ca761065f403d1e1a24310ace15032')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

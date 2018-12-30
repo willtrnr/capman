@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pygobject2
+pkgver=2.28.7
+pkgrel=1
+pkgdesc="PyGObject is a Python package which provides bindings for GObject based libraries such as GTK+, GStreamer, WebKitGTK+, GLib, GIO and many more."
+arch=('x86_64')
+url="https://pygobject.readthedocs.io/en/latest/"
+license=('custom')
+groups=()
+depends=('glib' 'gobject-introspection' 'pycairo')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pygobject2-2.28.7-chromeos-x86_64.tar.xz")
+sha256sums=('f8770f45903fe780f4e91f97e14616bbaf4d895ab924feae1b892529a98aa121')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

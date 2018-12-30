@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libsigcplusplus
+pkgver=2.10.0
+pkgrel=1
+pkgdesc="libsigc++ implements a typesafe callback system for standard C++."
+arch=('x86_64')
+url="http://libsigc.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libsigcplusplus-2.10.0-chromeos-x86_64.tar.xz")
+sha256sums=('c32ff29b0f4a8394b69502cd3dc030848f84c5c3df048beb88966f7b1b6c6935')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

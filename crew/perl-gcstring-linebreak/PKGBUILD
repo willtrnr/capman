@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-gcstring-linebreak
+pkgver=2018.003
+pkgrel=1
+pkgdesc="UAX 14 Unicode Line Breaking Algorithm - Perl binding Unicode::LineBreak Unicode::GCString"
+arch=('x86_64')
+url="http://search.cpan.org/~nezumi/Unicode-LineBreak-2018.003/lib/Unicode/LineBreak.pod"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_gcstring_linebreak-2018.003-chromeos-x86_64.tar.xz")
+sha256sums=('bb0a1cd5fd243b0c07cd40fdbf77e9c7150807beb418a68f894f58e226f1c24a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sdl2-image
+pkgver=2.0.4
+pkgrel=1
+pkgdesc="SDL2_image is an image loading library that is used with the SDL2 library."
+arch=('x86_64')
+url="https://www.libsdl.org/projects/SDL_image/"
+license=('custom')
+groups=()
+depends=('libsdl2' 'libjpeg' 'libpng' 'libtiff' 'libwebp')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build sdl2_image
+  tar xf "sdl2_image-2.0.4-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

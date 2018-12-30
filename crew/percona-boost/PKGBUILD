@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=percona-boost
+pkgver=1.59.0
+pkgrel=1
+pkgdesc="Boost provides free peer-reviewed portable C++ source libraries."
+arch=('x86_64')
+url="http://www.boost.org/"
+license=('custom')
+groups=()
+depends=('python27')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/percona_boost-1.59.0-chromeos-x86_64.tar.xz")
+sha256sums=('4cfcf14440dae594c3ad0c8fa3086f08c0e90787785d82e1b54454bcf0941ed9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

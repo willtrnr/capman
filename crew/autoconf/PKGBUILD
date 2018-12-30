@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=autoconf
+pkgver=2.69
+pkgrel=1
+pkgdesc="A GNU tool for automatically configuring source code"
+arch=('x86_64')
+url="http://www.gnu.org/software/autoconf"
+license=('custom' 'GPL2' 'GPL3')
+groups=('base-devel')
+depends=('awk' 'diffutils' 'm4' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/autoconf-2.69-chromeos-x86_64.tar.xz")
+sha256sums=('6e9469eefc244fbe7754a3ae88e74fa8892f8676084a6c9ea2ec5b4d49a36c6b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=a52
+pkgver=0.7.4
+pkgrel=1
+pkgdesc="liba52 is a free library for decoding ATSC A/52 streams."
+arch=('x86_64')
+url="http://liba52.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/a52-0.7.4-chromeos-x86_64.tar.xz")
+sha256sums=('eb8a838b7b5284354f0e033f098e6c2270ea20eccf51df3ea5a93be6b2a4d56d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

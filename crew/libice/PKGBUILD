@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libice
+pkgver=1.0.9
+pkgrel=1
+pkgdesc="X11 Inter-Client Exchange library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('glibc' 'xproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libice-1.0.9-0-chromeos-x86_64.tar.xz")
+sha256sums=('f12df0a9802c23816595d13ddaa15ca46727b9ace7c7f57ede4cdbcc1ecbd8f8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

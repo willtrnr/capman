@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=librhash
+pkgver=1.3.6
+pkgrel=1
+pkgdesc="RHash is a console utility for computing and verifying hash sums of files."
+arch=('x86_64')
+url="http://rhash.anz.ru/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/librhash-1.3.6-chromeos-x86_64.tar.xz")
+sha256sums=('c6b8682b1caec42d5146f2864c3d8ea608d1fcdbe638d60897e1e074a3f034a2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

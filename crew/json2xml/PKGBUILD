@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=json2xml
+pkgver=2.1.0
+pkgrel=1
+pkgdesc="json to xml converter"
+arch=('x86_64')
+url="https://github.com/vinitkumar/json2xml"
+license=('custom')
+groups=()
+depends=('libxslt' 'setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/json2xml-2.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('cea573afae8c6f6439610041160f11aef73988eac87708d875b5be0cbef77043')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

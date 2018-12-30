@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=wget
+pkgver=1.19.5
+pkgrel=1
+pkgdesc="Network utility to retrieve files from the Web"
+arch=('x86_64')
+url="https://www.gnu.org/software/wget/wget.html"
+license=('GPL3')
+groups=()
+depends=('glibc' 'gnutls' 'libidn2' 'libpsl' 'libutil-linux' 'pcre2')
+makedepends=()
+optdepends=('ca-certificates: HTTPS downloads')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/wget-1.19.5-chromeos-x86_64.tar.xz")
+sha256sums=('548eed614937bab283230225992d52d7760e76f2b1aeb5f0e605419bdb9b0439')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

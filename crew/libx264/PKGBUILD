@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libx264
+pkgver=20171118
+pkgrel=1
+pkgdesc="x264 is a free software library and application for encoding video streams into the H.264/MPEG-4 AVC compression format."
+arch=('x86_64')
+url="http://www.videolan.org/developers/x264.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libx264-20171118-2245-stable-chromeos-x86_64.tar.xz")
+sha256sums=('32b6a7a5f9557b066e633beeb3f3ff748dd90a2bef14ead31e292f984e5d226c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

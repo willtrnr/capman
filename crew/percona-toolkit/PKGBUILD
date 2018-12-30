@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=percona-toolkit
+pkgver=3.0.7
+pkgrel=1
+pkgdesc="Collection of advanced command-line tools to perform a variety of MySQL and system tasks."
+arch=('x86_64')
+url="https://www.percona.com/software/database-tools/percona-toolkit"
+license=('GPL')
+groups=()
+depends=('perl-term-readkey')
+makedepends=()
+optdepends=('perl-dbd-mysql: MySQL connections'
+            'perl-dbi: MySQL connections')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/percona_toolkit-3.0.7-chromeos-x86_64.tar.xz")
+sha256sums=('b3820dd0791160369b84a66017c6938ee6850074b9e3efefa2a1b4c64380727b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

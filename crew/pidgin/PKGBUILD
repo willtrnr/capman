@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pidgin
+pkgver=2.13.0
+pkgrel=1
+pkgdesc="Multi-protocol instant messaging client"
+arch=('x86_64')
+url="http://pidgin.im/"
+license=('GPL')
+groups=()
+depends=('gst-plugins-base' 'gst-plugins-good' 'gtkspell' 'hicolor-icon-theme' 'libpurple' 'libsm' 'libxss' 'startup-notification')
+makedepends=()
+optdepends=('aspell: for spelling correction')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pidgin-2.13.0-chromeos-x86_64.tar.xz")
+sha256sums=('11fcf60b4b62af0bfd76d0f39091b449c6c550ad5185b3f3c4688484be7e4f7f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

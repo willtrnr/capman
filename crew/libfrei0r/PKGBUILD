@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libfrei0r
+pkgver=1.6.1
+pkgrel=1
+pkgdesc="Minimalistic API for a collection of free video effect plugins."
+arch=('x86_64')
+url="https://frei0r.dyne.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libfrei0r-1.6.1-chromeos-x86_64.tar.xz")
+sha256sums=('73646984853d48487d8881cdc4a9ac3fd35f08e8384be54db9948a6d41046d23')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

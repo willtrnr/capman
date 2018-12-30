@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kakoune
+pkgver=v2018.09.04
+pkgrel=1
+pkgdesc="Vim-inspired, selection-oriented code editor"
+arch=('x86_64')
+url="http://kakoune.org/"
+license=('custom:unlicense')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=('aspell: spell checking support'
+            'clang: C/C++ completion and diagnostics support'
+            'ranger: filesystem explorer'
+            'tmux: splitting and creating windows'
+            'xdotool: X11 utility to focus arbitrary kakoune clients'
+            'xorg-xmessage: display debug messages in a new window')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/kakoune-v2018.09.04-chromeos-x86_64.tar.xz")
+sha256sums=('daed7d68e53f1f2751dc6a9a59c3efaab0a89651ff690b2cb5ac8be02e4d95f1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

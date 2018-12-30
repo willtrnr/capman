@@ -1,0 +1,33 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ansible
+pkgver=2.6.4
+pkgrel=1
+pkgdesc="Radically simple IT automation platform"
+arch=('x86_64')
+url="https://www.ansible.com"
+license=('GPL3')
+groups=()
+depends=('python' 'python-jinja' 'python-paramiko' 'python-yaml')
+makedepends=()
+optdepends=('acme-tiny: openssl_certificate module'
+            'python-boto3: aws_s3 module'
+            'python-dnspython: for dig lookup'
+            'python-jmespath: json_query support'
+            'python-netaddr: for the ipaddr filter'
+            'python-ovirt-engine-sdk: ovirt support'
+            'python-passlib: crypt values for vars_prompt'
+            'python-pyopenssl: openssl modules'
+            'python-pywinrm: connect to Windows machines'
+            'python-systemd: log to journal'
+            'sshpass: for ssh connections with password')
+provides=('python-ansible')
+conflicts=('python-ansible')
+replaces=('python-ansible')
+source=("https://dl.bintray.com/chromebrew/chromebrew/ansible-2.6.4-chromeos-x86_64.tar.xz")
+sha256sums=('896e3f1a1feae460d917aad223f01ea07b4fcd74728965fc26ee1a6cc24cea98')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

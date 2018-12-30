@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=usbutils
+pkgver=009
+pkgrel=1
+pkgdesc="USB Device Utilities"
+arch=('x86_64')
+url="http://linux-usb.sourceforge.net/"
+license=('GPL')
+groups=('base')
+depends=('hwids' 'libusb')
+makedepends=()
+optdepends=('coreutils: for lsusb.py usage'
+            'python: for lsusb.py usage')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/usbutils-009-chromeos-x86_64.tar.xz")
+sha256sums=('8d39c72db131b97b256ef91fc5360479abef2f0be17e785625476d58b8a6aa89')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

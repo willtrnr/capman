@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-sgmls
+pkgver=1.1
+pkgrel=1
+pkgdesc="A Post-Processor for SGMLS and NSGMLS"
+arch=('x86_64')
+url="http://search.cpan.org/dist/SGMLSpm"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_sgmls-1.1-chromeos-x86_64.tar.xz")
+sha256sums=('3d2b15ddb42f1ae17d1adc7062859355a7e5de56af48dacabe7fead5ee2159de')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

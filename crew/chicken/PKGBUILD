@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=chicken
+pkgver=4.13.0
+pkgrel=1
+pkgdesc="Feature rich R5RS Scheme compiler and interpreter"
+arch=('x86_64')
+url="http://call-cc.org/"
+license=('BSD')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=('mono')
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/chicken-4.13.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('ee8820ba71c1db4e90152cd52f133e2106292071b95d2bf6538b6e28aa723022')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=help2info
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="help2info is a bash script that generates a simple info page from the output of the --help argument of the specified program."
+arch=('x86_64')
+url="http://savannah.nongnu.org/projects/help2info"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/help2info-0.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('792983412f4b466c4a3c8f98cc16442701f2a7a26c6063e8335589dde5d0970a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

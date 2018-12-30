@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gegl
+pkgver=0.4.8
+pkgrel=1
+pkgdesc="Graph based image processing framework"
+arch=('x86_64')
+url="http://www.gegl.org/"
+license=('GPL3' 'LGPL3')
+groups=()
+depends=('babl' 'jasper' 'json-glib' 'lensfun' 'libgexiv2' 'libraw' 'librsvg' 'libspiro' 'libtiff' 'lua' 'openexr' 'suitesparse')
+makedepends=()
+optdepends=('ffmpeg: ffmpeg plugin')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gegl-0.4.8-chromeos-x86_64.tar.xz")
+sha256sums=('c00defcb1a8e58fbf7e9c7c94e8bfd684abb36281453252b0103b300034fa843')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

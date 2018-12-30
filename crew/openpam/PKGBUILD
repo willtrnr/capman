@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=openpam
+pkgver=20170430
+pkgrel=1
+pkgdesc="OpenPAM is an open source PAM library that focuses on simplicity, correctness, and cleanliness."
+arch=('x86_64')
+url="https://www.openpam.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/openpam-20170430-chromeos-x86_64.tar.xz")
+sha256sums=('ef479ccabafa687208070e0df8d13668d3c3206679d16b67efe7bfb5d30ea09d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

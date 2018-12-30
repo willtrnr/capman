@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=markdown
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="Markdown is a text-to-HTML conversion tool for web writers."
+arch=('x86_64')
+url="https://daringfireball.net/projects/markdown/"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/markdown-1.0.1-chromeos-x86_64.tar.xz")
+sha256sums=('aa7a1d7664c25efad0a2874dfc3a07653bcd5ee0998bb87cf02da1815ece608e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

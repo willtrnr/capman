@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=uwsgi
+pkgver=2.0.17
+pkgrel=1
+pkgdesc="A fast, self-healing and developer/sysadmin-friendly application container server coded in pure C"
+arch=('x86_64')
+url="http://projects.unbit.it/uwsgi"
+license=('GPL2')
+groups=()
+depends=('jansson' 'libcap' 'libsystemd' 'libxml2' 'pam' 'pcre')
+makedepends=('bzip2' 'classpath' 'curl' 'gcc' 'gmp' 'jansson' 'java-environment=7' 'libedit' 'libxml2' 'libyaml' 'lua51' 'mono' 'openssl' 'pam' 'pcre' 'perl' 'php-embed' 'pypy' 'python' 'python2' 'python2-gevent' 'python2-greenlet' 'python-greenlet' 'ruby' 'systemd')
+optdepends=('systemd: daemon scripts')
+provides=()
+conflicts=('python-uwsgi')
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build uwsgi
+  tar xf "uwsgi-2.0.17-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

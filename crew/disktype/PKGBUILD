@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=disktype
+pkgver=9
+pkgrel=1
+pkgdesc="Detects the content format of a disk or disk image by checking for signatures of file systems, partition tables, and boot codes."
+arch=('x86_64')
+url="https://sourceforge.net/projects/disktype/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/disktype-9-chromeos-x86_64.tar.xz")
+sha256sums=('807040a6c0d90a8dd4640b008bb0331402b1c232e243a8a14f1ab236933d60ac')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

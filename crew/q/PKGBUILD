@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=q
+pkgver=1.7.1
+pkgrel=1
+pkgdesc="q is a command line tool that allows direct execution of SQL-like queries on CSVs/TSVs (and any other tabular text files)."
+arch=('x86_64')
+url="http://harelba.github.io/q/"
+license=('custom')
+groups=()
+depends=('python27' 'sqlite')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/q-1.7.1-chromeos-x86_64.tar.xz")
+sha256sums=('d1c9c44e976208687c4f0a52e631cce825fefa737b5aedf19c252db9bd99019c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pango
+pkgver=1.42.4
+pkgrel=1
+pkgdesc="A library for layout and rendering of text"
+arch=('x86_64')
+url="https://www.pango.org/"
+license=('LGPL')
+groups=()
+depends=('cairo' 'fribidi' 'harfbuzz' 'libthai' 'libxft')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pango-1.42.4-chromeos-x86_64.tar.xz")
+sha256sums=('10caa80ccf8d2eaef71e48dcb8f9cacf971d66450562c490043dbe35da8ab252')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=lzma
+pkgver=4.32.7
+pkgrel=1
+pkgdesc="LZMA Utils are legacy data compression software with high compression ratio."
+arch=('x86_64')
+url="https://tukaani.org/lzma/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/lzma-4.32.7-1-chromeos-x86_64.tar.xz")
+sha256sums=('c8a08a86689baf36796baa5c86c1507b10b0b5cdaca733737be6c59782b07b1a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

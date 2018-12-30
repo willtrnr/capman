@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=unrar
+pkgver=5.6.3
+pkgrel=1
+pkgdesc="The RAR uncompression program"
+arch=('x86_64')
+url="http://www.rarlab.com/rar_add.htm"
+license=('custom')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/unrar-5.6.3-chromeos-x86_64.tar.xz")
+sha256sums=('ff5bc1b1c1b2f04cfc69b42345df16cac2bfc4be64a15016825e7980b4f5683f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cgroupfs-mount
+pkgver=1.4
+pkgrel=1
+pkgdesc="Simple scripts to properly mount the cgroupfs hierarchy."
+arch=('x86_64')
+url="https://github.com/tianon/cgroupfs-mount"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cgroupfs_mount-1.4-chromeos-x86_64.tar.xz")
+sha256sums=('d01398e7d06e023f625bb36d5c80d20b25bd0db9d0d71d08bfa9e12c8cc36a2a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

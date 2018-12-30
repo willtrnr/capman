@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=inetutils
+pkgver=1.9.4
+pkgrel=1
+pkgdesc="A collection of common network programs"
+arch=('x86_64')
+url="http://www.gnu.org/software/inetutils/"
+license=('GPL3')
+groups=('base')
+depends=('libcap' 'pam')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/inetutils-1.9.4-chromeos-x86_64.tar.xz")
+sha256sums=('58c0f0a5e7d25b7b2b1c527cb38eeaa337894fab4b4151dc2e0605c9f87d2ed5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

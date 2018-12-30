@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-vmmouse-driver
+pkgver=13.1.0
+pkgrel=1
+pkgdesc="The Xorg VMMouse Driver package contains the VMMouse input driver for the Xorg X server. The VMMouse driver enables support for the special VMMouse protocol that is provided by VMware virtual machines to give absolute pointer positioning."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_vmmouse_driver-13.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('5a2837b20f71f04a5d5791adf96c5c78795e1a8487ee564795779e7c91fb9a01')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

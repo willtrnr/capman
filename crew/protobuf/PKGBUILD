@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=protobuf
+pkgver=3.5.1
+pkgrel=1
+pkgdesc="Protocol Buffers - Google's data interchange format"
+arch=('x86_64')
+url="https://developers.google.com/protocol-buffers/"
+license=('BSD')
+groups=()
+depends=('gcc-libs' 'zlib')
+makedepends=()
+optdepends=()
+provides=('protobuf' 'protobuf-cpp')
+conflicts=('protobuf' 'protobuf-cpp')
+replaces=('protobuf-cpp')
+source=("https://dl.bintray.com/chromebrew/chromebrew/protobuf-3.5.1-chromeos-x86_64.tar.xz")
+sha256sums=('5da67b574e7df6c9e58b2bcee98b3b78cf7c95d6458350a3a1036981b0ad4f99')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

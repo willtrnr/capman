@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=texinfo
+pkgver=6.5
+pkgrel=1
+pkgdesc="GNU documentation system for on-line information and printed output"
+arch=('x86_64')
+url="http://www.gnu.org/software/texinfo/"
+license=('GPL3')
+groups=('base' 'base-devel')
+depends=('gzip' 'ncurses' 'perl' 'sh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/texinfo-6.5-0-chromeos-x86_64.tar.xz")
+sha256sums=('ba12fa7582cdf7428c92be26c1dc31476bc73c21dfd42b84a3f0a8c5f525335b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

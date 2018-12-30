@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=health-check
+pkgver=0.02.08
+pkgrel=1
+pkgdesc="The health-check tool monitors processes in various ways to help identify areas where it is consuming too many resources."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/health-check/"
+license=('custom')
+groups=()
+depends=('jsonc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/health_check-0.02.08-chromeos-x86_64.tar.xz")
+sha256sums=('7cbdce7237b0d8a6dcfeabf7cc143c08111af98875e83cb441346769cdbfa033')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

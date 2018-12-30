@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tox
+pkgver=3.4.0
+pkgrel=1
+pkgdesc="tox aims to automate and standardize testing in Python."
+arch=('x86_64')
+url="https://tox.readthedocs.io/en/latest/"
+license=('custom')
+groups=()
+depends=('setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tox-3.4.0-chromeos-x86_64.tar.xz")
+sha256sums=('42f63319cae5fe4d78c217a5d3326b735b42503cd5a431198aafcece31dbc60f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=font-util
+pkgver=1.3.1
+pkgrel=1
+pkgdesc="X.Org font utilities"
+arch=('x86_64')
+url="https://www.freedesktop.org"
+license=('custom')
+groups=()
+depends=('util-macros')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/font_util-1.3.1-chromeos-x86_64.tar.xz")
+sha256sums=('3d87ede9af652619cfc28f1cf16779a841228233978605c9a234501b789fd86c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

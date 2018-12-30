@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=python3
+pkgver=3.7.1
+pkgrel=1
+pkgdesc="Python is a programming language that lets you work quickly and integrate systems more effectively."
+arch=('x86_64')
+url="https://www.python.org/"
+license=('custom')
+groups=()
+depends=('bz2' 'xzutils' 'sqlite' 'krb5' 'libtirpc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/python3-3.7.1-chromeos-x86_64.tar.xz")
+sha256sums=('434f8f1156f89cb15dcbbdbf3a6e0448c931e5f5480dc1c5550694f014aab315')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

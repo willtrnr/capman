@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=v4l-utils
+pkgver=1.16.3
+pkgrel=1
+pkgdesc="Userspace tools and conversion library for Video 4 Linux"
+arch=('x86_64')
+url="https://linuxtv.org/"
+license=('LGPL')
+groups=()
+depends=('gcc-libs' 'hicolor-icon-theme' 'libjpeg-turbo' 'sysfsutils')
+makedepends=('alsa-lib' 'qt5-base')
+optdepends=('alsa-lib'
+            'qt5-base')
+provides=('libv4l=1.16.3')
+conflicts=('libv4l')
+replaces=('libv4l')
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build v4l_utils
+  tar xf "v4l_utils-1.16.3-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

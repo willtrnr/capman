@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=composer
+pkgver=1.7.3
+pkgrel=1
+pkgdesc="Dependency Manager for PHP"
+arch=('x86_64')
+url="https://getcomposer.org/"
+license=('MIT')
+groups=()
+depends=('php')
+makedepends=('git' 'unzip')
+optdepends=()
+provides=('php-composer')
+conflicts=('php-composer')
+replaces=('php-composer')
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build composer
+  tar xf "composer-1.7.3-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ncrack
+pkgver=0.5
+pkgrel=1
+pkgdesc="High-speed network authentication cracking tool"
+arch=('x86_64')
+url="https://nmap.org/ncrack/"
+license=('GPL2')
+groups=()
+depends=('openssl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ncrack-0.5-chromeos-x86_64.tar.xz")
+sha256sums=('285603cd26d6bf1a4a1103d52726157b6491d6611ea4188edd8ccee2eaae9426')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

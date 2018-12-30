@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=log4cplus
+pkgver=1.2.1
+pkgrel=1
+pkgdesc="A C++ logger very close to Java's log4j"
+arch=('x86_64')
+url="http://log4cplus.sourceforge.net/"
+license=('GPL')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/log4cplus-1.2.1-rc2-chromeos-x86_64.tar.xz")
+sha256sums=('55f88fa25c4a676d8ef07cd32228cfcb552b643fc6437a400cbb56e6e358b385')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

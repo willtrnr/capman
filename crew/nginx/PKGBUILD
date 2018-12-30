@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nginx
+pkgver=1.13.7
+pkgrel=1
+pkgdesc="Lightweight HTTP server and IMAP/POP3 proxy server"
+arch=('x86_64')
+url="https://nginx.org"
+license=('custom')
+groups=()
+depends=('geoip' 'mailcap' 'openssl' 'pcre' 'zlib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nginx-1.13.7-chromeos-x86_64.tar.xz")
+sha256sums=('01c5891161b00963b17cc2c60871953f9f8fca18d13c5767c8c64b0d11f25cca')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

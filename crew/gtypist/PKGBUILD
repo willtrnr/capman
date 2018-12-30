@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gtypist
+pkgver=2.9.5
+pkgrel=1
+pkgdesc="universal typing tutor"
+arch=('x86_64')
+url="http://www.gnu.org/software/gtypist/gtypist.html"
+license=('GPL')
+groups=()
+depends=('ncurses' 'perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtypist-2.9.5-chromeos-x86_64.tar.xz")
+sha256sums=('6ff05a34f4ce9f20bb6dbaef93ff55ecdee9fe9c5ede12d39e561886469a4b7d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

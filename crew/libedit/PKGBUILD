@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libedit
+pkgver=3.1
+pkgrel=1
+pkgdesc="Command line editor library providing generic line editing, history, and tokenization functions"
+arch=('x86_64')
+url="http://thrysoee.dk/editline/"
+license=('BSD')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libedit-3.1-0-chromeos-x86_64.tar.xz")
+sha256sums=('6f6ed8dd83aad5895b5e3927c673d66c5d676a345f3bc6913e94392a74db929a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

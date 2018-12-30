@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gperf
+pkgver=3.1
+pkgrel=1
+pkgdesc="Perfect hash function generator"
+arch=('x86_64')
+url="http://www.gnu.org/software/gperf/"
+license=('GPL3')
+groups=()
+depends=('gcc-libs' 'texinfo')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gperf-3.1-chromeos-x86_64.tar.xz")
+sha256sums=('50d2087a5d7c41451ba6320dd8614da47582e4a01b53a9be39041a4b0e10733b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

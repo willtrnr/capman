@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libemf
+pkgver=1.0.9
+pkgrel=1
+pkgdesc="libEMF is a C/C++ library which provides a drawing toolkit based on ECMA-234."
+arch=('x86_64')
+url="http://libemf.sourceforge.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libemf-1.0.9-chromeos-x86_64.tar.xz")
+sha256sums=('3dd865953891dbdeaf295828b096f1bf5d90661519a4f8b564a460668a4949ee')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

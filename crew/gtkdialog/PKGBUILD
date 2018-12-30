@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gtkdialog
+pkgver=0.8.3
+pkgrel=1
+pkgdesc="Gtkdialog is a small utility for fast and easy GUI building."
+arch=('x86_64')
+url="https://code.google.com/archive/p/gtkdialog/"
+license=('custom')
+groups=()
+depends=('gtk2' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtkdialog-0.8.3-chromeos-x86_64.tar.xz")
+sha256sums=('c83761ad0523adea05546fea20352a9133e362aefd7ea74737e2e4099b783fa0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

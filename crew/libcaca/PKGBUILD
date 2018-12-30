@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libcaca
+pkgver=0.99.beta19
+pkgrel=1
+pkgdesc="Color AsCii Art library"
+arch=('x86_64')
+url="http://caca.zoy.org/wiki/libcaca"
+license=('custom:WTFPL')
+groups=()
+depends=('imlib2' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libcaca-0.99.beta19-1-chromeos-x86_64.tar.xz")
+sha256sums=('fc4454b4934dc0d5ac1b08402b3a73a53d8bfe0cb0da23a72ef46166465f5124')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

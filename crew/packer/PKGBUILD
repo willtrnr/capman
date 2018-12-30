@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=packer
+pkgver=1.2.1
+pkgrel=1
+pkgdesc="tool for creating identical machine images for multiple platforms from a single source configuration"
+arch=('x86_64')
+url="https://github.com/hashicorp/packer"
+license=('MPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=('packer-io')
+source=("https://dl.bintray.com/chromebrew/chromebrew/packer-1.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('7e9a790a93c8517ffd2a44c3cbca83d97bbfa5e6ac3c47cf37569c5d579fbdfc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxslt
+pkgver=1.1.32
+pkgrel=1
+pkgdesc="XML stylesheet transformation library"
+arch=('x86_64')
+url="http://xmlsoft.org/XSLT/"
+license=('custom')
+groups=()
+depends=('libgcrypt' 'libxml2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxslt-1.1.32-1-chromeos-x86_64.tar.xz")
+sha256sums=('f47fd5f5d4a975967b8d191b5dbfb97cf82f3293794d2b07766dc34bb5a7cf57')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

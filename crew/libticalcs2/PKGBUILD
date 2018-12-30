@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libticalcs2
+pkgver=1.1.9
+pkgrel=1
+pkgdesc="Libticalcs2 offers the library used to communicate with TI calculators. It implements the TI protocol for each type of calculator, independently of the link cable used to establish the link."
+arch=('x86_64')
+url="http://lpg.ticalc.org/prj_tilp/"
+license=('custom')
+groups=()
+depends=('libticables2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build libticalcs2
+  tar xf "libticalcs2-1.1.9-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

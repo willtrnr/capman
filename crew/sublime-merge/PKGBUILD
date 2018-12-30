@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sublime-merge
+pkgver=Build 1097
+pkgrel=1
+pkgdesc="A snappy UI, three-way merge tool,side-by-side diffs, syntax highlighting, and more."
+arch=('x86_64')
+url="https://www.sublimemerge.com/"
+license=('custom')
+groups=()
+depends=('sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build sublime_merge
+  tar xf "sublime_merge-Build 1097-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

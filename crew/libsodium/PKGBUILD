@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libsodium
+pkgver=1.0.16
+pkgrel=1
+pkgdesc="P(ortable|ackageable) NaCl-based crypto library"
+arch=('x86_64')
+url="https://github.com/jedisct1/libsodium"
+license=('custom:ISC')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libsodium-1.0.16-chromeos-x86_64.tar.xz")
+sha256sums=('a24fc250462688409af619df906a7e83a2a27d923cc51fe332e316fb580eb676')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

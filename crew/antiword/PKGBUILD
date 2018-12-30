@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=antiword
+pkgver=0.37
+pkgrel=1
+pkgdesc="A free MS Word reader for Linux and RISC OS"
+arch=('x86_64')
+url="http://www.winfield.demon.nl/"
+license=('GPL')
+groups=()
+depends=('bash')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/antiword-0.37-2-chromeos-x86_64.tar.xz")
+sha256sums=('5486ee47684aaf249f0f75f9c903aa8c79b41466ae94aa0dbbd660090af438d0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

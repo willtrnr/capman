@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=banner
+pkgver=1.3.2
+pkgrel=1
+pkgdesc="Print large banners to ASCII terminals"
+arch=('x86_64')
+url="http://shh.thathost.com/pub-unix"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=('sysvbanner')
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/banner-1.3.2-chromeos-x86_64.tar.xz")
+sha256sums=('a7491d42ecb79b479b9bc49ff45860e5bcf50c2b763e6524c711ec90d5829c31')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

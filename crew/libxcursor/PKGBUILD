@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxcursor
+pkgver=1.1.15
+pkgrel=1
+pkgdesc="X cursor management library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxfixes' 'libxrender')
+makedepends=()
+optdepends=('gnome-themes-standard: fallback icon theme')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxcursor-1.1.15-0-chromeos-x86_64.tar.xz")
+sha256sums=('a8749cfe441d3facd5c1c9a6feabe3e764e7e630d4687ececd83a15fff59e2de')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

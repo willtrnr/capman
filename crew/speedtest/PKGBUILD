@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=speedtest
+pkgver=2.0.2
+pkgrel=1
+pkgdesc="Command line interface for testing internet bandwidth using speedtest.net"
+arch=('x86_64')
+url="https://github.com/sivel/speedtest-cli"
+license=('custom')
+groups=()
+depends=('setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/speedtest-2.0.2-chromeos-x86_64.tar.xz")
+sha256sums=('6245d2d291cb83d4fa4e51fbd867cd956df98209d2ad37237463e44c4c482fcc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

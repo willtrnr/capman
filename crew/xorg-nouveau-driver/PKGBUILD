@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-nouveau-driver
+pkgver=1.0.15
+pkgrel=1
+pkgdesc="The Xorg Nouveau Driver package contains the X.Org Video Driver for NVidia Cards including RIVA TNT, RIVA TNT2, GeForce 256, QUADRO, GeForce2, QUADRO2, GeForce3, QUADRO DDC, nForce, nForce2, GeForce4, QUADRO4, GeForce FX, QUADRO FX, GeForce 6XXX and GeForce 7xxx chipsets."
+arch=('x86_64')
+url="https://01.org/linuxgraphics/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_nouveau_driver-1.0.15-chromeos-x86_64.tar.xz")
+sha256sums=('2f9589c902856d1b103ba62945fbad7b4a35ba8e9725d8f135d7d9b6ed7b0afb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

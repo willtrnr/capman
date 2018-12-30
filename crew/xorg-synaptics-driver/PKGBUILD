@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-synaptics-driver
+pkgver=1.9.0
+pkgrel=1
+pkgdesc="The Xorg Synaptics Driver package contains the X.Org Input Driver, support programs and SDK for Synaptics touchpads."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=('libevdev')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_synaptics_driver-1.9.0-chromeos-x86_64.tar.xz")
+sha256sums=('20281d2dadaed44efd343a85e889b24062bdf9532354757ca266ba621931782a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

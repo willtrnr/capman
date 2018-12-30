@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cpustat
+pkgver=0.02.04
+pkgrel=1
+pkgdesc="cpustat periodically dumps out the current CPU utilisation statistics of running processes."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/cpustat/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cpustat-0.02.04-chromeos-x86_64.tar.xz")
+sha256sums=('b505ca257198a54ee256f85fee63fb14d2275572b37af287aad8a47d1ba2b6b8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

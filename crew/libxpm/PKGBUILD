@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxpm
+pkgver=3.5.12
+pkgrel=1
+pkgdesc="X11 pixmap library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxext' 'libxt')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxpm-3.5.12-chromeos-x86_64.tar.xz")
+sha256sums=('8690186c140efb01a93ed7f0142a12d7e591ad7a336494ae0e9df44b754af239')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=brotli
+pkgver=1.0.4
+pkgrel=1
+pkgdesc="Brotli compression library"
+arch=('x86_64')
+url="https://github.com/google/brotli"
+license=('MIT')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/brotli-1.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('ab048b601fdbeb5b73f113517adb500e8c42164dcceb9450cc039b376762f546')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

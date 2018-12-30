@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=avocado
+pkgver=67.0
+pkgrel=1
+pkgdesc="Avocado is a next generation testing framework inspired by Autotest and modern development tools such as git."
+arch=('x86_64')
+url="http://avocado-framework.github.io/"
+license=('custom')
+groups=()
+depends=('xdg-base' 'xzutils' 'setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/avocado-67.0-chromeos-x86_64.tar.xz")
+sha256sums=('4946b467cfb4366ac950edbdd57b3d45780a560659f50677e45c95095e101500')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

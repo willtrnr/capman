@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libidn2
+pkgver=2.0.5
+pkgrel=1
+pkgdesc="Free software implementation of IDNA2008, Punycode and TR46"
+arch=('x86_64')
+url="https://www.gnu.org/software/libidn/#libidn2"
+license=('GPL2' 'LGPL3')
+groups=()
+depends=('libunistring')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libidn2-2.0.5-chromeos-x86_64.tar.xz")
+sha256sums=('22b43990ca6ae415b9b7e206ed7d7b05df29b97411de55f33f11e834cf3b345c')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

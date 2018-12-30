@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pulseaudio
+pkgver=11.1
+pkgrel=1
+pkgdesc="A featureful, general-purpose sound server"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/PulseAudio/"
+license=('GPL')
+groups=()
+depends=('libltdl' 'libpulse=12.2-2' 'libsoxr' 'orc' 'rtkit' 'speexdsp' 'tdb' 'webrtc-audio-processing')
+makedepends=()
+optdepends=('pulseaudio-alsa: ALSA configuration (recommended)')
+provides=()
+conflicts=()
+replaces=('pulseaudio-gconf<=11.1' 'pulseaudio-xen<=9.0')
+source=("https://dl.bintray.com/chromebrew/chromebrew/pulseaudio-11.1-chromeos-x86_64.tar.xz")
+sha256sums=('67608beaffd35ca0f5a3c35769797d2eae4193d5c81c8cad5e6e123f2d667e44')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

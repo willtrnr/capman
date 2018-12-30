@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=postgres
+pkgver=9.6.5
+pkgrel=1
+pkgdesc="PostgreSQL is a powerful, open source object-relational database system."
+arch=('x86_64')
+url="https://www.postgresql.org/"
+license=('custom')
+groups=()
+depends=('buildessential' 'readline' 'zlibpkg')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/postgres-9.6.5-chromeos-x86_64.tar.xz")
+sha256sums=('7c6725c690d0118f53ca0c60cd96a38afd764cc38b1109e07b566d12f2c7a9bf')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

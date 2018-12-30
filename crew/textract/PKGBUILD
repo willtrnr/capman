@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=textract
+pkgver=1.6.1
+pkgrel=1
+pkgdesc="Extract text from any document."
+arch=('x86_64')
+url="http://textract.readthedocs.io/en/stable/"
+license=('custom')
+groups=()
+depends=('setuptools' 'pulseaudio' 'swig')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/textract-1.6.1-chromeos-x86_64.tar.xz")
+sha256sums=('13e5933fe8082e152cdf80c661f85f9a425e2a303ace296cf82e8d302da39551')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

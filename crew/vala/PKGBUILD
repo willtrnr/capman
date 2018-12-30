@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=vala
+pkgver=0.39.7
+pkgrel=1
+pkgdesc="Compiler for the GObject type system"
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/Vala"
+license=('LGPL')
+groups=()
+depends=('gcc' 'glib2' 'graphviz' 'gtk-doc' 'pkg-config' 'ttf-font')
+makedepends=()
+optdepends=()
+provides=('libvala-0.42.so=0-64' 'libvaladoc-0.42.so=0-64' 'valadoc')
+conflicts=('valadoc')
+replaces=('valadoc')
+source=("https://dl.bintray.com/chromebrew/chromebrew/vala-0.39.7-chromeos-x86_64.tar.xz")
+sha256sums=('798c51833e5110b45003a1efd2f3b6cf60dfc26f9c3f7d7158b3a1185d7a8f82')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

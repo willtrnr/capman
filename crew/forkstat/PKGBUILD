@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=forkstat
+pkgver=0.02.00
+pkgrel=1
+pkgdesc="Forkstat is a program that logs process fork(), exec() and exit() activity."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/forkstat/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/forkstat-0.02.00-chromeos-x86_64.tar.xz")
+sha256sums=('8ccd0104a118c18baaa7772042a0cb34132cde7bfd84be3090792da3d0d5cf53')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

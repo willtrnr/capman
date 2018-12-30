@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=iftop
+pkgver=0.17
+pkgrel=1
+pkgdesc="Display bandwidth usage on an interface"
+arch=('x86_64')
+url="http://www.ex-parrot.com/~pdw/iftop/"
+license=('GPL')
+groups=()
+depends=('libpcap' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/iftop-0.17-chromeos-x86_64.tar.xz")
+sha256sums=('3147fb82cbc3d6cbf1c4b6230894ff7347409bc9b733e2135c509a12dc2ea7f0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

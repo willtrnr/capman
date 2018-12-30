@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sg3-utils
+pkgver=1.44
+pkgrel=1
+pkgdesc="The sg3_utils package contains utilities that send SCSI commands to devices."
+arch=('x86_64')
+url="http://sg.danny.cz/sg/sg3_utils.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sg3_utils-1.44-chromeos-x86_64.tar.xz")
+sha256sums=('bf5157d3ffb69c69cc71d4e6df55706cbc1cd31632159fe8fa2ca0298377a184')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

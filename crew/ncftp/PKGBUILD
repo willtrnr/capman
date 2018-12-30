@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ncftp
+pkgver=3.2.6
+pkgrel=1
+pkgdesc="A set of free application programs implementing FTP"
+arch=('x86_64')
+url="http://www.ncftp.com/"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ncftp-3.2.6-chromeos-x86_64.tar.xz")
+sha256sums=('ca72890ad514201b5e70d071055d5f50afcf7a3fb32ce7e3410b38550d64cdfa')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

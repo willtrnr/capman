@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xcb-util-cursor
+pkgver=0.1.3
+pkgrel=1
+pkgdesc="XCB cursor library"
+arch=('x86_64')
+url="https://cgit.freedesktop.org/xcb/util-cursor"
+license=('custom:MIT')
+groups=()
+depends=('libxcb' 'xcb-util-image' 'xcb-util-renderutil')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_util_cursor-0.1.3-chromeos-x86_64.tar.xz")
+sha256sums=('997331d8cbdf24d6f934e0b1e9f17a4208671c8ad3f5deab50e3a3160e998b4f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sysstat
+pkgver=11.5.6
+pkgrel=1
+pkgdesc="a collection of performance monitoring tools (iostat,isag,mpstat,pidstat,sadf,sar)"
+arch=('x86_64')
+url="http://pagesperso-orange.fr/sebastien.godard/"
+license=('GPL')
+groups=()
+depends=('lm_sensors')
+makedepends=()
+optdepends=('gnuplot: to use isag'
+            'tk: to use isag')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sysstat-11.5.6-chromeos-x86_64.tar.xz")
+sha256sums=('2e52cf373e4eb15f317d4f1c1c5ef8ea865697102b061c98ce928bf1004c0ca5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

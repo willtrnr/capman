@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libfilezilla
+pkgver=0.15.1
+pkgrel=1
+pkgdesc="Small and modern C++ library, offering some basic functionality to build high-performing, platform-independent programs"
+arch=('x86_64')
+url="https://lib.filezilla-project.org/"
+license=('GPL')
+groups=()
+depends=('gcc-libs' 'nettle')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libfilezilla-0.15.1-chromeos-x86_64.tar.xz")
+sha256sums=('607e93feabe4f830aa05379bd1a1b9930f6253ba9ab3bede5ee56f60ac542de5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mosh
+pkgver=1.3.2
+pkgrel=1
+pkgdesc="Mobile shell, surviving disconnects with local echo and line editing"
+arch=('x86_64')
+url="https://mosh.org/"
+license=('GPL3')
+groups=()
+depends=('libutempter' 'openssl' 'perl-io-tty' 'protobuf')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mosh-1.3.2-1-chromeos-x86_64.tar.xz")
+sha256sums=('9b05290bdd93cde4f76b569407f87f4bfe05038bd5f6f323c3f35b6cf1d57e79')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

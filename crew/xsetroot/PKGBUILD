@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xsetroot
+pkgver=1.1.2
+pkgrel=1
+pkgdesc="Root window parameter setting utility for X"
+arch=('x86_64')
+url="https://www.x.org/archive/X11R7.5/doc/man/man1/xsetroot.1.html"
+license=('custom')
+groups=()
+depends=('xbitmaps' 'libxcursor' 'libxmu')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build xsetroot
+  tar xf "xsetroot-1.1.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

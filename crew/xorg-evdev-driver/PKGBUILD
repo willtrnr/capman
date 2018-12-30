@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-evdev-driver
+pkgver=2.10.5
+pkgrel=1
+pkgdesc="The Xorg Evdev Driver package contains a Generic Linux input driver for the Xorg X server. It handles keyboard, mouse, touchpads and wacom devices, though for touchpad and wacom advanced handling, additional drivers are required."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=('mtdev' 'libevdev')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_evdev_driver-2.10.5-chromeos-x86_64.tar.xz")
+sha256sums=('7f8aab503e08725b8c0271af7df95fa10b69cb907cfde990539565ca2c6588eb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

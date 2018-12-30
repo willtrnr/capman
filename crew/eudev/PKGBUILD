@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=eudev
+pkgver=3.2.7
+pkgrel=1
+pkgdesc="Gentoo standalone udev"
+arch=('x86_64')
+url="https://wiki.gentoo.org/wiki/Project:Eudev"
+license=('custom')
+groups=()
+depends=('libxslt' 'gperf' 'util-linux')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/eudev-3.2.7-chromeos-x86_64.tar.xz")
+sha256sums=('ad95ed97aedd8939ed8c06c5773d923de025544d10e41627758a82cd5ee0d1cc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

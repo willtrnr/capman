@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gdk-pixbuf
+pkgver=2.36.7
+pkgrel=1
+pkgdesc="GdkPixbuf is a library for image loading and manipulation."
+arch=('x86_64')
+url="https://developer.gnome.org/gdk-pixbuf"
+license=('custom')
+groups=()
+depends=('pango' 'gobject-introspection' 'libtiff' 'libjpeg' 'six')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdk_pixbuf-2.36.7-1-chromeos-x86_64.tar.xz")
+sha256sums=('044b281179d0d781757bd131fc181169e74bf3018f4de51fa8550449ea96f19e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

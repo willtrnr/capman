@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=linuxheaders
+pkgver=3.18
+pkgrel=1
+pkgdesc="Linux headers for Chrome OS."
+arch=('x86_64')
+url="homepage ''"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew-cross/linuxheaders-3.18-2-chromeos-x86_64.tar.xz")
+sha256sums=('830b18e54ebd6a2c8701c5ea1efd883e345719770de34ad0ece2f7cfb904df6f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

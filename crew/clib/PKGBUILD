@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=clib
+pkgver=1.8.1
+pkgrel=1
+pkgdesc="C package manager-ish"
+arch=('x86_64')
+url="https://github.com/clibs/clib"
+license=('custom')
+groups=()
+depends=('curl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/clib-1.8.1-chromeos-x86_64.tar.xz")
+sha256sums=('06c1bac595387b7eeb3e2fddd64c94d3ef6394492e4315f4604e4c4f719efeb9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

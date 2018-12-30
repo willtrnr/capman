@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gc
+pkgver=7.6.4
+pkgrel=1
+pkgdesc="A garbage collector for C and C++"
+arch=('x86_64')
+url="http://www.hboehm.info/gc/"
+license=('GPL')
+groups=()
+depends=('gcc-libs' 'libatomic_ops')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gc-7.6.4-chromeos-x86_64.tar.xz")
+sha256sums=('92e09087a398ea9f03af37b8f1d9cf1d49b11573ed19e623bb8605636c94c81d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

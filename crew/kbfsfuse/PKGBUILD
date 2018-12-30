@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kbfsfuse
+pkgver=1.0.40
+pkgrel=1
+pkgdesc="Keybase fuse filesystem."
+arch=('x86_64')
+url="https://keybase.io/docs/kbfs"
+license=('custom')
+groups=()
+depends=('keybase')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/kbfsfuse-1.0.40-chromeos-x86_64.tar.xz")
+sha256sums=('e225df2cae3b2dadc90adc1983f6adcdaa41e1846df2936d0e8a1a2a42811a96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

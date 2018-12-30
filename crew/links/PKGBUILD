@@ -1,0 +1,26 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=links
+pkgver=1.03
+pkgrel=1
+pkgdesc="A text WWW browser, similar to Lynx"
+arch=('x86_64')
+url="http://links.twibright.com/"
+license=('GPL')
+groups=()
+depends=('bzip2' 'gpm' 'libevent' 'pcre' 'xz')
+makedepends=()
+optdepends=('libpng: for using xlinks'
+            'librsvg: for using xlinks'
+            'libtiff: for using xlinks'
+            'libx11: for using xlinks')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/links-1.03-chromeos-x86_64.tar.xz")
+sha256sums=('4975b03ad6b4cda6b09f7e8ad16b90cc30adc01e2da30547c3e29fee130c1072')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

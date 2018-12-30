@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=get-iplayer
+pkgver=3.01
+pkgrel=1
+pkgdesc="A utility for downloading TV and radio programmes from BBC iPlayer"
+arch=('x86_64')
+url="https://github.com/get-iplayer/get_iplayer"
+license=('custom')
+groups=()
+depends=('perl' 'ffmpeg' 'atomicparsley' 'libxml2' 'zlibpkg')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/get_iplayer-3.01-chromeos-x86_64.tar.xz")
+sha256sums=('04383b2db0fd7dd810d01a3145c240cad3e66a8fd8bcbe2c3c60c622262ec42d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

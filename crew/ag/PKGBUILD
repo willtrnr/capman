@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ag
+pkgver=2.1.0
+pkgrel=1
+pkgdesc="The Silver Searcher. Very fast search similar to ack or grep. (ag)"
+arch=('x86_64')
+url="https://github.com/ggreer/the_silver_searcher"
+license=('custom')
+groups=()
+depends=('pcre' 'xzutils' 'zlibpkg')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ag-2.1.0-2-chromeos-x86_64.tar.xz")
+sha256sums=('7a0e7295bb5d28d9b9d620ae1d21823000666cfe32ef203e0055472ab94b726f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

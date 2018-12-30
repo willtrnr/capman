@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=owl
+pkgver=0.1.14
+pkgrel=1
+pkgdesc="Owl Lisp is a functional dialect of the Scheme programming language."
+arch=('x86_64')
+url="https://haltp.org/n/owl"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/owl-0.1.14-chromeos-x86_64.tar.xz")
+sha256sums=('f902a68ce2f16363477ab0f5aaf11b93fd8d1b236c08ea66dab4cb063ce209f0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

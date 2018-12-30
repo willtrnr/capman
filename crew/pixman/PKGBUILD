@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pixman
+pkgver=0.34.0
+pkgrel=1
+pkgdesc="The pixel-manipulation library for X and cairo"
+arch=('x86_64')
+url="http://xorg.freedesktop.org"
+license=('custom')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pixman-0.34.0-0-chromeos-x86_64.tar.xz")
+sha256sums=('c268902b79b7dffe7214fb0f561e9ecdb9be47309d2440da3a386cabe3ba4370')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

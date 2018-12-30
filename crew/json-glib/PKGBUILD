@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=json-glib
+pkgver=1.4.2
+pkgrel=1
+pkgdesc="JSON library built on GLib"
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/JsonGlib"
+license=('GPL')
+groups=()
+depends=('glib2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/json_glib-1.4.2-chromeos-x86_64.tar.xz")
+sha256sums=('5e79363b10f04e8b6240d69d323ea78595271cbaaac5df9acaf09f07f52e1939')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

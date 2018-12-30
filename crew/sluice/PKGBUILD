@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sluice
+pkgver=0.02.06
+pkgrel=1
+pkgdesc="Sluice is a program that reads input on stdin and outputs on stdout at a specified data rate."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/sluice/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sluice-0.02.06-chromeos-x86_64.tar.xz")
+sha256sums=('eb90754ce6faf50a82258306a94d61f6f092e5898bd0389bdbeb4c3b694eaec0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

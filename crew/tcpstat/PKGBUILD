@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tcpstat
+pkgver=1.5
+pkgrel=1
+pkgdesc="tcpstat reports certain network interface statistics much like vmstat does for system statistics. tcpstat gets its information by either monitoring a specific interface, or by reading previously saved tcpdump data from a file."
+arch=('x86_64')
+url="http://www.frenchfries.net/paul/tcpstat/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tcpstat-1.5-chromeos-x86_64.tar.xz")
+sha256sums=('e684114ddcf7733f9650d2998a02d5ec93bb07bbb612151e74dd323017538d34')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

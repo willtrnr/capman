@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gdb
+pkgver=8.1
+pkgrel=1
+pkgdesc="The GNU Debugger"
+arch=('x86_64')
+url="http://www.gnu.org/software/gdb/"
+license=('GPL3')
+groups=()
+depends=('expat' 'gdb-common=8.2' 'mpfr' 'ncurses' 'xz')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdb-8.1-chromeos-x86_64.tar.xz")
+sha256sums=('8e7f25bb702e9bdf3b1d657aee7cf79e6de0cfdcf6bb512159818c02e39e2593')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

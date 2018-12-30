@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=readline7
+pkgver=7.0p5
+pkgrel=1
+pkgdesc="The GNU Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in."
+arch=('x86_64')
+url="http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/readline7-7.0p5-1-chromeos-x86_64.tar.xz")
+sha256sums=('4e6e13afa0d02688b3431efdbed4f89dc90d8d504adb97eea35fbfbb5ed17688')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

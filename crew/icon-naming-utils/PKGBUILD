@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=icon-naming-utils
+pkgver=0.8.90
+pkgrel=1
+pkgdesc="Maps the new names of icons for Tango to the legacy names used by the GNOME and KDE desktops."
+arch=('x86_64')
+url="http://tango.freedesktop.org/"
+license=('GPL')
+groups=()
+depends=('perl-xml-simple')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/icon_naming_utils-0.8.90-chromeos-x86_64.tar.xz")
+sha256sums=('5e38dafcae1a96aee3eefef7bb27f34b60feff8650c098afec706e360f579e57')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

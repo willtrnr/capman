@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xzutils
+pkgver=5.2.3
+pkgrel=1
+pkgdesc="XZ Utils is free general-purpose data compression software with a high compression ratio."
+arch=('x86_64')
+url="http://tukaani.org/xz/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xzutils-5.2.3-2-chromeos-x86_64.tar.xz")
+sha256sums=('933c51b479c58e277b6354913c76be9a021f2436df86b37e8eb3d328b9cd5fc2')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xcb-proto
+pkgver=1.12
+pkgrel=1
+pkgdesc="XML-XCB protocol descriptions"
+arch=('x86_64')
+url="https://xcb.freedesktop.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_proto-1.12-0-chromeos-x86_64.tar.xz")
+sha256sums=('70b5922c8c39cc68d0e59f868a7c32b68b0ff4ebf1818db486f8febd23412636')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gifgen
+pkgver=1.1.2
+pkgrel=1
+pkgdesc="Simple high quality GIF encoding"
+arch=('x86_64')
+url="https://github.com/lukechilds/gifgen"
+license=('custom')
+groups=()
+depends=('ffmpeg' 'help2man')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gifgen-1.1.2-chromeos-x86_64.tar.xz")
+sha256sums=('665fff725b0e73e5f5ac373b9418f7398eb9291d0e9eda72852c58ed1b543021')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

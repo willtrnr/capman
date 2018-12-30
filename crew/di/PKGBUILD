@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=di
+pkgver=4.46
+pkgrel=1
+pkgdesc="A disk information utility, displaying everything (and more) that your df command does"
+arch=('x86_64')
+url="http://www.gentoo.com/di/"
+license=('ZLIB')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/di-4.46-chromeos-x86_64.tar.xz")
+sha256sums=('4125910072a4aa818af4016bcf95589e0943d5186093ea87352ffe3db895e483')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

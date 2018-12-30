@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=htop
+pkgver=2.0.2
+pkgrel=1
+pkgdesc="Interactive process viewer"
+arch=('x86_64')
+url="http://hisham.hm/htop/"
+license=('GPL')
+groups=()
+depends=('libnl' 'ncurses')
+makedepends=()
+optdepends=('lsof: show files opened by a process'
+            'strace: attach to a running process')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/htop-2.0.2-1-chromeos-x86_64.tar.xz")
+sha256sums=('632158634495f1e44312cab51f9fcbdc7d6bb49f66ea236beaedf7434311112b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

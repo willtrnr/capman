@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-server
+pkgver=1.19.6
+pkgrel=1
+pkgdesc="Xorg X server"
+arch=('x86_64')
+url="http://xorg.freedesktop.org"
+license=('custom')
+groups=('xorg')
+depends=('dbus' 'libdrm' 'libepoxy' 'libgl' 'libpciaccess' 'libunwind' 'libxfont2' 'libxshmfence' 'nettle' 'pixman' 'xf86-input-libinput' 'xorg-server-common')
+makedepends=()
+optdepends=()
+provides=('X-ABI-EXTENSION_VERSION=10.0' 'X-ABI-VIDEODRV_VERSION=24.0' 'X-ABI-XINPUT_VERSION=24.1' 'x-server')
+conflicts=('glamor-egl' 'nvidia-utils<=331.20' 'xf86-video-modesetting')
+replaces=('glamor-egl' 'xf86-video-modesetting')
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_server-1.19.6-0-chromeos-x86_64.tar.xz")
+sha256sums=('ae89f5ad22ddc6b109b9ca224565c3857a499308195df69f294b769ad0edae96')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

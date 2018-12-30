@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dbus-glib
+pkgver=0.110
+pkgrel=1
+pkgdesc="GLib bindings for DBUS"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/DBusBindings"
+license=('GPL')
+groups=()
+depends=('dbus' 'glib2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dbus_glib-0.110-chromeos-x86_64.tar.xz")
+sha256sums=('be9ed1170dc5c36a905ecc3387e5cdea9d5c8eb597cf233936a5095bfb55107d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

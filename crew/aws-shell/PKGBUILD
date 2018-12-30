@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aws-shell
+pkgver=0.2.1
+pkgrel=1
+pkgdesc="An integrated shell for working with the AWS CLI."
+arch=('x86_64')
+url="https://github.com/awslabs/aws-shell"
+license=('custom')
+groups=()
+depends=('setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aws_shell-0.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('41ad9b4fbe0104c4e7d48fb7b5c2469f89562f46c1184b985114da37bf0ed479')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

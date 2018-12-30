@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kore
+pkgver=2.0.0
+pkgrel=1
+pkgdesc="An easy to use, scalable and secure web application framework for writing web APIs in C. "
+arch=('x86_64')
+url="https://kore.io"
+license=('custom')
+groups=()
+depends=('openssl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/kore-2.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('5cbfea9a2817599e3ed083d43c8dc94c4a883b886dd8e8f167ac1623bb35baa0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

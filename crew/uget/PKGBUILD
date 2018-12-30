@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=uget
+pkgver=2.2.1
+pkgrel=1
+pkgdesc="GTK+ download manager featuring download classification and HTML import"
+arch=('x86_64')
+url="http://ugetdm.com/"
+license=('LGPL')
+groups=()
+depends=('curl' 'gstreamer' 'gtk3' 'libnotify')
+makedepends=()
+optdepends=('aria2: alternative backend')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/uget-2.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('e75eeddfb77a1d22fbe9ff38b20b65a2e85862b22812f78296a4f760f44a0854')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=node
+pkgver=8.9.1
+pkgrel=1
+pkgdesc="As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications."
+arch=('x86_64')
+url="https://nodejs.org/en/"
+license=('custom')
+groups=()
+depends=('nodebrew')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build node
+  tar xf "node-8.9.1-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

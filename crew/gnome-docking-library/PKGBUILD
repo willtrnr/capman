@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gnome-docking-library
+pkgver=3.28.0
+pkgrel=1
+pkgdesc="GUsb is a GObject wrapper for libusb1"
+arch=('x86_64')
+url="https://www.gnome.org/"
+license=('custom')
+groups=()
+depends=('gtk-doc' 'gtk3' 'libxml2' 'gnome-common')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_docking_library-3.28.0-0-chromeos-x86_64.tar.xz")
+sha256sums=('94341d3b3ea28e34a48e0610996901a9c1905f98b7fa0063c0f4938b27c337ed')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

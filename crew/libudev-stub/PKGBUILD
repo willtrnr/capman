@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libudev-stub
+pkgver=0.9.0
+pkgrel=1
+pkgdesc="A libudev stub and proxy library for WSL"
+arch=('x86_64')
+url="https://github.com/therealkenc/libudev-stub"
+license=('custom')
+groups=()
+depends=('eudev')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libudev_stub-0.9.0-chromeos-x86_64.tar.xz")
+sha256sums=('df1199025c15f1701e21355fe647270f0c8d7f3cd7a6c0b1683dc0bb96b786a0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

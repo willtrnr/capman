@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fly
+pkgver=1.6.5
+pkgrel=1
+pkgdesc="fly is a C program that creates PNG, JPEG or GIF images on the fly from CGI and other programs."
+arch=('x86_64')
+url="http://martin.gleeson.com/fly/index.html"
+license=('custom')
+groups=()
+depends=('libgd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/fly-1.6.5-chromeos-x86_64.tar.xz")
+sha256sums=('6232f0497b3d6cd9956dcce7b372a23a26a2874210deca99d57556ffe9c61644')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

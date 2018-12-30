@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cf
+pkgver=6.36.1
+pkgrel=1
+pkgdesc="The official command line client for Cloud Foundry"
+arch=('x86_64')
+url="https://docs.cloudfoundry.org/cf-cli"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cf-6.36.1-chromeos-x86_64.tar.xz")
+sha256sums=('d99c348433cef60967da0322bbf3035e28959a24d50c5042c489cf3b14d35feb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

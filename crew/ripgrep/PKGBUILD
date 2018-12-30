@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ripgrep
+pkgver=0.8.1
+pkgrel=1
+pkgdesc="A search tool that combines the usability of ag with the raw speed of grep"
+arch=('x86_64')
+url="https://github.com/BurntSushi/ripgrep"
+license=('custom' 'MIT')
+groups=()
+depends=('gcc-libs' 'pcre2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ripgrep-0.8.1-chromeos-x86_64.tar.xz")
+sha256sums=('b1a981fa69a4622adb75167173afeed506b95ac685f8ea6dd82718b33547ef70')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

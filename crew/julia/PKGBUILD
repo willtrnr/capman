@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=julia
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="High-level, high-performance, dynamic programming language"
+arch=('x86_64')
+url="https://julialang.org/"
+license=('MIT')
+groups=()
+depends=('cblas' 'fftw' 'hicolor-icon-theme' 'libgit2' 'libunwind' 'libutf8proc' 'openblas' 'suitesparse')
+makedepends=('cmake' 'gcc-fortran' 'gmp' 'python2')
+optdepends=('gnuplot: If using the Gaston Package from julia')
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build julia
+  tar xf "julia-1.0.1-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

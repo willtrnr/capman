@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxcomposite
+pkgver=0.4.4
+pkgrel=1
+pkgdesc="X11 Composite extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('compositeproto' 'libxfixes')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxcomposite-0.4.4-0-chromeos-x86_64.tar.xz")
+sha256sums=('98e5446890fee2b29f9d214c683216a9a1611776b2e408d0143773477bf94c50')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

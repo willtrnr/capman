@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tcpwrappers
+pkgver=7.6
+pkgrel=1
+pkgdesc="The tcpwrappers package provides daemon wrapper programs that report the name of the client requesting network services and the requested service."
+arch=('x86_64')
+url="http://www.linuxfromscratch.org/blfs/view/6.1/basicnet/tcpwrappers.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/tcpwrappers-7.6-chromeos-x86_64.tar.xz")
+sha256sums=('6bebba4d4bb3498ecad66271325ab1060c6d019bd0b7d57e4c80d7163b4f9d04')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

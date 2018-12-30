@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cdrkit
+pkgver=1.1.11
+pkgrel=1
+pkgdesc="cdrkit is a suite of programs for recording CDs and DVDs, blanking CD-RW media, creating ISO-9660 filesystem images, extracting audio CD data, and more."
+arch=('x86_64')
+url="https://launchpad.net/cdrkit"
+license=('custom')
+groups=()
+depends=('cmake' 'libcap')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cdrkit-1.1.11-chromeos-x86_64.tar.xz")
+sha256sums=('29a22b6c7627aafed893dbe11d91c9d907c41461b76d3baa9d0da38cd228c51d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

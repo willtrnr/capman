@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libcap
+pkgver=2.25
+pkgrel=1
+pkgdesc="POSIX 1003.1e capabilities"
+arch=('x86_64')
+url="http://sites.google.com/site/fullycapable/"
+license=('GPL2')
+groups=()
+depends=('attr' 'glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libcap-2.25-1-chromeos-x86_64.tar.xz")
+sha256sums=('4aec1e1f208538ec02df02808e9a40df4628a0bfb019367e3f7059fa1debe1bc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

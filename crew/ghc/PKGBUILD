@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ghc
+pkgver=8.4.2
+pkgrel=1
+pkgdesc="The Glasgow Haskell Compiler"
+arch=('x86_64')
+url="http://www.haskell.org/ghc/"
+license=('custom')
+groups=()
+depends=('gcc' 'ghc-libs')
+makedepends=('docbook-xsl' 'ghc-static' 'haskell-hscolour' 'libxslt' 'perl' 'python-sphinx' 'texlive-bin' 'texlive-latexextra' 'ttf-dejavu')
+optdepends=()
+provides=('haskell-ghc=8.6.3')
+conflicts=()
+replaces=('haskell-ghc')
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build ghc
+  tar xf "ghc-8.4.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

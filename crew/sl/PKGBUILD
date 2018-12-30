@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sl
+pkgver=5.02
+pkgrel=1
+pkgdesc="Steam Locomotive runs across your terminal when you type "sl" as you meant to type "ls"."
+arch=('x86_64')
+url="http://www.tkl.iis.u-tokyo.ac.jp/~toyoda/index_e.html"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build sl
+  tar xf "sl-5.02-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

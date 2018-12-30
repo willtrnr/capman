@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=freedos
+pkgver=1.2
+pkgrel=1
+pkgdesc="FreeDOS is a free DOS-compatible operating system."
+arch=('x86_64')
+url="http://www.freedos.org/"
+license=('custom')
+groups=()
+depends=('libjpeg' 'libwayland' 'hicolor-icon-theme' 'gtk3' 'qemu')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build freedos
+  tar xf "freedos-1.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

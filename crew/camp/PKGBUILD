@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=camp
+pkgver=1.0
+pkgrel=1
+pkgdesc="Server stack which includes httpd, percona_server and php"
+arch=('x86_64')
+url="homepage ''"
+license=('custom')
+groups=()
+depends=('httpd' 'percona-server' 'php')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build camp
+  tar xf "camp-1.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xmlto
+pkgver=0.0.28
+pkgrel=1
+pkgdesc="Convert xml to many other formats"
+arch=('x86_64')
+url="https://pagure.io/xmlto/"
+license=('GPL')
+groups=()
+depends=('libxslt')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xmlto-0.0.28-chromeos-x86_64.tar.xz")
+sha256sums=('f4ce1d91e46a06d54877ff22ec0b0bb1da69c3e8ee5962536c722a0abe018fd9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rng-tools
+pkgver=6.5
+pkgrel=1
+pkgdesc="Random number generator related utilities"
+arch=('x86_64')
+url="https://github.com/nhorman/rng-tools"
+license=('GPL')
+groups=()
+depends=('curl' 'libgcrypt' 'libxml2' 'sysfsutils')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/rng_tools-6.5-chromeos-x86_64.tar.xz")
+sha256sums=('df9504bf42632204e92fb4b97ac0b863c7e8cbb7d5592ec9ab7c4224071b711b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

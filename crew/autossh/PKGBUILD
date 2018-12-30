@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=autossh
+pkgver=9c72d3b
+pkgrel=1
+pkgdesc="Automatically restart SSH sessions and tunnels"
+arch=('x86_64')
+url="http://www.harding.motd.ca/autossh/"
+license=('custom')
+groups=()
+depends=('libnsl' 'openssh')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/autossh-9c72d3b-chromeos-x86_64.tar.xz")
+sha256sums=('48eda7fb01e8818fad3c0d4d9e3fb9f1b294fa26fe71b41c17e04dd11b3fa043')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

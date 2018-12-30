@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=patch
+pkgver=2.7.6
+pkgrel=1
+pkgdesc="A utility to apply patch files to original sources"
+arch=('x86_64')
+url="https://www.gnu.org/software/patch/"
+license=('GPL')
+groups=('base-devel')
+depends=('attr' 'glibc')
+makedepends=()
+optdepends=('ed: for patch -e functionality')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/patch-2.7.6-chromeos-x86_64.tar.xz")
+sha256sums=('2c756988d1ed11102e6bc33146d43349e303bac645ec8d16ef7ec521f3d0b5d9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

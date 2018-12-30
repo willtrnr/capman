@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gst-plugins-base
+pkgver=1.14.4
+pkgrel=1
+pkgdesc="GStreamer Multimedia Framework Base Plugins"
+arch=('x86_64')
+url="https://gstreamer.freedesktop.org/"
+license=('LGPL')
+groups=()
+depends=('alsa-lib' 'cdparanoia' 'graphene' 'gst-plugins-base-libs=1.14.4' 'libjpeg' 'libpng' 'libtheora' 'libvisual' 'libvorbis' 'opus' 'pango')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gst_plugins_base-1.14.4-chromeos-x86_64.tar.xz")
+sha256sums=('f858e5ccb578bcff6db1cdd143727b8feec5cf153d0b438af4925827e6fabcc1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

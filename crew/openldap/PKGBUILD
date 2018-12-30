@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=openldap
+pkgver=2.4.45
+pkgrel=1
+pkgdesc="Lightweight Directory Access Protocol (LDAP) client and server"
+arch=('x86_64')
+url="https://www.openldap.org/"
+license=('custom')
+groups=()
+depends=('libldap>=2.4.46' 'libltdl' 'unixodbc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/openldap-2.4.45-chromeos-x86_64.tar.xz")
+sha256sums=('89922907122e587d9107cfaa4ce7b0657ff2590507db92d97905096c28170d99')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

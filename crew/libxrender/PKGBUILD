@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxrender
+pkgver=0.9.10
+pkgrel=1
+pkgdesc="X Rendering Extension client library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libx11>=1.3.4' 'renderproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxrender-0.9.10-0-chromeos-x86_64.tar.xz")
+sha256sums=('561c5a0e8f4b0cd4d9b7e1f7c2b53901e687d3be91e0dfdcb93f3c2184f61dbc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

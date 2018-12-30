@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libjpeg-turbo
+pkgver=1.5.3
+pkgrel=1
+pkgdesc="JPEG image codec with accelerated baseline compression and decompression"
+arch=('x86_64')
+url="https://libjpeg-turbo.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=('libjpeg=8.2.2')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libjpeg_turbo-1.5.3-chromeos-x86_64.tar.xz")
+sha256sums=('908cafa1cf0837495cb52af3725584a5a735bffa6f66b13459b1749679767305')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

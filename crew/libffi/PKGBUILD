@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libffi
+pkgver=3.2.1
+pkgrel=1
+pkgdesc="Portable foreign function interface library"
+arch=('x86_64')
+url="http://sourceware.org/libffi/"
+license=('MIT')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libffi-3.2.1-2-chromeos-x86_64.tar.xz")
+sha256sums=('92d528749d53e5140e510864458a4ff46521b2c17c2311f05077707413965e9e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

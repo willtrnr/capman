@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cups
+pkgver=2.2.8
+pkgrel=1
+pkgdesc="The CUPS Printing System - daemon package"
+arch=('x86_64')
+url="https://www.cups.org/"
+license=('GPL')
+groups=()
+depends=('acl' 'bc' 'cups-filters' 'dbus' 'hicolor-icon-theme' 'libcups>=2.2.10' 'libpaper' 'pam' 'systemd')
+makedepends=()
+optdepends=('colord: for ICC color profile support'
+            'xdg-utils: xdg .desktop file support')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cups-2.2.8-chromeos-x86_64.tar.xz")
+sha256sums=('59cdd35b557c5828c5ac58cc3173c96816ef525e0776ed107efe6c108ca98721')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

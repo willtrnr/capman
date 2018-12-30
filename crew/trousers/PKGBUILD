@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=trousers
+pkgver=0.3.14
+pkgrel=1
+pkgdesc="The open-source TCG Software Stack."
+arch=('x86_64')
+url="http://trousers.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('openssl' 'libtool' 'pkgconfig')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/trousers-0.3.14-1-chromeos-x86_64.tar.xz")
+sha256sums=('9ffc0da97adbc542a44285882a8ace99e21986e11a7676da3314c9ab59a94700')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

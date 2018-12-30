@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=keybase
+pkgver=1.0.40
+pkgrel=1
+pkgdesc="CLI tool for GPG with keybase.io"
+arch=('x86_64')
+url="https://keybase.io/"
+license=('BSD')
+groups=()
+depends=('gnupg')
+makedepends=()
+optdepends=('kbfs: for the fuse-based fileystem and the encryption subcommand')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/keybase-1.0.40-chromeos-x86_64.tar.xz")
+sha256sums=('bd75cf418a25cd90869ae292879f60121cfc68e3ad8d6e5fa9296741c9668865')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

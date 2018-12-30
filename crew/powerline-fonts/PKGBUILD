@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=powerline-fonts
+pkgver=2015
+pkgrel=1
+pkgdesc="patched fonts for powerline"
+arch=('x86_64')
+url="https://github.com/powerline/powerline"
+license=('MIT')
+groups=()
+depends=('powerline-common')
+makedepends=()
+optdepends=()
+provides=('otf-powerline-symbols')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/powerline_fonts-2015-12-04-chromeos-x86_64.tar.xz")
+sha256sums=('ef0fbbbbafa3c82924d3547654d7456e64787b2847f996f6d946e0f05b3943b5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

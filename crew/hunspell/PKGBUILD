@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=hunspell
+pkgver=1.6.2
+pkgrel=1
+pkgdesc="Spell checker and morphological analyzer library and program"
+arch=('x86_64')
+url="https://hunspell.github.io/"
+license=('GPL' 'LGPL' 'MPL')
+groups=()
+depends=('gcc-libs' 'readline')
+makedepends=()
+optdepends=('perl: for ispellaff2myspell')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/hunspell-1.6.2-chromeos-x86_64.tar.xz")
+sha256sums=('76e93eec7e0cec41707fd68f0f21351e94c25e8b993431f3bf400693d3de8251')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

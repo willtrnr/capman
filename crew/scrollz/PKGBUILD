@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=scrollz
+pkgver=2.3
+pkgrel=1
+pkgdesc="ScrollZ is an advanced IRC client based on ircII."
+arch=('x86_64')
+url="http://www.scrollz.info/"
+license=('custom')
+groups=()
+depends=('buildessential' 'ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/scrollz-2.3-1-chromeos-x86_64.tar.xz")
+sha256sums=('b5ec0e2e979a79e9b292d221b4875ce79364f881504bc1ecbce503993b728f73')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

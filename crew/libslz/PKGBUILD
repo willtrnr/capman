@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libslz
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="SLZ is a fast and memory-less stream compressor which produces an output that can be decompressed with zlib or gzip."
+arch=('x86_64')
+url="http://www.libslz.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libslz-1.1.0-2-chromeos-x86_64.tar.xz")
+sha256sums=('a50e1317acc35135592b790a6daefae66c3b04eb2d07b5be2a97e07dec7a0328')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

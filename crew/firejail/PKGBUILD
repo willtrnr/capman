@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=firejail
+pkgver=0.9.54
+pkgrel=1
+pkgdesc="Linux namespaces sandbox program"
+arch=('x86_64')
+url="https://github.com/netblue30/firejail"
+license=('GPL2')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/firejail-0.9.54-chromeos-x86_64.tar.xz")
+sha256sums=('c6c490e1955926bebba1a01bac60472fc9d1a536ad4339b6ab1c5ac278be2b53')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

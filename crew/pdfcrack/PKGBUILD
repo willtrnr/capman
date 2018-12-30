@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pdfcrack
+pkgver=0.16
+pkgrel=1
+pkgdesc="Password recovery tool for PDF-files"
+arch=('x86_64')
+url="http://pdfcrack.sourceforge.net/"
+license=('GPL2')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pdfcrack-0.16-chromeos-x86_64.tar.xz")
+sha256sums=('fe283684679ffe42701876251ef2ae9dc4b19272a91a0df93f968f0e2d148c1b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

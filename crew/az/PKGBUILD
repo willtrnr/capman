@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=az
+pkgver=2.0.46
+pkgrel=1
+pkgdesc="s new command-line experience for managing Azure resources."
+arch=('x86_64')
+url="https://github.com/Azure/azure-cli"
+license=('custom')
+groups=()
+depends=('libffi' 'openssl' 'setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/az-2.0.46-chromeos-x86_64.tar.xz")
+sha256sums=('e21a228cfaf6d85c0407451796c869a7a20da8ccd8de15380a28c1850c2e4347')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

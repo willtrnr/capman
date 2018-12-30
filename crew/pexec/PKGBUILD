@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pexec
+pkgver=1.0rc8
+pkgrel=1
+pkgdesc="The main purpose of the program pexec is to execute the given command or shell script (e.g. parsed by /bin/sh) in parallel on the local host or on remote hosts, while some of the execution parameters, namely the redirected standard input, output or error and environmental variables can be varied."
+arch=('x86_64')
+url="https://www.gnu.org/software/pexec/"
+license=('custom')
+groups=()
+depends=('groff' 'help2man' 'texinfo')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pexec-1.0rc8-1-chromeos-x86_64.tar.xz")
+sha256sums=('15696468ef1b797e0c77cd0a1ec91766d3890072739514772cdf355124f3a1d3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

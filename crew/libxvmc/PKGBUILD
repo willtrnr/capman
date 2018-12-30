@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxvmc
+pkgver=1.0.10
+pkgrel=1
+pkgdesc="X11 Video Motion Compensation extension library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxv')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxvmc-1.0.10-chromeos-x86_64.tar.xz")
+sha256sums=('2194a2e6fd9da51ba1f77f10940c1013a355b50995cc34ca882cb0cf41515734')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

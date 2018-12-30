@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gtk3
+pkgver=3.22.29
+pkgrel=1
+pkgdesc="GObject-based multi-platform GUI toolkit"
+arch=('x86_64')
+url="https://www.gtk.org/"
+license=('LGPL')
+groups=()
+depends=('adwaita-icon-theme' 'atk' 'at-spi2-atk' 'cairo' 'cantarell-fonts' 'colord' 'dconf' 'desktop-file-utils' 'gdk-pixbuf2' 'gtk-update-icon-cache' 'json-glib' 'libcanberra' 'libcups' 'libepoxy' 'librsvg' 'libxcomposite' 'libxcursor' 'libxdamage' 'libxi' 'libxinerama' 'libxkbcommon' 'libxrandr' 'mesa' 'pango' 'rest' 'shared-mime-info' 'wayland' 'wayland-protocols')
+makedepends=()
+optdepends=()
+provides=('gtk3-print-backends')
+conflicts=('gtk3-print-backends')
+replaces=('gtk3-print-backends<=3.22.26-1')
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtk3-3.22.29-0-chromeos-x86_64.tar.xz")
+sha256sums=('f55a4969e7f0ddbeed5586455864d3b83345c1f6b0ef4c2b6fcb000046d56e9d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

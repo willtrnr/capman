@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pavuk
+pkgver=0.9.35
+pkgrel=1
+pkgdesc="Web spider and website mirroring tool."
+arch=('x86_64')
+url="http://www.pavuk.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pavuk-0.9.35-chromeos-x86_64.tar.xz")
+sha256sums=('9588693f44c76a06bd18534ab1c59259b1244298048ee0be8c1d87d60dead16b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

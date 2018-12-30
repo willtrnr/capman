@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=metasploit
+pkgver=4.16.19
+pkgrel=1
+pkgdesc="Advanced open-source platform for developing, testing, and using exploit code"
+arch=('x86_64')
+url="https://www.metasploit.com/"
+license=('BSD')
+groups=()
+depends=('git' 'libpcap' 'libxml2' 'libxslt' 'postgresql-libs' 'ruby' 'ruby-bundler' 'sqlite')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/metasploit-4.16.19-chromeos-x86_64.tar.xz")
+sha256sums=('d3e70602086ffd04438aa6543318e5dc5e78995fe1eabfcfeb94fc7642372974')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

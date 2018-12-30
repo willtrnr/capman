@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xscreensaver
+pkgver=5.40
+pkgrel=1
+pkgdesc="Screen saver and locker for the X Window System"
+arch=('x86_64')
+url="http://www.jwz.org/xscreensaver/"
+license=('BSD')
+groups=()
+depends=('glu' 'libglade' 'libxmu' 'perl-libwww' 'xorg-appres')
+makedepends=('bc' 'gdm' 'intltool' 'libxpm')
+optdepends=('gdm: for login manager support')
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build xscreensaver
+  tar xf "xscreensaver-5.40-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxcb
+pkgver=1.12
+pkgrel=1
+pkgdesc="X11 client-side library"
+arch=('x86_64')
+url="https://xcb.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libxau' 'libxdmcp' 'xcb-proto>=1.12')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxcb-1.12-0-chromeos-x86_64.tar.xz")
+sha256sums=('ec938fc5753e9d7d5d67e38c4cf561be13a873d7b4343d4a9ca60d658dc35a70')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

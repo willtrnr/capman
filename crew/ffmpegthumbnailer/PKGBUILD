@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ffmpegthumbnailer
+pkgver=2.2.0
+pkgrel=1
+pkgdesc="Lightweight video thumbnailer that can be used by file managers."
+arch=('x86_64')
+url="https://github.com/dirkvdb/ffmpegthumbnailer"
+license=('GPL2')
+groups=()
+depends=('ffmpeg' 'libjpeg' 'libpng')
+makedepends=()
+optdepends=('gvfs: support for gio uris')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ffmpegthumbnailer-2.2.0-chromeos-x86_64.tar.xz")
+sha256sums=('1ca2b6e0d414f56c48952814a8470e01c012d11434ab3c26fa28dfbb39b13890')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

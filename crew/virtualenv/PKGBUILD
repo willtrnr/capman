@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=virtualenv
+pkgver=16.0.0
+pkgrel=1
+pkgdesc="Virtual Python Environment builder"
+arch=('x86_64')
+url="http://virtualenv.pypa.io/"
+license=('custom')
+groups=()
+depends=('python3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/virtualenv-16.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('bd8b5a48aadf9457287f95b5c99f33f0263fb3fbb026b1509affe46ed21faa9d')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

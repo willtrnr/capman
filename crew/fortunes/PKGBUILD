@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fortunes
+pkgver=1.99.1
+pkgrel=1
+pkgdesc="Over 15000 cookies for the fortune program."
+arch=('x86_64')
+url="https://packages.debian.org/sid/fortunes"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build fortunes
+  tar xf "fortunes-1.99.1-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

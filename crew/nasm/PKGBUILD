@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nasm
+pkgver=2.14rc16
+pkgrel=1
+pkgdesc="80x86 assembler designed for portability and modularity"
+arch=('x86_64')
+url="https://www.nasm.us"
+license=('BSD')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nasm-2.14rc16-chromeos-x86_64.tar.xz")
+sha256sums=('7aed39d25a05f43613950f27d0033dfa890804c9398ab7549c70ba951c2355d1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libass
+pkgver=0.14.0
+pkgrel=1
+pkgdesc="A portable library for SSA/ASS subtitles rendering"
+arch=('x86_64')
+url="https://github.com/libass/libass/"
+license=('BSD')
+groups=()
+depends=('fontconfig' 'fribidi' 'glib2' 'glibc' 'harfbuzz' 'libfreetype.so=6-64')
+makedepends=()
+optdepends=()
+provides=('libass.so=9-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libass-0.14.0-chromeos-x86_64.tar.xz")
+sha256sums=('5d4f11533ac29592c4af827480bed3609ee8d4ee48e3b34bb3b68934da7e1248')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

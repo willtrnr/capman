@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=moc
+pkgver=2.5.2
+pkgrel=1
+pkgdesc="An ncurses console audio player designed to be powerful and easy to use"
+arch=('x86_64')
+url="http://moc.daper.net/"
+license=('GPL')
+groups=()
+depends=('curl' 'file' 'jack' 'libid3tag' 'libltdl' 'libmad')
+makedepends=()
+optdepends=('faad2: for using the aac plugin'
+            'ffmpeg: for using the ffmpeg plugin'
+            'libmodplug: for using the modplug plugin'
+            'libmpcdec: for using the musepack plugin'
+            'speex: for using the speex plugin'
+            'taglib: for using the musepack plugin'
+            'wavpack: for using the wavpack plugin')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/moc-2.5.2-chromeos-x86_64.tar.xz")
+sha256sums=('9103ec69198179f32c47efbf422bad69c81621c789c6018279fa1b1e130c4ec6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

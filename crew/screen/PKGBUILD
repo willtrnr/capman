@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=screen
+pkgver=4.6.2
+pkgrel=1
+pkgdesc="Full-screen window manager that multiplexes a physical terminal"
+arch=('x86_64')
+url="https://www.gnu.org/software/screen/"
+license=('GPL')
+groups=()
+depends=('ncurses' 'pam')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/screen-4.6.2-chromeos-x86_64.tar.xz")
+sha256sums=('27ec590cfff20b1429f86baca0d42a6e3819a4978d13155b5ec31db04a374b5b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

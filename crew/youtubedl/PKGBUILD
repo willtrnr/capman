@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=youtubedl
+pkgver=2018.09.18
+pkgrel=1
+pkgdesc="Command-line program to download videos from YouTube.com and other video sites"
+arch=('x86_64')
+url="http://rg3.github.io/youtube-dl/"
+license=('custom')
+groups=()
+depends=('setuptools')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/youtubedl-2018.09.18-chromeos-x86_64.tar.xz")
+sha256sums=('f83cc7215ebfa1cc792cac8f8f25eb07153446972b2aaffb0a347cf0397be5f1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

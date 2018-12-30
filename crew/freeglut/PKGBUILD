@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=freeglut
+pkgver=3.0.0
+pkgrel=1
+pkgdesc="Provides functionality for small OpenGL programs"
+arch=('x86_64')
+url="http://freeglut.sourceforge.net/"
+license=('MIT')
+groups=()
+depends=('libgl' 'libxi' 'libxrandr')
+makedepends=()
+optdepends=()
+provides=('glut')
+conflicts=('glut')
+replaces=('glut')
+source=("https://dl.bintray.com/chromebrew/chromebrew/freeglut-3.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('00f1c07741619855037ed004f9ab6a5662fdbc500cb8180513fd39f289d668ea')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

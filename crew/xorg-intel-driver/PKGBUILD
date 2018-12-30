@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-intel-driver
+pkgver=3.3.17
+pkgrel=1
+pkgdesc="The Xorg Intel Driver package contains the X.Org Video Driver for Intel integrated video chips including 8xx, 9xx, Gxx, Qxx, HD, Iris, and Iris Pro graphics processors."
+arch=('x86_64')
+url="https://01.org/linuxgraphics/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_intel_driver-3.3.17-chromeos-x86_64.tar.xz")
+sha256sums=('a9c50a31933fba36b7e3440b897b52cb18c2e264b8ac86aa2253e0cb899cb2a3')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

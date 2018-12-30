@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glibmm
+pkgver=2.56.0
+pkgrel=1
+pkgdesc="C++ bindings for GLib"
+arch=('x86_64')
+url="http://www.gtkmm.org/"
+license=('LGPL')
+groups=()
+depends=('glib2' 'libsigc++')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glibmm-2.56.0-0-chromeos-x86_64.tar.xz")
+sha256sums=('3c30713258dd4972d7118024d44e09f87e1eeea466dfc4b72cb5bb8ea19347bc')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

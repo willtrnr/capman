@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=acl
+pkgver=2.2.53
+pkgrel=1
+pkgdesc="Access control list utilities, libraries and headers"
+arch=('x86_64')
+url="http://savannah.nongnu.org/projects/acl"
+license=('LGPL')
+groups=()
+depends=('attr')
+makedepends=()
+optdepends=()
+provides=('xfsacl')
+conflicts=('xfsacl')
+replaces=('xfsacl')
+source=("https://dl.bintray.com/chromebrew/chromebrew/acl-2.2.53-chromeos-x86_64.tar.xz")
+sha256sums=('3dc686dbda7dd835281a0e9f54fb0740bd4fcb318c273bc78bbe75a402b906d9')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

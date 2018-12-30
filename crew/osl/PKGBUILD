@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=osl
+pkgver=0.9.2
+pkgrel=1
+pkgdesc="OpenScop is a Specification and a Library for Data Exchange in Polyhedral Compilation Tools"
+arch=('x86_64')
+url="https://github.com/periscop/openscop"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/osl-0.9.2-chromeos-x86_64.tar.xz")
+sha256sums=('70d5a0b54a59fa9c32cdeb22b9f02198cff7d319b4c8a78688ee992959f49371')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

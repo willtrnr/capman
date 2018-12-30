@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxt
+pkgver=1.1.5
+pkgrel=1
+pkgdesc="X11 toolkit intrinsics library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('libsm' 'libx11')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxt-1.1.5-0-chromeos-x86_64.tar.xz")
+sha256sums=('ccc5cd728842864ab67d48a85420ba8eb05c19d3a1beb9a5e6ac473ed7a5c9e0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

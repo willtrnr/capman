@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=platformsh
+pkgver=3.26.0
+pkgrel=1
+pkgdesc="The unified tool for managing your Platform.sh services from the command line."
+arch=('x86_64')
+url="https://docs.platform.sh/overview/cli.html"
+license=('custom')
+groups=()
+depends=('php7')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/platformsh-3.26.0-chromeos-x86_64.tar.xz")
+sha256sums=('361d33cec0c787d0dd07bef361af4fd68ce23d0c90c4df494a984ad2ea223a57')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

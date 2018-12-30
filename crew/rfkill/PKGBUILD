@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rfkill
+pkgver=0.5
+pkgrel=1
+pkgdesc="Tool for enabling and disabling wireless devices."
+arch=('x86_64')
+url="http://linuxwireless.org/en/users/Documentation/rfkill"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/rfkill-0.5-chromeos-x86_64.tar.xz")
+sha256sums=('b491bd154ece2066272972c2110f8bc5d6c9a3ce4a0189fda5825d3cbddb0d71')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

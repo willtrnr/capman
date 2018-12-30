@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=popt
+pkgver=1.16
+pkgrel=1
+pkgdesc="A commandline option parser"
+arch=('x86_64')
+url="http://rpm5.org"
+license=('custom')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/popt-1.16-chromeos-x86_64.tar.xz")
+sha256sums=('6bdbab0585a94534dd44f9ecd196902166c49aabcf239e4bfb667c08a27dc300')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mp4v2
+pkgver=2.0.0
+pkgrel=1
+pkgdesc="MP4v2 Library: This library provides functions to read, create, and modify mp4 files"
+arch=('x86_64')
+url="https://code.google.com/archive/p/mp4v2/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mp4v2-2.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('0c65a40cbef64c0d33c3d2e7d2b46ea83d0a14f053de873f0efa62dc79f8841b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=zlibpkg
+pkgver=1.2.11
+pkgrel=1
+pkgdesc="zlib is a massively spiffy yet delicately unobtrusive compression library."
+arch=('x86_64')
+url="http://www.zlib.net/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/zlibpkg-1.2.11-2-chromeos-x86_64.tar.xz")
+sha256sums=('79e08846bb5d73f07cfe0a515cf46a060c2f96ad95651e7d2e5bced93f52ade4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

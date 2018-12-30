@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libatomic-ops
+pkgver=7.6.2
+pkgrel=1
+pkgdesc="Atomic memory update operations portable implementation"
+arch=('x86_64')
+url="https://github.com/ivmai/libatomic_ops"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libatomic_ops-7.6.2-chromeos-x86_64.tar.xz")
+sha256sums=('782b4abc8cffcb8bd8d4f0b23856bc0d2b2603eab29bbbfab9732050840f2ad6')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

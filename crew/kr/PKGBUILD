@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kr
+pkgver=2.4.4
+pkgrel=1
+pkgdesc="Krypton command-line client, daemon, and SSH integration"
+arch=('x86_64')
+url="https://krypt.co"
+license=('custom')
+groups=()
+depends=()
+makedepends=('rust' 'go' 'libsodium' 'rsync' 'psmisc')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build kr
+  tar xf "kr-2.4.4-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

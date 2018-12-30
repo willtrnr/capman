@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=multitail
+pkgver=6.4.2
+pkgrel=1
+pkgdesc="Lets you view one or multiple files like the original tail program"
+arch=('x86_64')
+url="http://www.vanheusden.com/multitail"
+license=('GPL')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/multitail-6.4.2-1-chromeos-x86_64.tar.xz")
+sha256sums=('2059e4345609cbd3c45b40b5f741dc294e26f58f44e52b424f85c07ff3375ec7')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

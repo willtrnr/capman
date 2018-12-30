@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libpsl
+pkgver=0.20.2
+pkgrel=1
+pkgdesc="Public Suffix List library"
+arch=('x86_64')
+url="https://github.com/rockdaboot/libpsl"
+license=('MIT')
+groups=()
+depends=('libidn2' 'libunistring')
+makedepends=()
+optdepends=()
+provides=('libpsl.so=5-64')
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libpsl-0.20.2-chromeos-x86_64.tar.xz")
+sha256sums=('f7f422c26f3d5b3cf690a6f9db6245f32ec7700d1db8e2b33eac212ca00c422e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

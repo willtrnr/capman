@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=siege
+pkgver=4.0.4
+pkgrel=1
+pkgdesc="An http regression testing and benchmarking utility"
+arch=('x86_64')
+url="https://www.joedog.org/siege-home/"
+license=('GPL')
+groups=()
+depends=('openssl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/siege-4.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('3b56b8491da7d50beaa5b8cad9c481c99fabe8e7f04368a93025af8fd0619e8f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

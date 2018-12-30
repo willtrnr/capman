@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=github-release
+pkgver=0.7.2
+pkgrel=1
+pkgdesc="Commandline app to create and edit releases on Github (and upload artifacts)"
+arch=('x86_64')
+url="https://github.com/aktau/github-release"
+license=('custom')
+groups=()
+depends=('go')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/github_release-0.7.2-chromeos-x86_64.tar.xz")
+sha256sums=('f67e4d789cc86cf88c1aeb9dba109a935e07ad12f58ca3a5ab74d2e8bbb981e1')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

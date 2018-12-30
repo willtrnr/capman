@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glyr
+pkgver=1.0.10
+pkgrel=1
+pkgdesc="A music metadata searchengine utility and library written in C"
+arch=('x86_64')
+url="https://github.com/sahib/glyr"
+license=('GPL3')
+groups=()
+depends=('curl' 'glib2' 'sqlite3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glyr-1.0.10-chromeos-x86_64.tar.xz")
+sha256sums=('c9ade91fe3da5da7cd53d53ff9e17a072fc60dd540f2e812ebfccdfe041aed50')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

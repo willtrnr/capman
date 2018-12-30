@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cowsay
+pkgver=3.04
+pkgrel=1
+pkgdesc="Configurable talking cow (and a few other creatures)"
+arch=('x86_64')
+url="http://www.nog.net/~tony/warez/"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build cowsay
+  tar xf "cowsay-3.04-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

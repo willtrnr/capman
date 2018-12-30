@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gdrive
+pkgver=2.1.0
+pkgrel=1
+pkgdesc="Google Drive CLI Client"
+arch=('x86_64')
+url="https://www.google.com/drive/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdrive-2.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('dde5257e1686975cf1e4d0ffb2568eb0ea14fbc44f8cd7fae3a130afade5a854')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

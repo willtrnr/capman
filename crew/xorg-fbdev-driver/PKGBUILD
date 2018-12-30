@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-fbdev-driver
+pkgver=0.4.4
+pkgrel=1
+pkgdesc="The Xorg Fbdev Driver package contains the X.Org Video Driver for framebuffer devices. This driver is often used as fallback driver if the hardware specific and VESA drivers fail to load or are not present."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_fbdev_driver-0.4.4-chromeos-x86_64.tar.xz")
+sha256sums=('3dbeadf9bf8753c28c9950a9ce6d45583e52e8ad0e629caf422ba62968985137')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

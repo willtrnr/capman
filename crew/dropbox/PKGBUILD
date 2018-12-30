@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=dropbox
+pkgver=48.4.58
+pkgrel=1
+pkgdesc="Dropbox simplifies the way you create, share and collaborate.  Bring your photos, docs, and videos anywhere and keep your files safe."
+arch=('x86_64')
+url="https://www.dropbox.com/"
+license=('custom')
+groups=()
+depends=('python27' 'libxslt')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/dropbox-48.4.58-chromeos-x86_64.tar.xz")
+sha256sums=('c2c699372e4646ce5ed542fa189c08dc44dea1ae312f7401f1f385279e1b2ded')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

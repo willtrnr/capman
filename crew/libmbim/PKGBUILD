@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libmbim
+pkgver=1.16.2
+pkgrel=1
+pkgdesc="MBIM modem protocol helper library"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/libmbim/"
+license=('GPL2')
+groups=()
+depends=('bash' 'glib2' 'libgudev' 'systemd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libmbim-1.16.2-chromeos-x86_64.tar.xz")
+sha256sums=('8e85d643f339222cede9361db492333709a4c5e0f135aff659c996d51020abff')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

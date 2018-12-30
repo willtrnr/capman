@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libtiff
+pkgver=4.0.9
+pkgrel=1
+pkgdesc="Library for manipulation of TIFF images"
+arch=('x86_64')
+url="http://www.simplesystems.org/libtiff/"
+license=('custom')
+groups=()
+depends=('libjpeg' 'xz' 'zlib' 'zstd')
+makedepends=()
+optdepends=('freeglut: for using tiffgt')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libtiff-4.0.9-chromeos-x86_64.tar.xz")
+sha256sums=('256279df77d0772be848deb674f865b1c2359c018562ceb8bb6cbd06f8f28a2e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

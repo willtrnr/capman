@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libxfont2
+pkgver=2.0.3
+pkgrel=1
+pkgdesc="X11 font rasterisation library"
+arch=('x86_64')
+url="https://xorg.freedesktop.org/"
+license=('custom')
+groups=()
+depends=('fontsproto' 'freetype2' 'libfontenc' 'xproto')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libxfont2-2.0.3-chromeos-x86_64.tar.xz")
+sha256sums=('5529d1c979afd016f0358227c8db38224cb46f81204726b0ca270bb4ce283608')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

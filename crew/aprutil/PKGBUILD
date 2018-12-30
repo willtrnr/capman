@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aprutil
+pkgver=1.6.1
+pkgrel=1
+pkgdesc="APR-util provides a number of helpful abstractions on top of APR."
+arch=('x86_64')
+url="http://apr.apache.org/"
+license=('custom')
+groups=()
+depends=('apr' 'expat')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aprutil-1.6.1-chromeos-x86_64.tar.xz")
+sha256sums=('e5abe47026a3bf51748e2d3aaaa1e5dc5d46c66180145502e989a28cdae49b30')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

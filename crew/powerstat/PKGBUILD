@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=powerstat
+pkgver=0.02.14
+pkgrel=1
+pkgdesc="Powerstat measures the power consumption of a laptop using the ACPI battery information."
+arch=('x86_64')
+url="http://kernel.ubuntu.com/~cking/powerstat/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/powerstat-0.02.14-chromeos-x86_64.tar.xz")
+sha256sums=('81b9ad7bfdf9bcc6c95148a4d8216f0105a0a54ed31419bb637eeb374901afd5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

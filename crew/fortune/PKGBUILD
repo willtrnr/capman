@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fortune
+pkgver=1.2
+pkgrel=1
+pkgdesc="Fortune is a small game that is meant to lighten up your life. It can be used to display a random entry from a cookie file."
+arch=('x86_64')
+url="https://www.fefe.de/fortune/"
+license=('custom')
+groups=()
+depends=('fortunes')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build fortune
+  tar xf "fortune-1.2-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

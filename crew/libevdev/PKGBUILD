@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libevdev
+pkgver=1.5.9
+pkgrel=1
+pkgdesc="Wrapper library for evdev devices"
+arch=('x86_64')
+url="http://www.freedesktop.org/wiki/Software/libevdev/"
+license=('custom:X11')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libevdev-1.5.9-0-chromeos-x86_64.tar.xz")
+sha256sums=('6f113678d99a5f4fc52db49702bb209e845de505c1bb456b4f2d1c862e9ff7ed')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

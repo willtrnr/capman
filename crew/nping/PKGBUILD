@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nping
+pkgver=7.60
+pkgrel=1
+pkgdesc="Nping is part of the nmap suite - a network diagnostics tool`."
+arch=('x86_64')
+url="https://nmap.org/nping/"
+license=('custom')
+groups=()
+depends=('filecmd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/nping-7.60-chromeos-x86_64.tar.xz")
+sha256sums=('558f8cc197f92003dfd44adab12ec4461b594f322e41d0498a8e961ae030f00a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=masscan
+pkgver=1.0.4
+pkgrel=1
+pkgdesc="TCP port scanner, spews SYN packets asynchronously, scanning entire Internet in under 5 minutes"
+arch=('x86_64')
+url="https://github.com/robertdavidgraham/masscan"
+license=('AGPL3')
+groups=()
+depends=('libpcap')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/masscan-1.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('176e98486ebd547ecc7430bf7bb3763352b48d0422bf95d007f9a9dbf3f15de8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

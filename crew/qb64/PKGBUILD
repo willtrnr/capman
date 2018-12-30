@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=qb64
+pkgver=1.2
+pkgrel=1
+pkgdesc="QB64 is a modern extended BASIC+OpenGL language that retains QB4.5/QBasic compatibility and compiles native binaries for Windows, Linux and macOS."
+arch=('x86_64')
+url="https://www.qb64.org/"
+license=('custom')
+groups=()
+depends=('libglu' 'freeglut' 'alsa-lib' 'alsa-plugins' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/qb64-1.2-chromeos-x86_64.tar.xz")
+sha256sums=('f93227d12bceb6248131ceecd2d542c995a4476185c6bb1f00095135879acf49')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

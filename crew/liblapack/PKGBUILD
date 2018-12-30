@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=liblapack
+pkgver=3.8.0
+pkgrel=1
+pkgdesc="Lapack is a linear algebra package."
+arch=('x86_64')
+url="http://www.netlib.org/lapack/#_lapack_version_3_8_0"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/liblapack-3.8.0-chromeos-x86_64.tar.xz")
+sha256sums=('049da8a6932acae411f33f603ce0a4a2b1544cfda49627033068947f323cf36e')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

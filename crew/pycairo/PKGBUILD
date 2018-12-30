@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pycairo
+pkgver=1.17.1
+pkgrel=1
+pkgdesc="Pycairo is a Python module providing bindings for the cairo graphics library."
+arch=('x86_64')
+url="https://cairographics.org/pycairo/"
+license=('custom')
+groups=()
+depends=('cairo' 'python3' 'python27' 'libxxf86vm' 'libxrender')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/pycairo-1.17.1-chromeos-x86_64.tar.xz")
+sha256sums=('7805d36fa3e6377411f2c29cbbba4ca7148102d84cf31a1287ce5e6ca9ab7fb0')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

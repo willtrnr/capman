@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=google-cloud-sdk
+pkgver=228.0.0
+pkgrel=1
+pkgdesc="Command-line interface for Google Cloud Platform products and services"
+arch=('x86_64')
+url="https://cloud.google.com/sdk/"
+license=('custom')
+groups=()
+depends=('python27' 'xdg-base')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build google_cloud_sdk
+  tar xf "google_cloud_sdk-228.0.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

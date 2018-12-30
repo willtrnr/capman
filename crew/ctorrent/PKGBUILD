@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ctorrent
+pkgver=3.3.2
+pkgrel=1
+pkgdesc="CTorrent is a BitTorrent client implemented in C++ to be lightweight and quick."
+arch=('x86_64')
+url="http://www.rahul.net/dholmes/ctorrent/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ctorrent-3.3.2-chromeos-x86_64.tar.xz")
+sha256sums=('012252e1976bd0580c34f697cff7338b53d4989b6f52a02b5171807981aa1ec4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

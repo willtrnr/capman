@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libglade
+pkgver=2.6.4
+pkgrel=1
+pkgdesc="Allows you to load glade interface files in a program at runtime"
+arch=('x86_64')
+url="http://www.gnome.org"
+license=('LGPL')
+groups=()
+depends=('gtk2>=2.16.0' 'libxml2>=2.7.3')
+makedepends=()
+optdepends=('python2: libglade-convert script')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libglade-2.6.4-chromeos-x86_64.tar.xz")
+sha256sums=('2749ac0d67edb91b1f59355fba8dd045c8dbc44ede3fc619304853b2ac4799cf')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

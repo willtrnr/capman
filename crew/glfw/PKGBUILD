@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glfw
+pkgver=3.2.1
+pkgrel=1
+pkgdesc="GLFW is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop. It provides a simple API for creating windows, contexts and surfaces, receiving input and events."
+arch=('x86_64')
+url="http://www.glfw.org/"
+license=('custom')
+groups=()
+depends=('cmake')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/glfw-3.2.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('41f70d1903f01a11ca658ef4460d6c2af09be0a3596e12bf75b663164107a84b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

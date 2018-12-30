@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=swatchdog
+pkgver=3.2.4
+pkgrel=1
+pkgdesc="s syslog facility."
+arch=('x86_64')
+url="https://sourceforge.net/projects/swatch/"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/swatchdog-3.2.4-chromeos-x86_64.tar.xz")
+sha256sums=('8e0dc2bb5643b837bea9f6a68c4316c260590e80ed7610a8d389ff655d4823cf')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

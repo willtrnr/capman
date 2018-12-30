@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mapserver
+pkgver=7.0.6
+pkgrel=1
+pkgdesc="MapServer is an Open Source platform for publishing spatial data and interactive mapping applications to the web."
+arch=('x86_64')
+url="http://mapserver.org/"
+license=('custom')
+groups=()
+depends=('cmake' 'cairo' 'curl' 'fribidi' 'gdal' 'geos' 'glib' 'harfbuzz' 'libjpeg' 'proj4')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mapserver-7.0.6-chromeos-x86_64.tar.xz")
+sha256sums=('30aee13618652273e99735b3bb6ea83e3623598ccdcb353a954143711995bc04')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

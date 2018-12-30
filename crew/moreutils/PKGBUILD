@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=moreutils
+pkgver=0.60
+pkgrel=1
+pkgdesc="A growing collection of the unix tools that nobody thought to write thirty years ago"
+arch=('x86_64')
+url="http://joeyh.name/code/moreutils/"
+license=('GPL')
+groups=()
+depends=('perl' 'perl-ipc-run' 'perl-timedate' 'perl-time-duration')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=('moreutils-svn')
+source=("https://dl.bintray.com/chromebrew/chromebrew/moreutils-0.60-chromeos-x86_64.tar.xz")
+sha256sums=('dea55d855398f5b88d255ab185f44446acb57ae0d1108057755278f68dc1f4f8')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libgconf
+pkgver=3.2.6
+pkgrel=1
+pkgdesc="GConf is a system for storing application preferences."
+arch=('x86_64')
+url="https://projects-old.gnome.org/gconf/"
+license=('custom')
+groups=()
+depends=('dbus-glib' 'gtk3')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/libgconf-3.2.6-chromeos-x86_64.tar.xz")
+sha256sums=('be97ae6807ad929e22b58e5ce3b561d0b0b49532b9980024aa854ffd762a1ec5')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

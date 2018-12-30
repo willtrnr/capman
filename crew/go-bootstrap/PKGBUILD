@@ -1,0 +1,28 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=go-bootstrap
+pkgver=1.4
+pkgrel=1
+pkgdesc="Bootstrap tool chain for the Go programming language."
+arch=('x86_64')
+url="https://golang.org/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build go_bootstrap
+  tar xf "go_bootstrap-1.4-0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

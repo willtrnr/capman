@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=giflib
+pkgver=5.1.4
+pkgrel=1
+pkgdesc="A library for reading and writing gif images"
+arch=('x86_64')
+url="http://sourceforge.net/projects/giflib/"
+license=('MIT')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/giflib-5.1.4-chromeos-x86_64.tar.xz")
+sha256sums=('2efb3d4ac43bd4400e5af45cf8281e1852b86a2050af1efb0437eb9e92cd3312')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

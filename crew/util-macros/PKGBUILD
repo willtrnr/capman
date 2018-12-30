@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=util-macros
+pkgver=1.19.2
+pkgrel=1
+pkgdesc="The util-macros package contains the m4 macros used by all of the Xorg packages"
+arch=('x86_64')
+url="https://www.linuxfromscratch.org/blfs/view/svn/util-macros.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/util_macros-1.19.2-chromeos-x86_64.tar.xz")
+sha256sums=('88f9f8686f46ec54844d02d140a1db97dabbd48a615a90c4388d1e5b7c63b644')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

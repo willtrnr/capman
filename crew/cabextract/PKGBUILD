@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=cabextract
+pkgver=1.6
+pkgrel=1
+pkgdesc="A program to extract Microsoft cabinet (.CAB) files"
+arch=('x86_64')
+url="http://www.cabextract.org.uk/"
+license=('GPL')
+groups=()
+depends=('glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/cabextract-1.6-chromeos-x86_64.tar.xz")
+sha256sums=('75095476870a5fa3b4cb1d291f336b8132727ffbca7c35e0424aa2ccb38c4afd')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

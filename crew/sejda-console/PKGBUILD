@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=sejda-console
+pkgver=3.2.46
+pkgrel=1
+pkgdesc="Sejda SDK is an open source, task oriented Java library to edit PDF files."
+arch=('x86_64')
+url="http://sejda.org/"
+license=('custom')
+groups=()
+depends=('jdk8')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/sejda_console-3.2.46-chromeos-x86_64.tar.xz")
+sha256sums=('d59742c678df678145d00a86e82dca8ffa180299f099eafbc674d76641ea9506')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

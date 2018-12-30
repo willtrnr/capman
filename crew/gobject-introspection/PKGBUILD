@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gobject-introspection
+pkgver=1.52.1
+pkgrel=1
+pkgdesc="Introspection system for GObject-based libraries"
+arch=('x86_64')
+url="https://wiki.gnome.org/Projects/GObjectIntrospection"
+license=('GPL' 'LGPL')
+groups=()
+depends=('gobject-introspection-runtime=1.58.3-1' 'python' 'python-mako')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/gobject_introspection-1.52.1-chromeos-x86_64.tar.xz")
+sha256sums=('1579109ca32ff57a7b8dd4aeac198d09f4131998bf9127e992fb4df81f4967eb')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

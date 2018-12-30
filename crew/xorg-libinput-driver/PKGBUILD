@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xorg-libinput-driver
+pkgver=0.27.1
+pkgrel=1
+pkgdesc="The X.Org Libinput Driver is a thin wrapper around libinput and allows for libinput to be used for input devices in X. This driver can be used as drop-in replacement for evdev and synaptics."
+arch=('x86_64')
+url="https://www.x.org"
+license=('custom')
+groups=()
+depends=('libinput')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_libinput_driver-0.27.1-chromeos-x86_64.tar.xz")
+sha256sums=('f3687b252e47e08cabe31e7c7d09f00c456b875eaa0826b2de446d70674c4727')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

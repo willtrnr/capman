@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=umockdev
+pkgver=0.9.4
+pkgrel=1
+pkgdesc="Record/mock hardware devices for bug reports and regression tests"
+arch=('x86_64')
+url="https://github.com/martinpitt/umockdev/"
+license=('LGPL')
+groups=()
+depends=('libgudev' 'systemd')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/umockdev-0.9.4-chromeos-x86_64.tar.xz")
+sha256sums=('95fd0e8eeacb4d95051cf80a1d6a44e4882c51f4be477f100c1d69e43f61fbd4')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

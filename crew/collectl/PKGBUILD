@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=collectl
+pkgver=4.3.0
+pkgrel=1
+pkgdesc="Collectl is a light-weight performance monitoring tool capable of reporting interactively as well as logging to disk."
+arch=('x86_64')
+url="http://collectl.sourceforge.net/"
+license=('custom')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/collectl-4.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('b6969809ec05e685dae42ef0345a2c3375e2d12ea2f4cfbcf1d37878d329484a')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

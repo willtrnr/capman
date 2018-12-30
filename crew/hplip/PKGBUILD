@@ -1,0 +1,37 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=hplip
+pkgver=3.18.7
+pkgrel=1
+pkgdesc="Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet"
+arch=('x86_64')
+url="http://hplipopensource.com"
+license=('custom' 'GPL2')
+groups=()
+depends=('foomatic-db-engine' 'ghostscript' 'net-snmp' 'python-dbus')
+makedepends=('cups' 'libusb' 'python-gobject' 'python-pyqt5' 'rpcbind' 'sane')
+optdepends=('cups: for printing support'
+            'libusb: for advanced usb support'
+            'python-gobject: for running hp-toolbox'
+            'python-pillow: for commandline scanning support'
+            'python-pyqt5: for running GUI and hp-toolbox'
+            'python-reportlab: for pdf output in hp-scan'
+            'rpcbind: for network support'
+            'sane: for scanner support'
+            'wget: for network support'
+            'xsane: sane scanner frontend')
+provides=()
+conflicts=()
+replaces=()
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build hplip
+  tar xf "hplip-3.18.7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=binclock
+pkgver=3883e8
+pkgrel=1
+pkgdesc="Ncurses clock, with time displayed in colourful binary"
+arch=('x86_64')
+url="https://github.com/JohnAnthony/Binary-Clock"
+license=('custom')
+groups=()
+depends=('ncurses')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/binclock-3883e8-chromeos-x86_64.tar.xz")
+sha256sums=('aae91be20e29e463d85d419c19ba534a0533f3b5b035a93a3060c18bf22f7c3f')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

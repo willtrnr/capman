@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=aspell
+pkgver=0.60.7
+pkgrel=1
+pkgdesc="A spell checker designed to eventually replace Ispell"
+arch=('x86_64')
+url="http://aspell.net/"
+license=('LGPL')
+groups=()
+depends=('gcc-libs' 'ncurses')
+makedepends=()
+optdepends=('perl: to import old dictionaries')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/aspell-0.60.7-rc1-3-chromeos-x86_64.tar.xz")
+sha256sums=('78b3b2afb62be606d399344c0320f586e22901c922324953fab77a6b88d5373b')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

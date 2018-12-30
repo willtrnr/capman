@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mercurial
+pkgver=4.2.2
+pkgrel=1
+pkgdesc="A scalable distributed SCM tool"
+arch=('x86_64')
+url="https://www.mercurial-scm.org/"
+license=('GPL')
+groups=()
+depends=('python2')
+makedepends=()
+optdepends=('tk: for the hgk GUI')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mercurial-4.2.2-chromeos-x86_64.tar.xz")
+sha256sums=('5e33ff3958f26ff084330c833b90afd90314f28f9d60ec17150be63ab4b7e305')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

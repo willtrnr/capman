@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=alive
+pkgver=2.0.2
+pkgrel=1
+pkgdesc="Automatic login and keep-alive utility for Internet connections."
+arch=('x86_64')
+url="https://www.gnu.org/software/alive/"
+license=('custom')
+groups=()
+depends=('guile')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/alive-2.0.2-chromeos-x86_64.tar.xz")
+sha256sums=('82bbdaf0fb8e1bcd3763900536caa84dd043ed9296d0e038da7a9f96801716fd')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=mandb
+pkgver=2.8.4
+pkgrel=1
+pkgdesc="mandb is used to initialise or manually update index database caches that are usually maintained by man."
+arch=('x86_64')
+url="http://savannah.nongnu.org/projects/man-db"
+license=('custom')
+groups=()
+depends=('libpipeline' 'gdbm' 'groff' 'readline')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/mandb-2.8.4-chromeos-x86_64.tar.xz")
+sha256sums=('0f3b5fee5e9b90e93f2242033cf7a49cd9100cf8b355e3abe4ba6f0d2f51b733')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

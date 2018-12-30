@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=has
+pkgver=1.1.0
+pkgrel=1
+pkgdesc="checks presence of various command line tools and their versions on the path"
+arch=('x86_64')
+url="https://github.com/kdabir/has"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/has-1.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('8e08c20871f42de35e7d9bef82cc24e7d5ed9137752dac05c48f36467383a582')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

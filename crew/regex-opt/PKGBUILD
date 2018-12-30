@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=regex-opt
+pkgver=1.2.4
+pkgrel=1
+pkgdesc="Perl-compatible regular expression optimizer"
+arch=('x86_64')
+url="https://bisqwit.iki.fi/source/regexopt.html"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/regex_opt-1.2.4-chromeos-x86_64.tar.xz")
+sha256sums=('a49aaa0db5429edeb512833c3c73e96646903e8c5b2aaa0a15ef262ed62e3095')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=jfrog
+pkgver=1.12.0
+pkgrel=1
+pkgdesc="JFrog CLI is a compact and smart client that provides a simple interface that automates access to Artifactory, Bintray and Mission Control through their respective REST APIs."
+arch=('x86_64')
+url="https://github.com/JFrogDev/jfrog-cli-go"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/jfrog-1.12.0-chromeos-x86_64.tar.xz")
+sha256sums=('19ce3e127f359ff9054ce48b8f879676c3d968789203719a27823e913164c056')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

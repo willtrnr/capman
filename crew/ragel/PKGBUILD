@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=ragel
+pkgver=6.10
+pkgrel=1
+pkgdesc="Compiles finite state machines from regular languages into executable C, C++, Objective-C, or D code."
+arch=('x86_64')
+url="http://www.complang.org/ragel/"
+license=('GPL')
+groups=()
+depends=('gcc-libs')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/ragel-6.10-chromeos-x86_64.tar.xz")
+sha256sums=('dcb064549487d9ba7916e83ff4676673b9f2b01a437cd31d162c34a8b5fe1597')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

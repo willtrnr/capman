@@ -1,0 +1,23 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=memcached
+pkgver=1.5.3
+pkgrel=1
+pkgdesc="Distributed memory object caching system"
+arch=('x86_64')
+url="https://memcached.org/"
+license=('GPL')
+groups=()
+depends=('libevent' 'libseccomp')
+makedepends=()
+optdepends=('perl: for memcached-tool usage')
+provides=()
+conflicts=()
+replaces=()
+source=("https://dl.bintray.com/chromebrew/chromebrew/memcached-1.5.3-chromeos-x86_64.tar.xz")
+sha256sums=('0ae6afff645bddd1fdebe42fcc1289c9ec259901e89e6312e0c94054061402ee')
+
+package() {
+  install -dm 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}
