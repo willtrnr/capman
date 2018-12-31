@@ -1,0 +1,45 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=tzdata
+pkgver=2018i
+_tzcode=2018i
+_tzdata=2018i
+pkgrel=1
+pkgdesc="Sources for time zone and daylight saving time data"
+arch=('x86_64')
+url="http://www.iana.org/time-zones"
+license=('GPL')
+options=('!emptydirs')
+source=(https://www.iana.org/time-zones/repository/releases/tzcode${_tzcode}.tar.gz{,.asc}
+        https://www.iana.org/time-zones/repository/releases/${pkgname}${_tzdata}.tar.gz{,.asc})
+sha256sums=('aaacdb876ca6fb9d58e244b462cbc7578a496b1b10994381b4b32b9f2ded32dc'
+            'SKIP'
+            '82c45ef84ca3bc01d0a4a397ba8adeb8f7f199c6550740587c6ac5a7108c00d9'
+            'SKIP')
+validpgpkeys=('7E3792A9D8ACF7D633BC1588ED97E90E62AA7E34') # Paul Eggert <eggert@cs.ucla.edu>
+
+_timezones=('africa' 'antarctica' 'asia' 'australasia'
+            'europe' 'northamerica' 'southamerica'
+            'pacificnew' 'etcetera' 'backward'
+            'systemv' 'factory')
+
+prepare() {
+  sed -i "s/sbin/bin/g" Makefile
+}
+
+build() {
+  make
+}
+
+package() {
+  # install tzcode stuff
+  make USRDIR="usr/local" DESTDIR="$pkgdir" install
+
+  # remove system provided files
+  rm -r "$pkgdir/usr/local/share/zoneinfo"
+  rm -r "$pkgdir/usr/local/share/zoneinfo-leaps"
+  rm "$pkgdir/usr/local/share/zoneinfo-posix"
+
+  # cleanup
+  rm "${pkgdir}/etc/localtime"
+}

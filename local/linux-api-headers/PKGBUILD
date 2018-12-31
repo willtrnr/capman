@@ -1,0 +1,32 @@
+# Maintainer:  William Turner <willtur.will@gmail.com>
+
+pkgname=linux-api-headers
+pkgver="$(uname -r | sed 's/-.*$//')"
+pkgrel=1
+pkgdesc="Kernel headers sanitized for use in userspace"
+arch=('any')
+url="http://www.gnu.org/software/libc"
+license=('GPL2')
+source=(https://www.kernel.org/pub/linux/kernel/v4.x/linux-$pkgver.tar.xz)
+sha256sums=('SKIP')
+validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886'   # Linus Torvalds
+              '647F28654894E3BD457199BE38DBBDC86092693E')  # Greg Kroah-Hartman
+
+build() {
+  cd "linux-$pkgver"
+
+  make mrproper
+  make headers_check
+}
+
+package() {
+  cd "linux-$pkgver"
+
+  make INSTALL_HDR_PATH="$pkgdir/usr/local" headers_install
+
+  # use headers from libdrm
+  rm -r "$pkgdir/usr/local/include/drm"
+
+  # clean-up unnecessary files generated during install
+  find "$pkgdir" \( -name .install -o -name ..install.cmd \) -delete
+}

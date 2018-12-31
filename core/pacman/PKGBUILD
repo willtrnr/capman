@@ -11,7 +11,8 @@ groups=('base' 'base-devel')
 depends=('bash' 'glibc' 'libarchive' 'curl' 'gpgme' 'capman-keyring')
 makedepends=('asciidoc')
 optdepends=('perl-locale-gettext: translation support in makepkg-template')
-backup=(usr/local/etc/pacman.conf usr/local/etc/makepkg.conf)
+backup=(usr/local/etc/pacman.conf
+        usr/local/etc/makepkg.conf)
 options=('strip')
 validpgpkeys=('6645B0A8C7005E78DB1D7864F99FFE0FEAE999BD'  # Allan McRae <allan@archlinux.org>
               'B8151B117037781095514CA7BBDFFC92306B1121') # Andrew Gregory (pacman) <andrew@archlinux.org>

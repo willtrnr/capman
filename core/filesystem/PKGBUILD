@@ -1,0 +1,17 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=filesystem
+pkgver=2018.12
+pkgrel=1
+pkgdesc="Base files"
+arch=('any')
+url="https://github.com/wwwiiilll/capman"
+license=('GPL')
+groups=('base')
+
+package() {
+  # setup /usr/local hierarchy
+  for d in bin cache etc include lib man sbin share src tmp; do
+    install -d -m755 "$pkgdir/usr/local/$d"
+  done
+}
