@@ -16,8 +16,10 @@ Then run the following (it's safe, I swear, but please read scripts before
 running them):
 
 ```sh
-curl -L https://raw.githubusercontent.com/wwwiiilll/capman/master/install.sh | bash
+curl -Ls https://raw.githubusercontent.com/wwwiiilll/capman/master/install.sh | bash
 ```
+
+After installing pacman, crew should no longer be used.
 
 Usage
 -----
@@ -36,22 +38,24 @@ Here are a couple of motivations for this project:
   dependencies and sharing files gets a bit weird.
 
 - Crostini is nice, but we already have Gentoo out of the box, why install
-  another (lesser) distribution. Plus, not all Chromebook models support it.
+  another (lesser) distribution. Plus, not all Chromebook models support
+  it.
 
 - Chromebrew is very nice, but isn't without issues:
 
-  - Files are install as `chronos`, any user with terminal access ends up an
-    administrator of the "system".
+  - Files are install as `chronos`, any user with terminal access ends up
+    an administrator of the "system".
 
   - No true dependency tracking or orphan management, removing a package
-    leaves its dependants in-place and unused libraries are hard to identify.
+    leaves its dependants in-place and unused libraries are hard to
+    identify.
 
-  - The Ruby DSL for packages is not common and makes porting packages harder
-    than necessary. Packaging additional build files such as patches is not
-    easily doable and resorts to hacks.
+  - The Ruby DSL for packages is not common and makes porting packages
+    harder than necessary. Packaging additional build files such as patches
+    is not easily doable and resorts to hacks.
 
-  - No way to express `conflicts` or `provides` between packages, this makes
-    providing alternatives difficult.
+  - No way to express `conflicts` or `provides` between packages, this
+    makes providing alternatives difficult.
 
   - To add to the previous point, no file ownership enforcement is made,
     files can end up belonging to multiple packages.
