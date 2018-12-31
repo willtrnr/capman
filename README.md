@@ -58,7 +58,9 @@ Here are a couple of motivations for this project:
     makes providing alternatives difficult.
 
   - To add to the previous point, no file ownership enforcement is made,
-    files can end up belonging to multiple packages.
+    files can end up belonging to multiple packages. No reference counting
+    is made, so files are removed as soon as one of the owning package is
+    removed.
 
   - Some of the packages install files in `$HOME`.
 
