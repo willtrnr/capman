@@ -20,18 +20,21 @@ mkdir -p "$REPO_PATH"
 
 for pkg in "$MUTINY_PKG_PATH/"*; do
   name="$(basename "$pkg")"
+  if (grep -q 'build()' "$pkg/PKGBUILD"); then
+    warning "Skipping '%s' due to build requirement." "$name"
+  else
+    msg "Building '%s'..." "$name"
+    (cd "$pkg"; makepkg -d --sign)
 
-  msg "Building '%s'..." "$name"
-  (cd "$pkg"; makepkg -d --sign)
+    msg "Adding package '%s' to the repo..." "$name"
+    repo-add "$REPO_DB" "$pkg/$name-"*.pkg.tar.xz
+    cp "$pkg/$name-"*.pkg.tar.xz{,.sig} "$REPO_PATH"
 
-  msg "Adding package '%s' to the repo..." "$name"
-  repo-add "$REPO_DB" "$pkg/$name-"*.pkg.tar.xz
-  cp "$pkg/$name-"*.pkg.tar.xz{,.sig} "$REPO_PATH"
-
-  msg "Cleaning up..."
-  for f in "$pkg/"*; do
-    if [ "$(basename "$f")" != PKGBUILD ] && [[ "$f" != *.pkg.tar.xz* ]]; then
-      rm -r "$f"
-    fi
-  done
+    msg "Cleaning up..."
+    for f in "$pkg/"*; do
+      if [ "$(basename "$f")" != PKGBUILD ] && [[ "$f" != *.pkg.tar.xz* ]]; then
+        rm -rf "$f"
+      fi
+    done
+  fi
 done
