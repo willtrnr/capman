@@ -149,7 +149,7 @@ source=($binary_url)
 sha256sums=($binary_sha256)
 $build
 package() {
-  install -dm 0755 "\$pkgdir/usr"
+  install -d -m 0755 "\$pkgdir/usr"
   cp -a usr/local "\$pkgdir/usr"
 }
 EOF
