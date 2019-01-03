@@ -82,33 +82,34 @@ pkgname="${crewname//_/-}"
 
 # Crew sometimes have pkgrels embedded in the version number
 pkgver="${crewver%%-*}"
-if [[ "$pkgver" == *-* ]]; then
-  pkgrel="${crewver#*-}"
+pkgrel=1
+if [[ "$crewver" == *-* ]]; then
+  pkgrel="${crewver##*-}"
 fi
 
 
 msg "Fetching Arch package details for %s..." "$pkgname"
 
 # Find the package using exact name match on the Arch repository API
-if (curl -s "https://www.archlinux.org/packages/search/json/?name=$pkgname" | jq -e -r '.results[0]' > /tmp/package.json 2> /dev/null); then
+if (curl -s "https://www.archlinux.org/packages/search/json/?name=$pkgname" | jq -e -r '.results[0]' > "/tmp/$pkgname.json" 2> /dev/null); then
   # Extract and possibly override the info we have so far
-  pkgdesc="$(jq -r '.pkgdesc' /tmp/package.json)"
-  url="$(jq -r '.url' /tmp/package.json)"
-  licenses="$(jq -r '.licenses | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
-  groups="$(jq -r '.groups | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
+  pkgdesc="$(jq -r '.pkgdesc' "/tmp/$pkgname.json")"
+  url="$(jq -r '.url' "/tmp/$pkgname.json")"
+  licenses="$(jq -r '.licenses | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  groups="$(jq -r '.groups | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
   unset depends
-  depends="$(jq -r '.depends | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
+  depends="$(jq -r '.depends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
   unset makedepends
-  makedepends="$(jq -r '.makedepends | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
-  optdepends="$(jq -r '.optdepends | map("'"'"'" + . + "'"'"'") | join("\n            ")' /tmp/package.json)"
-  provides="$(jq -r '.provides | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
-  conflicts="$(jq -r '.conflicts | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
-  replaces="$(jq -r '.replaces | map("'"'"'" + . + "'"'"'") | join(" ")' /tmp/package.json)"
+  makedepends="$(jq -r '.makedepends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  optdepends="$(jq -r '.optdepends | map("'"'"'" + . + "'"'"'") | join("\n            ")' "/tmp/$pkgname.json")"
+  provides="$(jq -r '.provides | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  conflicts="$(jq -r '.conflicts | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  replaces="$(jq -r '.replaces | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
 else
   # We'll produce the package as-is
   warning "No equivalent package found, will use crew information."
 fi
-rm -f /tmp/package.json
+rm -f "/tmp/$pkgname.json"
 
 
 destdir="$MUTINY_PKG_PATH/$pkgname"
@@ -133,7 +134,7 @@ cat > "$destdir/PKGBUILD" <<EOF
 
 pkgname=$pkgname
 pkgver=$pkgver
-pkgrel=${pkgrel:-1}
+pkgrel=$pkgrel
 pkgdesc="$pkgdesc"
 arch=('x86_64')
 url="$url"

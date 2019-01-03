@@ -1,0 +1,18 @@
+" All system-wide defaults are set in $VIMRUNTIME/capman.vim (usually just
+" /usr/local/share/vim/vimfiles/capman.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/usr/local/etc/vimrc), since capman.vim will be
+" overwritten everytime an upgrade of the vim packages is performed.  It is
+" recommended to make changes after sourcing capman.vim since it alters the
+" value of the 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! capman.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/local/share/vim/vim80/vimrc_example.vim or the vim
+" manual and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
