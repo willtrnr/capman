@@ -1,0 +1,17 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=pacman-mirrorlist
+pkgver=20181205
+pkgrel=1
+pkgdesc="Capman mirror list for use by pacman"
+arch=('any')
+url="https://github.com/wwwiiilll/capman"
+license=('GPL')
+backup=(usr/local/etc/pacman.d/mirrorlist)
+source=('mirrorlist')
+sha256sums=('2e3b6d2f0e3a02b083a0b6f3602d8b9bdb1b0ce02cbd50a9a7c1e8eacaa49381')
+
+package() {
+  mkdir -p "$pkgdir/usr/local/etc/pacman.d"
+  install -m 644 "$srcdir/mirrorlist" "$pkgdir/usr/local/etc/pacman.d/"
+}

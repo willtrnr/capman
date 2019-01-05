@@ -4,14 +4,21 @@ pkgname=filesystem
 pkgver=2018.12
 pkgrel=1
 pkgdesc="Base files"
-arch=('any')
+arch=('x86_64')
 url="https://github.com/wwwiiilll/capman"
 license=('GPL')
 groups=('base')
 
 package() {
   # setup /usr/local hierarchy
-  for d in bin cache etc include lib man sbin share src tmp; do
-    install -d -m755 "$pkgdir/usr/local/$d"
+  for d in bin cache etc include sbin share share/man share/man/man{1..8} src tmp; do
+    install -d -m 755 "$pkgdir/usr/local/$d"
   done
+  # handle lib64
+  if [ "$CARCH" = "x86_64" ]; then
+    install -d -m 755 "$pkgdir/usr/local/lib64"
+    ln -s lib64 "$pkgdir/usr/local/lib"
+  else
+    install -d -m 755 "$pkgdir/usr/local/lib"
+  fi
 }

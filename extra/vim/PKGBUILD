@@ -24,7 +24,7 @@ prepare() {
   (cd "vim-${pkgver}/src"
     # define the place for the global (g)vimrc file (set to /usr/local/etc/vimrc)
     sed -i 's|^.*#define SYS_VIMRC_FILE.*$|#define SYS_VIMRC_FILE \"/usr/local/etc/vimrc\"|' feature.h
-    sed -i 's|^.*#define SYS_GVIMRC_FILE.*$|#define SYS_GVIMRC_FILE \"/usr/local/etc/vimrc\"|' feature.h
+    sed -i 's|^.*#define SYS_GVIMRC_FILE.*$|#define SYS_GVIMRC_FILE \"/usr/local/etc/gvimrc\"|' feature.h
     autoconf
   )
   cp -a "vim-${pkgver}" "gvim-${pkgver}"
@@ -85,7 +85,7 @@ package_vim-runtime() {
 
   cd "vim-${pkgver}"
 
-  make -j1 VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
+  make VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
   # man and bin files belong to 'vim'
   rm -r "${pkgdir}/usr/local/share/man" "${pkgdir}/usr/local/bin"
 
@@ -97,14 +97,14 @@ package_vim-runtime() {
 
   # rc files
   install -D -m 644 "${srcdir}/vimrc" "${pkgdir}/usr/local/etc/vimrc"
-  install -D -m 644 "${srcdir}/capman.vim" "${pkgdir}/usr/share/vim/vimfiles/capman.vim"
+  install -D -m 644 "${srcdir}/capman.vim" "${pkgdir}/usr/local/share/vim/vimfiles/capman.vim"
 
   # no desktop files and icons
   rm -r "${pkgdir}/usr/local/share/"{applications,icons}
 
   # license
   install -d -m 755 "${pkgdir}/usr/local/share/licenses/vim-runtime"
-  ln -s "/usr/local/share/vim/vim${_versiondir}/doc/uganda.txt" "${pkgdir}/usr/share/licenses/vim-runtime/license.txt"
+  ln -s "/usr/local/share/vim/vim${_versiondir}/doc/uganda.txt" "${pkgdir}/usr/local/share/licenses/vim-runtime/license.txt"
 
   # pacman hook for documentation helptags
   install -D -m 644 "${srcdir}/vimdoc.hook" "${pkgdir}/usr/local/share/libalpm/hooks/vimdoc.hook"
@@ -123,7 +123,7 @@ package_vim() {
   replaces=('vim-python3' 'vim-minimal')
 
   cd "vim-${pkgver}"
-  make -j1 VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
+  make VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
 
   # provided by (n)vi in core
   rm "${pkgdir}/usr/local/bin/"{ex,view}
@@ -137,8 +137,8 @@ package_vim() {
   # Runtime provided by runtime package
   rm -r "${pkgdir}/usr/local/share/vim"
 
-  # remove gvim.desktop as not included
-  rm "${pkgdir}/usr/local/share/applications/gvim.desktop"
+  # no desktop files and icons
+  rm -r "${pkgdir}/usr/local/share/"{applications,icons}
 
   # license
   install -D -m 644 runtime/doc/uganda.txt "${pkgdir}/usr/local/share/licenses/${pkgname}/license.txt"
@@ -158,7 +158,7 @@ package_gvim() {
   replaces=('gvim-python3')
 
   cd gvim-${pkgver}
-  make -j1 VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
+  make VIMRCLOC=/usr/local/etc DESTDIR="${pkgdir}" install
 
   # provided by (n)vi in core
   rm "${pkgdir}/usr/local/bin/"{ex,view}
@@ -172,7 +172,7 @@ package_gvim() {
   rm -r "${pkgdir}/usr/local/share/vim"
 
   # license
-   install -Dm 644 runtime/doc/uganda.txt "${pkgdir}/usr/local/share/licenses/${pkgname}/license.txt"
+  install -D -m 644 runtime/doc/uganda.txt "${pkgdir}/usr/local/share/licenses/${pkgname}/license.txt"
 }
 
 # vim: ts=2 sw=2 et:

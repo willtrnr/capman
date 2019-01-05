@@ -1,0 +1,6 @@
+#
+# Capman repository mirrorlist
+#
+
+# Worldwide
+Server = https://storage.googleapis.com/capman-repo/$repo/os/$arch
