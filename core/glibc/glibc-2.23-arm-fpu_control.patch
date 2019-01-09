@@ -1,0 +1,62 @@
+This backports the upstream patch.
+author	Joseph Myers <joseph@codesourcery.com>	
+Thu, 19 Jan 2017 00:05:34 +0000 (00:05 +0000)
+committer	Joseph Myers <joseph@codesourcery.com>	
+Thu, 19 Jan 2017 00:05:34 +0000 (00:05 +0000)
+commit	3a66b2b0637e439fb0e7a14c6c3d4c58190eec61
+tree	04a7b7a3c6680075e33ebb1e503d6d511ff20ffb	tree
+parent	cd880aa2ccabecd1a258b39b987160f0e86fd52d	commit | diff
+Fix ARM fpu_control.h for assemblers requiring VFP insn names (bug 21047).
+
+Bug 21047 reports that the clang assembler disallows the ARM
+implementations of _FPU_GETCW and _FPU_SETCW.
+
+These are deliberately written the way they are, using generic
+coprocessor instructions (from the days when VFP was just one possible
+coprocessor for ARM) that have the right encodings, to handle the case
+of the instructions being used runtime-conditionally inside glibc,
+where use of these macros is not meant to result in either the
+assembler requiring VFP to be enabled at assembly time or in it
+marking the object as using VFP.  However, more recent ARM ARM
+versions have restricted the definitions of the coprocessor
+instructions and reportedly the clang assembler follows that in
+disallowing those names for VFP instructions.
+
+In the non-__SOFTFP__ case - which in fact is the only case where
+these macro definitions can be used outside the build of glibc itself
+- using VFP instruction names is of course fine, since we know that
+VFP is enabled for that compilation.  Thus, this patch uses the
+current VFP names for these instructions in that case to improve
+compatibility for this header file.
+
+Tested for hard-float and soft-float builds of glibc, including that
+installed stripped shared libraries are unchanged by the patch.
+
+[BZ #21047]
+* sysdeps/arm/fpu_control.h [!__SOFTFP__] (_FPU_GETCW): Use VFP
+name for instruction.
+[!__SOFTFP__] (_FPU_SETCW): Likewise.
+--- a/sysdeps/arm/fpu_control.h
++++ b/sysdeps/arm/fpu_control.h
+@@ -53,12 +53,19 @@ extern fpu_control_t __fpu_control;
+ typedef unsigned int fpu_control_t;
+ 
+ /* Macros for accessing the hardware control word.  */
++#ifdef __SOFTFP__
+ /* This is fmrx %0, fpscr.  */
+-#define _FPU_GETCW(cw) \
++# define _FPU_GETCW(cw) \
+   __asm__ __volatile__ ("mrc p10, 7, %0, cr1, cr0, 0" : "=r" (cw))
+ /* This is fmxr fpscr, %0.  */
+-#define _FPU_SETCW(cw) \
++# define _FPU_SETCW(cw) \
+   __asm__ __volatile__ ("mcr p10, 7, %0, cr1, cr0, 0" : : "r" (cw))
++#else
++# define _FPU_GETCW(cw) \
++  __asm__ __volatile__ ("vmrs %0, fpscr" : "=r" (cw))
++# define _FPU_SETCW(cw) \
++  __asm__ __volatile__ ("vmsr fpscr, %0" : : "r" (cw))
++#endif
+ 
+ /* Default control word set at startup.  */
+ extern fpu_control_t __fpu_control;

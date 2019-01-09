@@ -1,0 +1,117 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glibc
+pkgver=2.23
+_patchver=6
+pkgrel=1
+pkgdesc="GNU C Library"
+arch=('x86_64')
+url="http://www.gnu.org/software/libc"
+license=('GPL' 'LGPL')
+groups=('base')
+depends=('filesystem' 'linux-api-headers>=2.6.32')
+options=('!strip' 'staticlibs')
+source=("https://ftp.gnu.org/gnu/libc/glibc-${pkgver}.tar.xz"
+        "https://dev.gentoo.org/~vapier/dist/glibc-${pkgver}-patches-${_patchver}.tar.bz2"
+        'glibc-2.23-nsswitch_config.patch'
+        'glibc-2.23-file-mangle.patch'
+        'glibc-2.23-set-ld.patch'
+        'glibc-2.23-fortify-warning.patch'
+        'glibc-2.23-clang-fortify.patch'
+        'glibc-2.23-long_jmp.patch'
+        'glibc-2.23-arm-fpu_control.patch'
+        'glibc-2.23-ld-hwcap-mask-suid.patch'
+        'glibc-2.23-ld-library-path-suid.patch'
+        'glibc-2.23-empty-token.patch'
+        'glibc-2.23-getcwd.patch'
+        'glibc-2.23-dlopen.patch'
+        'glibc-2.23-bits-socket-linux-4.6.patch'
+        'glibc-2.23-bits-socket-linux-4.7.patch'
+        'glibc-2.23-sht_relr.patch'
+        'glibc-2.23-i386-memmove.patch'
+        'glibc-2.23-net-if_arp.patch')
+sha256sums=('94efeb00e4603c8546209cefb3e1a50a5315c86fa9b078b6fad758e187ce13e9'
+            'd3fbc6068bb7bb92a5e4c8fc30d5c70c203a64bcb33b5578de7639400e1a56d9'
+            'e74004da3e80b371fb285bf73353f20dbd670eb71767779afe1b2541defca6f3'
+            'a883a3c0e19e26fe14fbc6f74a94b165412f43cf52ba8247758ca794e7c5393b'
+            '5ef12ff69396150da0e35759aa604c31a22378e7a4e28c31ecf153e08e24e0e5'
+            '4689b0b197fb9d62907bbd310b45fb683f1b0d10df1640baa4b1b98c9334badf'
+            'ff668e9bc2b4a893e4dddcef5c49ebaf86d5362d191367c99c2e0729540ff22b'
+            '7da2677be59a95160ff52a1c2028b42eca53798f85087285dfa9978bf6602b53'
+            '3df3ec6674de16d987d35603c1ef3c7e8a977e936feb35ff9ad3b88fc9fa645d'
+            '8b87b8350fc6790f7f80e004f482b0fa2eb8a385a28bfd9aedc89654e4a8e318'
+            'b94dd9e5eeccf0aa091e979b9228bdcb51adfc6957e78ba9e265a4bc83034083'
+            'b30f86675a357a36b7bd956ff7e30d0ce2db7e9ffd7a0c0f11dddccf2d83a8a3'
+            '52e07ceff608cdd901edb561321163469ba82f4197ead4056f718dbd7bdb6a6b'
+            'b969a6e47cd06a80b3eb7949473c69ba1d93371e9dc768fdbde8c794f8fa7a7a'
+            'bfa0444243c16c251469ebd706c5c1349c47f2f9fd33d137c9fa730bab32af4b'
+            'cb8496c731481358f2eabe1deb832e6912dd9587a54fe0aa3d9126175b1d3a90'
+            'f4fd9281f6eef4c7c8ddc61d8c4997c7a55fe39b56014e8826de5ed9b2b48578'
+            'd6a0116a2eee67efdd6ed0de9b74e421a7c4e40fcdb53ceb2a4ae0c6edb0e2ae'
+            'a2e0e8bab392bb264322884ba72a9511ed5a5c2000fb2f6c6a4323b877aafe7a')
+
+prepare() {
+  # create the build dir
+  mkdir -p "${pkgname}-build"
+
+  cd "${pkgname}-${pkgver}"
+
+  # add c_stubs addon
+  mv "${srcdir}/extra/c_stubs" ./
+
+  # apply the Gentoo patchset
+  for f in "${srcdir}/patches/"*.patch; do
+      msg2 'Applying %s' "$(basename "$f")"
+      patch -p1 -i "$f"
+  done
+
+  # apply the Chromium OS patchset
+  for f in "${source[@]}"; do
+    if [[ "$f" == *.patch ]]; then
+      msg2 'Applying %s' "$(basename "$f")"
+      case "$f" in
+        'glibc-2.23-nsswitch_config.patch')
+          (cd "${srcdir}/extra"; patch -p1 -i "${srcdir}/$f")
+          ;;
+        'glibc-2.23-fortify-warning.patch'|'glibc-2.23-sht_relr.patch')
+          patch -p0 -i "${srcdir}/$f"
+          ;;
+        *)
+          patch -p1 -i "${srcdir}/$f"
+          ;;
+      esac
+    fi
+  done
+}
+
+build() {
+  cd "${pkgname}-build"
+
+  "${srcdir}/${pkgname}-${pkgver}/configure" \
+    --prefix=/usr/local \
+    --libdir=/usr/local/lib64 \
+    --with-headers=/usr/local/include \
+    --enable-add-ons=c_stubs,libidn \
+    --enable-bind-now \
+    --enable-kernel=2.6.32 \
+    --enable-obsolete-rpc \
+    --enable-stackguard-randomization \
+    --disable-nscd \
+    --disable-profile \
+    --disable-sanity-checks \
+    --disable-systemtap \
+    --disable-timezone-tools \
+    --disable-werror \
+    --with-bugurl="https://github.com/wwwiiilll/capman/issues/new" \
+    --with-pkgversion="Capman ${pkgver}-${pkgrel}" \
+    --without-cvs \
+    --without-gd \
+    --without-selinux
+
+  make
+}
+
+package() {
+  cd "${pkgname}-build"
+  make install_root="${pkgdir}" install
+}

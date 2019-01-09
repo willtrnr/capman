@@ -1,0 +1,101 @@
+From f9b437d5efce93800b51ad2a437c8b1c9616bf80 Mon Sep 17 00:00:00 2001
+From: Joseph Myers <joseph@codesourcery.com>
+Date: Mon, 23 May 2016 13:27:37 +0000
+Subject: [PATCH] Update sysdeps/unix/sysv/linux/bits/socket.h for Linux 4.6.
+
+This patch updates sysdeps/unix/sysv/linux/bits/socket.h for new
+constants added in Linux 4.6.  AF_KCM / PF_KCM are added.  SOL_KCM is
+new, and I added a lot of SOL_* values postdating the last one present
+in the header, since I saw no apparent reason for the set in glibc to
+stop at SOL_IRDA.  MSG_BATCH is added; Linux also has
+MSG_SENDPAGE_NOTLAST which is not in glibc, but given the comment
+starts "sendpage() internal" I presume it's correct for it not to be
+in glibc.
+
+(Note that this is a case where the Linux kernel header with userspace
+relevant values is *not* a uapi header but include/linux/socket.h - I
+don't know why, but at least this header, as well as uapi headers,
+needs reviewing for glibc-relevant changes each release.)
+
+Tested for x86_64 and x86 (testsuite, and that installed stripped
+shared libraries are unchanged by the patch).
+
+	* sysdeps/unix/sysv/linux/bits/socket.h (PF_KCM): New macro.
+	(PF_MAX): Update value.
+	(AF_KCM): New macro.
+	(SOL_NETBEUI): Likewise.
+	(SOL_LLC): Likewise.
+	(SOL_DCCP): Likewise.
+	(SOL_NETLINK): Likewise.
+	(SOL_TIPC): Likewise.
+	(SOL_RXRPC): Likewise.
+	(SOL_PPPOL2TP): Likewise.
+	(SOL_BLUETOOTH): Likewise.
+	(SOL_PNPIPE): Likewise.
+	(SOL_RDS): Likewise.
+	(SOL_IUCV): Likewise.
+	(SOL_CAIF): Likewise.
+	(SOL_ALG): Likewise.
+	(SOL_NFC): Likewise.
+	(SOL_KCM): Likewise.
+	(MSG_BATCH): New enum value and macro.
+---
+ sysdeps/unix/sysv/linux/bits/socket.h | 21 ++++++++++++++++++++-
+ 2 files changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/sysdeps/unix/sysv/linux/bits/socket.h b/sysdeps/unix/sysv/linux/bits/socket.h
+index 0581c79bc3..a57048c04d 100644
+--- a/sysdeps/unix/sysv/linux/bits/socket.h
++++ b/sysdeps/unix/sysv/linux/bits/socket.h
+@@ -82,7 +82,8 @@ typedef __socklen_t socklen_t;
+ #define PF_ALG		38	/* Algorithm sockets.  */
+ #define PF_NFC		39	/* NFC sockets.  */
+ #define PF_VSOCK	40	/* vSockets.  */
+-#define PF_MAX		41	/* For now..  */
++#define PF_KCM		41	/* Kernel Connection Multiplexor.  */
++#define PF_MAX		42	/* For now..  */
+ 
+ /* Address families.  */
+ #define AF_UNSPEC	PF_UNSPEC
+@@ -129,6 +130,7 @@ typedef __socklen_t socklen_t;
+ #define AF_ALG		PF_ALG
+ #define AF_NFC		PF_NFC
+ #define AF_VSOCK	PF_VSOCK
++#define AF_KCM		PF_KCM
+ #define AF_MAX		PF_MAX
+ 
+ /* Socket level values.  Others are defined in the appropriate headers.
+@@ -142,6 +144,21 @@ typedef __socklen_t socklen_t;
+ #define SOL_ATM		264	/* ATM layer (cell level).  */
+ #define SOL_AAL		265	/* ATM Adaption Layer (packet level).  */
+ #define SOL_IRDA	266
++#define SOL_NETBEUI	267
++#define SOL_LLC		268
++#define SOL_DCCP	269
++#define SOL_NETLINK	270
++#define SOL_TIPC	271
++#define SOL_RXRPC	272
++#define SOL_PPPOL2TP	273
++#define SOL_BLUETOOTH	274
++#define SOL_PNPIPE	275
++#define SOL_RDS		276
++#define SOL_IUCV	277
++#define SOL_CAIF	278
++#define SOL_ALG		279
++#define SOL_NFC		280
++#define SOL_KCM		281
+ 
+ /* Maximum queue length specifiable by listen.  */
+ #define SOMAXCONN	128
+@@ -213,6 +230,8 @@ enum
+ #define MSG_MORE	MSG_MORE
+     MSG_WAITFORONE	= 0x10000, /* Wait for at least one packet to return.*/
+ #define MSG_WAITFORONE	MSG_WAITFORONE
++    MSG_BATCH		= 0x40000, /* sendmmsg: more messages coming.  */
++#define MSG_BATCH	MSG_BATCH
+     MSG_FASTOPEN	= 0x20000000, /* Send data in TCP SYN.  */
+ #define MSG_FASTOPEN	MSG_FASTOPEN
+ 
+-- 
+2.16.2.395.g2e18187dfd-goog
+

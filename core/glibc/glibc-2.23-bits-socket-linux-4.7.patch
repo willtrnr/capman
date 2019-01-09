@@ -1,0 +1,44 @@
+From acaff9b658720e4c887f4e44e6f28962d6f372d3 Mon Sep 17 00:00:00 2001
+From: Joseph Myers <joseph@codesourcery.com>
+Date: Wed, 3 Aug 2016 12:12:22 +0000
+Subject: [PATCH] Define PF_QIPCRTR, AF_QIPCRTR from Linux 4.7 in
+ bits/socket.h.
+
+This patch adds the new PF_QIPCRTR and AF_QIPCRTR from Linux 4.7 to
+sysdeps/unix/sysv/linux/bits/socket.h.
+
+Tested for x86_64 and x86 (testsuite, and that installed stripped
+shared libraries are unchanged by the patch).
+
+	* sysdeps/unix/sysv/linux/bits/socket.h (PF_QIPCRTR): New macro.
+	(PF_MAX): Update value.
+	(AF_QIPCRTR): New macro.
+---
+ sysdeps/unix/sysv/linux/bits/socket.h | 4 +++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/sysdeps/unix/sysv/linux/bits/socket.h b/sysdeps/unix/sysv/linux/bits/socket.h
+index 2eb95f7e20..2266047e04 100644
+--- a/sysdeps/unix/sysv/linux/bits/socket.h
++++ b/sysdeps/unix/sysv/linux/bits/socket.h
+@@ -83,7 +83,8 @@ typedef __socklen_t socklen_t;
+ #define PF_NFC		39	/* NFC sockets.  */
+ #define PF_VSOCK	40	/* vSockets.  */
+ #define PF_KCM		41	/* Kernel Connection Multiplexor.  */
+-#define PF_MAX		42	/* For now..  */
++#define PF_QIPCRTR	42	/* Qualcomm IPC Router.  */
++#define PF_MAX		43	/* For now..  */
+ 
+ /* Address families.  */
+ #define AF_UNSPEC	PF_UNSPEC
+@@ -131,6 +132,7 @@ typedef __socklen_t socklen_t;
+ #define AF_NFC		PF_NFC
+ #define AF_VSOCK	PF_VSOCK
+ #define AF_KCM		PF_KCM
++#define AF_QIPCRTR	PF_QIPCRTR
+ #define AF_MAX		PF_MAX
+ 
+ /* Socket level values.  Others are defined in the appropriate headers.
+-- 
+2.16.2.395.g2e18187dfd-goog
+

@@ -1,0 +1,119 @@
+commit e50e672c81d881e5ec99b94af5ee3ba00bd80ef4
+Author: Florian Weimer <fweimer@redhat.com>
+Date:   Fri May 19 17:46:47 2017 +0200
+
+    rtld: Completely ignore LD_LIBRARY_PATH for AT_SECURE=1 programs
+
+LD_LIBRARY_PATH can only be used to reorder system search paths, which
+is not useful functionality.
+
+Also avoid long entries in LD_AUDIT and LD_PRELOAD.
+
+Index: glibc-2.11.3/elf/rtld.c
+===================================================================
+--- glibc-2.11.3.orig/elf/rtld.c
++++ glibc-2.11.3/elf/rtld.c
+@@ -878,6 +878,57 @@ static const char *preloadlist attribute
+ /* Nonzero if information about versions has to be printed.  */
+ static int version_info attribute_relro;
+ 
++/* Check that AT_SECURE=0, or that the passed name does not contain
++   directories and is not overly long.  */
++static bool
++dso_name_valid_for_suid (const char *p)
++{
++  if (__builtin_expect (__libc_enable_secure, 0))
++    {
++      /* Ignore pathnames with directories for AT_SECURE=1
++	 programs, and also skip overlong names.  */
++      size_t len = strlen (p);
++      if (len >= NAME_MAX || memchr (p, '/', len) != NULL)
++	return false;
++    }
++  return true;
++}
++
++/* The LD_PRELOAD environment variable gives list of libraries
++   separated by white space or colons that are loaded before the
++   executable's dependencies and prepended to the global scope list.
++   (If the binary is running setuid all elements containing a '/' are
++   ignored since it is insecure.)  Return the number of preloads
++   performed.  */
++static unsigned int
++handle_ld_preload (const char *preloadlist, struct link_map *main_map)
++{
++  unsigned int npreloads = 0;
++  const char *p = preloadlist;
++  char fname[PATH_MAX];
++
++  while (*p != '\0')
++    {
++      /* Split preload list at space/colon.  */
++      size_t len = strcspn (p, " :");
++      if (len > 0 && len < PATH_MAX)
++	{
++	  memcpy (fname, p, len);
++	  fname[len] = '\0';
++	  if (dso_name_valid_for_suid (fname))
++	    npreloads += do_preload (fname, main_map, "LD_PRELOAD");
++	}
++
++      /* Skip over the substring and the following delimiter.  */
++      p += len;
++      if (*p != '\0')
++	++p;
++    }
++  return npreloads;
++}
++
++
++
+ static void
+ dl_main (const ElfW(Phdr) *phdr,
+ 	 ElfW(Word) phnum,
+@@ -1677,23 +1728,8 @@ ERROR: ld.so: object '%s' cannot be load
+ 
+   if (__glibc_unlikely (preloadlist != NULL))
+     {
+-      /* The LD_PRELOAD environment variable gives list of libraries
+-	 separated by white space or colons that are loaded before the
+-	 executable's dependencies and prepended to the global scope
+-	 list.  If the binary is running setuid all elements
+-	 containing a '/' are ignored since it is insecure.  */
+-      char *list = strdupa (preloadlist);
+-      char *p;
+-
+       HP_TIMING_NOW (start);
+-
+-      /* Prevent optimizing strsep.  Speed is not important here.  */
+-      while ((p = (strsep) (&list, " :")) != NULL)
+-	if (p[0] != '\0'
+-	    && (__builtin_expect (! __libc_enable_secure, 1)
+-		|| strchr (p, '/') == NULL))
+-	  npreloads += do_preload (p, main_map, "LD_PRELOAD");
+-
++      npreloads += handle_ld_preload (preloadlist, main_map);
+       HP_TIMING_NOW (stop);
+       HP_TIMING_DIFF (diff, start, stop);
+       HP_TIMING_ACCUM_NT (load_time, diff);
+@@ -2531,9 +2567,7 @@ process_dl_audit (char *str)
+   char *p;
+ 
+   while ((p = (strsep) (&str, ":")) != NULL)
+-    if (p[0] != '\0'
+-	&& (__builtin_expect (! __libc_enable_secure, 1)
+-	    || strchr (p, '/') == NULL))
++    if (p[0] != '\0' && dso_name_valid_for_suid (p))
+       {
+ 	/* This is using the local malloc, not the system malloc.  The
+ 	   memory can never be freed.  */
+@@ -2664,7 +2698,8 @@ process_envvars (enum mode *modep)
+ 
+ 	case 12:
+ 	  /* The library search path.  */
+-	  if (memcmp (envline, "LIBRARY_PATH", 12) == 0)
++	  if (!__libc_enable_secure
++	      && memcmp (envline, "LIBRARY_PATH", 12) == 0)
+ 	    {
+ 	      library_path = &envline[13];
+ 	      break;

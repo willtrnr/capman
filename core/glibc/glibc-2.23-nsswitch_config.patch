@@ -1,0 +1,21 @@
+Make sure the /etc/nsswitch.conf file contains files entry
+
+glibc-2.26 deprecates obsolete NSL libraries. (in this case
+libnss_compat.so.2 gone away) As a result, it cannot support compat databse.
+To make it work, wo need to make the change. See below link for details.
+https://wiki.gentoo.org/wiki/Project:Toolchain/nsswitch.conf_in_glibc-2.26
+--- extra/etc/nsswitch.conf
++++ extra/etc/nsswitch.conf
+@@ -1,9 +1,9 @@
+ # /etc/nsswitch.conf:
+ # $Header: /var/cvsroot/gentoo/src/patchsets/glibc/extra/etc/nsswitch.conf,v 1.1 2006/09/29 23:52:23 vapier Exp $
+ 
+-passwd:      compat
+-shadow:      compat
+-group:       compat
++passwd:      compat files
++shadow:      compat files
++group:       compat files
+ 
+ # passwd:    db files nis
+ # shadow:    db files nis

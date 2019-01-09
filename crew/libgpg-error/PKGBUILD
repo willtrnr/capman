@@ -1,14 +1,14 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
-pkgname=libgpgerror
+pkgname=libgpg-error
 pkgver=1.31
 pkgrel=1
-pkgdesc="Libgpg-error is a small library that defines common error values for all GnuPG components."
+pkgdesc="Support library for libgcrypt"
 arch=('x86_64')
-url="https://www.gnupg.org/related_software/libgpg-error/index.html"
-license=('custom')
+url="https://www.gnupg.org"
+license=('LGPL')
 groups=()
-depends=()
+depends=('glibc' 'sh')
 makedepends=()
 optdepends=()
 provides=()
@@ -18,6 +18,6 @@ source=("https://dl.bintray.com/chromebrew/chromebrew/libgpgerror-1.31-chromeos-
 sha256sums=('207dab161f3d080e92b783c261a9d90b366961fd252bd49760bcb76e5af40085')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

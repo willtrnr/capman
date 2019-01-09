@@ -1,0 +1,664 @@
+upstream has merged a diff fix for glibc-2.24 and newer, so we can drop this after glibc-2.23:
+https://sourceware.org/git/?p=glibc.git;a=commit;h=db3476aff19b75c4fdefbe65fcd5f0a90588ba51
+
+Description: use PTR_MANGLE/PTR_DEMANGLE for FILE vtables. This adds inline
+ functions to run the PTR_MANGLE at vtable assignment time and PTR_DEMANGLE
+ at vtable dereference time so that the FILE structure's stored vtable
+ pointer is not in the clear on the heap. To make sure nothing accidentally
+ uses _IO_JUMPS or _IO_WIDE_JUMPS directly, the macros have been renamed to
+ include the _RAW suffix.
+Author: Kees Cook <keescook@chromium.org>
+
+2015-08-12  Kees Cook <keescook@chromium.org>
+
+	* libio/libioP.h: Create inline helpers to run the PTR_MANGLE and
+	PTR_DEMANGLE routines on vtable pointers. Create _IO_JUMPS_SET and
+	_IO_WIDE_JUMPS_SET macros to use the new inline helpers. Update the
+	_IO_JUMPS_FUNC and _IO_WIDE_JUMPS_FUNC to use the new inline helpers.
+	* debug/obprintf_chk.c: Replace direct vtable assignment with macro.
+	* debug/vasprintf_chk.c: Likewise.
+	* debug/vdprintf_chk.c: Likewise.
+	* debug/vsnprintf_chk.c: Likewise.
+	* debug/vsprintf_chk.c: Likewise.
+	* libio/fileops.c: Likewise.
+	* libio/freopen.c: Likewise.
+	* libio/freopen64.c: Likewise.
+	* libio/genops.c: Likewise.
+	* libio/iofdopen.c: Likewise.
+	* libio/iofopen.c: Likewise.
+	* libio/iofopncook.c: Likewise.
+	* libio/iofwide.c: Likewise.
+	* libio/iopopen.c: Likewise.
+	* libio/iovdprintf.c: Likewise.
+	* libio/iovsprintf.c: Likewise.
+	* libio/iovsscanf.c: Likewise.
+	* libio/memstream.c: Likewise.
+	* libio/obprintf.c: Likewise.
+	* libio/oldiofdopen.c: Likewise.
+	* libio/oldiofopen.c: Likewise.
+	* libio/oldiopopen.c: Likewise.
+	* libio/vasprintf.c: Likewise.
+	* libio/vsnprintf.c: Likewise.
+	* stdio-common/isoc99_vsscanf.c: Likewise.
+	* stdio-common/vfprintf.c: Likewise.
+	* stdlib/strfmon_l.c: Likewise.
+	* misc/init-misc.c: Mangle predefined stdio FILE vtables at startup.
+---
+ debug/obprintf_chk.c          |  2 +-
+ debug/vasprintf_chk.c         |  2 +-
+ debug/vdprintf_chk.c          |  2 +-
+ debug/vsnprintf_chk.c         |  2 +-
+ debug/vsprintf_chk.c          |  2 +-
+ libio/fileops.c               | 28 +++++++++----------
+ libio/freopen.c               |  6 ++---
+ libio/freopen64.c             |  4 +--
+ libio/genops.c                |  2 +-
+ libio/iofdopen.c              |  4 +--
+ libio/iofopen.c               |  8 +++---
+ libio/iofopncook.c            |  4 +--
+ libio/iofwide.c               |  2 +-
+ libio/iopopen.c               |  2 +-
+ libio/iovdprintf.c            |  2 +-
+ libio/iovsprintf.c            |  2 +-
+ libio/iovsscanf.c             |  2 +-
+ libio/libioP.h                | 62 ++++++++++++++++++++++++++++++-------------
+ libio/memstream.c             |  2 +-
+ libio/obprintf.c              |  2 +-
+ libio/oldiofdopen.c           |  2 +-
+ libio/oldiofopen.c            |  2 +-
+ libio/oldiopopen.c            |  2 +-
+ libio/vasprintf.c             |  2 +-
+ libio/vsnprintf.c             |  2 +-
+ misc/init-misc.c              | 13 +++++++++
+ stdio-common/isoc99_vsscanf.c |  2 +-
+ stdio-common/vfprintf.c       |  2 +-
+ stdlib/strfmon_l.c            |  2 +-
+ 29 files changed, 104 insertions(+), 67 deletions(-)
+
+diff --git a/debug/obprintf_chk.c b/debug/obprintf_chk.c
+index c49d1e9..203b403 100644
+--- a/debug/obprintf_chk.c
++++ b/debug/obprintf_chk.c
+@@ -54,7 +54,7 @@ __obstack_vprintf_chk (struct obstack *obstack, int flags, const char *format,
+ #endif
+ 
+   _IO_no_init (&new_f.ofile.file.file, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&new_f.ofile.file) = &_IO_obstack_jumps;
++  _IO_JUMPS_SET (&new_f.ofile.file, &_IO_obstack_jumps);
+   room = obstack_room (obstack);
+   size = obstack_object_size (obstack) + room;
+   if (size == 0)
+diff --git a/debug/vasprintf_chk.c b/debug/vasprintf_chk.c
+index 8ecb9e8..4779836 100644
+--- a/debug/vasprintf_chk.c
++++ b/debug/vasprintf_chk.c
+@@ -52,7 +52,7 @@ __vasprintf_chk (char **result_ptr, int flags, const char *format,
+   sf._sbf._f._lock = NULL;
+ #endif
+   _IO_no_init (&sf._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf._sbf) = &_IO_str_jumps;
++  _IO_JUMPS_SET (&sf._sbf, &_IO_str_jumps);
+   _IO_str_init_static_internal (&sf, string, init_string_size, string);
+   sf._sbf._f._flags &= ~_IO_USER_BUF;
+   sf._s._allocate_buffer = (_IO_alloc_type) malloc;
+diff --git a/debug/vdprintf_chk.c b/debug/vdprintf_chk.c
+index bf43ed8..eb86c0b 100644
+--- a/debug/vdprintf_chk.c
++++ b/debug/vdprintf_chk.c
+@@ -38,7 +38,7 @@ __vdprintf_chk (int d, int flags, const char *format, va_list arg)
+   tmpfil.file._lock = NULL;
+ #endif
+   _IO_no_init (&tmpfil.file, _IO_USER_LOCK, 0, &wd, &_IO_wfile_jumps);
+-  _IO_JUMPS (&tmpfil) = &_IO_file_jumps;
++  _IO_JUMPS_SET (&tmpfil, &_IO_file_jumps);
+   _IO_file_init (&tmpfil);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   tmpfil.vtable = NULL;
+diff --git a/debug/vsnprintf_chk.c b/debug/vsnprintf_chk.c
+index c6cb383..5b09121 100644
+--- a/debug/vsnprintf_chk.c
++++ b/debug/vsnprintf_chk.c
+@@ -51,7 +51,7 @@ ___vsnprintf_chk (char *s, size_t maxlen, int flags, size_t slen,
+     }
+ 
+   _IO_no_init (&sf.f._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf.f._sbf) = &_IO_strn_jumps;
++  _IO_JUMPS_SET (&sf.f._sbf, &_IO_strn_jumps);
+   s[0] = '\0';
+ 
+   /* For flags > 0 (i.e. __USE_FORTIFY_LEVEL > 1) request that %n
+diff --git a/debug/vsprintf_chk.c b/debug/vsprintf_chk.c
+index 1ec67b5..3805788 100644
+--- a/debug/vsprintf_chk.c
++++ b/debug/vsprintf_chk.c
+@@ -73,7 +73,7 @@ ___vsprintf_chk (char *s, int flags, size_t slen, const char *format,
+     __chk_fail ();
+ 
+   _IO_no_init (&f._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&f._sbf) = &_IO_str_chk_jumps;
++  _IO_JUMPS_SET (&f._sbf, &_IO_str_chk_jumps);
+   s[0] = '\0';
+   _IO_str_init_static_internal (&f, s, slen - 1, s);
+ 
+diff --git a/libio/fileops.c b/libio/fileops.c
+index cbcd6f5..1bfe883 100644
+--- a/libio/fileops.c
++++ b/libio/fileops.c
+@@ -414,7 +414,7 @@ _IO_new_file_fopen (_IO_FILE *fp, const char *filename, const char *mode,
+ 	    &result->_wide_data->_IO_state;
+ 
+ 	  /* From now on use the wide character callback functions.  */
+-	  _IO_JUMPS_FILE_plus (fp) = fp->_wide_data->_wide_vtable;
++	  _IO_JUMPS_FILE_plus_SET (fp, _IO_WIDE_JUMPS_FUNC (fp));
+ 
+ 	  /* Set the mode now.  */
+ 	  result->_mode = 1;
+@@ -466,8 +466,8 @@ _IO_file_setbuf_mmap (_IO_FILE *fp, char *p, _IO_ssize_t len)
+   _IO_FILE *result;
+ 
+   /* Change the function table.  */
+-  _IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps;
+-  fp->_wide_data->_wide_vtable = &_IO_wfile_jumps;
++  _IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps);
++  _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps);
+ 
+   /* And perform the normal operation.  */
+   result = _IO_new_file_setbuf (fp, p, len);
+@@ -475,8 +475,8 @@ _IO_file_setbuf_mmap (_IO_FILE *fp, char *p, _IO_ssize_t len)
+   /* If the call failed, restore to using mmap.  */
+   if (result == NULL)
+     {
+-      _IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps_mmap;
+-      fp->_wide_data->_wide_vtable = &_IO_wfile_jumps_mmap;
++      _IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps_mmap);
++      _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps_mmap);
+     }
+ 
+   return result;
+@@ -703,10 +703,10 @@ mmap_remap_check (_IO_FILE *fp)
+       fp->_IO_buf_base = fp->_IO_buf_end = NULL;
+       _IO_setg (fp, NULL, NULL, NULL);
+       if (fp->_mode <= 0)
+-	_IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps;
++	_IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps);
+       else
+-	_IO_JUMPS_FILE_plus (fp) = &_IO_wfile_jumps;
+-      fp->_wide_data->_wide_vtable = &_IO_wfile_jumps;
++	_IO_JUMPS_FILE_plus_SET (fp, &_IO_wfile_jumps);
++      _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps);
+ 
+       return 1;
+     }
+@@ -773,10 +773,10 @@ decide_maybe_mmap (_IO_FILE *fp)
+ 	      fp->_offset = st.st_size;
+ 
+ 	      if (fp->_mode <= 0)
+-		_IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps_mmap;
++		_IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps_mmap);
+ 	      else
+-		_IO_JUMPS_FILE_plus (fp) = &_IO_wfile_jumps_mmap;
+-	      fp->_wide_data->_wide_vtable = &_IO_wfile_jumps_mmap;
++		_IO_JUMPS_FILE_plus_SET (fp, &_IO_wfile_jumps_mmap);
++	      _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps_mmap);
+ 
+ 	      return;
+ 	    }
+@@ -786,10 +786,10 @@ decide_maybe_mmap (_IO_FILE *fp)
+   /* We couldn't use mmap, so revert to the vanilla file operations.  */
+ 
+   if (fp->_mode <= 0)
+-    _IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps;
++    _IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps);
+   else
+-    _IO_JUMPS_FILE_plus (fp) = &_IO_wfile_jumps;
+-  fp->_wide_data->_wide_vtable = &_IO_wfile_jumps;
++    _IO_JUMPS_FILE_plus_SET (fp, &_IO_wfile_jumps);
++  _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps);
+ }
+ 
+ int
+diff --git a/libio/freopen.c b/libio/freopen.c
+index 035fa1f..a9203fd 100644
+--- a/libio/freopen.c
++++ b/libio/freopen.c
+@@ -59,16 +59,16 @@ freopen (filename, mode, fp)
+ 	 to the old libio may be passed into shared C library and wind
+ 	 up here. */
+       _IO_old_file_close_it (fp);
+-      _IO_JUMPS_FILE_plus (fp) = &_IO_old_file_jumps;
++      _IO_JUMPS_FILE_plus_SET (fp, &_IO_old_file_jumps);
+       result = _IO_old_file_fopen (fp, gfilename, mode);
+     }
+   else
+ #endif
+     {
+       _IO_file_close_it (fp);
+-      _IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps;
++      _IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps);
+       if (_IO_vtable_offset (fp) == 0 && fp->_wide_data != NULL)
+-	fp->_wide_data->_wide_vtable = &_IO_wfile_jumps;
++	_IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps);
+       result = _IO_file_fopen (fp, gfilename, mode, 1);
+       if (result != NULL)
+ 	result = __fopen_maybe_mmap (result);
+diff --git a/libio/freopen64.c b/libio/freopen64.c
+index fc6ccb1..eb883d6 100644
+--- a/libio/freopen64.c
++++ b/libio/freopen64.c
+@@ -50,9 +50,9 @@ freopen64 (filename, mode, fp)
+ 			   ? fd_to_filename (fd) : filename);
+   fp->_flags2 |= _IO_FLAGS2_NOCLOSE;
+   _IO_file_close_it (fp);
+-  _IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps;
++  _IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps);
+   if (_IO_vtable_offset (fp) == 0 && fp->_wide_data != NULL)
+-    fp->_wide_data->_wide_vtable = &_IO_wfile_jumps;
++    _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps);
+   result = _IO_file_fopen (fp, gfilename, mode, 0);
+   fp->_flags2 &= ~_IO_FLAGS2_NOCLOSE;
+   if (result != NULL)
+diff --git a/libio/genops.c b/libio/genops.c
+index 45c9d41..acf7b79 100644
+--- a/libio/genops.c
++++ b/libio/genops.c
+@@ -662,7 +662,7 @@ _IO_no_init (fp, flags, orientation, wd, jmp)
+       fp->_wide_data->_IO_backup_base = NULL;
+       fp->_wide_data->_IO_save_end = NULL;
+ 
+-      fp->_wide_data->_wide_vtable = jmp;
++      _IO_WIDE_JUMPS_SET (fp, jmp);
+     }
+   else
+     /* Cause predictable crash when a wide function is called on a byte
+diff --git a/libio/iofdopen.c b/libio/iofdopen.c
+index e7d84ae..d272568 100644
+--- a/libio/iofdopen.c
++++ b/libio/iofdopen.c
+@@ -150,11 +150,11 @@ _IO_new_fdopen (fd, mode)
+ 	       ? &_IO_wfile_jumps_maybe_mmap :
+ #endif
+ 	       &_IO_wfile_jumps);
+-  _IO_JUMPS (&new_f->fp) =
++  _IO_JUMPS_SET (&new_f->fp,
+ #ifdef _G_HAVE_MMAP
+     (use_mmap && (read_write & _IO_NO_WRITES)) ? &_IO_file_jumps_maybe_mmap :
+ #endif
+-      &_IO_file_jumps;
++      &_IO_file_jumps);
+   _IO_file_init (&new_f->fp);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fp.vtable = NULL;
+diff --git a/libio/iofopen.c b/libio/iofopen.c
+index be2bbb6..2d9fc41 100644
+--- a/libio/iofopen.c
++++ b/libio/iofopen.c
+@@ -46,10 +46,10 @@ __fopen_maybe_mmap (_IO_FILE *fp)
+ 	 vanilla file operations and reset the jump table accordingly.  */
+ 
+       if (fp->_mode <= 0)
+-	_IO_JUMPS_FILE_plus (fp) = &_IO_file_jumps_maybe_mmap;
++	_IO_JUMPS_FILE_plus_SET (fp, &_IO_file_jumps_maybe_mmap);
+       else
+-	_IO_JUMPS_FILE_plus (fp) = &_IO_wfile_jumps_maybe_mmap;
+-      fp->_wide_data->_wide_vtable = &_IO_wfile_jumps_maybe_mmap;
++	_IO_JUMPS_FILE_plus_SET (fp, &_IO_wfile_jumps_maybe_mmap);
++      _IO_WIDE_JUMPS_SET (fp, &_IO_wfile_jumps_maybe_mmap);
+     }
+ #endif
+   return fp;
+@@ -78,7 +78,7 @@ __fopen_internal (const char *filename, const char *mode, int is32)
+ #else
+   _IO_no_init (&new_f->fp.file, 1, 0, NULL, NULL);
+ #endif
+-  _IO_JUMPS (&new_f->fp) = &_IO_file_jumps;
++  _IO_JUMPS_SET (&new_f->fp, &_IO_file_jumps);
+   _IO_file_init (&new_f->fp);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fp.vtable = NULL;
+diff --git a/libio/iofopncook.c b/libio/iofopncook.c
+index 978a7fa..76285a5 100644
+--- a/libio/iofopncook.c
++++ b/libio/iofopncook.c
+@@ -145,7 +145,7 @@ _IO_cookie_init (struct _IO_cookie_file *cfile, int read_write,
+ 		 void *cookie, _IO_cookie_io_functions_t io_functions)
+ {
+   _IO_init (&cfile->__fp.file, 0);
+-  _IO_JUMPS (&cfile->__fp) = &_IO_cookie_jumps;
++  _IO_JUMPS_SET (&cfile->__fp, &_IO_cookie_jumps);
+ 
+   cfile->__cookie = cookie;
+   cfile->__io_functions = io_functions;
+@@ -270,7 +270,7 @@ _IO_old_fopencookie (cookie, mode, io_functions)
+ 
+   ret = _IO_fopencookie (cookie, mode, io_functions);
+   if (ret != NULL)
+-    _IO_JUMPS_FILE_plus (ret) = &_IO_old_cookie_jumps;
++    _IO_JUMPS_FILE_plus_SET (ret, &_IO_old_cookie_jumps);
+ 
+   return ret;
+ }
+diff --git a/libio/iofwide.c b/libio/iofwide.c
+index 0c175d1..8d1c39a 100644
+--- a/libio/iofwide.c
++++ b/libio/iofwide.c
+@@ -184,7 +184,7 @@ _IO_fwide (fp, mode)
+ #endif
+ 
+       /* From now on use the wide character callback functions.  */
+-      _IO_JUMPS_FILE_plus (fp) = fp->_wide_data->_wide_vtable;
++      _IO_JUMPS_FILE_plus_SET (fp, _IO_WIDE_JUMPS_FUNC (fp));
+     }
+ 
+   /* Set the mode now.  */
+diff --git a/libio/iopopen.c b/libio/iopopen.c
+index 53da776..b19e62f 100644
+--- a/libio/iopopen.c
++++ b/libio/iopopen.c
+@@ -293,7 +293,7 @@ _IO_new_popen (command, mode)
+ #endif
+   fp = &new_f->fpx.file.file;
+   _IO_init (fp, 0);
+-  _IO_JUMPS (&new_f->fpx.file) = &_IO_proc_jumps;
++  _IO_JUMPS_SET (&new_f->fpx.file, &_IO_proc_jumps);
+   _IO_new_file_init (&new_f->fpx.file);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fpx.file.vtable = NULL;
+diff --git a/libio/iovdprintf.c b/libio/iovdprintf.c
+index 116912a..e449443 100644
+--- a/libio/iovdprintf.c
++++ b/libio/iovdprintf.c
+@@ -41,7 +41,7 @@ _IO_vdprintf (d, format, arg)
+   tmpfil.file._lock = NULL;
+ #endif
+   _IO_no_init (&tmpfil.file, _IO_USER_LOCK, 0, &wd, &_IO_wfile_jumps);
+-  _IO_JUMPS (&tmpfil) = &_IO_file_jumps;
++  _IO_JUMPS_SET (&tmpfil, &_IO_file_jumps);
+   _IO_file_init (&tmpfil);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   tmpfil.vtable = NULL;
+diff --git a/libio/iovsprintf.c b/libio/iovsprintf.c
+index b6cc6b3..e624b29 100644
+--- a/libio/iovsprintf.c
++++ b/libio/iovsprintf.c
+@@ -37,7 +37,7 @@ __IO_vsprintf (char *string, const char *format, _IO_va_list args)
+   sf._sbf._f._lock = NULL;
+ #endif
+   _IO_no_init (&sf._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf._sbf) = &_IO_str_jumps;
++  _IO_JUMPS_SET (&sf._sbf, &_IO_str_jumps);
+   _IO_str_init_static_internal (&sf, string, -1, string);
+   ret = _IO_vfprintf (&sf._sbf._f, format, args);
+   _IO_putc_unlocked ('\0', &sf._sbf._f);
+diff --git a/libio/iovsscanf.c b/libio/iovsscanf.c
+index c4fbd1b..35330e2 100644
+--- a/libio/iovsscanf.c
++++ b/libio/iovsscanf.c
+@@ -39,7 +39,7 @@ _IO_vsscanf (string, format, args)
+   sf._sbf._f._lock = NULL;
+ #endif
+   _IO_no_init (&sf._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf._sbf) = &_IO_str_jumps;
++  _IO_JUMPS_SET (&sf._sbf, &_IO_str_jumps);
+   _IO_str_init_static_internal (&sf, (char*)string, 0, NULL);
+   ret = _IO_vfscanf (&sf._sbf._f, format, args, NULL);
+   return ret;
+diff --git a/libio/libioP.h b/libio/libioP.h
+index b1ca774..ddcd2c9 100644
+--- a/libio/libioP.h
++++ b/libio/libioP.h
+@@ -70,17 +70,16 @@ extern "C" {
+ 
+ /* THE JUMPTABLE FUNCTIONS.
+ 
+- * The _IO_FILE type is used to implement the FILE type in GNU libc,
+- * as well as the streambuf class in GNU iostreams for C++.
+- * These are all the same, just used differently.
+- * An _IO_FILE (or FILE) object is allows followed by a pointer to
+- * a jump table (of pointers to functions).  The pointer is accessed
+- * with the _IO_JUMPS macro.  The jump table has an eccentric format,
+- * so as to be compatible with the layout of a C++ virtual function table.
+- * (as implemented by g++).  When a pointer to a streambuf object is
+- * coerced to an (_IO_FILE*), then _IO_JUMPS on the result just
+- * happens to point to the virtual function table of the streambuf.
+- * Thus the _IO_JUMPS function table used for C stdio/libio does
++ * The _IO_FILE type is used to implement the FILE type in GNU libc, as well
++ * as the streambuf class in GNU iostreams for C++. These are all the same,
++ * just used differently. An _IO_FILE (or FILE) object is allows followed by
++ * a pointer to a jump table (of pointers to functions). The pointer is
++ * accessed with the _IO_JUMPS_SET and _IO_JUMPS_FUNC macros. The jump table
++ * has an eccentric format, so as to be compatible with the layout of a C++
++ * virtual function table. (as implemented by g++). When a pointer to a
++ * streambuf object is coerced to an (_IO_FILE*), then _IO_JUMPS on the
++ * result just happens to point to the virtual function table of the
++ * streambuf. Thus the _IO_JUMPS function table used for C stdio/libio does
+  * double duty as the virtual function table for C++ streambuf.
+  *
+  * The entries in the _IO_JUMPS function table (and hence also the
+@@ -106,6 +105,14 @@ extern "C" {
+ # define _IO_JUMPS_OFFSET 0
+ #endif
+ 
++static inline void
++__mangle_vtable(const struct _IO_jump_t **vtable, const struct _IO_jump_t *table)
++{
++    struct _IO_jump_t *ptr = (struct _IO_jump_t *)table;
++    PTR_MANGLE (ptr);
++    *vtable = ptr;
++}
++
+ /* Type of MEMBER in struct type TYPE.  */
+ #define _IO_MEMBER_TYPE(TYPE, MEMBER) __typeof__ (((TYPE){}).MEMBER)
+ 
+@@ -115,24 +122,41 @@ extern "C" {
+   (*(_IO_MEMBER_TYPE (TYPE, MEMBER) *)(((char *) (THIS)) \
+ 				       + offsetof(TYPE, MEMBER)))
+ 
+-#define _IO_JUMPS(THIS) (THIS)->vtable
+-#define _IO_JUMPS_FILE_plus(THIS) \
++#define _IO_JUMPS_RAW(THIS) (THIS)->vtable
++#define _IO_JUMPS_SET(THIS, TABLE) \
++  __mangle_vtable (&_IO_JUMPS_RAW (THIS), (TABLE))
++
++#define _IO_JUMPS_FILE_plus_RAW(THIS) \
+   _IO_CAST_FIELD_ACCESS ((THIS), struct _IO_FILE_plus, vtable)
+-#define _IO_WIDE_JUMPS(THIS) \
++#define _IO_JUMPS_FILE_plus_SET(THIS, TABLE) \
++  __mangle_vtable (&_IO_JUMPS_FILE_plus_RAW (THIS), (TABLE))
++
++#define _IO_WIDE_JUMPS_RAW(THIS) \
+   _IO_CAST_FIELD_ACCESS ((THIS), struct _IO_FILE, _wide_data)->_wide_vtable
++#define _IO_WIDE_JUMPS_SET(THIS, TABLE) \
++  __mangle_vtable (&_IO_WIDE_JUMPS_RAW (THIS), (TABLE))
++
+ #define _IO_CHECK_WIDE(THIS) \
+   (_IO_CAST_FIELD_ACCESS ((THIS), struct _IO_FILE, _wide_data) != NULL)
+ 
++static inline const struct _IO_jump_t *
++__demangle_vtable(const struct _IO_jump_t *vtable)
++{
++    struct _IO_jump_t *ptr = (struct _IO_jump_t *)vtable;
++    PTR_DEMANGLE (ptr);
++    return (const struct _IO_jump_t *)ptr;
++}
++
+ #if _IO_JUMPS_OFFSET
+-# define _IO_JUMPS_FUNC(THIS) \
+- (*(struct _IO_jump_t **) ((void *) &_IO_JUMPS_FILE_plus (THIS) \
+-			   + (THIS)->_vtable_offset))
++# define _IO_JUMPS_FUNC(THIS) __demangle_vtable (\
++ (*(struct _IO_jump_t **) ((void *) &_IO_JUMPS_FILE_plus_RAW (THIS) \
++              + (THIS)->_vtable_offset)))
+ # define _IO_vtable_offset(THIS) (THIS)->_vtable_offset
+ #else
+-# define _IO_JUMPS_FUNC(THIS) _IO_JUMPS_FILE_plus (THIS)
++# define _IO_JUMPS_FUNC(THIS) __demangle_vtable (_IO_JUMPS_FILE_plus_RAW (THIS))
+ # define _IO_vtable_offset(THIS) 0
+ #endif
+-#define _IO_WIDE_JUMPS_FUNC(THIS) _IO_WIDE_JUMPS(THIS)
++#define _IO_WIDE_JUMPS_FUNC(THIS) __demangle_vtable (_IO_WIDE_JUMPS_RAW (THIS))
+ #define JUMP_FIELD(TYPE, NAME) TYPE NAME
+ #define JUMP0(FUNC, THIS) (_IO_JUMPS_FUNC(THIS)->FUNC) (THIS)
+ #define JUMP1(FUNC, THIS, X1) (_IO_JUMPS_FUNC(THIS)->FUNC) (THIS, X1)
+diff --git a/libio/memstream.c b/libio/memstream.c
+index 84742d1..640740e 100644
+--- a/libio/memstream.c
++++ b/libio/memstream.c
+@@ -89,7 +89,7 @@ __open_memstream (bufloc, sizeloc)
+       return NULL;
+     }
+   _IO_init (&new_f->fp._sf._sbf._f, 0);
+-  _IO_JUMPS_FILE_plus (&new_f->fp._sf._sbf) = &_IO_mem_jumps;
++  _IO_JUMPS_FILE_plus_SET (&new_f->fp._sf._sbf, &_IO_mem_jumps);
+   _IO_str_init_static_internal (&new_f->fp._sf, buf, _IO_BUFSIZ, buf);
+   new_f->fp._sf._sbf._f._flags &= ~_IO_USER_BUF;
+   new_f->fp._sf._s._allocate_buffer = (_IO_alloc_type) malloc;
+diff --git a/libio/obprintf.c b/libio/obprintf.c
+index d61de6a..b166362 100644
+--- a/libio/obprintf.c
++++ b/libio/obprintf.c
+@@ -132,7 +132,7 @@ _IO_obstack_vprintf (struct obstack *obstack, const char *format, va_list args)
+ #endif
+ 
+   _IO_no_init (&new_f.ofile.file.file, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&new_f.ofile.file) = &_IO_obstack_jumps;
++  _IO_JUMPS_SET (&new_f.ofile.file, &_IO_obstack_jumps);
+   room = obstack_room (obstack);
+   size = obstack_object_size (obstack) + room;
+   if (size == 0)
+diff --git a/libio/oldiofdopen.c b/libio/oldiofdopen.c
+index e068ec7..5a571b5 100644
+--- a/libio/oldiofdopen.c
++++ b/libio/oldiofdopen.c
+@@ -113,7 +113,7 @@ _IO_old_fdopen (fd, mode)
+   new_f->fp.file._file._lock = &new_f->lock;
+ #endif
+   _IO_old_init (&new_f->fp.file._file, 0);
+-  _IO_JUMPS_FILE_plus (&new_f->fp) = &_IO_old_file_jumps;
++  _IO_JUMPS_FILE_plus_SET (&new_f->fp, &_IO_old_file_jumps);
+   _IO_old_file_init ((struct _IO_FILE_plus *) &new_f->fp);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fp.vtable = NULL;
+diff --git a/libio/oldiofopen.c b/libio/oldiofopen.c
+index a90a601..0b27b00 100644
+--- a/libio/oldiofopen.c
++++ b/libio/oldiofopen.c
+@@ -52,7 +52,7 @@ _IO_old_fopen (filename, mode)
+   new_f->fp.file._file._lock = &new_f->lock;
+ #endif
+   _IO_old_init (&new_f->fp.file._file, 0);
+-  _IO_JUMPS_FILE_plus (&new_f->fp) = &_IO_old_file_jumps;
++  _IO_JUMPS_FILE_plus_SET (&new_f->fp, &_IO_old_file_jumps);
+   _IO_old_file_init ((struct _IO_FILE_plus *) &new_f->fp);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fp.vtable = NULL;
+diff --git a/libio/oldiopopen.c b/libio/oldiopopen.c
+index fb4c7b8..9d0b817 100644
+--- a/libio/oldiopopen.c
++++ b/libio/oldiopopen.c
+@@ -215,7 +215,7 @@ _IO_old_popen (command, mode)
+ #endif
+   fp = &new_f->fpx.file.file._file;
+   _IO_old_init (fp, 0);
+-  _IO_JUMPS_FILE_plus (&new_f->fpx.file) = &_IO_old_proc_jumps;
++  _IO_JUMPS_FILE_plus_SET (&new_f->fpx.file, &_IO_old_proc_jumps);
+   _IO_old_file_init ((struct _IO_FILE_plus *) &new_f->fpx.file);
+ #if  !_IO_UNIFIED_JUMPTABLES
+   new_f->fpx.file.vtable = NULL;
+diff --git a/libio/vasprintf.c b/libio/vasprintf.c
+index 7f9c105..96e1d73 100644
+--- a/libio/vasprintf.c
++++ b/libio/vasprintf.c
+@@ -54,7 +54,7 @@ _IO_vasprintf (result_ptr, format, args)
+   sf._sbf._f._lock = NULL;
+ #endif
+   _IO_no_init (&sf._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf._sbf) = &_IO_str_jumps;
++  _IO_JUMPS_SET (&sf._sbf, &_IO_str_jumps);
+   _IO_str_init_static_internal (&sf, string, init_string_size, string);
+   sf._sbf._f._flags &= ~_IO_USER_BUF;
+   sf._s._allocate_buffer = (_IO_alloc_type) malloc;
+diff --git a/libio/vsnprintf.c b/libio/vsnprintf.c
+index e2752d8..66f03cf 100644
+--- a/libio/vsnprintf.c
++++ b/libio/vsnprintf.c
+@@ -113,7 +113,7 @@ _IO_vsnprintf (string, maxlen, format, args)
+     }
+ 
+   _IO_no_init (&sf.f._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf.f._sbf) = &_IO_strn_jumps;
++  _IO_JUMPS_SET (&sf.f._sbf, &_IO_strn_jumps);
+   string[0] = '\0';
+   _IO_str_init_static_internal (&sf.f, string, maxlen - 1, string);
+   ret = _IO_vfprintf (&sf.f._sbf._f, format, args);
+diff --git a/misc/init-misc.c b/misc/init-misc.c
+index 9254f02..bcf26a2 100644
+--- a/misc/init-misc.c
++++ b/misc/init-misc.c
+@@ -16,7 +16,11 @@
+    License along with the GNU C Library; if not, see
+    <http://www.gnu.org/licenses/>.  */
+ 
++#include "libioP.h"
++
+ #include <string.h>
++#include <stdio.h>
++#include <sysdep.h>
+ #include <libc-internal.h>
+ 
+ char *__progname_full = (char *) "";
+@@ -37,4 +41,13 @@ __init_misc (int argc, char **argv, char **envp)
+ 	__progname = p + 1;
+       __progname_full = argv[0];
+     }
++
++  PTR_MANGLE (_IO_JUMPS_FILE_plus_RAW (stdin));
++  PTR_MANGLE (_IO_WIDE_JUMPS_RAW (stdin));
++
++  PTR_MANGLE (_IO_JUMPS_FILE_plus_RAW (stdout));
++  PTR_MANGLE (_IO_WIDE_JUMPS_RAW (stdout));
++
++  PTR_MANGLE (_IO_JUMPS_FILE_plus_RAW (stderr));
++  PTR_MANGLE (_IO_WIDE_JUMPS_RAW (stderr));
+ }
+diff --git a/stdio-common/isoc99_vsscanf.c b/stdio-common/isoc99_vsscanf.c
+index dadd125..513e065 100644
+--- a/stdio-common/isoc99_vsscanf.c
++++ b/stdio-common/isoc99_vsscanf.c
+@@ -37,7 +37,7 @@ __isoc99_vsscanf (const char *string, const char *format, _IO_va_list args)
+   sf._sbf._f._lock = NULL;
+ #endif
+   _IO_no_init (&sf._sbf._f, _IO_USER_LOCK, -1, NULL, NULL);
+-  _IO_JUMPS (&sf._sbf) = &_IO_str_jumps;
++  _IO_JUMPS_SET (&sf._sbf, &_IO_str_jumps);
+   _IO_str_init_static_internal (&sf, (char*)string, 0, NULL);
+   sf._sbf._f._flags2 |= _IO_FLAGS2_SCANF_STD;
+   ret = _IO_vfscanf (&sf._sbf._f, format, args, NULL);
+diff --git a/stdio-common/vfprintf.c b/stdio-common/vfprintf.c
+index 5e408d2..5940887 100644
+--- a/stdio-common/vfprintf.c
++++ b/stdio-common/vfprintf.c
+@@ -2343,7 +2343,7 @@ buffered_vfprintf (_IO_FILE *s, const CHAR_T *format,
+   hp->_lock = NULL;
+ #endif
+   hp->_flags2 = s->_flags2;
+-  _IO_JUMPS (&helper._f) = (struct _IO_jump_t *) &_IO_helper_jumps;
++  _IO_JUMPS_SET (&helper._f, (struct _IO_jump_t *) &_IO_helper_jumps);
+ 
+   /* Now print to helper instead.  */
+ #ifndef COMPILE_WPRINTF
+diff --git a/stdlib/strfmon_l.c b/stdlib/strfmon_l.c
+index 3fae78b..ba734da 100644
+--- a/stdlib/strfmon_l.c
++++ b/stdlib/strfmon_l.c
+@@ -516,7 +516,7 @@ __vstrfmon_l (char *s, size_t maxsize, __locale_t loc, const char *format,
+       f._sbf._f._lock = NULL;
+ #endif
+       _IO_init (&f._sbf._f, 0);
+-      _IO_JUMPS (&f._sbf) = &_IO_str_jumps;
++      _IO_JUMPS_SET (&f._sbf, &_IO_str_jumps);
+       _IO_str_init_static_internal (&f, dest, (s + maxsize) - dest, dest);
+       /* We clear the last available byte so we can find out whether
+ 	 the numeric representation is too long.  */
+-- 
+1.9.1
+

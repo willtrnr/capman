@@ -1,0 +1,33 @@
+From 6a6aa1f38959a5d17ff776b252604bece45864dc Mon Sep 17 00:00:00 2001
+From: Joseph Myers <joseph@codesourcery.com>
+Date: Thu, 16 Nov 2017 17:52:43 +0000
+Subject: [PATCH] Add Linux 4.14 ARPHRD_RAWIP to net/if_arp.h.
+
+This patch adds ARPHRD_RAWIP from Linux 4.14 to the Linux
+net/if_arp.h.
+
+Tested for x86_64.
+
+	* sysdeps/unix/sysv/linux/net/if_arp.h (ARPHRD_RAWIP): New macro.
+---
+briannorris: dropped ChangeLog modifications, to avoid conflicts
+
+ ChangeLog                            | 2 ++
+ sysdeps/unix/sysv/linux/net/if_arp.h | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/sysdeps/unix/sysv/linux/net/if_arp.h b/sysdeps/unix/sysv/linux/net/if_arp.h
+index 9b00644c9d5d..95a770835999 100644
+--- a/sysdeps/unix/sysv/linux/net/if_arp.h
++++ b/sysdeps/unix/sysv/linux/net/if_arp.h
+@@ -101,6 +101,7 @@ struct arphdr
+ #define ARPHRD_LAPB	516		/* LAPB.  */
+ #define ARPHRD_DDCMP	517		/* Digital's DDCMP.  */
+ #define	ARPHRD_RAWHDLC	518		/* Raw HDLC.  */
++#define ARPHRD_RAWIP	519		/* Raw IP.  */
+ 
+ #define ARPHRD_TUNNEL	768		/* IPIP tunnel.  */
+ #define ARPHRD_TUNNEL6	769		/* IPIP6 tunnel.  */
+-- 
+2.19.0.rc1.350.ge57e33dbd1-goog
+

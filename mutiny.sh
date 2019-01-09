@@ -12,6 +12,8 @@ CREW_PKG_PATH="$(crew const CREW_LIB_PATH | cut -d= -f2)/packages"
 # Set a default for our mutiny packages path
 MUTINY_PKG_PATH="${MUTINY_PKG_PATH:-./crew}"
 
+# Set a default for the override files path
+MUTINY_OVERRIDE_PATH="${MUTINY_OVERRIDE_PATH:-./mutiny-override}"
 
 # Check proper usage
 crewname="$1"
@@ -77,8 +79,13 @@ while read -r line; do
   esac
 done < "$pkgfile"
 
-# Sanitize the name for use in a PKGBUILD
-pkgname="${crewname//_/-}"
+if [ -f "$MUTINY_OVERRIDE_PATH/$crewname.pkgname" ]; then
+  # Read the name from the override file
+  pkgname="$(cat "$MUTINY_OVERRIDE_PATH/$crewname.pkgname")"
+else
+  # Sanitize the name for use in a PKGBUILD
+  pkgname="${crewname//_/-}"
+fi
 
 # Crew sometimes have pkgrels embedded in the version number
 pkgver="${crewver%%-*}"
