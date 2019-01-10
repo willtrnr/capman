@@ -15,6 +15,7 @@ source=("https://ftp.gnu.org/gnu/libc/glibc-${pkgver}.tar.xz"
         "https://dev.gentoo.org/~vapier/dist/glibc-${pkgver}-patches-${_patchver}.tar.bz2"
         'glibc-2.23-nsswitch_config.patch'
         'glibc-2.23-file-mangle.patch'
+        'glibc-2.19-arm-memcpy.patch'
         'glibc-2.23-set-ld.patch'
         'glibc-2.23-fortify-warning.patch'
         'glibc-2.23-clang-fortify.patch'
@@ -29,11 +30,14 @@ source=("https://ftp.gnu.org/gnu/libc/glibc-${pkgver}.tar.xz"
         'glibc-2.23-bits-socket-linux-4.7.patch'
         'glibc-2.23-sht_relr.patch'
         'glibc-2.23-i386-memmove.patch'
-        'glibc-2.23-net-if_arp.patch')
+        'glibc-2.23-net-if_arp.patch'
+        'glibc-2.19-ia64-gcc-4.8-reloc-hack.patch'
+        'glibc-2.23-avoid-symver.patch')
 sha256sums=('94efeb00e4603c8546209cefb3e1a50a5315c86fa9b078b6fad758e187ce13e9'
             'd3fbc6068bb7bb92a5e4c8fc30d5c70c203a64bcb33b5578de7639400e1a56d9'
             'e74004da3e80b371fb285bf73353f20dbd670eb71767779afe1b2541defca6f3'
             'a883a3c0e19e26fe14fbc6f74a94b165412f43cf52ba8247758ca794e7c5393b'
+            'a2ffe8c5995b4793d44c4e5eb521391ad6d8d7f5b8d0d9b1df9c368a81b24bf5'
             '5ef12ff69396150da0e35759aa604c31a22378e7a4e28c31ecf153e08e24e0e5'
             '4689b0b197fb9d62907bbd310b45fb683f1b0d10df1640baa4b1b98c9334badf'
             'ff668e9bc2b4a893e4dddcef5c49ebaf86d5362d191367c99c2e0729540ff22b'
@@ -48,7 +52,9 @@ sha256sums=('94efeb00e4603c8546209cefb3e1a50a5315c86fa9b078b6fad758e187ce13e9'
             'cb8496c731481358f2eabe1deb832e6912dd9587a54fe0aa3d9126175b1d3a90'
             'f4fd9281f6eef4c7c8ddc61d8c4997c7a55fe39b56014e8826de5ed9b2b48578'
             'd6a0116a2eee67efdd6ed0de9b74e421a7c4e40fcdb53ceb2a4ae0c6edb0e2ae'
-            'a2e0e8bab392bb264322884ba72a9511ed5a5c2000fb2f6c6a4323b877aafe7a')
+            'a2e0e8bab392bb264322884ba72a9511ed5a5c2000fb2f6c6a4323b877aafe7a'
+            'f0d8bb004f598375b61e67e1c215b15953c293038243207f2d85cbe9f10d093e'
+            '56da6dd3ad3232914eabf400bb0838ed4c449f894ce7aa5bc9148305932c16d6')
 
 prepare() {
   # create the build dir
@@ -73,6 +79,9 @@ prepare() {
         'glibc-2.23-nsswitch_config.patch')
           (cd "${srcdir}/extra"; patch -p1 -i "${srcdir}/$f")
           ;;
+        'glibc-2.19-arm-memcpy.patch')
+          patch -p3 -i "${srcdir}/$f"
+          ;;
         'glibc-2.23-fortify-warning.patch'|'glibc-2.23-sht_relr.patch')
           patch -p0 -i "${srcdir}/$f"
           ;;
@@ -86,6 +95,11 @@ prepare() {
 
 build() {
   cd "${pkgname}-build"
+
+  CPPFLAGS="-DPIC"
+  CFLAGS="-pipe -g -ggdb -O2 -fno-strict-aliasing -fno-stack-protector"
+  CXXFLAGS="-pipe -g -O2 -fno-strict-aliasing -fno-stack-protector"
+  LDFLAGS="-Wl,-O2 -Wl,--as-needed -fuse-ld=bfd"
 
   "${srcdir}/${pkgname}-${pkgver}/configure" \
     --prefix=/usr/local \
@@ -103,12 +117,12 @@ build() {
     --disable-timezone-tools \
     --disable-werror \
     --with-bugurl="https://github.com/wwwiiilll/capman/issues/new" \
-    --with-pkgversion="Capman ${pkgver}-${pkgrel}" \
+    --with-pkgversion="Capman ${pkgver}-${pkgrel} p${_patchver}" \
     --without-cvs \
     --without-gd \
     --without-selinux
 
-  make
+  make -j"$(nproc)"
 }
 
 package() {
