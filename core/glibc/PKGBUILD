@@ -96,10 +96,12 @@ prepare() {
 build() {
   cd "${pkgname}-build"
 
-  CPPFLAGS="-DPIC"
   CFLAGS="-pipe -g -ggdb -O2 -fno-strict-aliasing -fno-stack-protector"
+  CPPFLAGS="-DPIC"
   CXXFLAGS="-pipe -g -O2 -fno-strict-aliasing -fno-stack-protector"
   LDFLAGS="-Wl,-O2 -Wl,--as-needed -fuse-ld=bfd"
+
+  CC="gcc -m64 ${LDFLAGS}"
 
   "${srcdir}/${pkgname}-${pkgver}/configure" \
     --prefix=/usr/local \
