@@ -2,10 +2,6 @@
 
 set -e
 
-TMPDIR="/usr/local/tmp/capman"
-mkdir -p "$TMPDIR"
-trap "rm -rf '$TMPDIR'" EXIT
-
 ARCH='x86_64'
 REPO="https://storage.googleapis.com/capman-repo/core/os/$ARCH"
 SRC_REPO="https://raw.githubusercontent.com/wwwiiilll/capman/master/local"
@@ -13,7 +9,11 @@ PKGEXT='.pkg.tar.xz'
 
 PACMAN_VER='5.1.2-1'
 MIRRORS_VER='20190105-1'
-KEYRING_VER='20181230-1'
+KEYRING_VER='20190221-1'
+
+TMPDIR="/usr/local/tmp/capman"
+mkdir -p "$TMPDIR"
+trap "rm -rf '$TMPDIR'" EXIT
 
 SUDO="/usr/bin/sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
 PACMAN="$SUDO /usr/local/bin/pacman --noconfirm"
@@ -29,11 +29,11 @@ install_pkg() {
 }
 
 build_pkg() {
-  local name="$1"
+  local name="$1"; shift
   mkdir -p "$TMPDIR/$name"
   curl -# -Lo "$TMPDIR/$name/PKGBUILD" "$SRC_REPO/$name/PKGBUILD"
-  while [ ! -z "$2" ]; do
-    curl -# -Lo "$TMPDIR/$name/$2" "$SRC_REPO/$name/$2"
+  while [ ! -z "$1" ]; do
+    curl -# -Lo "$TMPDIR/$name/$1" "$SRC_REPO/$name/$1"
     shift
   done
   (cd "$TMPDIR/$name"; /usr/local/bin/makepkg -d)

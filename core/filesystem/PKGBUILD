@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=filesystem
-pkgver=2018.12
+pkgver=2019.02
 pkgrel=1
 pkgdesc="Base files"
 arch=('x86_64')
@@ -11,14 +11,11 @@ groups=('base')
 
 package() {
   # setup /usr/local hierarchy
-  for d in bin cache etc include sbin share share/man share/man/man{1..8} src tmp; do
+  for d in bin cache etc include lib sbin share share/man share/man/man{1..8} src tmp; do
     install -d -m 755 "$pkgdir/usr/local/$d"
   done
-  # handle lib64
+  # crew installs things in both lib and lib64 on x86_64
   if [ "$CARCH" = "x86_64" ]; then
     install -d -m 755 "$pkgdir/usr/local/lib64"
-    ln -s lib64 "$pkgdir/usr/local/lib"
-  else
-    install -d -m 755 "$pkgdir/usr/local/lib"
   fi
 }

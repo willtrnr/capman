@@ -2,18 +2,7 @@
 
 set -e
 
-# Import the makepkg utils for logging
-source /usr/local/share/makepkg/util.sh
-colorize
-
-# Set the crew package folder path
-CREW_PKG_PATH="$(crew const CREW_LIB_PATH | cut -d= -f2)/packages"
-
-# Set a default for our mutiny packages path
-MUTINY_PKG_PATH="${MUTINY_PKG_PATH:-./crew}"
-
-# Set a default for the override files path
-MUTINY_OVERRIDE_PATH="${MUTINY_OVERRIDE_PATH:-./mutiny-override}"
+source common.sh
 
 # Check proper usage
 crewname="$1"
@@ -23,8 +12,8 @@ if [ -z "$crewname" ]; then
 fi
 
 # Verify the package exists in crew
-pkgfile="$CREW_PKG_PATH/$crewname.rb"
-if [ ! -f "$pkgfile" ]; then
+crewpkg="$CREW_PKG_PATH/$crewname.rb"
+if [ ! -f "$crewpkg" ]; then
   error "Unknown package: %s" "$crewname"
   exit 1
 fi
@@ -32,6 +21,7 @@ fi
 
 msg "Parsing the crew package file..."
 
+pkgname="$(sanitize_name "$crewname")"
 depends=()
 makedepends=()
 
@@ -69,7 +59,7 @@ while read -r line; do
       _in_sums=0
       ;;
     depends_on*)
-      name="$(echo "$line" | sed -E "s/^[^'\"]*['\"]([^'\"]+)['\"].*$/\1/; s/_/-/g")"
+      name="$(sanitize_name "$(echo "$line" | sed -E "s/^[^'\"]*['\"]([^'\"]+)['\"].*$/\1/")")"
       if [[ "$line" == *:build ]]; then
         makedepends+=("'$name'")
       else
@@ -77,15 +67,7 @@ while read -r line; do
       fi
       ;;
   esac
-done < "$pkgfile"
-
-if [ -f "$MUTINY_OVERRIDE_PATH/$crewname.pkgname" ]; then
-  # Read the name from the override file
-  pkgname="$(cat "$MUTINY_OVERRIDE_PATH/$crewname.pkgname")"
-else
-  # Sanitize the name for use in a PKGBUILD
-  pkgname="${crewname//_/-}"
-fi
+done < "$crewpkg"
 
 # Crew sometimes have pkgrels embedded in the version number
 pkgver="${crewver%%-*}"
@@ -104,14 +86,14 @@ if (curl -s "https://www.archlinux.org/packages/search/json/?name=$pkgname" | jq
   url="$(jq -r '.url' "/tmp/$pkgname.json")"
   licenses="$(jq -r '.licenses | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
   groups="$(jq -r '.groups | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
-  unset depends
-  depends="$(jq -r '.depends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
-  unset makedepends
-  makedepends="$(jq -r '.makedepends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
-  optdepends="$(jq -r '.optdepends | map("'"'"'" + . + "'"'"'") | join("\n            ")' "/tmp/$pkgname.json")"
-  provides="$(jq -r '.provides | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
-  conflicts="$(jq -r '.conflicts | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
-  replaces="$(jq -r '.replaces | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  # unset depends
+  # depends="$(jq -r '.depends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  # unset makedepends
+  # makedepends="$(jq -r '.makedepends | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  # optdepends="$(jq -r '.optdepends | map("'"'"'" + . + "'"'"'") | join("\n            ")' "/tmp/$pkgname.json")"
+  # provides="$(jq -r '.provides | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  # conflicts="$(jq -r '.conflicts | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
+  # replaces="$(jq -r '.replaces | map("'"'"'" + . + "'"'"'") | join(" ")' "/tmp/$pkgname.json")"
 else
   # We'll produce the package as-is
   warning "No equivalent package found, will use crew information."
@@ -132,6 +114,7 @@ build() {
 }
 "
 else
+  # If we're using binaries we don't need makedepends
   unset makedepends
 fi
 

@@ -1,14 +1,6 @@
 #! /usr/bin/env bash
 
-# Import the makepkg utils for logging
-source /usr/local/share/makepkg/util.sh
-colorize
-
-# Set the crew package folder path
-CREW_PKG_PATH="$(crew const CREW_LIB_PATH | cut -d= -f2)/packages"
-
-# Set a default for our mutiny packages path
-MUTINY_PKG_PATH="${MUTINY_PKG_PATH:-./crew}"
+source common.sh
 
 for pkg in "$MUTINY_PKG_PATH/"*; do
   pkgname="$(basename "$pkg")"

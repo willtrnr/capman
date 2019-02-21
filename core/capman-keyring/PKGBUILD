@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=capman-keyring
-pkgver=20181230
+pkgver=20190221
 pkgrel=1
 pkgdesc="Capman PGP Keyring"
 arch=('any')
@@ -12,7 +12,7 @@ source=('capman.gpg'
         'capman-trusted'
         'capman-revoked')
 sha256sums=('75ad986db642555bc091b47148db1cb3aae2f20b3e00c727692de34bb110307e'
-            '4982a58321c162ecf0b7c6cf349b2f1cb4ebe4ad8a9e53e217b2a2bf0fe0964d'
+            'd6711395d1c6e7f934d38d23fa288a9bbdef5136123803f3c7cf90ebc45249ee'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
 
 package() {
