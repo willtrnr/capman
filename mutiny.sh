@@ -22,6 +22,7 @@ fi
 msg "Parsing the crew package file..."
 
 pkgname="$(sanitize_name "$crewname")"
+
 depends=()
 makedepends=()
 
@@ -107,6 +108,7 @@ msg "Writing the new PKGBUILD to %s..." "$destdir"
 
 if [ -z "$binary_url" ]; then
   warning "No binary package is available, will build from sources."
+  options=('staticlibs')
   build="
 build() {
   yes | crew build "$crewname"
@@ -116,6 +118,8 @@ build() {
 else
   # If we're using binaries we don't need makedepends
   unset makedepends
+  # However we need to make sure the package is kept mostly as-is
+  options=('!strip' 'staticlibs' '!zipman' '!purge')
 fi
 
 mkdir -p "$destdir"
@@ -136,6 +140,7 @@ optdepends=($optdepends)
 provides=($provides)
 conflicts=($conflicts)
 replaces=($replaces)
+options=(${options[@]})
 source=($binary_url)
 sha256sums=($binary_sha256)
 $build

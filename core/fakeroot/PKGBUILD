@@ -1,0 +1,42 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=fakeroot
+pkgver=1.23
+pkgrel=1
+pkgdesc="Tool for simulating superuser privileges"
+arch=('x86_64')
+url="https://packages.debian.org/fakeroot"
+license=('GPL')
+groups=('base-devel')
+depends=('glibc' 'filesystem' 'sed' 'util-linux' 'sh')
+source=("https://deb.debian.org/debian/pool/main/f/$pkgname/${pkgname}_${pkgver}.orig.tar.xz"
+        'silence-dlerror.patch')
+sha256sums=('009cd6696a931562cf1c212bb57ca441a4a2d45cd32c3190a35c7ae98506f4f6'
+            '347f6496c93ed0d91dcb554db92602b50520a16308e3b8bc33822bd69966267b')
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  patch -p1 -i "$srcdir/silence-dlerror.patch"
+
+  ./bootstrap
+}
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  ./configure \
+    --prefix=/usr/local \
+    --libdir=/usr/local/lib64 \
+    --disable-static \
+    --with-ipc=sysv
+
+  make
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  make DESTDIR="$pkgdir" install
+
+  # install README for sysv/tcp usage
+  install -D -m644 README "$pkgdir/usr/local/share/doc/$pkgname/README"
+}
