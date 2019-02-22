@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://vifm.info/"
 license=('GPL')
 groups=()
-depends=('desktop-file-utils' 'ncurses')
+depends=('ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/vifm-0.9-chromeos-x86_64.tar.xz")
 sha256sums=('bf9c7b3328428b50247c9ae6d5386f055357a8f6919efc03174666440b1b923e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

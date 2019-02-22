@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mdp-1.0.10-chromeos-x86_64.tar.xz")
 sha256sums=('a444f58edb9b973d4274e99e31c9e339fe1c88cf0641c55bb7d7f10413f761a4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

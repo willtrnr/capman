@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/unrtf-0.21.9-chromeos-x86_64.tar.xz")
 sha256sums=('905c08e45a27b7a40aa2986ce9576f24fc36118f185dad78cd728cef51af8e54')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

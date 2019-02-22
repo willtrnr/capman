@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fakeroot_ng-0.18-chromeos-x86_64.tar.xz")
 sha256sums=('68ade929172b332a688333874644ce80d3af25f9604c9cc68103975c667f4fee')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

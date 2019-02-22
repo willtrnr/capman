@@ -8,19 +8,17 @@ arch=('x86_64')
 url="https://www.r-project.org/"
 license=('GPL')
 groups=()
-depends=('blas' 'bzip2' 'curl' 'gcc-libs' 'icu' 'lapack' 'libjpeg' 'libpng' 'libtiff' 'libxmu' 'libxt' 'ncurses' 'pango' 'pcre' 'perl' 'readline' 'unzip' 'xz' 'zip' 'zlib')
+depends=('pcre' 'xzutils' 'bz2' 'curl' 'readline7')
 makedepends=()
-optdepends=('gcc-fortran: needed to compile some CRAN packages'
-            'openblas: faster linear algebra'
-            'texlive-bin: latex sty files'
-            'tk: tcl/tk interface')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/r-3.5.1-chromeos-x86_64.tar.xz")
 sha256sums=('bd46cf97defc2d200e1bf94c0a157040a5f86cc56ffc99e85b6abe5e875f9e50')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

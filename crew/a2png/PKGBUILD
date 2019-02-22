@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/a2png-0.1.5-1-chromeos-x86_64.tar.xz")
 sha256sums=('b468b226e28cf717c3f38435849bf737067a8b9ec3c1928c01fed5488bb31464')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

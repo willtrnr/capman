@@ -8,22 +8,17 @@ arch=('x86_64')
 url="https://abcde.einval.com/"
 license=('GPL')
 groups=()
-depends=('bash' 'cd-discid' 'vorbis-tools' 'wget')
+depends=()
 makedepends=()
-optdepends=('cdparanoia: Paranoia ripping support'
-            'flac: FLAC encoding support'
-            'glyr: album art support'
-            'lame: MP3 encoding support'
-            'opus-tools: Opus encoding support'
-            'python-eyed3: ID3 tag support'
-            'vorbisgain: Ogg Vorbis normalization support')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/abcde-2.9.1-chromeos-x86_64.tar.xz")
 sha256sums=('eb965e6d641bd482b7e0789e5231b7555ca28dd2dbc1ef736769f8084355f31a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

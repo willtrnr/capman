@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://github.com/strukturag/libheif"
 license=('GPL3')
 groups=()
-depends=('libde265' 'x265')
+depends=('libde265' 'libjpeg' 'libpng' 'libx265')
 makedepends=()
-optdepends=('libjpeg: for heif-convert and heif-enc'
-            'libpng: for heif-convert and heif-enc')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libheif-1.3.2-chromeos-x86_64.tar.xz")
 sha256sums=('d676736b107aa2245707d64afa0fe49eca476671a44dc34a6a8b013220b72ad0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

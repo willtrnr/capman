@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=f3
+pkgver=7.1
+pkgrel=1
+pkgdesc=" capacity and performance to see if they live up to claimed specifications."
+arch=('x86_64')
+url="http://oss.digirati.com.br/f3/"
+license=('custom')
+groups=()
+depends=('parted' 'eudev')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/f3-7.1-chromeos-x86_64.tar.xz")
+sha256sums=('71bd956a914f6021cedb66723f44fa145f5d3d928353fd2465316351c3b26421')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

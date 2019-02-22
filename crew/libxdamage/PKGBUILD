@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('damageproto' 'libxfixes>=4.0.4')
+depends=('libxfixes' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxdamage-1.1.4-1-chromeos-x86_64.tar.xz")
 sha256sums=('ec0c7da854f939617bb29730726f7488a0df1cc0bfb4fd96cbdf6e257890f678')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

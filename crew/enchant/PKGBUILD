@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://abiword.github.io/enchant/"
 license=('LGPL')
 groups=()
-depends=('aspell' 'glib2' 'hspell' 'hunspell' 'libvoikko')
+depends=('aspell-en' 'hunspell')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/enchant-2.2.3-chromeos-x86_64.tar.xz")
 sha256sums=('80e2b41b7e08a5dcfe61fe5a4d4e3804ffb705f02543777ee413e893205a3b84')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/rack-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('7a80c8cd2dbb9591844f24f06d7ec5d7ee3e07687ef4bc0d564223a7d7d6a609')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

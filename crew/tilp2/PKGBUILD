@@ -14,15 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=()
-sha256sums=()
-
-build() {
-  yes | crew build tilp2
-  tar xf "tilp2-1.18-chromeos-$arch.tar.xz"
-}
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/tilp2-1.18-chromeos-x86_64.tar.xz")
+sha256sums=('6299305628afe6455a951234e91a1ee6dc501b48d0f47b1739963080be416536')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

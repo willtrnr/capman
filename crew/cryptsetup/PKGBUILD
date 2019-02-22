@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.com/cryptsetup/cryptsetup/"
 license=('GPL')
 groups=('base')
-depends=('argon2' 'device-mapper' 'json-c' 'libgcrypt' 'libutil-linux' 'popt')
+depends=('util-linux' 'lvm2' 'jsonc' 'libgcrypt' 'popt')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cryptsetup-2.0.3-chromeos-x86_64.tar.xz")
 sha256sums=('38500360185a743c7421c19863b902917445da3e7fb5cff2001fbffc16d58e70')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

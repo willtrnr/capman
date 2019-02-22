@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sg3_utils-1.44-chromeos-x86_64.tar.xz")
 sha256sums=('bf5157d3ffb69c69cc71d4e6df55706cbc1cd31632159fe8fa2ca0298377a184')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

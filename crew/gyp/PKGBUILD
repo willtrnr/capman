@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gyp
+pkgver=81286d
+pkgrel=1
+pkgdesc=""Generate Your Projects" Meta-Build system"
+arch=('x86_64')
+url="https://gyp.gsrc.io/"
+license=('custom:BSD')
+groups=()
+depends=('python27')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gyp-81286d-chromeos-x86_64.tar.xz")
+sha256sums=('a6ad933e8dc00f2fc5baff2f5bf523040a7a427dbb5f4e59dd7cfc2e48c8388c')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

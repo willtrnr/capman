@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/heroku-7.16.0-chromeos-x86_64.tar.xz")
 sha256sums=('da7204aacb05c99e034a4f2a9c95e9e44b2493bf9c0717126ab00af6948edb5b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

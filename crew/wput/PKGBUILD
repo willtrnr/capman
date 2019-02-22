@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/wput-0.6.2-chromeos-x86_64.tar.xz")
 sha256sums=('f2b7ed34899a4d0ea18cc553d0028d16683fcebe0915eed11098911aa663c40b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

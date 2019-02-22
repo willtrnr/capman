@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://vagrantup.com"
 license=('MIT')
 groups=()
-depends=('curl' 'libarchive' 'libssh2' 'libxml2' 'libxslt' 'rsync' 'ruby' 'xz')
+depends=('ruby')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('vagrant-substrate')
-replaces=('vagrant-substrate')
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/vagrant-2.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('4ba294be3189df94ffdf603e710ffe21b706f9e41466afac2e24566f9e64948d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

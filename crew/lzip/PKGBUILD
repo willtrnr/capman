@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=lzip
-pkgver=1.20
+pkgver=1.21
 pkgrel=1
 pkgdesc="A lossless file compressor based on the LZMA algorithm"
 arch=('x86_64')
-url="http://www.nongnu.org/lzip/lzip.html"
+url="https://www.nongnu.org/lzip/lzip.html"
 license=('GPL3')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/lzip-1.20-chromeos-x86_64.tar.xz")
-sha256sums=('dbbc38602aaeb84e11d971aeb35d64b49fc30d44354b902b767e0529a3ce7d04')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/lzip-1.21-chromeos-x86_64.tar.xz")
+sha256sums=('3e79f5606033b8dde418900d6957d06b606a9bffb240eb67e7166e38dcdfe699')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

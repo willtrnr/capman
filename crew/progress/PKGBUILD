@@ -13,11 +13,12 @@ makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=('cv')
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/progress-0.13.1-chromeos-x86_64.tar.xz")
 sha256sums=('e3e4b39e3be040d3d1ce716b253a625d0aa77839cdc7e22d479649748bbfa403')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

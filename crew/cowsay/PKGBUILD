@@ -8,12 +8,13 @@ arch=('x86_64')
 url="http://www.nog.net/~tony/warez/"
 license=('GPL' 'PerlArtistic')
 groups=()
-depends=('perl')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

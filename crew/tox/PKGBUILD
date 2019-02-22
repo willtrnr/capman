@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tox-3.4.0-chromeos-x86_64.tar.xz")
 sha256sums=('42f63319cae5fe4d78c217a5d3326b735b42503cd5a431198aafcece31dbc60f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

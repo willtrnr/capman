@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://sites.google.com/site/fullycapable/"
 license=('GPL2')
 groups=()
-depends=('attr' 'glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcap-2.25-1-chromeos-x86_64.tar.xz")
 sha256sums=('4aec1e1f208538ec02df02808e9a40df4628a0bfb019367e3f7059fa1debe1bc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

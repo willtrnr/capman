@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://sourceforge.net/projects/libexif"
 license=('LGPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libexif-0.6.21-chromeos-x86_64.tar.xz")
 sha256sums=('ffe068550dd1f366252762ee529a8bd10984f1036d11984bfefabb468893da21')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

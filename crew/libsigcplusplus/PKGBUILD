@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libsigcplusplus-2.10.0-chromeos-x86_64.tar.xz")
 sha256sums=('c32ff29b0f4a8394b69502cd3dc030848f84c5c3df048beb88966f7b1b6c6935')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.isc.org/software/bind/"
 license=('MPL2')
 groups=()
-depends=('bind-tools' 'geoip' 'glibc' 'json-c' 'libcap' 'libxml2' 'lmdb' 'openssl' 'zlib')
+depends=('libcap' 'libseccomp' 'readline')
 makedepends=()
 optdepends=()
-provides=('dns-server')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bind-9.12.2-chromeos-x86_64.tar.xz")
 sha256sums=('1ae24865bcf2d1a8c953644f809fe52794cf6968d4bf06d9f77c08b80c3fa343')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

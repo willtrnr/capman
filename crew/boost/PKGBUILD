@@ -8,17 +8,17 @@ arch=('x86_64')
 url="http://www.boost.org/"
 license=('custom')
 groups=()
-depends=('boost-libs=1.68.0')
+depends=()
 makedepends=()
-optdepends=('python: for python bindings'
-            'python2: for python2 bindings')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/boost-1.66.0-chromeos-x86_64.tar.xz")
 sha256sums=('527a50ab5e9dc7420a63f5ee6f3826ab9816f7f65ab2e87f54ac4cef9b452d67')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

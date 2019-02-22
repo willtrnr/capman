@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Apps/Gucharmap"
 license=('GPL')
 groups=()
-depends=('dconf' 'gtk3')
+depends=('desktop-file-utilities' 'itstool' 'vala')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gucharmap-10.0.4-chromeos-x86_64.tar.xz")
 sha256sums=('ea67e70f52dd53fc6ab9e04c019ae60519a334eb89e077efff201a29d872ca3f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

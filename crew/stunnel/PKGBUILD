@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.stunnel.org/"
 license=('GPL')
 groups=()
-depends=('libnsl' 'openssl')
+depends=('openssl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/stunnel-5.42-chromeos-x86_64.tar.xz")
 sha256sums=('35876775273e30f179df5966c0444c3a7290d22d668a81c83959ba6c8a644a2f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

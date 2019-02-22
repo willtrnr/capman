@@ -2,22 +2,23 @@
 
 pkgname=imagemagick6
 pkgver=6.9.10
-pkgrel=1
+pkgrel=14
 pkgdesc="An image viewing/manipulation program (version 6)"
 arch=('x86_64')
 url="https://legacy.imagemagick.org/"
 license=('custom')
 groups=()
-depends=('libmagick6=6.9.10.17-1')
+depends=('freetype' 'ghostscript' 'lzma' 'libwebp' 'msttcorefonts' 'openjpeg' 'pango' 'python27')
 makedepends=()
 optdepends=()
-provides=('imagemagick=6.9.10.17-1')
-conflicts=('imagemagick')
+provides=()
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/imagemagick6-6.9.10-14-chromeos-x86_64.tar.xz")
 sha256sums=('5a8b8ff05c66cf29715166b18c4100481577e2501332741f78eda177d19240d4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

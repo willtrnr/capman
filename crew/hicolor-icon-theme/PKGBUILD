@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/hicolor_icon_theme-0.17-chromeos-x86_64.tar.xz")
 sha256sums=('f0640114582b89e78c5e884e801d512b3a0f484443fdc0157a6f4db289261bae')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

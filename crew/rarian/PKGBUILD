@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://rarian.freedesktop.org/"
 license=('GPL')
 groups=()
-depends=('gcc-libs' 'sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/rarian-0.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('3ececd8ac3dce371c40d1b32c10b538821a2b74edff336d9c041f8fcab4ac09c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

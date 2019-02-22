@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/minerd-2.5.0-chromeos-x86_64.tar.xz")
 sha256sums=('a4101c3804f18fa55f93ea0516c5deca35093064f47146ef1f398b8b1e10f343')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

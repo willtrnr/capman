@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnome.org"
 license=('LGPL')
 groups=()
-depends=('gtk2>=2.16.0' 'libxml2>=2.7.3')
+depends=('gtk2' 'gtk3')
 makedepends=()
-optdepends=('python2: libglade-convert script')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libglade-2.6.4-chromeos-x86_64.tar.xz")
 sha256sums=('2749ac0d67edb91b1f59355fba8dd045c8dbc44ede3fc619304853b2ac4799cf')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

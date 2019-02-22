@@ -5,19 +5,20 @@ pkgver=4.1
 pkgrel=1
 pkgdesc="Complete solution to record, convert and stream audio and video"
 arch=('x86_64')
-url="http://ffmpeg.org/"
+url="https://ffmpeg.org/"
 license=('GPL3')
 groups=()
-depends=('alsa-lib' 'aom' 'bzip2' 'fontconfig' 'fribidi' 'glibc' 'gmp' 'gnutls' 'gsm' 'jack' 'lame' 'libass.so=9-64' 'libavc1394' 'libbluray.so=2-64' 'libdrm' 'libfreetype.so=6-64' 'libiec61883' 'libmodplug' 'libomxil-bellagio' 'libpulse' 'libraw1394' 'libsoxr' 'libssh' 'libtheora' 'libva-drm.so=2-64' 'libva.so=2-64' 'libva-x11.so=2-64' 'libvdpau' 'libvidstab.so=1.1-64' 'libvorbisenc.so=2-64' 'libvorbis.so=0-64' 'libvpx.so=5-64' 'libwebp' 'libx11' 'libx264.so=155-64' 'libx265.so=165-64' 'libxcb' 'libxext' 'libxml2' 'libxv' 'libxvidcore.so=4-64' 'opencore-amr' 'openjpeg2' 'opus' 'sdl2' 'speex' 'v4l-utils' 'xz' 'zlib')
+depends=('libopencoreamr' 'libvoamrwbenc' 'libmp3lame' 'libfrei0r' 'libtheora' 'libvorbis' 'xorg-lib' 'openjpeg' 'rtmpdump' 'libvdpau' 'vidstab' 'libopus' 'libsoxr' 'libwebp' 'libx264' 'libx265' 'libxvid' 'libdrm' 'gnutls' 'libass' 'libva' 'speex')
 makedepends=()
-optdepends=('ladspa: LADSPA filters')
-provides=('libavcodec.so=58-64' 'libavdevice.so=58-64' 'libavfilter.so=7-64' 'libavformat.so=58-64' 'libavutil.so=56-64' 'libpostproc.so=55-64' 'libswresample.so=3-64' 'libswscale.so=5-64')
+optdepends=()
+provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/ffmpeg-4.1-chromeos-x86_64.tar.xz")
-sha256sums=('84dd40e9f141b6fe15915e0e3ff9a42450281d82d69b11da2d86a403fc27ce48')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/ffmpeg-4.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('3720e339c273fd6d8913220e08a1c1ba8d25d056803747c8f077818c78d8b287')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

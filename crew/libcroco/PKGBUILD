@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.gnome.org/GNOME/libcroco"
 license=('LGPL')
 groups=()
-depends=('glib2' 'libxml2')
+depends=('gtk-doc')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcroco-0.6.12-chromeos-x86_64.tar.xz")
 sha256sums=('21b8c0b44777da7c607c08b85732f1a91a805f248a1937351f4c92ec50444975')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

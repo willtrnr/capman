@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.cgsecurity.org/index.html?testdisk.html"
 license=('GPL')
 groups=()
-depends=('libjpeg' 'ntfsprogs' 'openssl' 'progsreiserfs')
+depends=('ncurses' 'apriconv' 'libjpeg' 'zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/testdisk-7.1-chromeos-x86_64.tar.xz")
 sha256sums=('852cf726e057917fc7056c7828db350ba4ee79df4ed2e0423885a1781e52e206')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

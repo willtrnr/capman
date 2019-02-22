@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/netcat-0.7.1-chromeos-x86_64.tar.xz")
 sha256sums=('d8eabdf6ac3bd822811c8fc8d5da26dc8a4014cae561a2a77b54c6a1f9a9eff8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

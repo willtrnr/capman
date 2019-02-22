@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://www.passwordstore.org/"
 license=('GPL2')
 groups=()
-depends=('bash' 'gnupg' 'tree' 'xclip')
+depends=('gnupg' 'tree')
 makedepends=()
-optdepends=('dmenu: for passmenu'
-            'git: for Git support'
-            'qrencode: for QR code support')
-provides=('passmenu')
-conflicts=('passmenu')
-replaces=('passmenu')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pass-1.7.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('0b111fc35629c26203e3d709b9ec44c51f815d385d8b30fa1e852b5309db4af1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

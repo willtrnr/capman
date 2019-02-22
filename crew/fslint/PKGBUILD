@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fslint-2.46-chromeos-x86_64.tar.xz")
 sha256sums=('5e3798a1ecaadb78deeaf1ac17bcafe842e72aac70247b9f95ccd915a5925460')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

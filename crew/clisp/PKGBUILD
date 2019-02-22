@@ -2,22 +2,23 @@
 
 pkgname=clisp
 pkgver=2.49
-pkgrel=1
+pkgrel=3
 pkgdesc="ANSI Common Lisp interpreter, compiler and debugger"
 arch=('x86_64')
 url="http://clisp.cons.org/"
 license=('GPL')
 groups=()
-depends=('libsigsegv' 'readline')
+depends=('ffcall' 'libsigsegv' 'readline')
 makedepends=()
 optdepends=()
-provides=('common-lisp')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/clisp-2.49-3-chromeos-x86_64.tar.xz")
 sha256sums=('7d64a5724ef656764f35ce48dca877a9f9e75842a1a420fde21d12c8bf2f5489')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

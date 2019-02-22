@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libmetalink
+pkgver=0.1.3
+pkgrel=1
+pkgdesc="libmetalink is a Metalink library written in C language."
+arch=('x86_64')
+url="https://launchpad.net/libmetalink/"
+license=('custom')
+groups=()
+depends=('libxml2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libmetalink-0.1.3-chromeos-x86_64.tar.xz")
+sha256sums=('26c796170ae70679c0cc6ba510b5fd94594e2436b8ae14733226e6b294762fc3')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

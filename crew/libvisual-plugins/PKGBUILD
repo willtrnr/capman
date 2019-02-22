@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://sourceforge.net/projects/libvisual/"
 license=('GPL')
 groups=()
-depends=('alsa-lib' 'gdk-pixbuf2' 'glu' 'jack' 'libvisual')
+depends=('libvisual')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libvisual_plugins-0.4.0-chromeos-x86_64.tar.xz")
 sha256sums=('15e813bd18834dc7b52c3878e0b05b785d585d9cf9145666ead898a7b92a28c5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

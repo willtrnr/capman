@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://jonas.github.io/tig/"
 license=('GPL')
 groups=()
-depends=('git' 'ncurses')
+depends=('readline' 'ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tig-2.3.0-1-chromeos-x86_64.tar.xz")
 sha256sums=('59a21ceda7f12ef29719ba7387eeb883220c39ad5b2db660a5b9d4d290554214')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

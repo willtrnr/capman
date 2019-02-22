@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://librsync.sourcefrog.net/"
 license=('LGPL')
 groups=()
-depends=('popt')
+depends=('bz2' 'perl' 'popt' 'zlibpkg')
 makedepends=()
 optdepends=()
-provides=('librsync.so=2-64')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/librsync-2.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('7b997d55a11e5709a33f90e6b392b388f56ea7be1f6683027e27fb349eacdbef')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

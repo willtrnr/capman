@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/rrthomas/recode"
 license=('GPL3' 'LGPL3')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/recode-2d7092a-chromeos-x86_64.tar.xz")
 sha256sums=('6d1613a2f31ede4ca9e57049c4355b01862e3d182e654e36dd66643eacc35ede')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://potrace.sourceforge.net/"
 license=('GPL')
 groups=()
-depends=()
+depends=('zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/potrace-1.15-chromeos-x86_64.tar.xz")
 sha256sums=('3afcffc9b2d9db5e880ce55119de7e67295d599ef8fc7837a446f18c67f5ca31')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

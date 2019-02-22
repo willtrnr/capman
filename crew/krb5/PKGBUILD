@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://web.mit.edu/kerberos/"
 license=('custom')
 groups=()
-depends=('e2fsprogs' 'keyutils' 'libldap')
+depends=('gawk')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/krb5-1.16-chromeos-x86_64.tar.xz")
 sha256sums=('fb5fb9ad6e393104a31c1ef29208840720b796555fa9f7ccd0bbd0412e44495e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

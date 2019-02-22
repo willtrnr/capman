@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://rsync.samba.org/"
 license=('GPL3')
 groups=()
-depends=('acl' 'perl' 'popt')
+depends=('buildessential')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/rsync-3.1.2-chromeos-x86_64.tar.xz")
 sha256sums=('93135332086e1db3f21a10c29498b3d6aac4ea540a54e79bd723c8512bbbeb18')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

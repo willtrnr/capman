@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/madplay-0.15.2b-chromeos-x86_64.tar.xz")
 sha256sums=('e24353e4a61f0b8d5e4a8fda4bc2d5a3d3e94f55147aa666e2f271b1e7671900')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

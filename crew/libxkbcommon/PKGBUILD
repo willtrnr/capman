@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xkbcommon.org/"
 license=('custom')
 groups=()
-depends=('glibc' 'xkeyboard-config')
+depends=('bison' 'wayland-protocols' 'xkeyboard-config')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxkbcommon-0.8.0-chromeos-x86_64.tar.xz")
 sha256sums=('4e95bd2ac160dfe3e458f166c0b434931666c38c8fa5e7d9a0391ad936ddfb1a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

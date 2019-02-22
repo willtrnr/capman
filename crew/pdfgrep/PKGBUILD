@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://pdfgrep.sourceforge.net/"
 license=('GPL')
 groups=()
-depends=('poppler')
+depends=('libgcrypt' 'pcre' 'poppler')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pdfgrep-2.0.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('6bcca42a2012f845c17f3c4111d9ec104a212c809bc98ce75985f21bb03e010c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

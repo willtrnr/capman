@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libxext' 'libxt')
+depends=('libxt' 'libxext' 'util-macros' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxmu-1.1.2-chromeos-x86_64.tar.xz")
 sha256sums=('66b75c1f3488973f36f4520fa283f860bdebdea608716a082776e8364a092d4f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

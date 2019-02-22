@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/apriconv-1.2.2-chromeos-x86_64.tar.xz")
 sha256sums=('d3abcd64112eb46aef6bb090409471c9fbaf675cd258aff0220d696fed9b6771')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

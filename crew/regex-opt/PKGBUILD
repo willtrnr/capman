@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/regex_opt-1.2.4-chromeos-x86_64.tar.xz")
 sha256sums=('a49aaa0db5429edeb512833c3c73e96646903e8c5b2aaa0a15ef262ed62e3095')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

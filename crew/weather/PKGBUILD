@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/weather-2.3-chromeos-x86_64.tar.xz")
 sha256sums=('1c4e0246d00a2fd2511153582862d4b9dccc5a1afb6e7ffd0763a485d60b4490')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

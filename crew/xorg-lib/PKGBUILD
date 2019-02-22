@@ -2,10 +2,10 @@
 
 pkgname=xorg-lib
 pkgver=0.1
-pkgrel=1
+pkgrel=0
 pkgdesc="A collection of xorg libraries."
 arch=('x86_64')
-url="homepage ''"
+url="homepage ''"
 license=('custom')
 groups=()
 depends=('libxtrans' 'libx11' 'libxext' 'libfontenc' 'libxinerama' 'libxdamage' 'libxtst' 'libpciaccess' 'libxkbfile' 'libxshmfence' 'libxi' 'libxcursor' 'libxrender' 'libxfixes' 'libdmx' 'libfs' 'libice' 'libsm' 'libxaw' 'libxfont2' 'libxft' 'libxmu' 'libxpm' 'libxrandr' 'libxres' 'libxt' 'libxv' 'libxvmc' 'libxxf86dga' 'libxxf86vm' 'libxcomposite' 'libxscrnsaver')
@@ -14,6 +14,7 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

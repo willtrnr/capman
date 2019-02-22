@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wayland.freedesktop.org/"
 license=('MIT')
 groups=()
-depends=('cairo' 'colord' 'dbus' 'glib2' 'glibc' 'lcms2' 'libdrm' 'libegl' 'libgles' 'libinput' 'libjpeg-turbo' 'libpng' 'libsystemd' 'libunwind' 'libva' 'libwebp' 'libx11' 'libxcb' 'libxcursor' 'libxkbcommon' 'mesa' 'mtdev' 'pam' 'pango' 'pixman' 'wayland')
+depends=('harfbuzz' 'libxcursor' 'libinput' 'libxkbcommon' 'wayland-protocols' 'libjpeg' 'libunwind' 'pango' 'dbus' 'libxxf86vm')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/weston-4.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('758ecfd17e47436b7c219676f5959379ed6a1ea7838abeeb82c54be456a47aa7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

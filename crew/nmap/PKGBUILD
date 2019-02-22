@@ -5,22 +5,20 @@ pkgver=7.60
 pkgrel=1
 pkgdesc="Utility for network discovery and security auditing"
 arch=('x86_64')
-url="http://nmap.org/"
+url="https://nmap.org/"
 license=('GPL2')
 groups=()
-depends=('lua52' 'openssl' 'pcre')
+depends=()
 makedepends=()
-optdepends=('kde-cli-tools: privilege escalation for zenmap'
-            'pygtk: zenmap'
-            'sudo: privilege escalation for zenmap'
-            'xterm: privilege escalation for zenmap')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/nmap-7.60-chromeos-x86_64.tar.xz")
 sha256sums=('12eb815ec4bc47ac0d778575c7125907421937396fa491745d5ab48486380550')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

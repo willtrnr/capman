@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.tcpdump.org/"
 license=('BSD')
 groups=()
-depends=('libcap-ng' 'libpcap' 'openssl')
+depends=('libpcap' 'openssl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tcpdump-4.9.2-chromeos-x86_64.tar.xz")
 sha256sums=('cbf185dd7cfbbf0d7cf5779fcd661b76c8f9f153f9896bb0a712b196eedc2674')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

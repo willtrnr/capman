@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/a52-0.7.4-chromeos-x86_64.tar.xz")
 sha256sums=('eb8a838b7b5284354f0e033f098e6c2270ea20eccf51df3ea5a93be6b2a4d56d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

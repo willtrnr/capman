@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.pcre.org/"
 license=('BSD')
 groups=()
-depends=('bash' 'bzip2' 'gcc-libs' 'readline' 'zlib')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pcre2-10.30-chromeos-x86_64.tar.xz")
 sha256sums=('3994cf0a26a2c3904851bdcb071f9348d59d57e78763459a8cea9fc4b88327b2')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

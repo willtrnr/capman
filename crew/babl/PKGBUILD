@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://gegl.org/babl/"
 license=('LGPL3')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/babl-0.1.56-chromeos-x86_64.tar.xz")
 sha256sums=('70b20df01d205cb2bb3209321b15336f3d1d4917ce784d5826610cc775d8c523')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

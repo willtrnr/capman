@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://marcansoft.com/blog/iphonelinux/usbmuxd/"
 license=('GPL2' 'LGPL2.1')
 groups=()
-depends=('libplist' 'libusb')
+depends=('glib' 'libplist')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('usbmuxd<1.0.9')
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libusbmuxd-1.0.9-chromeos-x86_64.tar.xz")
 sha256sums=('b9b4ba031ce059483b3e72abf300534f121f37b2759352c87c87fe3595ac83b2')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.freedesktop.org/wiki/Software/DBusBindings"
 license=('GPL')
 groups=()
-depends=('dbus' 'glib2')
+depends=('dbus' 'glib')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dbus_glib-0.110-chromeos-x86_64.tar.xz")
 sha256sums=('be9ed1170dc5c36a905ecc3387e5cdea9d5c8eb597cf233936a5095bfb55107d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

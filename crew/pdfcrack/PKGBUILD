@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://pdfcrack.sourceforge.net/"
 license=('GPL2')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pdfcrack-0.16-chromeos-x86_64.tar.xz")
 sha256sums=('fe283684679ffe42701876251ef2ae9dc4b19272a91a0df93f968f0e2d148c1b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

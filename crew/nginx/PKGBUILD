@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://nginx.org"
 license=('custom')
 groups=()
-depends=('geoip' 'mailcap' 'openssl' 'pcre' 'zlib')
+depends=('pcre' 'zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/nginx-1.13.7-chromeos-x86_64.tar.xz")
 sha256sums=('01c5891161b00963b17cc2c60871953f9f8fca18d13c5767c8c64b0d11f25cca')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

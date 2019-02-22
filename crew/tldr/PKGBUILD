@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/tldr-pages/tldr-python-client"
 license=('MIT')
 groups=()
-depends=('python-colorama' 'python-six' 'python-termcolor')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tldr-93cfb27-chromeos-x86_64.tar.xz")
 sha256sums=('823e0b61fb8d1c193e57c0ba82019622bee800a717a4682af9a701b5f5f43173')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

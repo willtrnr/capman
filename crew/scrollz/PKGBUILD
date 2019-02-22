@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/scrollz-2.3-1-chromeos-x86_64.tar.xz")
 sha256sums=('b5ec0e2e979a79e9b292d221b4875ce79364f881504bc1ecbce503993b728f73')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

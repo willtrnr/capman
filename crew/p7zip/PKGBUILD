@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://p7zip.sourceforge.net/"
 license=('custom:unRAR' 'LGPL')
 groups=()
-depends=('gcc-libs' 'sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/p7zip-16.02-1-chromeos-x86_64.tar.xz")
 sha256sums=('bb7f5b85be2cf5f91dc6d4e1d44d1392c3c2be7857e56edca7d101a6f6a0e6fb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

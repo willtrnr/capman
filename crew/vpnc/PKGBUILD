@@ -5,19 +5,20 @@ pkgver=0.5.3
 pkgrel=1
 pkgdesc="VPN client for cisco3000 VPN Concentrators"
 arch=('x86_64')
-url="http://www.unix-ag.uni-kl.de/~massar/vpnc/"
+url="https://github.com/streambinder/vpnc"
 license=('GPL')
 groups=()
-depends=('iproute2' 'libgcrypt' 'openssl')
+depends=('libgcrypt' 'openssl' 'perl')
 makedepends=()
-optdepends=('openresolv: Let vpnc manage resolv.conf')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/vpnc-0.5.3-chromeos-x86_64.tar.xz")
 sha256sums=('611f400f81432b28476037502b69cf51e8bdd537d49c250d9bf3f287fba07382')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

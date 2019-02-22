@@ -3,21 +3,22 @@
 pkgname=xinit
 pkgver=1.4.0
 pkgrel=1
-pkgdesc="The xinit package contains a usable script to start the xserver"
+pkgdesc="The xinit package contains a usable script to start the xserver."
 arch=('x86_64')
 url="https://www.x.org"
 license=('custom')
 groups=()
-depends=('xorg-lib')
+depends=('twm' 'xauth' 'xclock' 'xterm')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/xinit-1.4.0-chromeos-x86_64.tar.xz")
-sha256sums=('5df3455157f222c07641d3ff605ff9365fbf4a19d014c2db09999bf84d128296')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/xinit-1.4.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('943fd77aebd9dc370ca8ba637493e39d4e92e018dcea4b03a0d69566be64cb34')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

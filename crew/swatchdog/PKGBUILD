@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/swatchdog-3.2.4-chromeos-x86_64.tar.xz")
 sha256sums=('8e0dc2bb5643b837bea9f6a68c4316c260590e80ed7610a8d389ff655d4823cf')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

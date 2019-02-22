@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fnotifystat-0.01.17-chromeos-x86_64.tar.xz")
 sha256sums=('eaec7dd57a936028af07522923cfd5b9c893499106751f811be3b70683d2120f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

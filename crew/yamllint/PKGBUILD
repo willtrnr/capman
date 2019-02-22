@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/adrienverge/yamllint"
 license=('GPL3')
 groups=()
-depends=('python-pathspec' 'python-setuptools' 'python-yaml')
+depends=('setuptools')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/yamllint-1.11.1-chromeos-x86_64.tar.xz")
 sha256sums=('fa88bcfa61c580b18e421518bd1f2078dcd2f8fc050e6c564643fdf46c074191')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

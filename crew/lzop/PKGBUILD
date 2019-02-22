@@ -5,7 +5,7 @@ pkgver=1.04
 pkgrel=1
 pkgdesc="File compressor using lzo lib"
 arch=('x86_64')
-url="http://www.lzop.org/"
+url="https://www.lzop.org/"
 license=('GPL')
 groups=()
 depends=('lzo')
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/lzop-1.04-chromeos-x86_64.tar.xz")
-sha256sums=('d51dfeaafb14d3e4927957627c4c19f5fca9c8aa0a2b5c977045eeb1caac9728')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/lzop-1.04-1-chromeos-x86_64.tar.xz")
+sha256sums=('ad20f5a37b0f564cf2a06c1e516ecbacf5d13d4dcec0cc678eb07364ff5cd2e9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

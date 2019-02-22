@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.freedesktop.org/www/Software/dbus/"
 license=('custom' 'GPL')
 groups=()
-depends=('audit' 'expat' 'libsystemd')
+depends=('expat')
 makedepends=()
 optdepends=()
-provides=('libdbus')
-conflicts=('libdbus')
-replaces=('libdbus')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dbus-1.13.4-chromeos-x86_64.tar.xz")
 sha256sums=('2c4049f13366a42f07a397a62fbbacf19ffb779a853f2367743a65e2f7013b8e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

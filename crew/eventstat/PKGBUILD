@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/eventstat-0.04.03-chromeos-x86_64.tar.xz")
 sha256sums=('130e1ce007648c817123d714c20d028987b8f8ee017dc5fe85e61505bacc18c5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

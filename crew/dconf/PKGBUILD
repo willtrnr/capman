@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Projects/dconf"
 license=('LGPL2.1')
 groups=()
-depends=('glib2')
+depends=('glib')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dconf-0.28.0-chromeos-x86_64.tar.xz")
 sha256sums=('f8c04c675b235a94baea2b9dce74c7d36fa493a79963c41b708fdaa4944e0124')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

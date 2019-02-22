@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/libcdio/"
 license=('GPL3')
 groups=()
-depends=('gcc-libs' 'libcddb' 'ncurses')
+depends=('libcddb')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcdio-2.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('b3e6ab517eaae30320ffbdc3f6874b250f59783dfb35708590e6fd22782e89ac')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

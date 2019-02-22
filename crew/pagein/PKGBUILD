@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pagein-0.00.05-chromeos-x86_64.tar.xz")
 sha256sums=('b488a5ff3a3cc89a40386a1a1de0c0c449e3587356052d69b9fbc776afa527ec')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

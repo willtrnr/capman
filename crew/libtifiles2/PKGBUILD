@@ -14,15 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=()
-sha256sums=()
-
-build() {
-  yes | crew build libtifiles2
-  tar xf "libtifiles2-1.1.7-chromeos-$arch.tar.xz"
-}
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libtifiles2-1.1.7-chromeos-x86_64.tar.xz")
+sha256sums=('8498fc7362b92361679935b0968968c1634c5cdc1b2e86cb40a4672882b65d29')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

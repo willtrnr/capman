@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://irssi.org/"
 license=('GPL')
 groups=()
-depends=('glib2' 'openssl')
+depends=('ncurses' 'openssl' 'perl')
 makedepends=()
-optdepends=('perl-libwww: for the scriptassist script')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/irssi-1.0.5-chromeos-x86_64.tar.xz")
 sha256sums=('52182ab6c6618589a8a792cc3d4b98503a3eee71dc04974e3590ce55cc80d3e9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

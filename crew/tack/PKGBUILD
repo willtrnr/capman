@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tack-1.08-chromeos-x86_64.tar.xz")
 sha256sums=('c45d3013d0874dd8d6203e4b3871f94b1cc84beb33c5576d3a8d1840e8ccd9f5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

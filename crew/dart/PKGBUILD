@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dart-1.24.3-chromeos-x86_64.tar.xz")
 sha256sums=('5686e5021a5fceaf2517f53e2cda0d93b4852f009aab959a5a88bb9e64d4844f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

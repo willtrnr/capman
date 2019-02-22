@@ -2,7 +2,7 @@
 
 pkgname=libopencoreamr
 pkgver=0.1.5
-pkgrel=1
+pkgrel=0
 pkgdesc="Audio codecs extracted from Android Open Source Project."
 arch=('x86_64')
 url="https://sourceforge.net/projects/opencore-amr/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libopencoreamr-0.1.5-0-chromeos-x86_64.tar.xz")
 sha256sums=('22c116cc561c16012f909768f1794d27b72335573c1ac97a67d4463693be492a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://libimobiledevice.org/"
 license=('GPL2' 'LGPL2.1')
 groups=()
-depends=('glib2')
+depends=('glib')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libplist-2.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('67d760c5c49508d8d89b6b81cd3480183b0fee278c59d5c20d6ccf6d483afeea')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

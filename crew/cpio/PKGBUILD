@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/cpio"
 license=('GPL')
 groups=()
-depends=('glibc')
+depends=('binutils' 'gawk')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cpio-2.12-chromeos-x86_64.tar.xz")
 sha256sums=('492cb4051825b4de2393229e82ace30f19cd43794f0828d76d0466e97c88916d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

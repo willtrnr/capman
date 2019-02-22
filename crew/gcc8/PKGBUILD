@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gcc8
+pkgver=8.2.0
+pkgrel=1
+pkgdesc="The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, and Go."
+arch=('x86_64')
+url="https://www.gnu.org/software/gcc/"
+license=('custom')
+groups=()
+depends=('dejagnu' 'gcc7' 'icu4c' 'binutils' 'gmp' 'mpfr' 'mpc' 'isl' 'cloog' 'glibc')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gcc8-8.2.0-chromeos-x86_64.tar.xz")
+sha256sums=('6d982f3c35acd3a738e176a3f3b8c4ea093c7be86882153a7711841cf0c80737')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

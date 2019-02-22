@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/kwiml-a079af-chromeos-x86_64.tar.xz")
 sha256sums=('231ad1f9a5968390ad1ad72dd39df1c218711ba61306f3f5596a93722dad8ae6')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

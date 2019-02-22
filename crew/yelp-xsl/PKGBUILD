@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.gnome.org/GNOME/yelp-xsl"
 license=('GPL')
 groups=()
-depends=()
+depends=('perl-xml-parser' 'gettext' 'itstool' 'libxml2')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/yelp_xsl-3.27.90-chromeos-x86_64.tar.xz")
 sha256sums=('c3be835828187766de18110d03f8daed3a7700cdd6aada7e1334042e6a8d0143')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

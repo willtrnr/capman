@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/python27-2.7.15-chromeos-x86_64.tar.xz")
 sha256sums=('f1f81eaf334c05e6895213a78b8f56b2077b56a3ddf03daea65df403b91bd798')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

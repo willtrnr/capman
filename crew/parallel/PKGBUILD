@@ -8,12 +8,13 @@ arch=('x86_64')
 url="http://www.gnu.org/software/parallel/"
 license=('GPL3')
 groups=()
-depends=('perl' 'procps')
+depends=('moreutils')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

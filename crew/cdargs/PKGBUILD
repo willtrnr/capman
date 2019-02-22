@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.skamphausen.de/cgi-bin/ska/CDargs"
 license=('GPL')
 groups=()
-depends=('bash' 'gcc-libs' 'ncurses')
+depends=('ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cdargs-1.35-chromeos-x86_64.tar.xz")
 sha256sums=('c8d830042023c48a5935b26992219233bf7e911b5e5194bda5191db27e2c036d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

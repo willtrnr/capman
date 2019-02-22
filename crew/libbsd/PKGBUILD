@@ -2,22 +2,23 @@
 
 pkgname=libbsd
 pkgver=0.8.6
-pkgrel=1
+pkgrel=0
 pkgdesc="Provides useful functions commonly found on BSD systems like strlcpy()"
 arch=('x86_64')
 url="http://libbsd.freedesktop.org"
 license=('custom')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libbsd-0.8.6-0-chromeos-x86_64.tar.xz")
 sha256sums=('26f886a441e46563a0061ede5d0b0e663e76b178ff750120d14da548db26a50d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pygobject-3.28.3-chromeos-x86_64.tar.xz")
 sha256sums=('0f86300f12024061df08f2e59618f06cedcd284d8acb69b1186b4dc3d2d5a727')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

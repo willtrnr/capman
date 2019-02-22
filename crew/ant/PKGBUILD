@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://ant.apache.org/"
 license=('APACHE')
 groups=()
-depends=('bash' 'java-environment')
+depends=('jdk8')
 makedepends=()
-optdepends=('java-hamcrest: junit tasks'
-            'junit: junit tasks')
-provides=('apache-ant')
-conflicts=('apache-ant')
-replaces=('apache-ant')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ant-1.10.5-chromeos-x86_64.tar.xz")
 sha256sums=('df3d7a6d91af51068b9fbcbec1851f3a22a10edca341a6791262fced0a7deb36')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

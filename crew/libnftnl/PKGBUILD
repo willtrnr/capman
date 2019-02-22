@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://netfilter.org/projects/libnftnl/"
 license=('GPL2')
 groups=()
-depends=('libmnl')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libnftnl-1.1.1-chromeos-x86_64.tar.xz")
 sha256sums=('a0482c543920370b4fc428b50b48c4071efd60c2ecb83fdaae4d8e77bea70b92')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

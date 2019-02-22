@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sluice-0.02.06-chromeos-x86_64.tar.xz")
 sha256sums=('eb90754ce6faf50a82258306a94d61f6f092e5898bd0389bdbeb4c3b694eaec0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

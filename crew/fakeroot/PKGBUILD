@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://packages.debian.org/fakeroot"
 license=('GPL')
 groups=('base-devel')
-depends=('filesystem' 'glibc' 'sed' 'sh' 'util-linux')
+depends=('libcap')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fakeroot-1.23-chromeos-x86_64.tar.xz")
 sha256sums=('8d7f3cb9052e264d43aa8c37eda7b7da2e3710f7f29061ada7fbca6c90b1f814')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libvpx
+pkgver=1.8.0
+pkgrel=1
+pkgdesc="VP8 and VP9 codec"
+arch=('x86_64')
+url="http://www.webmproject.org/"
+license=('BSD')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libvpx-1.8.0-chromeos-x86_64.tar.xz")
+sha256sums=('9d4aba4937495ec10fe02e6255689280019a30b8db4fbb11826be7c896e1e40c')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

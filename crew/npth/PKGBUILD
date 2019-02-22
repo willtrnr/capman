@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/npth-1.5-1-chromeos-x86_64.tar.xz")
 sha256sums=('29fcbdfa008f0e487ceebb1ca221eea79a56bd2937392c29ab01049d0d71699b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

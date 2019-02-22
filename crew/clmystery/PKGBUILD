@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/clmystery-6dd30f-chromeos-x86_64.tar.xz")
 sha256sums=('94797d72a05da4875e8d258cf36c88ce6a1f6943eb371c900fcc55e512c75102')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

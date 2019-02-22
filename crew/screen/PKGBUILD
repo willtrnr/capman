@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/screen/"
 license=('GPL')
 groups=()
-depends=('ncurses' 'pam')
+depends=('ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/screen-4.6.2-chromeos-x86_64.tar.xz")
 sha256sums=('27ec590cfff20b1429f86baca0d42a6e3819a4978d13155b5ec31db04a374b5b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

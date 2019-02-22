@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/wkhtmltox-0.12.4-1-chromeos-x86_64.tar.xz")
 sha256sums=('51b6abcd0d037008c01b043b75c0679f10e105808aacb69be6e7d313c842516c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/libtasn1/"
 license=('GPL3' 'LGPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libtasn1-4.13-chromeos-x86_64.tar.xz")
 sha256sums=('51009ec44bf8f51a3fc0432d78f14716b18d99eb99ad9b3b073079b5d168d1b9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

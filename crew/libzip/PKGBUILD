@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libzip
+pkgver=1.5.1
+pkgrel=1
+pkgdesc="A C library for reading, creating, and modifying zip archives"
+arch=('x86_64')
+url="https://libzip.org"
+license=('BSD')
+groups=()
+depends=('bz2')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libzip-1.5.1-chromeos-x86_64.tar.xz")
+sha256sums=('4d1fa9fad684b7e4aa92885e247e963ac7ad1a1c85fd7a35cec728491a2e72cc')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

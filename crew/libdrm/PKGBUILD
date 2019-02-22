@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libdrm
-pkgver=2.4.91
+pkgver=2.4.96
 pkgrel=1
 pkgdesc="Userspace interface to kernel DRM services"
 arch=('x86_64')
 url="https://dri.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libpciaccess')
+depends=('libpciaccess' 'xorg-lib' 'eudev' 'libxslt')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=('libdrm-new' 'libdrm-nouveau')
-source=("https://dl.bintray.com/chromebrew/chromebrew/libdrm-2.4.91-chromeos-x86_64.tar.xz")
-sha256sums=('4bfe97f39a465077ecb2d24d9a6da5cf1f2bba1a4dcabb93fc7bea34cdf95db7')
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libdrm-2.4.96-chromeos-x86_64.tar.xz")
+sha256sums=('ecdc554b5bb6dd8fbf16862803e6b4ce78cec9f4a71fe6809e731363abd5fb12')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

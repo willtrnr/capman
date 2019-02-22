@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gexiv2-0.10.8-chromeos-x86_64.tar.xz")
 sha256sums=('bda3197ee000806a1151f44587eb422b0afedc3b8b6b28c9def8ca490ff8db6a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

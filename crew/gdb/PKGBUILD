@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gdb
-pkgver=8.1
+pkgver=8.2.1
 pkgrel=1
 pkgdesc="The GNU Debugger"
 arch=('x86_64')
 url="http://www.gnu.org/software/gdb/"
 license=('GPL3')
 groups=()
-depends=('expat' 'gdb-common=8.2' 'mpfr' 'ncurses' 'xz')
+depends=('texinfo' 'libx11' 'expat' 'python3' 'python27' 'ncurses' 'readline7')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/gdb-8.1-chromeos-x86_64.tar.xz")
-sha256sums=('8e7f25bb702e9bdf3b1d657aee7cf79e6de0cfdcf6bb512159818c02e39e2593')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdb-8.2.1-chromeos-x86_64.tar.xz")
+sha256sums=('95fe8fac708e2c28b4c8c8453bfbd7d85d5fe795d80ceaf86ff255d574b2c5b1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

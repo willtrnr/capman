@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/darkhttpd-1.12-chromeos-x86_64.tar.xz")
 sha256sums=('c60d1cb89689bd4ecbe0503b37cfeefa7b64a0db310644fbe4e987bfd3f6699e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

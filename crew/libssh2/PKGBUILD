@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.libssh2.org/"
 license=('BSD')
 groups=()
-depends=('openssl')
+depends=()
 makedepends=()
 optdepends=()
-provides=('libssh2.so=1-64')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libssh2-1.8.0-chromeos-x86_64.tar.xz")
 sha256sums=('6e026450389021c6267a9cc79b8722d15f48e2f8d812d5212501f686b4368e3c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

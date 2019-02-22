@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/owl-0.1.14-chromeos-x86_64.tar.xz")
 sha256sums=('f902a68ce2f16363477ab0f5aaf11b93fd8d1b236c08ea66dab4cb063ce209f0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

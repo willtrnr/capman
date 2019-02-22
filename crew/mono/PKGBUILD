@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.mono-project.com/"
 license=('GPL' 'LGPL2.1' 'MPL')
 groups=()
-depends=('ca-certificates' 'libgdiplus>=4.2' 'python' 'sh' 'zlib')
+depends=()
 makedepends=()
 optdepends=()
-provides=('monodoc')
-conflicts=('monodoc')
+provides=()
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mono-5.10.1.47-chromeos-x86_64.tar.xz")
 sha256sums=('32aae35fa5144e6d4d96c79d054491f9783083574e6390c92bd0d6ac29cde1c8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

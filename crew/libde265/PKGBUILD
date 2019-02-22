@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://github.com/strukturag/libde265"
 license=('LGPL3')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
-optdepends=('ffmpeg: for sherlock265'
-            'qt5-base: for sherlock265'
-            'sdl: dec265 YUV overlay output')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libde265-1.0.3-chromeos-x86_64.tar.xz")
 sha256sums=('0833d3f548c83b9706fe7a8797f0b695c907fac1f2aebbbabb936d0aea440f8a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

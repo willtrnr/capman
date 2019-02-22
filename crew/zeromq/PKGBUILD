@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.zeromq.org"
 license=('LGPL')
 groups=()
-depends=('gcc-libs' 'libpgm' 'libsodium' 'util-linux')
+depends=('libunwind' 'xzutils')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/zeromq-4.2.2-chromeos-x86_64.tar.xz")
 sha256sums=('6d5a1494e5a90f72e152b737738c9e4949a2e24eae9f10c5561cfecc55263314')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

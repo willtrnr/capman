@@ -2,22 +2,23 @@
 
 pkgname=libsdl
 pkgver=1.2.15
-pkgrel=1
+pkgrel=3
 pkgdesc="Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D."
 arch=('x86_64')
 url="http://www.libsdl.org"
 license=('custom')
 groups=()
-depends=('xwayland' 'alsa-lib' 'pulseaudio' 'mesa')
+depends=('xorg-server' 'alsa-lib' 'pulseaudio' 'mesa')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libsdl-1.2.15-3-chromeos-x86_64.tar.xz")
 sha256sums=('528be8eff53afff1c1cd7973ecda09fc68adbcbea0c22453764ebf0cb7ce0a59')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

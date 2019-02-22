@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.gnome.org/GNOME/atk"
 license=('LGPL')
 groups=()
-depends=('glib2')
+depends=('gobject-introspection')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/atk-2.26.1-chromeos-x86_64.tar.xz")
 sha256sums=('9207587db8548706d1fd592aee5f2e501218d9c44367b0f9826869a44215989b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

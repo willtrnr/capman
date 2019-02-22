@@ -5,15 +5,16 @@ pkgver=5.40
 pkgrel=1
 pkgdesc="Screen saver and locker for the X Window System"
 arch=('x86_64')
-url="http://www.jwz.org/xscreensaver/"
+url="https://www.jwz.org/xscreensaver/"
 license=('BSD')
 groups=()
-depends=('glu' 'libglade' 'libxmu' 'perl-libwww' 'xorg-appres')
-makedepends=('bc' 'gdm' 'intltool' 'libxpm')
-optdepends=('gdm: for login manager support')
+depends=('glfw' 'freeglut' 'sommelier')
+makedepends=()
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

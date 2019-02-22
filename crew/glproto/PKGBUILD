@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/glproto-1.4.17-chromeos-x86_64.tar.xz")
 sha256sums=('8a473bec54cbe19e192fb65297f11b22c200b662351032f163ef1f34c7c73f8d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

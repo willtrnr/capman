@@ -8,12 +8,13 @@ arch=('x86_64')
 url="http://www.haskell.org/ghc/"
 license=('custom')
 groups=()
-depends=('gcc' 'ghc-libs')
-makedepends=('docbook-xsl' 'ghc-static' 'haskell-hscolour' 'libxslt' 'perl' 'python-sphinx' 'texlive-bin' 'texlive-latexextra' 'ttf-dejavu')
+depends=('stack' 'libtinfo')
+makedepends=()
 optdepends=()
-provides=('haskell-ghc=8.6.3')
+provides=()
 conflicts=()
-replaces=('haskell-ghc')
+replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

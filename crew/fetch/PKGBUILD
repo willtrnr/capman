@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fetch-0.1.1-chromeos-x86_64.tar.xz")
 sha256sums=('572f35ff3eec1fc6ee50b70bd65d236bf9aff901e7c12adce0af82fcb07d2706')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

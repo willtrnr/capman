@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pycairo-1.17.1-chromeos-x86_64.tar.xz")
 sha256sums=('7805d36fa3e6377411f2c29cbbba4ca7148102d84cf31a1287ce5e6ca9ab7fb0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

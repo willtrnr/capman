@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/inxi-811a19-chromeos-x86_64.tar.xz")
 sha256sums=('6226f1fb5fbeb93ab9ad7237de9f1e8f21bba3e47e035f1b2776c4733972e197')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

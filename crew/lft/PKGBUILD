@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lft-3.79-chromeos-x86_64.tar.xz")
 sha256sums=('c8d1a84ea31451c0dab2dbde533da95315ee71c7bd7644fb3daa6b86facc259c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

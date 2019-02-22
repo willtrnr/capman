@@ -2,22 +2,23 @@
 
 pkgname=libcap-ng
 pkgver=0.7.8
-pkgrel=1
+pkgrel=0
 pkgdesc="Library making programming with POSIX capabilities easier than traditional libcap"
 arch=('x86_64')
 url="http://people.redhat.com/sgrubb/libcap-ng/"
 license=('LGPL2.1')
 groups=()
-depends=('glibc')
+depends=('python3')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcap_ng-0.7.8-0-chromeos-x86_64.tar.xz")
 sha256sums=('ddf60e28ecb7fc3f60d6e2bfa47492ddfa9a09fff1b115634eb726901846304e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

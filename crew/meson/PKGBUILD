@@ -5,19 +5,20 @@ pkgver=0.48.2
 pkgrel=1
 pkgdesc="High productivity build system"
 arch=('x86_64')
-url="http://mesonbuild.com/"
+url="https://mesonbuild.com/"
 license=('Apache')
 groups=()
-depends=('ninja' 'python-setuptools')
+depends=('ninja')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/meson-0.48.2-chromeos-x86_64.tar.xz")
 sha256sums=('96406f75738f1ae81fb382016988b577f6e3c610bfd7bde48b60033333b44e3a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

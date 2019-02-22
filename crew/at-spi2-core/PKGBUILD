@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.gnome.org/GNOME/at-spi2-core"
 license=('GPL2')
 groups=()
-depends=('dbus' 'glib2' 'libxtst')
+depends=('libxtst' 'dbus' 'glib' 'gobject-introspection' 'libxcb' 'gtk-doc' 'libtool')
 makedepends=()
-optdepends=('dbus-broker: Alternative bus implementation')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/at_spi2_core-2.26.1-chromeos-x86_64.tar.xz")
 sha256sums=('340e21fedd23e3a18f470512b6109aecd307722b1cfa56970e7c99a51aa2f7d1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

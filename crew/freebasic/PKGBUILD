@@ -2,22 +2,23 @@
 
 pkgname=freebasic
 pkgver=1.05.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A free BASIC compiler"
 arch=('x86_64')
 url="https://www.freebasic.net/"
 license=('GPL2' 'LGPL')
 groups=()
-depends=('ncurses')
+depends=('libtinfo')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/freebasic-1.05.0-chromeos-x86_64.tar.xz")
 sha256sums=('3d289b59687e4a0fdba3272b290b3b638f1f2cf625ef14873e4e33e2acdd12aa')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

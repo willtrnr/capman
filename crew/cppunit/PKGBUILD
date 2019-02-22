@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.freedesktop.org/wiki/Software/cppunit"
 license=('LGPL')
 groups=()
-depends=('gcc-libs' 'sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cppunit-1.12.1-chromeos-x86_64.tar.xz")
 sha256sums=('e5f432ecd193119cb7201eec9881f3e89dd7bccbb78f3ba4cc8374471acbe236')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

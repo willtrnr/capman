@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://pidgin.im/"
 license=('GPL')
 groups=()
-depends=('libpurple' 'libx11' 'python')
+depends=('glib' 'ncurses' 'tcl' 'perl' 'gnutls')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/finch-2.12.0-1-chromeos-x86_64.tar.xz")
 sha256sums=('4a16d35a9385c84ea85e1d16e06d9351d00a553848feeaa33118b5f8066dbb83')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

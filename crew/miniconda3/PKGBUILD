@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/miniconda3-4.5.11-chromeos-x86_64.tar.xz")
 sha256sums=('18f8b5c8e75dc03a441358616eb17c9000425d720df45cb446bbbfe7f84c94f9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

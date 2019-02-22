@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/yajl-2.1.0-chromeos-x86_64.tar.xz")
 sha256sums=('c16902c4da5b807783a9002566328c1e6545c0f5eb4d673b5fbb0d028bdb0513')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

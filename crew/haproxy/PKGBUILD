@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://haproxy.org/"
 license=('GPL')
 groups=()
-depends=('libsystemd' 'lua' 'openssl' 'pcre' 'zlib')
+depends=('openssl' 'pcre')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/haproxy-1.7.9-chromeos-x86_64.tar.xz")
 sha256sums=('6bad205056d137fc998b01f229bdaa782fe2d859ef5723f2bbe73f473a95a2ff')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

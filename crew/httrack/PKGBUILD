@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.httrack.com/"
 license=('GPL3')
 groups=()
-depends=('bash' 'hicolor-icon-theme' 'openssl' 'xdg-utils')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/httrack-3.49.2-1-chromeos-x86_64.tar.xz")
 sha256sums=('2065795d69e14009464820aae2c13fad266e3be9c14243bf27a7c7f14f0eae0e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

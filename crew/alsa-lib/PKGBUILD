@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=alsa-lib
-pkgver=1.1.7
+pkgver=1.1.8
 pkgrel=1
 pkgdesc="An alternative implementation of Linux sound support"
 arch=('x86_64')
 url="http://www.alsa-project.org"
 license=('LGPL')
 groups=()
-depends=('glibc')
+depends=('python3')
 makedepends=()
-optdepends=('python2: for python smixer plugin')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/alsa_lib-1.1.7-chromeos-x86_64.tar.xz")
-sha256sums=('0e5b6e000aedc2ffc9264eb62bf0afb03e06a86a7803c6105489758b14e822f5')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/alsa_lib-1.1.8-chromeos-x86_64.tar.xz")
+sha256sums=('8fbcdb011920f27fabec31ef9e2057ccbdb26ae14ba3ac468a83c6ca767bf7cc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

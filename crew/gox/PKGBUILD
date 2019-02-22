@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gox-0.4.0-chromeos-x86_64.tar.xz")
 sha256sums=('d6d6c6c6d5aa168bea5c25a202c902d8b965040218a52291701c3e172d29c991')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

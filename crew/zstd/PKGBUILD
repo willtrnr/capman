@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.zstd.net/"
 license=('BSD' 'GPL2')
 groups=()
-depends=('lz4' 'xz' 'zlib')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/zstd-1.3.4-chromeos-x86_64.tar.xz")
 sha256sums=('ad08a04fc5d985a006851254d6f6e20064f75db92081572e1d536969abf849dc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

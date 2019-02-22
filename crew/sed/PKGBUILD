@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=sed
-pkgver=4.5
+pkgver=4.7
 pkgrel=1
 pkgdesc="GNU stream editor"
 arch=('x86_64')
 url="https://www.gnu.org/software/sed/"
 license=('GPL3')
 groups=('base' 'base-devel')
-depends=('acl' 'attr' 'glibc')
+depends=('acl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/sed-4.5-1-chromeos-x86_64.tar.xz")
-sha256sums=('dc73fea56d081f60f594eadc91808390ba997bb41de22f038cc022a7945cc117')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/sed-4.7-chromeos-x86_64.tar.xz")
+sha256sums=('201529831d7b7d138bf29c6779b1377f2d1cddbf98b4f157c320fec078a11af5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

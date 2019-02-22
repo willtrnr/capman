@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/a2ps/"
 license=('GPL3')
 groups=()
-depends=('imagemagick' 'psutils')
+depends=('gperf' 'filecmd')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/a2ps-4.14-1-chromeos-x86_64.tar.xz")
 sha256sums=('28b5f46158587be75ff873d64805f480af0a3bbfa2f764abf815117d0b907f48')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

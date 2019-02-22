@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/icu4c-62.1-chromeos-x86_64.tar.xz")
 sha256sums=('3ac1b0401d0af3b4357a6874bd069deb8aca472dc1bd23d455e1f90ae7736262')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

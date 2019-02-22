@@ -10,16 +10,15 @@ license=('GPL3')
 groups=()
 depends=('ncurses')
 makedepends=()
-optdepends=('fontconfig: custom font'
-            'kbd: cmatrix-tty custom font'
-            'xterm: cmatrix-tty custom font')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cmatrix-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('0aee56b9ea46a56508c44cb47e12308907aef1a9cf2c748f720c4d6cf21fe503')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

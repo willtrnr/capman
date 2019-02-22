@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.mega-nerd.com/libsndfile"
 license=('LGPL')
 groups=()
-depends=('alsa-lib' 'flac' 'libvorbis')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libsndfile-1.0.28-chromeos-x86_64.tar.xz")
 sha256sums=('65b4f4f13f020620801e43bbfe9027fc7208d18575727bda56d2ebe75c80e7fc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

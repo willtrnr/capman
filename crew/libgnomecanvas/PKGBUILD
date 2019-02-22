@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnome.org"
 license=('LGPL')
 groups=()
-depends=('libart-lgpl' 'libglade')
+depends=('libart' 'libglade')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libgnomecanvas-2.30.3-chromeos-x86_64.tar.xz")
 sha256sums=('07a6f6ece37d04b4fccc1c817b8f7845cbc6443f6868be5d8ed1f84b8951268a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

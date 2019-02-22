@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libpng
-pkgver=1.6.34
+pkgver=1.6.36
 pkgrel=1
 pkgdesc="A collection of routines used to create PNG format graphics files"
 arch=('x86_64')
 url="http://www.libpng.org/pub/png/libpng.html"
 license=('custom')
 groups=()
-depends=('sh' 'zlib')
+depends=('zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/libpng-1.6.34-chromeos-x86_64.tar.xz")
-sha256sums=('172fa194c4a7e185a9bacf7a1932c6dcf71ce0a3d19990fd10a39ee9f6a2171a')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libpng-1.6.36-chromeos-x86_64.tar.xz")
+sha256sums=('fe2f3ba8855fbba9c0f81a1a5d377e78be56e8895e428e19c32b497417a8bf79')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/nethack4-4.3.0-beta2-1-chromeos-x86_64.tar.xz")
 sha256sums=('f433701d17fb8ac9c1d6ab57f3038ae27e3fe3999ea00e821f296647f622ec99')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

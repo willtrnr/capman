@@ -2,7 +2,7 @@
 
 pkgname=most
 pkgver=pre5.1
-pkgrel=1
+pkgrel=21
 pkgdesc="A terminal pager similar to 'more' and 'less'"
 arch=('x86_64')
 url="http://www.jedsoft.org/most/index.html"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/most-pre5.1-21-chromeos-x86_64.tar.xz")
 sha256sums=('8b1b065df8a7491646cecb73386a20139f3d8b4e9896b1a7cd311f605419b1fa')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

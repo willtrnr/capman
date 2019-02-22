@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dropbox_uploader-1.0-chromeos-x86_64.tar.xz")
 sha256sums=('de141ac2bbc1a53d30776f5a280af3733222a92ca09465f13ea5b9d6000b2731')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -2,7 +2,7 @@
 
 pkgname=libxscrnsaver
 pkgver=1.2.2
-pkgrel=1
+pkgrel=0
 pkgdesc="X.org the X11 Screen Saver extension client library"
 arch=('x86_64')
 url="http://www.x.org"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxscrnsaver-1.2.2-0-chromeos-x86_64.tar.xz")
 sha256sums=('74dfe48f8e6375d8d45996b645a8cb5b82fb57253580840ef5461f6c60239a7f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

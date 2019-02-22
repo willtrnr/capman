@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxml2_python-2.9.8-chromeos-x86_64.tar.xz")
 sha256sums=('37e3c41d54d34e190e955c7e02dc8028c3ca761065f403d1e1a24310ace15032')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

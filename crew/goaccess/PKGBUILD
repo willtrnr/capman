@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://goaccess.io"
 license=('GPL')
 groups=()
-depends=('libmaxminddb' 'ncurses' 'openssl')
+depends=('openssl' 'geoip' 'ncurses')
 makedepends=()
-optdepends=('geoip2-database: for geoip support')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/goaccess-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('df1335f8f222662081b60bae63b43549988b410f92cc3e1d4012c13ea4833769')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

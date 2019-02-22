@@ -8,17 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/units/units.html"
 license=('GPL')
 groups=()
-depends=('readline')
+depends=()
 makedepends=()
-optdepends=('python-requests: for live currency rates'
-            'python-unidecode: for live currency rates')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/units-2.16-chromeos-x86_64.tar.xz")
 sha256sums=('db36428275e1b1d9bcaf702f527e4b9d7dd5cba83c2cdaff8191f60924777ef9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

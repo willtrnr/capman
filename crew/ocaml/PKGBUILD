@@ -10,15 +10,15 @@ license=('custom: QPL-1.0' 'LGPL2.1')
 groups=()
 depends=('gdbm')
 makedepends=()
-optdepends=('ncurses: advanced ncurses features'
-            'tk: advanced tk features')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ocaml-4.06.0-chromeos-x86_64.tar.xz")
 sha256sums=('3855090573fb7a460c65f2c2705d8f73cf011e79f925a30508397c9ae2376a6f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

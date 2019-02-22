@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/autoconf-archive/"
 license=('GPL3')
 groups=()
-depends=('autoconf')
+depends=()
 makedepends=()
-optdepends=('automake: macros for use with it')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/autoconf_archive-2018.03.13-chromeos-x86_64.tar.xz")
 sha256sums=('d8f31ce241d96ada48f8edc66580ae283b34b3257fea86abfee35d2af25e046a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

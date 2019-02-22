@@ -14,15 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=()
-sha256sums=()
-
-build() {
-  yes | crew build sdl2_image
-  tar xf "sdl2_image-2.0.4-chromeos-$arch.tar.xz"
-}
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/sdl2_image-2.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('6e665aa5ddcff39d0d46e1b35cb698da8bbf2fb0a5523cec2028e67bd691c7a1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

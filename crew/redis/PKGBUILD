@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://redis.io/"
 license=('BSD')
 groups=()
-depends=('grep' 'jemalloc' 'shadow')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/redis-4.0.6-chromeos-x86_64.tar.xz")
 sha256sums=('a52137729d4194dab6b1a164f9e3a984a121a44c4812c548d2e8e921329f9edd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/qemacs-0.3.3-chromeos-x86_64.tar.xz")
 sha256sums=('8805f34fad650f1525e0013105f0f8ba3420df4cbfd0d9ef8d7b4e222cad68eb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gtypist-2.9.5-chromeos-x86_64.tar.xz")
 sha256sums=('6ff05a34f4ce9f20bb6dbaef93ff55ecdee9fe9c5ede12d39e561886469a4b7d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

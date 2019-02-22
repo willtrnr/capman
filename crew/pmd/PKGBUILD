@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pmd-5.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('0faf4b05cbaad158d8776b7229e85fce484e9c9d1245c4977647bdb653c2e1b8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

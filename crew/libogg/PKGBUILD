@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.xiph.org/ogg/"
 license=('BSD')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libogg-1.3.3-chromeos-x86_64.tar.xz")
 sha256sums=('44358f6cdd5cfec18571bdbcd83208b7a94f5ca726dc60830ba6eb484b469248')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rsu-client
+pkgver=4.3.7
+pkgrel=1
+pkgdesc="RSU-Client is a RuneScape Client Launcher written for the now Legacy client and now OldSchool."
+arch=('x86_64')
+url="https://github.com/rsu-client/rsu-client"
+license=('custom')
+groups=()
+depends=('jdk8' 'p7zip' 'wxwidgets' 'xdg-utils' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(staticlibs)
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build rsu_client
+  tar xf "rsu_client-4.3.7-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

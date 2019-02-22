@@ -8,18 +8,17 @@ arch=('x86_64')
 url="http://www.gdal.org/"
 license=('custom')
 groups=()
-depends=('cfitsio' 'curl' 'geos' 'giflib' 'hdf5' 'json-c' 'libgeotiff' 'libjpeg-turbo' 'libmariadbclient' 'libpng' 'libspatialite' 'libtiff' 'netcdf' 'openjpeg2' 'poppler' 'postgresql-libs' 'sqlite' 'xerces-c')
+depends=('python27' 'curl' 'geos' 'proj4' 'libxml2')
 makedepends=()
-optdepends=('mariadb: mariadb database support'
-            'perl: perl binding support'
-            'postgresql: postgresql database support')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gdal-2.2.3-chromeos-x86_64.tar.xz")
 sha256sums=('f7a43568512f9426a7951b90006507e4d7080cb61d68fa152a3723c3e0c4e90e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

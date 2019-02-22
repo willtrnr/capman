@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://0pointer.de/lennart/projects/nss-mdns/"
 license=('LGPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/nss_mdns-0.14.1-chromeos-x86_64.tar.xz")
 sha256sums=('9d1ef607505356407946f743b4bd09dc659a83d0b003c0c9eaf724277ccc0a84')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aview-1.3.0rc1-chromeos-x86_64.tar.xz")
 sha256sums=('70d29a20c0ade541d6f0aba440412d844a4815f8c0317a00d7c13005e1232395')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

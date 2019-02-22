@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://mediaarea.net/"
 license=('BSD')
 groups=()
-depends=('libmediainfo')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mediainfo-17.12-chromeos-x86_64.tar.xz")
 sha256sums=('29566ace5b5966c57ec206e2d17ca32592b116b968e65565ae6c1e4510daae46')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

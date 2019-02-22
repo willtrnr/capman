@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.digip.org/jansson/"
 license=('MIT')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/jansson-2.11-chromeos-x86_64.tar.xz")
 sha256sums=('e71aeaec54d731aa0524cc33e88329713a0d072d6e5f4bb8e76bd7bdc634bd6c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

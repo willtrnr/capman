@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/gawk/"
 license=('GPL')
 groups=('base' 'base-devel')
-depends=('glibc' 'mpfr' 'sh')
+depends=('libsigsegv' 'ncurses' 'mpfr' 'gmp')
 makedepends=()
 optdepends=()
-provides=('awk')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gawk-4.2.1-chromeos-x86_64.tar.xz")
 sha256sums=('64faab8c251933f07df9b6dbfacad9983dafdb831168e6dc912a38cfdae4af41')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

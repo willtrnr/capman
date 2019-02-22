@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/help2man/"
 license=('GPL')
 groups=()
-depends=('perl-locale-gettext')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/help2man-1.47.4-chromeos-x86_64.tar.xz")
 sha256sums=('2b80d202e591f249ff3760a33d4e8457dd78cc260549d2fc7a24b84a37b7c168')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

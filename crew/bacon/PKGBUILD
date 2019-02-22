@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bacon-3.7.2-chromeos-x86_64.tar.xz")
 sha256sums=('6e0497b676d721ab9183158be201b0fa49cc31076f5acb4395a837782f24fdd4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

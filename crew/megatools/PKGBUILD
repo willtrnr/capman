@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/megatools-1.9.98-chromeos-x86_64.tar.xz")
 sha256sums=('39ac4b9d1aa152c12ba1b2cd162d07a8dad6b2206e6f67a6b87377b5c907ede4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

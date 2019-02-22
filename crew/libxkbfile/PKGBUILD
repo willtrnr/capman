@@ -2,22 +2,23 @@
 
 pkgname=libxkbfile
 pkgver=1.0.9
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 keyboard file manipulation library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libx11')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxkbfile-1.0.9-0-chromeos-x86_64.tar.xz")
 sha256sums=('4fd10398c3b8d444dc540aa574e437401597f442f8e2837f2a2eacabc08d83ba')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

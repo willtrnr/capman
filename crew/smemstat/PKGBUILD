@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/smemstat-0.01.17-chromeos-x86_64.tar.xz")
 sha256sums=('4f42dce4e4cff905bedfd9483864104de13ec3fccc4490d4b24ecf0cae421757')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

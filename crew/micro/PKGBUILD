@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/micro-1.3.3-chromeos-x86_64.tar.xz")
 sha256sums=('36bfbe54a6971ccd4b33687904677b98c43cc29155949aa664ae1ea428a1fa2a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

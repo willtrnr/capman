@@ -5,21 +5,20 @@ pkgver=2.2.1
 pkgrel=1
 pkgdesc="Conversion between markup formats"
 arch=('x86_64')
-url="http://pandoc.org"
+url="https://pandoc.org"
 license=('GPL')
 groups=()
-depends=('ghc-libs' 'haskell-aeson' 'haskell-aeson-pretty' 'haskell-base64-bytestring' 'haskell-base-compat' 'haskell-blaze-html' 'haskell-blaze-markup' 'haskell-case-insensitive' 'haskell-cmark-gfm' 'haskell-data-default' 'haskell-doctemplates' 'haskell-exceptions' 'haskell-glob' 'haskell-haddock-library' 'haskell-hslua' 'haskell-hslua-module-text' 'haskell-hsyaml' 'haskell-http' 'haskell-http-client' 'haskell-http-client-tls' 'haskell-http-types' 'haskell-juicypixels' 'haskell-network' 'haskell-network-uri' 'haskell-pandoc-types' 'haskell-random' 'haskell-safe' 'haskell-sha' 'haskell-skylighting' 'haskell-split' 'haskell-syb' 'haskell-tagsoup' 'haskell-temporary' 'haskell-texmath' 'haskell-unicode-transforms' 'haskell-unordered-containers' 'haskell-vector' 'haskell-xml' 'haskell-zip-archive' 'haskell-zlib')
+depends=()
 makedepends=()
-optdepends=('pandoc-citeproc: for citation rendering with pandoc-citeproc filter'
-            'pandoc-crossref: for numbering figures, equations, tables and cross-references to them with pandoc-crossref filter'
-            'texlive-core: for pdf output')
+optdepends=()
 provides=()
-conflicts=('haskell-pandoc')
-replaces=('haskell-pandoc')
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pandoc-2.2.1-chromeos-x86_64.tar.xz")
 sha256sums=('d1f7f66ff580870e815178a4b7bcd7848444268a6a904db2829a5b8891b8b2ee')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,19 +8,17 @@ arch=('x86_64')
 url="https://cisofy.com/lynis/"
 license=('GPL3')
 groups=()
-depends=('awk' 'sh')
+depends=()
 makedepends=()
-optdepends=('bash-completion: completion for bash'
-            'bind-tools: nameserver tests'
-            'iptables: firewall tests'
-            'net-tools: networking tests')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lynis-2.5.7-chromeos-x86_64.tar.xz")
 sha256sums=('4c728a9fd76868b3ea84e04cd7ae0ad88d68a59d09d6374cff36557a8a87061b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

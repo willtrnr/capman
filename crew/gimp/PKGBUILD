@@ -8,20 +8,17 @@ arch=('x86_64')
 url="https://www.gimp.org/"
 license=('GPL' 'LGPL')
 groups=()
-depends=('babl' 'dbus-glib' 'desktop-file-utils' 'gegl' 'glib-networking' 'hicolor-icon-theme' 'jasper' 'lcms2' 'libexif' 'libgudev' 'libheif' 'libmng' 'libmypaint' 'librsvg' 'libwebp' 'libwmf' 'libxmu' 'libxpm' 'mypaint-brushes' 'openexr' 'poppler-data' 'pygtk')
+depends=('ghostscript' 'glib-networking' 'pango' 'libexif' 'libgudev' 'libheif' 'libmng' 'libtiff' 'libwmf' 'llvm' 'aalib' 'mypaint-brushes' 'openexr' 'poppler-data' 'pygtk' 'shared-mime-info' 'xdg-base' 'sommelier')
 makedepends=()
-optdepends=('alsa-lib: for MIDI event controller module'
-            'curl: for URI support'
-            'ghostscript: for postscript support'
-            'gutenprint: for sophisticated printing only as gimp has built-in cups print support'
-            'poppler-glib: for pdf support')
+optdepends=()
 provides=()
-conflicts=('gimp-plugin-wavelet-decompose')
-replaces=('gimp-plugin-wavelet-decompose')
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gimp-2.10.6-chromeos-x86_64.tar.xz")
 sha256sums=('8d2400b5806a22e5afc39b1ec1571a7fdba416dded25a77baa7192c32e0c2c64')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/mtools/"
 license=('GPL')
 groups=()
-depends=('sh')
+depends=()
 makedepends=()
-optdepends=('libsm: required by floppyd'
-            'libx11: required by floppyd')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mtools-4.0.18-chromeos-x86_64.tar.xz")
 sha256sums=('e94e6a2b813f8952451093fafe34e7205015486d3532631ba6384e6bd2989693')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

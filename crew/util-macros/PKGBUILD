@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/util_macros-1.19.2-chromeos-x86_64.tar.xz")
 sha256sums=('88f9f8686f46ec54844d02d140a1db97dabbd48a615a90c4388d1e5b7c63b644')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

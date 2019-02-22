@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.chiark.greenend.org.uk/~sgtatham/putty/"
 license=('MIT')
 groups=()
-depends=('gtk3')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/putty-0.70-chromeos-x86_64.tar.xz")
 sha256sums=('f52110b94240f1cf02eace40fd962d58084fb8ce13970387a658548fbf56a366')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -2,22 +2,23 @@
 
 pkgname=libtool
 pkgver=2.4.6
-pkgrel=1
+pkgrel=3
 pkgdesc="A generic library support script"
 arch=('x86_64')
 url="http://www.gnu.org/software/libtool"
 license=('GPL')
 groups=('base-devel')
-depends=('glibc' 'sh' 'tar')
+depends=('m4')
 makedepends=()
 optdepends=()
-provides=('libltdl=2.4.6+42+gb88cebd5' 'libtool-multilib=2.4.6+42+gb88cebd5')
-conflicts=('libltdl' 'libtool-multilib')
-replaces=('libltdl' 'libtool-multilib')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libtool-2.4.6-2-chromeos-x86_64.tar.xz")
 sha256sums=('aebbf436953ab2ed8d844ec2449216578243fda5145c5cdb12c257f388e863c2')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/snooze-0.2-chromeos-x86_64.tar.xz")
 sha256sums=('0e8ecfdc763b5f721e68fbc4b925139a4f023c8fc4e576bd325e5819a83b6acd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

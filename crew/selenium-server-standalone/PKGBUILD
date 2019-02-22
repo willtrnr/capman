@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/selenium_server_standalone-3.11.0-chromeos-x86_64.tar.xz")
 sha256sums=('03c5ef09c37265bd9793bda2a1b4bf62e6b2b98c67921b81276313d78ab5396d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

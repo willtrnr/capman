@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Projects/JsonGlib"
 license=('GPL')
 groups=()
-depends=('glib2')
+depends=('meson' 'gtk-doc' 'glib' 'gobject-introspection')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/json_glib-1.4.2-chromeos-x86_64.tar.xz")
 sha256sums=('5e79363b10f04e8b6240d69d323ea78595271cbaaac5df9acaf09f07f52e1939')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

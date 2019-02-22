@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libxmu' 'libxpm')
+depends=('libxmu' 'libxpm' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxaw-1.0.13-chromeos-x86_64.tar.xz")
 sha256sums=('ecb522f416267f59ac30bd21d42b7a97940ceb350eb73127b213c8ec46cde70c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

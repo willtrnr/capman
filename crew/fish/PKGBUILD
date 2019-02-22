@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://fishshell.com/"
 license=('GPL2')
 groups=()
-depends=('bc' 'gcc-libs' 'inetutils' 'ncurses' 'which')
+depends=('ncurses')
 makedepends=()
-optdepends=('python: for manual page completion parser and web configuration tool')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fish-2.7.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('56dd0139ed8a13d178151863cf79521a676e7e3778cd75790dac5f6e48e7bfa0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,28 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=wayland
-pkgver=1.32.92
+pkgver=1.16.0
 pkgrel=1
 pkgdesc="A computer display server protocol"
 arch=('x86_64')
 url="https://wayland.freedesktop.org/"
 license=('MIT')
 groups=()
-depends=('expat' 'glibc' 'libffi' 'libxml2')
-makedepends=('docbook-xsl' 'doxygen' 'graphviz' 'libxslt' 'xmlto')
+depends=('libpng' 'libxslt')
+makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=()
-sha256sums=()
-
-build() {
-  yes | crew build wayland
-  tar xf "wayland-1.32.92-chromeos-$arch.tar.xz"
-}
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/wayland-1.16.0-chromeos-x86_64.tar.xz")
+sha256sums=('6f4ac29bcad6eb9160b1da611e189b744a5ba5945b20318d72639962a9f2a917')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

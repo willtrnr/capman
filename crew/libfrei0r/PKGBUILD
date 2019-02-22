@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libfrei0r-1.6.1-chromeos-x86_64.tar.xz")
 sha256sums=('73646984853d48487d8881cdc4a9ac3fd35f08e8384be54db9948a6d41046d23')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

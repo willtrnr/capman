@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mandb-2.8.4-chromeos-x86_64.tar.xz")
 sha256sums=('0f3b5fee5e9b90e93f2242033cf7a49cd9100cf8b355e3abe4ba6f0d2f51b733')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

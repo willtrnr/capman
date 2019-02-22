@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://recordmydesktop.sourceforge.net"
 license=('GPL')
 groups=()
-depends=('alsa-lib' 'jack' 'libsm' 'libtheora' 'libvorbis' 'libxdamage' 'libxext' 'zlib')
+depends=('alsa-plugins' 'libtheora' 'sommelier')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/recordmydesktop-0.3.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('16fdce8d65a3b57e1167f5edaaf0c8ac2829b27cc38d821d8a64332409349095')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

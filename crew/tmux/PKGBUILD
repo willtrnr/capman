@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://tmux.github.io/"
 license=('BSD')
 groups=()
-depends=('libevent' 'libutempter' 'ncurses')
+depends=('readline' 'libevent' 'ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tmux-2.6-chromeos-x86_64.tar.xz")
 sha256sums=('85790c069f950e16d001391a737f67389baa90f3fc44e4eccfd382ed43f8311d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

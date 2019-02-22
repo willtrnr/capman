@@ -2,7 +2,7 @@
 
 pkgname=broadway
 pkgver=gtk3.22
-pkgrel=1
+pkgrel=3
 pkgdesc="Run GTK applications in a browser window."
 arch=('x86_64')
 url="https://developer.gnome.org/gtk3/stable/gtk-broadway.html"
@@ -14,6 +14,7 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

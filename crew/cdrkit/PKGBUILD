@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cdrkit-1.1.11-chromeos-x86_64.tar.xz")
 sha256sums=('29a22b6c7627aafed893dbe11d91c9d907c41461b76d3baa9d0da38cd228c51d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

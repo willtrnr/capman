@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=gzip
+pkgver=1.10
+pkgrel=1
+pkgdesc="GNU compression utility"
+arch=('x86_64')
+url="https://www.gnu.org/software/gzip/"
+license=('GPL3')
+groups=('base' 'base-devel')
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gzip-1.10-chromeos-x86_64.tar.xz")
+sha256sums=('70e752fbb1b545a0fa3189571d3179a46eaa2331485475aaa349420407529422')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

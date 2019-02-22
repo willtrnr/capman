@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.lua.org/"
 license=('MIT')
 groups=()
-depends=('readline')
+depends=('readline7')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lua-5.3.5-chromeos-x86_64.tar.xz")
 sha256sums=('0c8aa3d1cda909e7f8a9f28c36acc459bdcae9091e300980fc6e7dcf2caf1313')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/p11kit-0.23.14-chromeos-x86_64.tar.xz")
 sha256sums=('748a9021e772591b6133babda14dc52e0f4c95ea7955254d447d0b6ad7ba2df9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

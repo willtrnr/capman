@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://keybase.io/"
 license=('BSD')
 groups=()
-depends=('gnupg')
+depends=('go')
 makedepends=()
-optdepends=('kbfs: for the fuse-based fileystem and the encryption subcommand')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/keybase-1.0.40-chromeos-x86_64.tar.xz")
 sha256sums=('bd75cf418a25cd90869ae292879f60121cfc68e3ad8d6e5fa9296741c9668865')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

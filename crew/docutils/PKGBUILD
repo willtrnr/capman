@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/docutils-0.14-chromeos-x86_64.tar.xz")
 sha256sums=('d551a697f37dc6d03b77d2740637c3c1c36a0fa74fbac813e5dcb16745f4cd32')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

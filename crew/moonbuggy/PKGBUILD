@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/moonbuggy-1.0.51-chromeos-x86_64.tar.xz")
 sha256sums=('190a6a121463f1c00549c319cffa59272e8d5ec1cbed0868c9232131874130ee')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

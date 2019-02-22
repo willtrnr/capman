@@ -5,19 +5,20 @@ pkgver=4.0.1
 pkgrel=1
 pkgdesc="Multiple-precision floating-point library"
 arch=('x86_64')
-url="http://www.mpfr.org/"
+url="https://www.mpfr.org/"
 license=('LGPL')
 groups=()
-depends=('gmp>=5.0')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mpfr-4.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('e5d43065f3f87eabf33debd0c9789988f980d68a0f1a91d6782b3f97916c0680')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

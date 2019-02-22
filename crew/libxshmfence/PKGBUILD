@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('GPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxshmfence-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('d015681e769125f9b28f9abaeeb7dee8b83dde1678dba8709933cb7ebcbcca89')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

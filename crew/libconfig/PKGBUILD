@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/hyperrealm/libconfig"
 license=('LGPL')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libconfig-1.7.2-chromeos-x86_64.tar.xz")
 sha256sums=('1abaaa24f429d5f640413707a606d10916fccab2644b723a1ee3b36ea17ec590')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

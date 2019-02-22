@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.nongnu.org/renameutils/"
 license=('GPL')
 groups=()
-depends=('readline')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/renameutils-0.12.0-chromeos-x86_64.tar.xz")
 sha256sums=('5e640502df11cb89c18744823782b491dab5c3a79ec52b89b9381373339d3517')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

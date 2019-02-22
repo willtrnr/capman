@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.libmng.com/"
 license=('custom')
 groups=()
-depends=('lcms2')
+depends=('lcms' 'libjpeg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libmng-2.0.3-chromeos-x86_64.tar.xz")
 sha256sums=('e8ffaa0dc0a372a93f04f9197872e2fd18675f21651a3632222ebfe8e21f4b6c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

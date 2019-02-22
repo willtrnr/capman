@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/wdiff/"
 license=('GPL3')
 groups=()
-depends=('ncurses')
+depends=('texinfo')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/wdiff-1.2.2-chromeos-x86_64.tar.xz")
 sha256sums=('091e34045534f4f777172e1f4a3c9e966377efa9158304f1bb15f31a3edc2dac')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

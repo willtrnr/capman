@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nss
+pkgver=3.42
+pkgrel=1
+pkgdesc="Network Security Services"
+arch=('x86_64')
+url="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
+license=('GPL' 'MPL')
+groups=()
+depends=('nspr' 'sqlite')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/nss-3.42-chromeos-x86_64.tar.xz")
+sha256sums=('b7444bf704022a0bf2f6efe785bbf65b5ed12479a0c1d03e89500b1d19652e00')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

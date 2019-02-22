@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aws_shell-0.2.1-chromeos-x86_64.tar.xz")
 sha256sums=('41ad9b4fbe0104c4e7d48fb7b5c2469f89562f46c1184b985114da37bf0ed479')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

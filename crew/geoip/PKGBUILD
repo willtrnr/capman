@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.maxmind.com/app/c"
 license=('GPL')
 groups=()
-depends=('geoip-database' 'zlib')
+depends=()
 makedepends=()
-optdepends=('geoip-database-extra: city/ASN databases (not needed for country lookups)')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/geoip-1.6.12-chromeos-x86_64.tar.xz")
 sha256sums=('11776aa232c6a14d2e1d0409dfdaa2eaa917320f2ebdf02a0e14fbd86447ae9c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

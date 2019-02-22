@@ -2,7 +2,7 @@
 
 pkgname=bcif
 pkgver=1.0
-pkgrel=1
+pkgrel=beta
 pkgdesc="The BCIF compression algorithm is an open source method for lossless image compression."
 arch=('x86_64')
 url="http://www.researchandtechnology.net/bcif/index.php"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bcif-1.0-beta-chromeos-x86_64.tar.xz")
 sha256sums=('48f1371c1ef59c68b0abc5eaf9312f396b9f5887daf4332ac423c46d516f8cc0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

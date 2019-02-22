@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cpustat-0.02.04-chromeos-x86_64.tar.xz")
 sha256sums=('b505ca257198a54ee256f85fee63fb14d2275572b37af287aad8a47d1ba2b6b8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

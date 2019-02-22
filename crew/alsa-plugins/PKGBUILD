@@ -1,26 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=alsa-plugins
-pkgver=1.1.7
+pkgver=1.1.8
 pkgrel=1
 pkgdesc="Extra alsa plugins"
 arch=('x86_64')
 url="http://www.alsa-project.org"
 license=('GPL')
 groups=()
-depends=('alsa-lib')
+depends=('dbus' 'ffmpeg' 'speexdsp' 'alsa-lib' 'pulseaudio')
 makedepends=()
-optdepends=('jack: Jack plugin'
-            'libpulse: PulseAudio plugin'
-            'libsamplerate: libsamplerate resampling plugin'
-            'speex: libspeexdsp resampling plugin')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/alsa_plugins-1.1.7-1-chromeos-x86_64.tar.xz")
-sha256sums=('00d5ec8f220e64b9f4197b4897326192c963da616541d4787723a3969f2a129a')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/alsa_plugins-1.1.8-chromeos-x86_64.tar.xz")
+sha256sums=('590df0d75d5680b5da817feedb7f163ce5e7a4c60809adab298168dda09697b9')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

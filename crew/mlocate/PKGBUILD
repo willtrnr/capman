@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://pagure.io/mlocate"
 license=('GPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mlocate-0.26-1-chromeos-x86_64.tar.xz")
 sha256sums=('f943fe00ad4666f5a9c7bf12d710cd8f2e136a33ad94568863b92dd45526d7eb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

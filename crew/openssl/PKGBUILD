@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.openssl.org"
 license=('custom:BSD')
 groups=()
-depends=('perl')
+depends=('bc')
 makedepends=()
-optdepends=('ca-certificates')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/openssl-1.0.2p-chromeos-x86_64.tar.xz")
-sha256sums=('1e23e83b900b3a472dca44a6d88c7860119904f39cfde09a81f8d6caae01f42b')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/openssl-1.0.2p-1-chromeos-x86_64.tar.xz")
+sha256sums=('b61308c6d0cddb3a6e0713e9d47b95382b1c5f0f9495766cec1afa6a07ccf56c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/zile/"
 license=('GPL3')
 groups=()
-depends=('acl' 'gc' 'ncurses')
+depends=('acl' 'bdwgc' 'ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/zile-2.4.14-chromeos-x86_64.tar.xz")
 sha256sums=('7acde7380f56dc54d6c74ec5cf7fd9f7ebb666524144d4c1d229ff31e2c66da3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=freerdp
+pkgver=2.0.0
+pkgrel=1
+pkgdesc="Free RDP client"
+arch=('x86_64')
+url="http://freerdp.sourceforge.net"
+license=('GPL')
+groups=()
+depends=('cups' 'xmlto' 'xprop' 'ffmpeg' 'linux-pam' 'gst-plugins-base' 'xdg-base' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/freerdp-2.0.0-rc4-1-chromeos-x86_64.tar.xz")
+sha256sums=('a029e77ed6c8d47ebcd7c74a8b1430b158f6ebdb04384697abe7c8da613526cf')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

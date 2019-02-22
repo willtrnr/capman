@@ -10,14 +10,15 @@ license=('GPL')
 groups=()
 depends=()
 makedepends=()
-optdepends=('python: for python bindings')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/whitedb-0.7.3-chromeos-x86_64.tar.xz")
 sha256sums=('eda584a55d77f6fda81ed0266ce0c43da1c77591a1576b9a866dd73b5df28782')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

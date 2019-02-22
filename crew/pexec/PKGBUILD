@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pexec-1.0rc8-1-chromeos-x86_64.tar.xz")
 sha256sums=('15696468ef1b797e0c77cd0a1ec91766d3890072739514772cdf355124f3a1d3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

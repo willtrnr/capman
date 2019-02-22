@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/sahib/glyr"
 license=('GPL3')
 groups=()
-depends=('curl' 'glib2' 'sqlite3')
+depends=('curl' 'glib' 'sqlite')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/glyr-1.0.10-chromeos-x86_64.tar.xz")
 sha256sums=('c9ade91fe3da5da7cd53d53ff9e17a072fc60dd540f2e812ebfccdfe041aed50')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

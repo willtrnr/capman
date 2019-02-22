@@ -5,19 +5,20 @@ pkgver=3.24.0
 pkgrel=1
 pkgdesc="A C library that implements an SQL database engine"
 arch=('x86_64')
-url="http://www.sqlite.org/"
+url="https://www.sqlite.org/"
 license=('custom:Public Domain')
 groups=()
-depends=('readline' 'zlib')
+depends=('libedit' 'readline' 'zlibpkg')
 makedepends=()
 optdepends=()
-provides=('sqlite3=3.26.0')
+provides=()
 conflicts=()
-replaces=('sqlite3')
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sqlite-3.24.0-chromeos-x86_64.tar.xz")
 sha256sums=('ce04fb085392fda58be8416bd4b826b89c7302b68a491394009cdecf474ad801')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xauth
+pkgver=1.0.10
+pkgrel=1
+pkgdesc="X authority file utility"
+arch=('x86_64')
+url="https://www.x.org/archive/X11R6.8.1/doc/xauth.1.html"
+license=('custom')
+groups=()
+depends=('xorg-lib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/xauth-1.0.10-chromeos-x86_64.tar.xz")
+sha256sums=('6a8217ce647c238127d64380e7dc64b5fc0b0763b9ebe8165b40204ef815aff9')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

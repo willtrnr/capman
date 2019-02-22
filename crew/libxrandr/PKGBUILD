@@ -2,22 +2,23 @@
 
 pkgname=libxrandr
 pkgver=1.5.1
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 RandR extension library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libxext' 'libxrender' 'randrproto')
+depends=('libxrender' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxrandr-1.5.1-0-chromeos-x86_64.tar.xz")
 sha256sums=('6a37502061445761f860acefaddd5bf06b7c64b4b5e468f4e3902e67baaef05e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

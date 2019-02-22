@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.netfilter.org/projects/iptables/index.html"
 license=('GPL2')
 groups=()
-depends=('bash' 'libnetfilter_conntrack' 'libnfnetlink' 'libnftnl' 'libpcap')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/iptables-1.6.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('db40420fd3c926cf252232c19f4c07c35769ed2fa496350e88a4ff2a0422edee')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fskit-dd9a8d-chromeos-x86_64.tar.xz")
 sha256sums=('d4cc3783a929b3cb95652bad97dfe9cb0797aa431b3db2daecb829f34980f1db')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

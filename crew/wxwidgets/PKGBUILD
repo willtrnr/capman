@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/wxwidgets-3.0.4-chromeos-x86_64.tar.xz")
 sha256sums=('c24c461c76af35ce55fe34b442d31ed090afe45c971902287c44d8d77f332e22')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

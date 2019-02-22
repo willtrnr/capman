@@ -2,23 +2,23 @@
 
 pkgname=util-linux
 pkgver=2.30
-pkgrel=1
+pkgrel=0
 pkgdesc="Miscellaneous system utilities for Linux"
 arch=('x86_64')
 url="https://www.kernel.org/pub/linux/utils/util-linux/"
 license=('GPL2')
 groups=('base' 'base-devel')
-depends=('coreutils' 'libcap-ng' 'libsystemd' 'libutil-linux' 'pam' 'shadow')
+depends=('python27' 'libcap-ng' 'vdev')
 makedepends=()
-optdepends=('python: python bindings to libmount'
-            'words: default dictionary for look')
-provides=('eject' 'rfkill' 'zramctl')
-conflicts=('eject' 'rfkill' 'zramctl')
-replaces=('rfkill' 'zramctl')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/util_linux-2.30-0-chromeos-x86_64.tar.xz")
 sha256sums=('1ac3be75194c2bde5daaf034a9e33f1beb23f1c45ad60ece039401682ff5e909')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

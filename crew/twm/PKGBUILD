@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=twm
+pkgver=1.0.10
+pkgrel=1
+pkgdesc="The twm package contains a very minimal window manager."
+arch=('x86_64')
+url="http://www.linuxfromscratch.org/blfs/view/svn/x/twm.html"
+license=('custom')
+groups=()
+depends=('xorg-server')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/twm-1.0.10-chromeos-x86_64.tar.xz")
+sha256sums=('2db77d9f08c7c9090e7bc663b00f4c052442addd01fd614220603ec555e16af9')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

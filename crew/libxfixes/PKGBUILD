@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('fixesproto' 'libx11')
+depends=('libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxfixes-5.0.3-1-chromeos-x86_64.tar.xz")
 sha256sums=('7c1ea8c44eceafccacbbb99b7ffceb641aec47d063e5f4cd65b44defc1b721e8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

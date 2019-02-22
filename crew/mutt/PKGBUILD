@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.mutt.org/"
 license=('GPL')
 groups=()
-depends=('gdbm' 'gpgme' 'krb5' 'libidn2' 'libsasl' 'mime-types' 'ncurses' 'openssl')
+depends=('gdbm' 'libcyrussasl' 'libxslt' 'openssl' 'perl')
 makedepends=()
-optdepends=('smtp-forwarder: to send mail')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mutt-1.9.2-chromeos-x86_64.tar.xz")
 sha256sums=('e8ca9e36db89e76471118d9620df06e9f6eac43c20eefd01810a98ca80149583')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,27 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=qemu
-pkgver=3.0.0
+pkgver=3.1.0
 pkgrel=1
 pkgdesc="A generic and open source machine emulator and virtualizer"
 arch=('x86_64')
 url="http://wiki.qemu.org/"
 license=('GPL2' 'LGPL2.1')
 groups=()
-depends=('curl' 'gnutls' 'jemalloc' 'libaio' 'libcacard' 'libcap-ng' 'libnfs' 'libpng' 'libpulse' 'lzo' 'numactl' 'sdl2' 'seabios' 'snappy' 'spice' 'usbredir' 'vde2' 'virglrenderer' 'vte3' 'xfsprogs')
+depends=('bz2' 'curl' 'glib' 'gtk3' 'jemalloc' 'libaio' 'libcap-ng' 'libgcrypt' 'libsdl2' 'libusb' 'lzo' 'pixman' 'hicolor-icon-theme')
 makedepends=()
-optdepends=('qemu-arch-extra: extra architectures support'
-            'qemu-block-gluster: glusterfs block support'
-            'qemu-block-iscsi: iSCSI block support'
-            'qemu-block-rbd: RBD block support'
-            'samba: SMB/CIFS server support')
-provides=('qemu-headless')
-conflicts=('qemu-headless')
-replaces=('qemu-kvm')
-source=("https://dl.bintray.com/chromebrew/chromebrew/qemu-3.0.0-chromeos-x86_64.tar.xz")
-sha256sums=('3f5e0ad3cae968281e720a3351157e7e72ee275a403d89cce4dc0090f13a08dc')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/qemu-3.1.0-chromeos-x86_64.tar.xz")
+sha256sums=('fe691d318fb71461e3ce85a733165bea3d56749bf4fa572185dd086c9d7e97bd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

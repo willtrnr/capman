@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dtrx-7.1-chromeos-x86_64.tar.xz")
 sha256sums=('4817af93d2c30c4ced5c8fb5a4e0ebc7ebb51fb6fbfb2300380b27221b6b5c49')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

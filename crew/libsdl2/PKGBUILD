@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.libsdl.org"
 license=('custom')
 groups=()
-depends=('xwayland' 'alsa-lib' 'pulseaudio')
+depends=('xorg-server' 'alsa-lib' 'pulseaudio')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libsdl2-2.0.9-chromeos-x86_64.tar.xz")
 sha256sums=('4a7cf8e0c57bb8485eb1cade392ca919aff3e71b811464adf6a51e1f98488a00')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

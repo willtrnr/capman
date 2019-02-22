@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnome.org"
 license=('GPL' 'LGPL')
 groups=()
-depends=('docbook-xml' 'libxslt' 'python2' 'rarian')
+depends=('rarian')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_doc_utils-0.20.10-chromeos-x86_64.tar.xz")
 sha256sums=('7d42545db45cd71173b27f329526932d1fc24e00494dfd704f51f11804676986')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

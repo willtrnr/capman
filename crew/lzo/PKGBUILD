@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.oberhumer.com/opensource/lzo"
 license=('GPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/lzo-2.10-chromeos-x86_64.tar.xz")
-sha256sums=('af956b6de9567424e26283996b2e3e0b10b3c86992ffb09e6c53d3bb7411b5ba')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/lzo-2.10-1-chromeos-x86_64.tar.xz")
+sha256sums=('04c5e6c4405569793a8681869376ee5144258ced7c39eb06742f891fed741ff7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

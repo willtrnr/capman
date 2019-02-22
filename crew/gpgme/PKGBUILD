@@ -5,19 +5,20 @@ pkgver=1.11.1
 pkgrel=1
 pkgdesc="A C wrapper library for GnuPG"
 arch=('x86_64')
-url="http://www.gnupg.org/related_software/gpgme/"
+url="https://www.gnupg.org/related_software/gpgme/"
 license=('LGPL')
 groups=()
-depends=('gnupg>=2' 'libgpg-error')
+depends=('gnupg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gpgme-1.11.1-chromeos-x86_64.tar.xz")
 sha256sums=('e875258d9fcc951237149d954b549a45f384a6b23e2c596ec555f761b7600035')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

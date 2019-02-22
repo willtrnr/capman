@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.greenwoodsoftware.com/less"
 license=('GPL3')
 groups=('base')
-depends=('glibc' 'ncurses' 'pcre')
+depends=('ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/less-530-chromeos-x86_64.tar.xz")
 sha256sums=('163b184835f8094de3e87319f21d0b6d246a5add03f7cc7e9252e2de7555b321')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

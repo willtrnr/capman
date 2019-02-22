@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dropbox-48.4.58-chromeos-x86_64.tar.xz")
 sha256sums=('c2c699372e4646ce5ed542fa189c08dc44dea1ae312f7401f1f385279e1b2ded')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

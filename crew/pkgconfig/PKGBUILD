@@ -2,7 +2,7 @@
 
 pkgname=pkgconfig
 pkgver=0.29.2
-pkgrel=1
+pkgrel=0
 pkgdesc="pkg-config is a helper tool used when compiling applications and libraries."
 arch=('x86_64')
 url="https://www.freedesktop.org/wiki/Software/pkg-config/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pkgconfig-0.29.2-0-chromeos-x86_64.tar.xz")
 sha256sums=('9ec6d03083164dd778e3cdfc75224c4d307adad2ac93ce1a0077a14e6d6390cc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

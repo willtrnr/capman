@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xhost
+pkgver=1.0.7
+pkgrel=1
+pkgdesc="Server access control program for X"
+arch=('x86_64')
+url="https://github.com/freedesktop/xorg-xhost"
+license=('custom')
+groups=()
+depends=('xorg-lib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/xhost-1.0.7-chromeos-x86_64.tar.xz")
+sha256sums=('81710af7e1d0a9193739e8fd4f87b469be75ceadf364f5628504927a7f715ab2')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

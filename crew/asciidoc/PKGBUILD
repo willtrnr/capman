@@ -8,22 +8,17 @@ arch=('x86_64')
 url="http://www.methods.co.nz/asciidoc/"
 license=('GPL')
 groups=()
-depends=('docbook-xsl' 'libxslt' 'python2')
+depends=('python27')
 makedepends=()
-optdepends=('dblatex: pdf generation'
-            'fop: alternative pdf generation'
-            'imagemagick: music-filter (used in conjunction with lilypond)'
-            'lilypond: music-filter'
-            'lynx: text generation'
-            'source-highlight: source-highlight-filter'
-            'w3m: text generation (alternative to lynx)')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/asciidoc-8.6.9-chromeos-x86_64.tar.xz")
 sha256sums=('048de56fd444c9c5542270fb8080b23f0264467e3c10853b9925b4add914b053')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

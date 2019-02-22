@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://github.com/libfuse/sshfs"
 license=('GPL')
 groups=()
-depends=('fuse3' 'glib2' 'openssh')
+depends=('glib' 'fuse')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sshfs-2.10-chromeos-x86_64.tar.xz")
 sha256sums=('cef0929354e03eb6b82046218aca8b95284d71249288604c4ce41a699daef1f0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

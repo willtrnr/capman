@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gtkmm.org/"
 license=('GPL2')
 groups=()
-depends=('doxygen' 'graphviz' 'gtk-doc' 'libsigc++-docs' 'perl-xml-parser')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mm_common-0.9.11-chromeos-x86_64.tar.xz")
 sha256sums=('441c5e007c75a82fbc8cf2335e1e591aa29902d6b6b0199b5f1da346eabb9a43')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

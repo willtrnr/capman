@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://pidgin.im/"
 license=('GPL')
 groups=()
-depends=('gst-plugins-base' 'gst-plugins-good' 'gtkspell' 'hicolor-icon-theme' 'libpurple' 'libsm' 'libxss' 'startup-notification')
+depends=('glib' 'gst-plugins-base' 'gtk2' 'libidn2' 'sommelier')
 makedepends=()
-optdepends=('aspell: for spelling correction')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pidgin-2.13.0-chromeos-x86_64.tar.xz")
 sha256sums=('11fcf60b4b62af0bfd76d0f39091b449c6c550ad5185b3f3c4688484be7e4f7f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

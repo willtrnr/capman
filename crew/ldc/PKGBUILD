@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/ldc-developers/ldc"
 license=('BSD')
 groups=('dlang' 'dlang-ldc')
-depends=('compiler-rt' 'gcc' 'liblphobos' 'llvm-libs')
+depends=('llvm' 'curl' 'ncurses' 'zlibpkg')
 makedepends=()
 optdepends=()
-provides=('d-compiler=2.083.1')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ldc-1.7.0-chromeos-x86_64.tar.xz")
 sha256sums=('6730100e809fc14d8b42f6d39fce4699917d24b971438eceb819e9c9264fbeaa')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

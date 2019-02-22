@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/fribidi/fribidi/"
 license=('LGPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fribidi-1.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('f408ec87bb6df6e4d375ba9b90d5d79cbdef7180e6fb69bdf31610756ae31f7d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

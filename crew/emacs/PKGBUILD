@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/emacs/emacs.html"
 license=('GPL3')
 groups=()
-depends=('alsa-lib' 'desktop-file-utils' 'gconf' 'giflib' 'gnutls' 'gpm' 'gtk3' 'hicolor-icon-theme' 'libmagick6' 'libotf' 'librsvg' 'libxpm' 'm17n-lib')
+depends=('lcms' 'libjpeg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/emacs-26.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('20adfa13c8b999da71d4efe1c6e86521ad83481e1d593bdcab20eac5c2cb589e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

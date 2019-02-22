@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/dejagnu/"
 license=('GPL')
 groups=()
-depends=('expect' 'sh')
+depends=('expect' 'texinfo')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dejagnu-1.6.1-chromeos-x86_64.tar.xz")
 sha256sums=('f3f6810d737976abb4f7e7f6d0a659fc4206d0f8067febb13e2fde63c38467f0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://poppler.freedesktop.org/"
 license=('GPL')
 groups=()
-depends=('cairo' 'curl' 'fontconfig' 'gcc-libs' 'lcms2' 'libjpeg' 'nss' 'openjpeg2')
+depends=('cairo' 'harfbuzz' 'libjpeg' 'libpng' 'openjpeg' 'zlibpkg')
 makedepends=()
-optdepends=('poppler-data: encoding data to display PDF documents containing CJK characters')
+optdepends=()
 provides=()
-conflicts=('poppler-qt3<0.72.0' 'poppler-qt4<0.72.0')
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/poppler-0.63.0-chromeos-x86_64.tar.xz")
 sha256sums=('e32bb8caf1dfea59b8c295d0e0c02c60e2917b18f1c667a1765d5cebb62a59be')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

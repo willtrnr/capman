@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://rkhunter.sourceforge.net/"
 license=('GPL')
 groups=()
-depends=('bash' 'perl' 'wget')
+depends=()
 makedepends=()
-optdepends=('unhide')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/rkhunter-1.4.4-1-chromeos-x86_64.tar.xz")
 sha256sums=('4e36249500cdfa3e1703608a65ef2610196a3d9311fe5edff14c25cbd9528959')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

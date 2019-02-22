@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://calcurse.org/"
 license=('BSD')
 groups=()
-depends=('ncurses')
+depends=()
 makedepends=()
-optdepends=('python: for CalDAV support')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/calcurse-4.3.0-chromeos-x86_64.tar.xz")
 sha256sums=('a6768b3fd4ee770e9801500205a82601fbb37258a851183c46d58ec3dd52aedd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

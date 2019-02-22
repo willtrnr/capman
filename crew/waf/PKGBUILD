@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/waf-1.9.13-chromeos-x86_64.tar.xz")
 sha256sums=('b577a4768c54331ac09d4d6eb4e6258ad6a0e6b1267cec468c5dd33c1b01bff4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

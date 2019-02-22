@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/qpdf/qpdf"
 license=('Apache' 'custom:Artistic-2.0')
 groups=()
-depends=('libjpeg-turbo' 'zlib')
+depends=('libjpeg')
 makedepends=()
-optdepends=('perl: required for fix-qdf')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/qpdf-7.1.1-chromeos-x86_64.tar.xz")
 sha256sums=('32069b9fb1bcb81e9024eef707b5ab9e61bacc87fa8141f8de51ba4293fefa98')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

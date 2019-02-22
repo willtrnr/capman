@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/bison/bison.html"
 license=('GPL3')
 groups=('base-devel')
-depends=('glibc' 'm4' 'sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bison-3.2.3-chromeos-x86_64.tar.xz")
 sha256sums=('141fd756fb765dda1d110033360be9b4e582ed002d3f6bf895f8df9e5890d43b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,28 +1,29 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=code
-pkgver=1.30.1
+pkgver=1.31.1
 pkgrel=1
 pkgdesc="The Open Source build of Visual Studio Code (vscode) editor"
 arch=('x86_64')
 url="https://github.com/Microsoft/vscode"
 license=('MIT')
 groups=()
-depends=('electron2' 'libsecret' 'libxkbfile' 'ripgrep')
-makedepends=('git' 'gulp' 'nodejs-lts-carbon' 'npm' 'python2' 'yarn')
+depends=('nodebrew' 'gtk2' 'ld-default' 'libsecret' 'libgconf' 'xdg-base' 'sommelier')
+makedepends=('yarn')
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
 build() {
   yes | crew build code
-  tar xf "code-1.30.1-1-chromeos-$arch.tar.xz"
+  tar xf "code-1.31.1-chromeos-$arch.tar.xz"
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnupg.org"
 license=('LGPL')
 groups=()
-depends=('libgpg-error')
+depends=('libgpgerror')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libgcrypt-1.8.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('448844bb855035f2e5f843f5fa8108e5371b9b9e02bee0b4cf66395388836b4f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

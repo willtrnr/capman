@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/glib-2.56.1-chromeos-x86_64.tar.xz")
 sha256sums=('fd6aea5f310ed045f3e9c132af14d11e63c5d50e04871369eb4888dfef9aee66')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

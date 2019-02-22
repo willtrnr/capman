@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.remlab.net/ndisc6/"
 license=('GPL')
 groups=()
-depends=('glibc' 'perl')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ndisc6-1.0.3-chromeos-x86_64.tar.xz")
 sha256sums=('7b73aa83893ad65101f439e85b6effed2776015ab0628ac436220fd57e00746b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

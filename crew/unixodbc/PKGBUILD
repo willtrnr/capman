@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.unixodbc.org/"
 license=('GPL2' 'LGPL2.1')
 groups=()
-depends=('libltdl' 'readline')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/unixodbc-2.3.7-chromeos-x86_64.tar.xz")
 sha256sums=('ecae202a4367725ceb7124b374f5e80335cfde85b6cdc296beaff735ddea3331')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

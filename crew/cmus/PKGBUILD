@@ -8,29 +8,17 @@ arch=('x86_64')
 url="https://cmus.github.io/"
 license=('GPL')
 groups=()
-depends=('libcue' 'libdiscid' 'ncurses')
+depends=('ffmpeg')
 makedepends=()
-optdepends=('alsa-lib: for ALSA output plugin support'
-            'faad2: for AAC input plugin support'
-            'ffmpeg: for ffmpeg input plugin support'
-            'flac: for flac input plugin support'
-            'libao: for AO output plugin support'
-            'libcdio-paranoia: for cdio support'
-            'libmad: for mp3 input plugin support'
-            'libmodplug: for modplug input plugin support'
-            'libmp4v2: for mp4 input plugin support'
-            'libmpcdec: for musepack input plugin support'
-            'libpulse: for PulseAudio output plugin support'
-            'libvorbis: for vorbis input plugin support'
-            'opusfile: for opus input plugin support'
-            'wavpack: for wavpack input plugin support')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cmus-2.7.1-chromeos-x86_64.tar.xz")
 sha256sums=('9b8b1300a07659371e3178472e0766edf7597a3e76fe9afd468a93a6268763a1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

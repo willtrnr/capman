@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cloog-0.20.0-chromeos-x86_64.tar.xz")
 sha256sums=('d31e2c02736dfa446b5058b4f947e2f6ed9a2aff0268adb616fedae1c716f012')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

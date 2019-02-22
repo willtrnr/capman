@@ -8,31 +8,17 @@ arch=('x86_64')
 url="http://www.ibiblio.org/mc/"
 license=('GPL')
 groups=()
-depends=('e2fsprogs' 'glib2' 'gpm' 'libssh2' 'slang')
+depends=('aspell' 'slang')
 makedepends=()
-optdepends=('aspell: spelling corrections'
-            'cabextract: ucab extfs'
-            'cdparanoia: audio extfs'
-            'cdrkit: iso9660 extfs'
-            'cvs: CVS support'
-            'gawk: hp48+ extfs'
-            'mtools: a+ extfs'
-            'p7zip: support for 7zip archives'
-            'perl: needed by several extfs scripts'
-            'python2-boto: s3+ extfs'
-            'python2-pytz: s3+ extfs'
-            'samba: VFS support'
-            'unace: uace extfs'
-            'unarj: uarj extfs'
-            'unrar: urar extfs'
-            'zip: uzip extfs')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mc-4.8.20-chromeos-x86_64.tar.xz")
 sha256sums=('8b89fc714399ac3bac0b920c972574471273c7bd4dd3ca46175f18a6e02a6c98')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

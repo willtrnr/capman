@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Projects/libgudev"
 license=('LGPL2.1')
 groups=()
-depends=('glib2' 'libsystemd')
+depends=('gobject-introspection')
 makedepends=()
 optdepends=()
-provides=('libgudev-1.0.so=0-64')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libgudev-0.232-chromeos-x86_64.tar.xz")
 sha256sums=('3c41340787b2f362448cf8c32b2a00814e190bd2028605a6b925589d1fb177a1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

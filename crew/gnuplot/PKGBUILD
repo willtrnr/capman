@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnuplot.info"
 license=('custom')
 groups=()
-depends=('cairo' 'gd' 'gnutls' 'libjpeg' 'lua' 'qt5-svg' 'readline' 'wxgtk2')
+depends=('groff' 'libcerf' 'libxrender' 'libxxf86vm' 'lua' 'pango' 'readline7' 'readline')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gnuplot-5.2.4-chromeos-x86_64.tar.xz")
 sha256sums=('59bebf199e3de46e405b1ef27b0037f7a05d59cd97f53fa36e32878a3eb677c7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

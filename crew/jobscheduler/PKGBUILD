@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/jobscheduler-1.12.3-chromeos-x86_64.tar.xz")
 sha256sums=('b103672e6f0fbfe82ce2f81de472df9d607cf69bb2110d4c4b8265e1f9aa189b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

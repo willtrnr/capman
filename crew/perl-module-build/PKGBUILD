@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://search.cpan.org/dist/Module-Build"
 license=('GPL' 'PerlArtistic')
 groups=()
-depends=('perl' 'perl-cpan-meta' 'perl-inc-latest')
+depends=('perl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_module_build-0.4224-chromeos-x86_64.tar.xz")
 sha256sums=('4e32b1519375b8b3b2b7262e864f2ba1d4d777dda64e96bdfb2c79d82cd9914b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

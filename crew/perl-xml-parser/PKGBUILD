@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_xml_parser-2.44-1-chromeos-x86_64.tar.xz")
 sha256sums=('3ad7284bc32559076decee33bbb633e0bc3465f37f4af9c55ebff66bf662a288')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

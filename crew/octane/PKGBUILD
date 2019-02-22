@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/octane-2.0-chromeos-x86_64.tar.xz")
 sha256sums=('4bf8e2f68b3cfb22b212b824c5239f3ca4f3cd36cddd8e9c79991359aead9139')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

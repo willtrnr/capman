@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_fbdev_driver-0.4.4-chromeos-x86_64.tar.xz")
 sha256sums=('3dbeadf9bf8753c28c9950a9ce6d45583e52e8ad0e629caf422ba62968985137')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

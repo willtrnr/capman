@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://developer.gnome.org/notification-spec/"
 license=('LGPL')
 groups=()
-depends=('gdk-pixbuf2')
+depends=('gtk-doc' 'gtk3' 'gnome-common')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libnotify-0.7.7-chromeos-x86_64.tar.xz")
 sha256sums=('1aac27b842844b8d171517261c043a28b1d1ae06b6fdef9c74e03767a21f77bd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

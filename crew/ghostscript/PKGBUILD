@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://www.ghostscript.com/"
 license=('AGPL3' 'custom')
 groups=()
-depends=('dbus' 'fontconfig' 'ijs' 'jbig2dec' 'lcms2' 'libcups' 'libidn' 'libjpeg' 'libpaper' 'libpng' 'libtiff' 'libxt' 'openjpeg2' 'zlib')
+depends=('cups' 'gtk3' 'lcms' 'libpng' 'libtiff')
 makedepends=()
-optdepends=('gtk3: needed for gsx'
-            'texlive-core: needed for dvipdf')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ghostscript-9.14.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('23325d5f8c5cbb538a366313d68da5a35677ddf963ecfdfe8a40d0617c55b2bc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://scons.org"
 license=('MIT')
 groups=()
-depends=('python2')
+depends=('python27')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/scons-3.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('c1196e05cda0e471b61d6948cb02dd74a32e8c68794901bf63d72a6e7a0d135e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

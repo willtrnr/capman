@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.dest-unreach.org/socat/"
 license=('GPL2')
 groups=()
-depends=('openssl' 'readline')
+depends=('readline' 'openssl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/socat-1.7.3.2-chromeos-x86_64.tar.xz")
 sha256sums=('dbc08fb0daf806448fbb307021f2934fb07bf58c8ff3dc4c54bee8127b80c202')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

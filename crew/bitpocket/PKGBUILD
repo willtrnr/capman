@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bitpocket-0.2-chromeos-x86_64.tar.xz")
 sha256sums=('65b995eb9ea17bbce09c47d786cb1c38afac27952f2795fbcc4208b971e9de4a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

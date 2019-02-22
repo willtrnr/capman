@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://developers.google.com/speed/webp/"
 license=('BSD')
 groups=()
-depends=('giflib' 'libjpeg' 'libpng' 'libtiff')
+depends=('libpng' 'libsdl' 'libtiff' 'mesa')
 makedepends=()
-optdepends=('freeglut: vwebp viewer')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libwebp-0.6.1-1-chromeos-x86_64.tar.xz")
 sha256sums=('f1e466cecf4b6658eb9c604ae3ca388fa22d54b1fab2493e862f7b3a65640e74')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

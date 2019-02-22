@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://www.percona.com/software/database-tools/percona-toolkit"
 license=('GPL')
 groups=()
-depends=('perl-term-readkey')
+depends=('percona-server')
 makedepends=()
-optdepends=('perl-dbd-mysql: MySQL connections'
-            'perl-dbi: MySQL connections')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/percona_toolkit-3.0.7-chromeos-x86_64.tar.xz")
 sha256sums=('b3820dd0791160369b84a66017c6938ee6850074b9e3efefa2a1b4c64380727b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

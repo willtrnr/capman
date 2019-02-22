@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/gettext/"
 license=('GPL')
 groups=('base' 'base-devel')
-depends=('acl' 'gcc-libs' 'glib2' 'libcroco' 'libunistring' 'sh')
+depends=('ncurses' 'libxml2' 'icu4c')
 makedepends=()
-optdepends=('git: for autopoint infrastructure updates')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gettext-0.19.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('4853c8efad9bb6103ef58cdde7f07aedf794f7896d04d1919123aac04169cb98')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

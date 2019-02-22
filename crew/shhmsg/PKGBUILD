@@ -2,7 +2,7 @@
 
 pkgname=shhmsg
 pkgver=1.4.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Library for displaying messages"
 arch=('x86_64')
 url="http://shh.thathost.com/pub-unix"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/shhmsg-1.4.2-2-chromeos-x86_64.tar.xz")
 sha256sums=('8b931183312312ca51ebc29d9e9a3c87d64212a561dfbee32446c93ea8126c96')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

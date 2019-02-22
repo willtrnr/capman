@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.sane-project.org"
 license=('GPL')
 groups=()
-depends=('gimp' 'libjpeg>=7' 'sane')
+depends=('sane-backends' 'sommelier')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sane_frontends-c3e739-chromeos-x86_64.tar.xz")
 sha256sums=('7404a4f07aeaee09f4610faafa40251f6f22c93b92cce5eeed267305dd9e8576')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

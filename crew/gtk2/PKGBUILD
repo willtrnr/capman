@@ -1,24 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gtk2
-pkgver=2.24
+pkgver=2.24.32
 pkgrel=1
 pkgdesc="GObject-based multi-platform GUI toolkit (legacy)"
 arch=('x86_64')
 url="https://www.gtk.org/"
 license=('LGPL')
 groups=()
-depends=('atk' 'cairo' 'desktop-file-utils' 'gtk-update-icon-cache' 'libcups' 'librsvg' 'libxcomposite' 'libxcursor' 'libxdamage' 'libxi' 'libxinerama' 'libxrandr' 'pango' 'shared-mime-info')
+depends=('gtk-doc' 'atk' 'pango' 'gdk-pixbuf' 'cups' 'shared-mime-info')
 makedepends=()
-optdepends=('adwaita-icon-theme: Default icon theme'
-            'gnome-themes-standard: Default widget theme')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/gtk2-2.24-chromeos-x86_64.tar.xz")
-sha256sums=('96e236c0057e01ac2790ec5881349a2fa4b6c0821fa3d9ae477a1471f0c1d1af')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtk2-2.24.32-chromeos-x86_64.tar.xz")
+sha256sums=('e20fa7809d9937517700809b7894dd295615b79b800daec2e011b0e49d83f1b6')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

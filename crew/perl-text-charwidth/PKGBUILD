@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://search.cpan.org/dist/Text-CharWidth"
 license=('GPL' 'PerlArtistic')
 groups=()
-depends=()
+depends=('perl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_text_charwidth-0.04-chromeos-x86_64.tar.xz")
 sha256sums=('0f36d56af9de52d9b4f65f8d5f231b2fe0e4faf4b534906cf2e949fcc8b4c1a5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

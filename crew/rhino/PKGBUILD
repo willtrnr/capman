@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=rhino
+pkgver=1.7.10
+pkgrel=1
+pkgdesc="Open-source implementation of JavaScript written entirely in Java"
+arch=('x86_64')
+url="http://www.mozilla.org/rhino/"
+license=('MPL')
+groups=()
+depends=('jdk8')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/rhino-1.7.10-chromeos-x86_64.tar.xz")
+sha256sums=('714f7456528793ce3e97b97e6ea5883397252a748baa6a23f71b5a1f4fac9ade')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

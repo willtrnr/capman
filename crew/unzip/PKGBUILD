@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.info-zip.org/UnZip.html"
 license=('custom')
 groups=()
-depends=('bash' 'bzip2')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/unzip-1.6_1-1-chromeos-x86_64.tar.xz")
 sha256sums=('b3ef4ace8bc32020363d00183eaf19ec5f8358180292216558927f937da1daea')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

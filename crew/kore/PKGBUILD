@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/kore-2.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('5cbfea9a2817599e3ed083d43c8dc94c4a883b886dd8e8f167ac1623bb35baa0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

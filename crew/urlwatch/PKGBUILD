@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://thp.io/2008/urlwatch/"
 license=('BSD')
 groups=()
-depends=('python-appdirs' 'python-keyring' 'python-lxml' 'python-minidb' 'python-requests' 'python-yaml')
+depends=('python3' 'filecmd')
 makedepends=()
-optdepends=('lynx: convert HTML to plain text'
-            'python-beautifulsoup4: prettify HTML'
-            'python-html2text: convert HTML to plain text')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/urlwatch-2.7-1-chromeos-x86_64.tar.xz")
 sha256sums=('7c41c7dddfcc0d6ed8563019c047a1c940fe33b1b920b6071a3be8e432367c53')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

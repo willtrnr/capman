@@ -8,22 +8,17 @@ arch=('x86_64')
 url="http://www.weechat.org/"
 license=('GPL')
 groups=()
-depends=('curl' 'gnutls' 'libgcrypt')
+depends=('icu4c' 'libgcrypt')
 makedepends=()
-optdepends=('aspell'
-            'guile2.0'
-            'lua'
-            'perl'
-            'python2'
-            'ruby'
-            'tcl')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/weechat-2.1-chromeos-x86_64.tar.xz")
 sha256sums=('4ab72526832466b8d2166ab093951fe87cf2e4faba1e29361c95c6bc966210bd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

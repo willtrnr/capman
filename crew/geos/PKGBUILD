@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://trac.osgeo.org/geos/"
 license=('LGPL')
 groups=()
-depends=('bash' 'gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/geos-3.6.2-1-chromeos-x86_64.tar.xz")
 sha256sums=('08279556bb8b28bf5436c8abe1bc127e33f97e9a3cfa65b9a307a65a02dabf87')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

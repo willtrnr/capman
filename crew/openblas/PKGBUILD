@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.openblas.net/"
 license=('BSD')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
-provides=('blas=3.8.0')
-conflicts=('blas')
+provides=()
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/openblas-0.2.20-chromeos-x86_64.tar.xz")
 sha256sums=('4f26162240cb8dd302093465f0820f5f19b173664f024bd4fde041f0e7814889')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=perl-io-socket-ssl
+pkgver=2.060
+pkgrel=1
+pkgdesc="Nearly transparent SSL encapsulation for IO::Socket::INET"
+arch=('x86_64')
+url="http://search.cpan.org/dist/IO-Socket-SSL/"
+license=('GPL' 'PerlArtistic')
+groups=()
+depends=('perl')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/perl_io_socket_ssl-2.060-chromeos-x86_64.tar.xz")
+sha256sums=('821a9cb6261699a5d81069540971f42c4a4a2e7dfc46b92bea7b093e47653d17')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

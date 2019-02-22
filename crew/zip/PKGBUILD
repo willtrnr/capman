@@ -2,22 +2,23 @@
 
 pkgname=zip
 pkgver=3.0
-pkgrel=1
+pkgrel=11
 pkgdesc="Compressor/archiver for creating and modifying zipfiles"
 arch=('x86_64')
 url="http://www.info-zip.org/Zip.html"
 license=('custom')
 groups=()
-depends=('bzip2')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/zip-3.0-11-chromeos-x86_64.tar.xz")
 sha256sums=('c78a63d3630f3dbf637127e1a5a08942fd1da213cde296d33e77823e8547a56c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

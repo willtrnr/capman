@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://mate-desktop.org"
 license=('GPL')
 groups=()
-depends=('autoconf' 'automake' 'gettext' 'gtk-doc' 'intltool' 'libtool' 'pkg-config')
+depends=('gtk-doc')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mate_common-1.20-chromeos-x86_64.tar.xz")
 sha256sums=('d04c069aee911be73e5c80675e15a6bdfe3381432fc8bf293d6c29a592412694')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

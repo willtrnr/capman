@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/google/brotli"
 license=('MIT')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/brotli-1.0.4-chromeos-x86_64.tar.xz")
 sha256sums=('ab048b601fdbeb5b73f113517adb500e8c42164dcceb9450cc039b376762f546')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

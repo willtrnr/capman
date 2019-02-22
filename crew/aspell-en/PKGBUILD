@@ -2,7 +2,7 @@
 
 pkgname=aspell-en
 pkgver=2017.08.24
-pkgrel=1
+pkgrel=0
 pkgdesc="English dictionary for aspell"
 arch=('x86_64')
 url="http://aspell.net/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aspell_en-2017.08.24-0-chromeos-x86_64.tar.xz")
 sha256sums=('b6ec346286f878be4ae79b54a230398c1b0160e39afbe537748994ac0c08d926')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

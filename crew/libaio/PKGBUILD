@@ -2,7 +2,7 @@
 
 pkgname=libaio
 pkgver=0.3.110
-pkgrel=1
+pkgrel=2
 pkgdesc="The Linux-native asynchronous I/O facility (aio) library"
 arch=('x86_64')
 url="http://lse.sourceforge.net/io/aio.html"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libaio-0.3.110-2-chromeos-x86_64.tar.xz")
 sha256sums=('d2c211c05ff415f52f37102217726ba2e9b272daf178a63f0f612c9c2d4ebba5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

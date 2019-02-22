@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sphinx-1.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('c6021656491f639e064ed18c760f68fe094946a47e46d1a52b6bb0da98ae94f7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

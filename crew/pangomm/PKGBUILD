@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gtkmm.org/"
 license=('LGPL')
 groups=()
-depends=('cairomm' 'glibmm' 'pango')
+depends=('glibmm' 'cairomm' 'pango')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pangomm-2.40.1-chromeos-x86_64.tar.xz")
 sha256sums=('cbd631d55c635773fb18f1d1354dc2f1c13d339638ea2828a503b6cc03c4e191')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

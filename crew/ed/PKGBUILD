@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/ed/ed.html"
 license=('GPL')
 groups=()
-depends=('glibc' 'sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ed-1.14.2-1-chromeos-x86_64.tar.xz")
 sha256sums=('3f50a5390f50083ab4e3619792b65892637efe1675e8b65effe09404343d347a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

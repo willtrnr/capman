@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_time_hires-1.9758-chromeos-x86_64.tar.xz")
 sha256sums=('79dfe890436e0e110ae7af0e3905f1aea79b684c63cc751140638eb71e62170a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

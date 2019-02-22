@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/kubectl-1.7.0-chromeos-x86_64.tar.xz")
 sha256sums=('0c8d84f6d8802892d6cea9e238fd8fe132cb8db117467d85ba5e94dcaae30de4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

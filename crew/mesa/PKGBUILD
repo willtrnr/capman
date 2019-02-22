@@ -1,25 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=mesa
-pkgver=18.1.5
+pkgver=18.3.1
 pkgrel=1
 pkgdesc="An open-source implementation of the OpenGL specification"
 arch=('x86_64')
 url="https://www.mesa3d.org/"
 license=('custom')
 groups=()
-depends=('libdrm' 'libelf' 'libglvnd' 'libomxil-bellagio' 'libunwind' 'libxdamage' 'libxshmfence' 'libxxf86vm' 'llvm-libs' 'lm_sensors' 'wayland')
+depends=('libva' 'libvdpau' 'wayland-protocols' 'elfutils' 'llvm')
 makedepends=()
-optdepends=('libva-mesa-driver: for accelerated video playback'
-            'mesa-vdpau: for accelerated video playback'
-            'opengl-man-pages: for the OpenGL API man pages')
-provides=('ati-dri' 'intel-dri' 'mesa-dri' 'mesa-libgl' 'nouveau-dri' 'opengl-driver' 'svga-dri')
-conflicts=('ati-dri' 'intel-dri' 'mesa-dri' 'mesa-libgl' 'nouveau-dri' 'svga-dri')
-replaces=('ati-dri' 'intel-dri' 'mesa-dri' 'mesa-libgl' 'nouveau-dri' 'svga-dri')
-source=("https://dl.bintray.com/chromebrew/chromebrew/mesa-18.1.5-chromeos-x86_64.tar.xz")
-sha256sums=('b29ed0fb8b26de64e995de0a3bbc2390d8c0b0ab130cc75711e3ed367296e1a0')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/mesa-18.3.1-1-chromeos-x86_64.tar.xz")
+sha256sums=('7d633a3f7e772fc527ec70ab01d8a53126e1ccee204c5c1fb58efdc8ff438b39')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

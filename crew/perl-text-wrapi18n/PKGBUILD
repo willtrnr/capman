@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://search.cpan.org/dist/Text-WrapI18N/"
 license=('GPL' 'PerlArtistic')
 groups=()
-depends=('perl-text-charwidth')
+depends=('perl' 'perl-text-charwidth')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_text_wrapi18n-0.06-chromeos-x86_64.tar.xz")
 sha256sums=('5725c4a81381834d1c3701e05413d766d6882f98e7a0daf793cadb93e9a20962')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

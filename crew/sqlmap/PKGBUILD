@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://sqlmap.org"
 license=('GPL2')
 groups=()
-depends=('python2' 'sh')
+depends=('python27')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sqlmap-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('a4bf8317eb465acdf4bc743d6fddc838b16de909144cfa5706f6fbc45d942e7e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

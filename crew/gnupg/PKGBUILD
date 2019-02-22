@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://www.gnupg.org/"
 license=('GPL')
 groups=()
-depends=('bzip2' 'gnutls' 'libassuan' 'libgcrypt' 'libgpg-error' 'libksba' 'npth' 'pinentry' 'readline' 'sqlite')
+depends=('bz2' 'libassuan' 'libgcrypt' 'libksba' 'pinentry')
 makedepends=()
-optdepends=('libldap: gpg2keys_ldap'
-            'libusb-compat: scdaemon'
-            'pcsclite: scdaemon')
-provides=('dirmngr' 'gnupg2=2.2.12')
-conflicts=('dirmngr' 'gnupg2')
-replaces=('dirmngr' 'gnupg2')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gnupg-2.2.7-chromeos-x86_64.tar.xz")
 sha256sums=('eaa2a33957ce00de10e0655b326ba1d2d9512b749e1d81cbf205c4c6e064a729')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -5,19 +5,20 @@ pkgver=2.5.1
 pkgrel=1
 pkgdesc="IPC library used by some GnuPG related software"
 arch=('x86_64')
-url="http://www.gnupg.org/related_software/libassuan/"
+url="https://www.gnupg.org/related_software/libassuan/"
 license=('GPL')
 groups=()
-depends=('libgpg-error')
+depends=('libgpgerror')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libassuan-2.5.1-chromeos-x86_64.tar.xz")
 sha256sums=('e02c94c283f9b685327456a0b964050db456186fe86298ada238a02a356766cb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

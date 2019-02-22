@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Projects/LibRsvg"
 license=('LGPL')
 groups=()
-depends=('gdk-pixbuf2' 'libcroco' 'pango')
+depends=('gtk-doc' 'vala' 'cairo' 'pango' 'libcroco' 'gdk-pixbuf' 'gobject-introspection' 'gtk3')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/librsvg-2.42.3-chromeos-x86_64.tar.xz")
 sha256sums=('36d8876ec5ce51fd153cda5a64e52586e4a9853e3428cd1c24cf5be60f3a95ac')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

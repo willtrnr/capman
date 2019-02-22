@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sfk-1.8.7-chromeos-x86_64.tar.xz")
 sha256sums=('86c8b0fc3953d74b5225e16aec90dfb8e5c6f794f4d02ffb731e8ab8469c97e6')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

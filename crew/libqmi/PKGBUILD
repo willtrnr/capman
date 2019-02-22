@@ -5,19 +5,20 @@ pkgver=1.20.2
 pkgrel=1
 pkgdesc="QMI modem protocol helper library"
 arch=('x86_64')
-url="http://www.freedesktop.org/wiki/Software/libqmi/"
+url="https://www.freedesktop.org/wiki/Software/libqmi/"
 license=('GPL2')
 groups=()
-depends=('libgudev' 'libmbim')
+depends=('libgudev')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libqmi-1.20.2-chromeos-x86_64.tar.xz")
 sha256sums=('e52b18b3f21c9cbe69609e0c0c351ac8e7231c6ac29792d9f360451724818019')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

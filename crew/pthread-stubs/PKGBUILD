@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pthread_stubs-0.3-chromeos-x86_64.tar.xz")
 sha256sums=('6d38609d0e19a07642e1e463f68101dffa20b505cb88a443497fbe985cc1e852')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

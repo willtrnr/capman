@@ -5,19 +5,20 @@ pkgver=0.9.58
 pkgrel=1
 pkgdesc="a small C library that is supposed to make it easy to run an HTTP server as part of another application."
 arch=('x86_64')
-url="http://www.gnu.org/software/libmicrohttpd/"
+url="https://www.gnu.org/software/libmicrohttpd/"
 license=('LGPL')
 groups=()
-depends=('gnutls')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libmicrohttpd-0.9.58-chromeos-x86_64.tar.xz")
 sha256sums=('aa41e8d0577c54de70b7f830be5780d5b9f5d92ccafca54570d9a97a9b7fda15')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

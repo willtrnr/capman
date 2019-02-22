@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://sourceforge.net/projects/hdparm/"
 license=('BSD')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
-optdepends=('bash: for wiper.sh script')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/hdparm-9.32-chromeos-x86_64.tar.xz")
 sha256sums=('2c8d90661eaee768b43a87ac0c659fa2f9d24a3b83ef904f0cee61669e867724')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

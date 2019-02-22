@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gengetopt-2.22.6-chromeos-x86_64.tar.xz")
 sha256sums=('75c36bc7b44192695691b36009d2fa733dc7573cbb3f83c084ea45a57dcfdcda')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

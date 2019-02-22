@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.sleuthkit.org/sleuthkit"
 license=('CPL' 'custom:"IBM Public Licence"' 'GPL2')
 groups=()
-depends=('libewf' 'perl')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sleuthkit-4.6.0-chromeos-x86_64.tar.xz")
 sha256sums=('ec404bf9be6b70fd1638e45a997f26b74ad5522fa878a20a311d962d51562685')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

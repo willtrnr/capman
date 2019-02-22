@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://kotlinlang.org/"
 license=('APACHE' 'custom')
 groups=()
-depends=('java-environment>=8')
+depends=('jdk8')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/kotlin-1.2.21-chromeos-x86_64.tar.xz")
 sha256sums=('eb3b89c6bde5a07a7a4e32225c62dfb06a636e55ae640c3f35add313bedec5d0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

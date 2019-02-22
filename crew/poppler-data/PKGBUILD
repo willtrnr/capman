@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://poppler.freedesktop.org/"
 license=('custom' 'GPL2')
 groups=()
-depends=()
+depends=('poppler')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('poppler<0.10.5')
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/poppler_data-0.4.9-chromeos-x86_64.tar.xz")
 sha256sums=('cb660cd7accbdb437feb6704133040c74e09f80065a3c2020959385e31f4eec4')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

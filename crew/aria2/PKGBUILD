@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://aria2.sourceforge.net/"
 license=('GPL')
 groups=()
-depends=('ca-certificates' 'c-ares' 'gnutls' 'libssh2' 'libxml2' 'sqlite')
+depends=('c-ares' 'libgcrypt' 'libssh2' 'libxml2' 'sqlite' 'zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aria2-1.33.1-chromeos-x86_64.tar.xz")
 sha256sums=('94053db3425eb109f7831f9db293c439d4c0b0e17e70f40a3a3a5514a48b2b9a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

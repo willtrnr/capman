@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://docbook2x.sourceforge.net"
 license=('MIT')
 groups=()
-depends=('glibc' 'jade' 'libxslt' 'perl-sgmls' 'perl-xml-parser' 'perl-xml-sax' 'perl-xml-sax-expat')
+depends=('perl-xml-sax-parserfactory')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/docbook2x-0.8.8-chromeos-x86_64.tar.xz")
 sha256sums=('dca6f49d1bae407301a334edbde810845fa2aa6e2000b1cd1d658aac681cbdbe')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

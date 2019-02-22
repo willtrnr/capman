@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=php7
-pkgver=7.2.13
+pkgver=7.2.15
 pkgrel=1
 pkgdesc="PHP is a popular general-purpose scripting language that is especially suited to web development."
 arch=('x86_64')
 url="http://www.php.net/"
 license=('custom')
 groups=()
-depends=('readline7' 'libgcrypt' 'libpng' 'libxslt' 'curl' 'pcre')
+depends=('readline7' 'libgcrypt' 'libxslt' 'libzip' 'curl' 'exif' 'freetype' 'pcre' 're2c' 'tidy' 'unixodbc')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/php7-7.2.13-chromeos-x86_64.tar.xz")
-sha256sums=('816e2a00a31b200b668cfe4da1a4ad5a015e478d4f2af6b5c41a47875c6f6e25')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/php7-7.2.15-chromeos-x86_64.tar.xz")
+sha256sums=('a3ae79b8b427152365bff1009677d4036c627211cc85a44562019da5540f1b44')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

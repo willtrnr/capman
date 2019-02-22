@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://chromium.googlesource.com/chromiumos/containers/sommelier"
 license=('custom')
 groups=()
-depends=('mesa' 'xkbcomp' 'xwayland' 'psmisc' 'xsetroot')
+depends=('mesa' 'xkbcomp' 'xorg-server' 'psmisc' 'xsetroot')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sommelier-1382ce084cc4-chromeos-x86_64.tar.xz")
 sha256sums=('29813316bbb6421f5a54ca45ccb52d0ab88f2a4c84bb84b823bb08fc50dd8216')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnu.org/software/m4"
 license=('GPL3')
 groups=('base-devel')
-depends=('bash' 'glibc')
+depends=('libsigsegv')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/m4-1.4.18-chromeos-x86_64.tar.xz")
 sha256sums=('d364c72f7cf138bf120aa18a5a0b1e4500b50f79bc927f435c468cbd4bf4cc9b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

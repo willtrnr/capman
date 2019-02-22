@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/halibut-1.2-chromeos-x86_64.tar.xz")
 sha256sums=('93bd79b97de9b7be01ccbe82ab3272ad9be6ead4e26376ac2ce4529e5b50a9dc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

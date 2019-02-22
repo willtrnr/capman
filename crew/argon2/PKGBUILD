@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/P-H-C/phc-winner-argon2"
 license=('Apache' 'custom:CC0')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/argon2-20171227-chromeos-x86_64.tar.xz")
 sha256sums=('700fbeddc09b599c7525bb16487f3e73ece490e6e3ad92919baf3888af65464d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

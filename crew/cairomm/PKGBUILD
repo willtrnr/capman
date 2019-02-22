@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.cairographics.org/cairomm/"
 license=('LGPL' 'MPL')
 groups=()
-depends=('cairo' 'libsigc++')
+depends=('cairo' 'libsigcplusplus' 'libxxf86vm' 'libxrender')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cairomm-1.12.2-chromeos-x86_64.tar.xz")
 sha256sums=('d5510efba06f2543a15761be7b9d7a08f980db22022f84b011436f1faf787b33')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

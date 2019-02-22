@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=kcov
+pkgver=v36
+pkgrel=1
+pkgdesc="Code coverage tester for compiled programs, Python scripts and shell scripts"
+arch=('x86_64')
+url="http://simonkagstrom.github.com/kcov/index.html"
+license=('GPL2')
+groups=()
+depends=('curl' 'elfutils' 'six')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/kcov-v36-chromeos-x86_64.tar.xz")
+sha256sums=('35ccebb9cda52beb4cf13977483fcb4ebc6011fe0c1e52ce9be2cefb5fbd300a')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

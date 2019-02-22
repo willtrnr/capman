@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/whiptail-0.52.20-chromeos-x86_64.tar.xz")
 sha256sums=('37464683ae2aec9af4788ab3159ea8de3b407092cc1bb06bdc94937291ec5a93')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

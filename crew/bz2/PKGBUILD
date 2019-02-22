@@ -2,7 +2,7 @@
 
 pkgname=bz2
 pkgver=1.0.6
-pkgrel=1
+pkgrel=3
 pkgdesc="bzip2 is a freely available, patent free, high-quality data compressor."
 arch=('x86_64')
 url="http://www.bzip.org/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/bz2-1.0.6-2-chromeos-x86_64.tar.xz")
-sha256sums=('03750d307fca3c0ea2829ba357196373630400299fd519da6963f266cd10a091')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/bz2-1.0.6-3-chromeos-x86_64.tar.xz")
+sha256sums=('3ec7418e132350c4989ff2a6856b320d68fbec02913043a6c19f2c025732217f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

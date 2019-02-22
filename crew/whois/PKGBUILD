@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/rfc1036/whois"
 license=('GPL')
 groups=()
-depends=('libidn2')
+depends=('gettext')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/whois-5.2.20-chromeos-x86_64.tar.xz")
 sha256sums=('b8125e4f3ab2652c45069d0e56ea7eb9118f7555e4b1deafb057f43ac42b691b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://apps.jcns.fz-juelich.de/doku/sc/libcerf"
 license=('custom')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcerf-1.5-chromeos-x86_64.tar.xz")
 sha256sums=('0ab2007863a453cd498c9a2be2ffd42ea37e3c469cb1874547916a0375482a0c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

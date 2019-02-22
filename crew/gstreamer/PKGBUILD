@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gstreamer.freedesktop.org/"
 license=('LGPL')
 groups=()
-depends=('glib2' 'libcap' 'libelf' 'libunwind' 'libxml2')
+depends=('glib' 'libcap' 'gtk3' 'gsl' 'elfutils' 'libunwind' 'python27')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gstreamer-1.14.4-chromeos-x86_64.tar.xz")
 sha256sums=('ffef3b7e782be4821276a5f75c4b75e096a145901193b962b3e94b6ac63252ca')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

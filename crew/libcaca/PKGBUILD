@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://caca.zoy.org/wiki/libcaca"
 license=('custom:WTFPL')
 groups=()
-depends=('imlib2' 'ncurses')
+depends=('imlib2' 'libx11' 'ncurses' 'slang')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcaca-0.99.beta19-1-chromeos-x86_64.tar.xz")
 sha256sums=('fc4454b4934dc0d5ac1b08402b3a73a53d8bfe0cb0da23a72ef46166465f5124')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

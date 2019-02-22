@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://live.gnome.org/Dia"
 license=('GPL')
 groups=()
-depends=('gtk2' 'libxslt')
+depends=('cairo' 'gtk2' 'libart' 'libpng' 'libwmf' 'six' 'swig1' 'sommelier')
 makedepends=()
-optdepends=('python2')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dia-0.97.2-1-chromeos-x86_64.tar.xz")
 sha256sums=('6c8f42b5f5da58ebfca61c328ef621e7462b1f624c5a0d7001de7eac325ba2bc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

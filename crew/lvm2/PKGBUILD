@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://sourceware.org/lvm2/"
 license=('GPL2' 'LGPL2.1')
 groups=('base')
-depends=('bash' 'device-mapper>=2.02.183' 'libsystemd' 'libutil-linux' 'readline' 'thin-provisioning-tools')
+depends=('readline')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('lvm' 'mkinitcpio<0.7')
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lvm2-2.02.176-chromeos-x86_64.tar.xz")
 sha256sums=('62ae341a5d0120f03ec7d33db3fbe1a0e93d25717223c0f68f8f319bf9274da3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

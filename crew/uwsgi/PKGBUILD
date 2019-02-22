@@ -8,12 +8,13 @@ arch=('x86_64')
 url="http://projects.unbit.it/uwsgi"
 license=('GPL2')
 groups=()
-depends=('jansson' 'libcap' 'libsystemd' 'libxml2' 'pam' 'pcre')
-makedepends=('bzip2' 'classpath' 'curl' 'gcc' 'gmp' 'jansson' 'java-environment=7' 'libedit' 'libxml2' 'libyaml' 'lua51' 'mono' 'openssl' 'pam' 'pcre' 'perl' 'php-embed' 'pypy' 'python' 'python2' 'python2-gevent' 'python2-greenlet' 'python-greenlet' 'ruby' 'systemd')
-optdepends=('systemd: daemon scripts')
+depends=('python27' 'pcre')
+makedepends=()
+optdepends=()
 provides=()
-conflicts=('python-uwsgi')
+conflicts=()
 replaces=()
+options=(staticlibs)
 source=()
 sha256sums=()
 
@@ -23,6 +24,6 @@ build() {
 }
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Accessibility"
 license=('GPL2')
 groups=()
-depends=('atk' 'at-spi2-core' 'libx11' 'libxml2')
+depends=('at-spi2-core' 'atk')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/at_spi2_atk-2.26.1-chromeos-x86_64.tar.xz")
 sha256sums=('01c66589188a81499b7ac4424f937f3adbe7265bb1c55d8d0d8746df8d302061')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

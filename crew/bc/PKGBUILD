@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnu.org/software/bc/"
 license=('GPL')
 groups=()
-depends=('readline')
+depends=('readline' 'flex')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('bc-readline')
-replaces=('bc-readline')
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bc-1.07.1-chromeos-x86_64.tar.xz")
 sha256sums=('d50ced1d0e56bb389e57bf431bbc8a18632d42dfd483b6416de9310cc782b125')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://git-lfs.github.com"
 license=('MIT')
 groups=()
-depends=('git')
+depends=('go')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/git_lfs-2.2.1-chromeos-x86_64.tar.xz")
 sha256sums=('10a0ed5b9ec97692c89314d2fbfb38e173e23414d6724464b71a310db11c18be')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

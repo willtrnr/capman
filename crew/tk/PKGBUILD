@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://tcl.sourceforge.net/"
 license=('custom')
 groups=()
-depends=('libxft' 'libxss' 'tcl=8.6.9')
+depends=('tcl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tk-8.6.8-chromeos-x86_64.tar.xz")
 sha256sums=('0d036e369efa5c3199ebeaf9ae71e5dea15b982fa3d885fbb6b8dcd19cfdf3e3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

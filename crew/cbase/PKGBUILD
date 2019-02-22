@@ -2,7 +2,7 @@
 
 pkgname=cbase
 pkgver=1.3.7
-pkgrel=1
+pkgrel=3
 pkgdesc="cbase is a C library of useful functions that simplify systems software development on System V UNIX."
 arch=('x86_64')
 url="http://www.hyperrealm.com/oss_cbase.shtml"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cbase-1.3.7-3-chromeos-x86_64.tar.xz")
 sha256sums=('386d2a466b6a4412a9e655a94c04769e7705e1049aa5b0a4b3ec438dd36f8b55')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

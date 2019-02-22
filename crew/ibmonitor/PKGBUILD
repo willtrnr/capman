@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ibmonitor-1.4-chromeos-x86_64.tar.xz")
 sha256sums=('1c56681a1f5c22ccd9bb42a0610937e0097371503ac1d8dd599c7cf945948009')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

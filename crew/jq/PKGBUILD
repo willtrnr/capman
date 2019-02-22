@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://stedolan.github.io/jq/"
 license=('MIT')
 groups=()
-depends=('glibc' 'oniguruma')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/jq-1.5-chromeos-x86_64.tar.xz")
 sha256sums=('eaddfe1fd38c4d93a9c5b7ecf8bd1cd75a1c8e00e8230696c29dab50726068bb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

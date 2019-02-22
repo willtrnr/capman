@@ -1,11 +1,11 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=lha
-pkgver=1.14i
+pkgver=6f6cbc1
 pkgrel=1
 pkgdesc="LHa for UNIX is a console-based utility that uncompresses and compresses .lha packages."
 arch=('x86_64')
-url="http://freecode.com/projects/lhaforunix"
+url="https://lha.osdn.jp/"
 license=('custom')
 groups=()
 depends=()
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/lha-1.14i-ac20050924p1-chromeos-x86_64.tar.xz")
-sha256sums=('9280e8721afc828eaaa7b9d8b26550ccef1356e51b841363e83425b1588092ff')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/lha-6f6cbc1-chromeos-x86_64.tar.xz")
+sha256sums=('e1894e33a4ed0932a493d049007e8d4ac70d94ec5e46247a04d448f23bf32c5d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

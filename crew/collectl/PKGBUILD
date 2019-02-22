@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/collectl-4.3.0-chromeos-x86_64.tar.xz")
 sha256sums=('b6969809ec05e685dae42ef0345a2c3375e2d12ea2f4cfbcf1d37878d329484a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

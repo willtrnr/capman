@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gdk_pixbuf-2.36.7-1-chromeos-x86_64.tar.xz")
 sha256sums=('044b281179d0d781757bd131fc181169e74bf3018f4de51fa8550449ea96f19e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

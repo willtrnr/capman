@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.freedesktop.org/wiki/Software/XKeyboardConfig"
 license=('custom')
 groups=()
-depends=()
+depends=('libx11')
 makedepends=()
 optdepends=()
-provides=('xkbdata')
-conflicts=('xkbdata')
-replaces=('xkbdata')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xkeyboard_config-2.21-chromeos-x86_64.tar.xz")
 sha256sums=('8bdf41c09086fb7209ebb87072b5ef8268176f5051e99f60aa0375046585f776')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

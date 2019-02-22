@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://optipng.sourceforge.net/"
 license=('ZLIB')
 groups=()
-depends=('glibc' 'libpng' 'zlib')
+depends=('libpng')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/optipng-0.7.7-chromeos-x86_64.tar.xz")
 sha256sums=('cc4c62f535d32680b40ec79f8334b1d046032ff773596cc87f2c127128b032d3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.musicpd.org/clients/mpc/"
 license=('GPL2')
 groups=()
-depends=('libmpdclient')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mpc-1.1.0-chromeos-x86_64.tar.xz")
 sha256sums=('1fe81b949e466649174009019f96fbc09ea5161dfc99f0d5e462da196b5b64a1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

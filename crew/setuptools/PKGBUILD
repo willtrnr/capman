@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/setuptools-40.4.2-chromeos-x86_64.tar.xz")
 sha256sums=('aaacaa06bc21e765772d65995f2c1a3d14609ce7a8da49539448c47e284c8d0d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

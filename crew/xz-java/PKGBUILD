@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xz_java-1.8-chromeos-x86_64.tar.xz")
-sha256sums=('911b67621907a1fca84fbdf3fce3cb3910a508bdf0b73731e0bf9c9a76920c29')
+sha256sums=('eb2980fe8486f6ecc571eb194368bd354bd544ec7f035bd4177bfdb68c239b74')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

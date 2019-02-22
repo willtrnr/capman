@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/powerstat-0.02.14-chromeos-x86_64.tar.xz")
 sha256sums=('81b9ad7bfdf9bcc6c95148a4d8216f0105a0a54ed31419bb637eeb374901afd5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.mercurial-scm.org/"
 license=('GPL')
 groups=()
-depends=('python2')
+depends=('python27')
 makedepends=()
-optdepends=('tk: for the hgk GUI')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mercurial-4.2.2-chromeos-x86_64.tar.xz")
 sha256sums=('5e33ff3958f26ff084330c833b90afd90314f28f9d60ec17150be63ab4b7e305')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

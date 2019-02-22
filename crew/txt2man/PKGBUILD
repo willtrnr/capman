@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/mvertes/txt2man"
 license=('GPL')
 groups=()
-depends=('bash' 'gawk')
+depends=('gawk' 'mandb')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/txt2man-1.5.6-1-chromeos-x86_64.tar.xz")
 sha256sums=('e0776d50fcdc817d6646b9424029ab244bcfcfaa4a16c209bfb7b29bb5e14dab')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

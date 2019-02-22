@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.netfilter.org/projects/libmnl/"
 license=('LGPL2.1')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libmnl-1.0.4-chromeos-x86_64.tar.xz")
 sha256sums=('a67ed03507bb290ce861336a7cfd7f1a45a16b25b4c1a9abef1262b6ede7f0b8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

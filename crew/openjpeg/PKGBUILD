@@ -8,17 +8,17 @@ arch=('x86_64')
 url="http://www.openjpeg.org"
 license=('BSD')
 groups=()
-depends=('zlib')
+depends=()
 makedepends=()
-optdepends=('lcms2: j2k_to_image and image_to_j2k programs'
-            'libpng: j2k_to_image and image_to_j2k programs')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/openjpeg-2.3.0-chromeos-x86_64.tar.xz")
 sha256sums=('e76d1c1a50876326b74096733f81a84eff68e979404f9a7ce584a9d040b05bef')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

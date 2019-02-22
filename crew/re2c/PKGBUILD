@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=re2c
+pkgver=1.1.1
+pkgrel=1
+pkgdesc="A tool for generating C-based recognizers from regular expressions"
+arch=('x86_64')
+url="http://re2c.org"
+license=('domain' 'public')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/re2c-1.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('f1d91e37777b18324aea0e6dcad7927c50aed93daa91be6118a7760eebfa5b7a')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

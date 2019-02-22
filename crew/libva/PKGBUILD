@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libva
+pkgver=2.3.0
+pkgrel=1
+pkgdesc="Video Acceleration (VA) API for Linux"
+arch=('x86_64')
+url="https://01.org/linuxmedia/vaapi"
+license=('MIT')
+groups=()
+depends=('libdrm')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libva-2.3.0-chromeos-x86_64.tar.xz")
+sha256sums=('2bb0f970dc79c3f4a1046f6b1ef6b30c2bd10e3b5a86d17efdb5eb1ac35f2dbf')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

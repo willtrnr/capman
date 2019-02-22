@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://projects.gw-computing.net/projects/dfc"
 license=('BSD')
 groups=()
-depends=('glibc')
+depends=('gettext')
 makedepends=()
 optdepends=()
 provides=()
-conflicts=('dfc-git')
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dfc-3.1.1-chromeos-x86_64.tar.xz")
 sha256sums=('9dccac46a97222d4f89002c7c5a8bc97b7b1d237b79a53251e03fdf9f4ff17e3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

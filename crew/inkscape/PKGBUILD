@@ -8,21 +8,17 @@ arch=('x86_64')
 url="https://inkscape.org/"
 license=('GPL' 'LGPL')
 groups=()
-depends=('desktop-file-utils' 'gc' 'gsl' 'gtkmm' 'gtkspell' 'hicolor-icon-theme' 'libcdr' 'libmagick6' 'libxslt' 'poppler-glib' 'popt' 'potrace' 'python2' 'ttf-dejavu')
+depends=('bdwgc' 'boost' 'gsl' 'gtkmm2' 'hicolor-icon-theme' 'imagemagick6' 'imagemagick7' 'llvm' 'popt' 'xdg-base' 'sommelier')
 makedepends=()
-optdepends=('gvfs: import clip art'
-            'pstoedit: latex formulas'
-            'python2-lxml: some extensions and filters'
-            'python2-numpy: some extensions'
-            'python2-scour: optimized SVG output'
-            'texlive-core: latex formulas')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/inkscape-0.92.3-chromeos-x86_64.tar.xz")
 sha256sums=('82456ad92d50e2167e8e79f8072d1a13fcaf51d8837ab6bec942034ae80ba09d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

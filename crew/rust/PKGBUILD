@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.rust-lang.org/"
 license=('Apache' 'MIT')
 groups=()
-depends=('curl' 'gcc-libs' 'libssh2' 'llvm-libs')
+depends=()
 makedepends=()
 optdepends=()
-provides=('cargo' 'rustfmt')
-conflicts=('cargo' 'rustfmt')
-replaces=('cargo' 'rustfmt')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/rust-1.23.0-chromeos-x86_64.tar.xz")
 sha256sums=('f6c0ab056802e0d82a8e87664b8a3af8f536a2122e064596a795189bd73bed20')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

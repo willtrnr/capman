@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://nixos.org/patchelf.html"
 license=('GPL3')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/patchelf-0.9-chromeos-x86_64.tar.xz")
 sha256sums=('361e72c9da52a344671c2e7826de40c04688ba99c075a83ed62aaf3ba89bc082')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

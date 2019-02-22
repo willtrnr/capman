@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gdbm
-pkgver=1.18
+pkgver=1.18.1
 pkgrel=1
 pkgdesc="GNU database library"
 arch=('x86_64')
 url="http://www.gnu.org/software/gdbm/gdbm.html"
 license=('GPL3')
 groups=()
-depends=('glibc' 'sh')
+depends=('readline7')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/gdbm-1.18-chromeos-x86_64.tar.xz")
-sha256sums=('f9a1eeed7bfbd803705df5314aaf4585df2e3eb04b1b22e80e254b836281518f')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gdbm-1.18.1-chromeos-x86_64.tar.xz")
+sha256sums=('b52cde5502c9bf35fe485776d976d1a44a872e2ffee8964297ac2fe3ef0d064e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

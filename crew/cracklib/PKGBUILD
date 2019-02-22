@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/cracklib/cracklib"
 license=('GPL')
 groups=()
-depends=('glibc' 'zlib')
+depends=('glibc' 'zlibpkg')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cracklib-2.9.6-chromeos-x86_64.tar.xz")
 sha256sums=('b849e7c6f03b14c88c6fdeac85faf3b2a3dbc8004573034e1779f0fe4592490f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

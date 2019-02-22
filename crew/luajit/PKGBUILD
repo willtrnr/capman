@@ -2,22 +2,23 @@
 
 pkgname=luajit
 pkgver=2.0.5
-pkgrel=1
+pkgrel=2
 pkgdesc="Just-in-time compiler and drop-in replacement for Lua 5.1"
 arch=('x86_64')
 url="http://luajit.org/"
 license=('MIT')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/luajit-2.0.5-2-chromeos-x86_64.tar.xz")
 sha256sums=('d95af6ff12ca102dfad963a0606b5e2181f9e3fd68788b470f21de580f52142b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

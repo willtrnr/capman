@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://joeyh.name/code/moreutils/"
 license=('GPL')
 groups=()
-depends=('perl' 'perl-ipc-run' 'perl-timedate' 'perl-time-duration')
+depends=('docbook' 'libxslt')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=('moreutils-svn')
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/moreutils-0.60-chromeos-x86_64.tar.xz")
 sha256sums=('dea55d855398f5b88d255ab185f44446acb57ae0d1108057755278f68dc1f4f8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

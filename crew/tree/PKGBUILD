@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://mama.indstate.edu/users/ice/tree/"
 license=('GPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tree-1.7.0-chromeos-x86_64.tar.xz")
 sha256sums=('b17546851d8bc23cb0d21ec6fd0bf7a73fff74206f9fbb58e088d6ba6df58a4d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

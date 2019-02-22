@@ -10,15 +10,15 @@ license=('GPL')
 groups=()
 depends=()
 makedepends=()
-optdepends=('tcl: for cm2rem.tcl'
-            'tk: for tkremind')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/remind-03.01.15-chromeos-x86_64.tar.xz")
 sha256sums=('93144719846bf23d63c0b31c688ce5815b74e6600fe034d9c783cdd6887c7b0f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

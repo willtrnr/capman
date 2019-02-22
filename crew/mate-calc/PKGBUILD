@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://mate-desktop.org"
 license=('GPL')
 groups=('mate-extra')
-depends=('gtk3')
+depends=('gtk3' 'mate-common' 'yelp-tools')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mate_calc-1.21-chromeos-x86_64.tar.xz")
 sha256sums=('c5848a45335a4bcbb9e4066c3e90875a82b3ebc1486fe1279ded5babbddd3148')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

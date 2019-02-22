@@ -2,22 +2,23 @@
 
 pkgname=aircrack-ng
 pkgver=1.2
-pkgrel=1
+pkgrel=3
 pkgdesc="Key cracker for the 802.11 WEP and WPA-PSK protocols"
 arch=('x86_64')
 url="https://www.aircrack-ng.org"
 license=('GPL2')
 groups=()
-depends=('ethtool' 'iw' 'libpcap' 'net-tools' 'openssl' 'pcre' 'python' 'sqlite' 'wireless_tools')
+depends=('libnl3' 'libpcap' 'sqlite' 'rfkill' 'zlibpkg')
 makedepends=()
 optdepends=()
-provides=('aircrack-ng-scripts')
-conflicts=('aircrack-ng-scripts')
-replaces=('aircrack-ng-scripts')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aircrack_ng-1.2-rc4-3-chromeos-x86_64.tar.xz")
 sha256sums=('8331f17911c1eac404a91eefd1a2673b4a2229f3c555155ca7622d534f59ca19')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

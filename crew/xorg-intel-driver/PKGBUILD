@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_intel_driver-3.3.17-chromeos-x86_64.tar.xz")
 sha256sums=('a9c50a31933fba36b7e3440b897b52cb18c2e264b8ac86aa2253e0cb899cb2a3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

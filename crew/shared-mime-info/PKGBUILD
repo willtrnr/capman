@@ -5,19 +5,20 @@ pkgver=1.10
 pkgrel=1
 pkgdesc="Freedesktop.org Shared MIME Info"
 arch=('x86_64')
-url="https://freedesktop.org/Software/shared-mime-info"
+url="https://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/"
 license=('GPL2')
 groups=()
-depends=('glib2' 'libxml2')
+depends=('glib')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/shared_mime_info-1.10-chromeos-x86_64.tar.xz")
 sha256sums=('c408efcebe364232ba42bde95f4a67d5398cb827003bd91081b14c8172709a69')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

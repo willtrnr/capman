@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/six-1.11.0-chromeos-x86_64.tar.xz")
 sha256sums=('9b3e2de8109ab192bd6b5522619fd6fe4b39b44beb0d89b45091d82805123b2c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

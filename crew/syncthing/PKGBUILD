@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://syncthing.net/"
 license=('MPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/syncthing-0.14.41-chromeos-x86_64.tar.xz")
 sha256sums=('60c9415478f1f640043ca18cfce40afa60c623d734e80df191620e1e2b935379')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

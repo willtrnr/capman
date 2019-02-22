@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=xmessage
+pkgver=1.0.5
+pkgrel=1
+pkgdesc="Xmessage displays a message or query in a window."
+arch=('x86_64')
+url="https://www.x.org/"
+license=('custom')
+groups=()
+depends=('xorg-lib')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/xmessage-1.0.5-chromeos-x86_64.tar.xz")
+sha256sums=('1ccd1102b9debf4c9a7b7ca877b2010622ac013cc551fb0d7d9b3a772355ac80')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

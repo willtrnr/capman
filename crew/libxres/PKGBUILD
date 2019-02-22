@@ -2,22 +2,23 @@
 
 pkgname=libxres
 pkgver=1.2.0
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 Resource extension library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org"
 license=('custom')
 groups=()
-depends=('libxext')
+depends=('libxext' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxres-1.2.0-0-chromeos-x86_64.tar.xz")
 sha256sums=('4c765244df508377ed52517cb56a572a76b319b68e9bb88074870f1530f922d1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

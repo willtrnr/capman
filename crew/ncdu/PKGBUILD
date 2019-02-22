@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ncdu-1.12-chromeos-x86_64.tar.xz")
 sha256sums=('5b764d5d1f4bc9186384e2aa3d7c51aa84c9c2ed1f6eb78a0ac3ed431d875745')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

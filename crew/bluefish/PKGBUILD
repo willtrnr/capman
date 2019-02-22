@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://bluefish.openoffice.nl/"
 license=('GPL3')
 groups=()
-depends=('enchant' 'gtk3' 'python2')
+depends=('enchant' 'gtk3' 'gnome-icon-theme' 'gucharmap' 'hicolor-icon-theme' 'python3' 'shared-mime-info' 'xdg-base' 'sommelier')
 makedepends=()
-optdepends=('gucharmap: for using the charmap plugin')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/bluefish-2.2.10-chromeos-x86_64.tar.xz")
 sha256sums=('7403531e5aef2c5d7afe05433fa4d6c3b5b74797a3b4e81ef4ebd20c32de228d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

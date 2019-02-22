@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/openrtsp-2018.02.28-chromeos-x86_64.tar.xz")
 sha256sums=('8750845fd5e8469badc4a6d7c7c5026719efc788bbde3abfa1de083cb61732af')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

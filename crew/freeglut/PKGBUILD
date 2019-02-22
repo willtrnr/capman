@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://freeglut.sourceforge.net/"
 license=('MIT')
 groups=()
-depends=('libgl' 'libxi' 'libxrandr')
+depends=('libglu')
 makedepends=()
 optdepends=()
-provides=('glut')
-conflicts=('glut')
-replaces=('glut')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/freeglut-3.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('00f1c07741619855037ed004f9ab6a5662fdbc500cb8180513fd39f289d668ea')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

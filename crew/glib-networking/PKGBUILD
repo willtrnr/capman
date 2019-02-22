@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://gitlab.gnome.org/GNOME/glib-networking"
 license=('GPL2')
 groups=()
-depends=('glib2' 'gnutls' 'gsettings-desktop-schemas' 'libproxy')
+depends=('libproxy' 'gsettings-desktop-schemas')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/glib_networking-2.57.3-chromeos-x86_64.tar.xz")
 sha256sums=('1cc6f98c79144848a68189470e195518348a997673a01474ec41f0cc63b72134')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

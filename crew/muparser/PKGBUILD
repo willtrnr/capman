@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://muparser.sourceforge.net/"
 license=('custom')
 groups=()
-depends=('gcc-libs')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/muparser-2.6.1-chromeos-x86_64.tar.xz")
 sha256sums=('f00187a350bb837e95c946ed8a85fcfa47ee62e34891155dd4a9f255aa529b39')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

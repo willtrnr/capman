@@ -2,7 +2,7 @@
 
 pkgname=libevent
 pkgver=2.1.8
-pkgrel=1
+pkgrel=0
 pkgdesc="An event notification library"
 arch=('x86_64')
 url="http://libevent.org/"
@@ -10,14 +10,15 @@ license=('BSD')
 groups=()
 depends=('openssl')
 makedepends=()
-optdepends=('python2: to use event_rpcgen.py')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libevent-2.1.8-0-chromeos-x86_64.tar.xz")
 sha256sums=('414ce2cd93f54f9a904f6ce59f4111d85cc1f126ea059750e6fe7df1fbe9eb1d')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

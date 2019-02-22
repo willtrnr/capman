@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gtk3
-pkgver=3.22.29
+pkgver=3.24.3
 pkgrel=1
 pkgdesc="GObject-based multi-platform GUI toolkit"
 arch=('x86_64')
 url="https://www.gtk.org/"
 license=('LGPL')
 groups=()
-depends=('adwaita-icon-theme' 'atk' 'at-spi2-atk' 'cairo' 'cantarell-fonts' 'colord' 'dconf' 'desktop-file-utils' 'gdk-pixbuf2' 'gtk-update-icon-cache' 'json-glib' 'libcanberra' 'libcups' 'libepoxy' 'librsvg' 'libxcomposite' 'libxcursor' 'libxdamage' 'libxi' 'libxinerama' 'libxkbcommon' 'libxrandr' 'mesa' 'pango' 'rest' 'shared-mime-info' 'wayland' 'wayland-protocols')
+depends=('gdk-pixbuf' 'json-glib' 'libepoxy' 'graphene' 'libxkbcommon' 'at-spi2-atk' 'gobject-introspection' 'cups' 'gnome-icon-theme' 'hicolor-icon-theme' 'shared-mime-info')
 makedepends=()
 optdepends=()
-provides=('gtk3-print-backends')
-conflicts=('gtk3-print-backends')
-replaces=('gtk3-print-backends<=3.22.26-1')
-source=("https://dl.bintray.com/chromebrew/chromebrew/gtk3-3.22.29-0-chromeos-x86_64.tar.xz")
-sha256sums=('f55a4969e7f0ddbeed5586455864d3b83345c1f6b0ef4c2b6fcb000046d56e9d')
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gtk3-3.24.3-chromeos-x86_64.tar.xz")
+sha256sums=('8da6876ff6e855939610854117c49096d36d9a7f57bc25c8fb49c130834bc366')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

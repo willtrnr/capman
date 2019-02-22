@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://wiki.gnome.org/Projects/libsoup"
 license=('LGPL')
 groups=()
-depends=('glib2' 'glib-networking' 'krb5' 'libpsl' 'libxml2' 'sqlite')
+depends=('glib-networking' 'libpsl' 'sqlite' 'vala')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libsoup-2.63.90-chromeos-x86_64.tar.xz")
 sha256sums=('ff90e07fce6397d3ba711a615379f487266af5aa77359fa60fb193dff8da2dcb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

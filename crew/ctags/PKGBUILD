@@ -2,22 +2,23 @@
 
 pkgname=ctags
 pkgver=5.8
-pkgrel=1
+pkgrel=0
 pkgdesc="Generates an index file of language objects found in source files"
 arch=('x86_64')
 url="https://ctags.io/"
 license=('GPL')
 groups=()
-depends=('jansson' 'libseccomp' 'libxml2' 'libyaml')
+depends=()
 makedepends=()
 optdepends=()
-provides=('universal-ctags')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ctags-5.8-0-chromeos-x86_64.tar.xz")
 sha256sums=('ab996808d0c2c63d729e036cd12d5a38829dfb4bf9c5ee240db1f7201a55c723')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

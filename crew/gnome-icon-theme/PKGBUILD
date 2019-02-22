@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.gnome.org"
 license=('GPL')
 groups=()
-depends=('gnome-icon-theme-symbolic' 'gtk-update-icon-cache' 'hicolor-icon-theme')
+depends=('icon-naming-utils')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_icon_theme-3.12.0-chromeos-x86_64.tar.xz")
-sha256sums=('43f0676b7b5a59eab61f54b3e4213f27e7397c591c77d738349f1cb971886ffd')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnome_icon_theme-3.12.0-1-chromeos-x86_64.tar.xz")
+sha256sums=('98e7ee87dd207e81663dca35d752f92808d64cb8ebeb6a815a6ad3a8c2402e27')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

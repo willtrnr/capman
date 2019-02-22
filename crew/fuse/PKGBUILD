@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fuse-2.8.6-chromeos-x86_64.tar.xz")
 sha256sums=('c7a29efb8445804c05b642e102db77e3b1660e74b89fc200572a03a8a7aa5bd1')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

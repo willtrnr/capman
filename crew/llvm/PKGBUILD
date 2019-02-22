@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://llvm.org/"
 license=('custom:University of Illinois/NCSA Open Source License')
 groups=()
-depends=('llvm-libs' 'perl')
+depends=('python27' 'libedit' 'libtirpc' 'swig')
 makedepends=()
-optdepends=('python-setuptools: for using lit (LLVM Integrated Tester)')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/llvm-7.0.0-chromeos-x86_64.tar.xz")
 sha256sums=('882659f61d8a60a1022307f350d67a772d8a014ad2f70fb59091612aceb0dd78')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

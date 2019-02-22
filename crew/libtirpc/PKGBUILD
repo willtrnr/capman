@@ -2,7 +2,7 @@
 
 pkgname=libtirpc
 pkgver=1.0.2
-pkgrel=1
+pkgrel=0
 pkgdesc="Transport Independent RPC library (SunRPC replacement)"
 arch=('x86_64')
 url="http://libtirpc.sourceforge.net/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libtirpc-1.0.2-0-chromeos-x86_64.tar.xz")
 sha256sums=('6d4a7b558189ac4b78c24f6d5aa5904ed2dfe960ff3a6b1a4019294e2c051fc7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

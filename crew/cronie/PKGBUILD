@@ -8,17 +8,17 @@ arch=('x86_64')
 url="https://github.com/cronie-crond/cronie/"
 license=('custom:BSD')
 groups=()
-depends=('bash' 'pam' 'run-parts')
+depends=('psmisc')
 makedepends=()
-optdepends=('smtp-forwarder: forward job output to email server'
-            'smtp-server: send job output via email')
-provides=('cron')
-conflicts=('cron')
+optdepends=()
+provides=()
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/cronie-1.5.2-chromeos-x86_64.tar.xz")
 sha256sums=('28117939c3609d603068e21c5c16149d43677369c3660e3980705cd4ca98aede')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

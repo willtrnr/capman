@@ -2,22 +2,23 @@
 
 pkgname=libxxf86dga
 pkgver=1.1
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 Direct Graphics Access extension library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libxext' 'xf86dgaproto')
+depends=('libxext' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxxf86dga-1.1-0-chromeos-x86_64.tar.xz")
 sha256sums=('b744b0b6d078a6bed7c71e903c652f17fdf7fd5bb0b84cecae9c475a8e845401')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

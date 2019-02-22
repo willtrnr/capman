@@ -2,7 +2,7 @@
 
 pkgname=aspell-es
 pkgver=1.11
-pkgrel=1
+pkgrel=2
 pkgdesc="Spanish dictionary for aspell"
 arch=('x86_64')
 url="http://aspell.net/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aspell_es-1.11-2-chromeos-x86_64.tar.xz")
 sha256sums=('378beb1b7c53816d15dffccdfdbc876d56ee4ef37397da065aa2a4275defc991')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

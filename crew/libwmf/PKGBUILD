@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://wvware.sourceforge.net/libwmf.html"
 license=('LGPL')
 groups=()
-depends=('expat' 'freetype2' 'gsfonts' 'libjpeg' 'libx11')
+depends=('gtk2' 'libgd' 'libjpeg' 'xorg-server')
 makedepends=()
-optdepends=('gdk-pixbuf2: for pixbuf loader')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libwmf-0.2.8.4-chromeos-x86_64.tar.xz")
 sha256sums=('2b215b744ad624b72b2974e8094a68af62fbd99c657df8c7d9c7e472fa03f156')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

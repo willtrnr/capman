@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://sourceforge.net/projects/enlightenment/"
 license=('BSD')
 groups=()
-depends=('bzip2' 'freetype2' 'giflib' 'libid3tag' 'libjpeg-turbo' 'libpng' 'libtiff' 'libxext')
+depends=('freetype' 'giflib' 'libid3tag' 'libjpeg-turbo' 'libtiff')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/imlib2-1.5.1-chromeos-x86_64.tar.xz")
 sha256sums=('03cb7e8861fadc3724814bce639898416e09eb73a5fd5ac6e1ab76769434a171')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

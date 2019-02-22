@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://linux-diag.sourceforge.net/Sysfsutils.html"
 license=('GPL' 'LGPL')
 groups=('base')
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sysfsutils-2.1.0-chromeos-x86_64.tar.xz")
 sha256sums=('81876c5c17b99ad08b662f0b560021a419c3a441be485963fab688e7fbde6a0b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

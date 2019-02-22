@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libpth-2.0.7-chromeos-x86_64.tar.xz")
 sha256sums=('b82687dc8d4525dd8deee18576ae9ffbb149c2a7a378de68db60fd12de3f6b12')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

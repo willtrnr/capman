@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/desktop_file_utilities-0.23-chromeos-x86_64.tar.xz")
 sha256sums=('46250a48e6d83c2944ccfc3e59f79ccd2d0c4d883088be90f77d540030b0d554')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

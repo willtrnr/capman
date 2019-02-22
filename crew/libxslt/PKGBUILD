@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://xmlsoft.org/XSLT/"
 license=('custom')
 groups=()
-depends=('libgcrypt' 'libxml2')
+depends=('libxml2-python' 'libgcrypt' 'docbook-xsl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxslt-1.1.32-1-chromeos-x86_64.tar.xz")
 sha256sums=('f47fd5f5d4a975967b8d191b5dbfb97cf82f3293794d2b07766dc34bb5a7cf57')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.freetds.org"
 license=('LGPL')
 groups=()
-depends=('openssl' 'unixodbc')
+depends=('unixodbc')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/freetds-1.00.109-chromeos-x86_64.tar.xz")
 sha256sums=('cda228331626e14d559eb680d7a157d1545e24d60f3b5db49d1fbb54180206bd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -2,22 +2,23 @@
 
 pkgname=aspell
 pkgver=0.60.7
-pkgrel=1
+pkgrel=3
 pkgdesc="A spell checker designed to eventually replace Ispell"
 arch=('x86_64')
 url="http://aspell.net/"
 license=('LGPL')
 groups=()
-depends=('gcc-libs' 'ncurses')
+depends=('ruby' 'ncurses')
 makedepends=()
-optdepends=('perl: to import old dictionaries')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aspell-0.60.7-rc1-3-chromeos-x86_64.tar.xz")
 sha256sums=('78b3b2afb62be606d399344c0320f586e22901c922324953fab77a6b88d5373b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

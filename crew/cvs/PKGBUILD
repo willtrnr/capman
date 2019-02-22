@@ -8,17 +8,17 @@ arch=('x86_64')
 url="http://cvs.nongnu.org/"
 license=('GPL')
 groups=()
-depends=('krb5' 'zlib')
+depends=('krb5')
 makedepends=()
-optdepends=('inetutils: for using cvs over rsh'
-            'openssh: for using cvs over ssh')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/cvs-1.11.23-chromeos-x86_64.tar.xz")
-sha256sums=('77bb711a00b0f204092a7833e5f0a45b29d30e1440d0448769637708909fb655')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/cvs-1.11.23-1-chromeos-x86_64.tar.xz")
+sha256sums=('15b3d7119405f6703d20f8b566ae4c4f3ff72bd6d5223bb3aa919250f0456349')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

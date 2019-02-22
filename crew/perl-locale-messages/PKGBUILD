@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_locale_messages-1.29-chromeos-x86_64.tar.xz")
 sha256sums=('d4e294eaee1da9208dbe5d7fd844a455e106d20eff826e7e6339e2e11c6ed5c3')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

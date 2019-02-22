@@ -2,7 +2,7 @@
 
 pkgname=imagemagick7
 pkgver=7.0.8
-pkgrel=1
+pkgrel=14
 pkgdesc="Use ImageMagick to create, edit, compose, or convert bitmap images."
 arch=('x86_64')
 url="http://www.imagemagick.org/script/index.php"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/imagemagick7-7.0.8-14-chromeos-x86_64.tar.xz")
 sha256sums=('db12c715992606dce557b5e3b81d82384e9751d9c59f3cffc9115727688cc304')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

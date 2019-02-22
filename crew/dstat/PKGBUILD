@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://dag.wieers.com/home-made/dstat/"
 license=('GPL')
 groups=()
-depends=('python2')
+depends=('python27')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/dstat-0.7.3-chromeos-x86_64.tar.xz")
 sha256sums=('d37062db82e51d3bdfa30974b330442d8297f4e41d9a8705e4e51c41bfb604ba')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

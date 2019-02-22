@@ -2,22 +2,23 @@
 
 pkgname=ncurses
 pkgver=6.1
-pkgrel=1
+pkgrel=0
 pkgdesc="System V Release 4.0 curses emulation library"
 arch=('x86_64')
 url="http://invisible-island.net/ncurses/ncurses.html"
 license=('MIT')
 groups=()
-depends=('gcc-libs' 'glibc')
+depends=()
 makedepends=()
 optdepends=()
-provides=('libformw.so=6-64' 'libmenuw.so=6-64' 'libncurses++w.so=6-64' 'libncursesw.so=6-64' 'libpanelw.so=6-64')
+provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ncurses-6.1-0-chromeos-x86_64.tar.xz")
 sha256sums=('fcaf728604029920a14f27f64f498dfc8a3586bc0426ca6a890adf925e39e204')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

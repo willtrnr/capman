@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/aprutil-1.6.1-chromeos-x86_64.tar.xz")
 sha256sums=('e5abe47026a3bf51748e2d3aaaa1e5dc5d46c66180145502e989a28cdae49b30')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

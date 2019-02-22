@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.pygtk.org/"
 license=('LGPL')
 groups=()
-depends=('libglade' 'python2-cairo' 'python2-gobject2')
+depends=('libglade' 'pygobject2')
 makedepends=()
-optdepends=('python2-numpy')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/pygtk-2.24.0-chromeos-x86_64.tar.xz")
 sha256sums=('1cee38a4d4e85c1c17974b4939a48da261d785f00c5916a97405e48c4acb4f1c')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

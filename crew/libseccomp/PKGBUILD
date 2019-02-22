@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/seccomp/libseccomp"
 license=('LGPL2.1')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libseccomp-2.3.3-chromeos-x86_64.tar.xz")
 sha256sums=('b7b39bcc650e34789b860a565cea3abda054a7f2755e5d8516d3574b612223cd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

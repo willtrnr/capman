@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://laurikari.net/tre"
 license=('custom:BSD')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/tre-6fb7206-chromeos-x86_64.tar.xz")
 sha256sums=('b5d531c2f83c53fb1f54c5b658bb67fb875e16183a9cdc2c4d5a03cf7e091130')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://search.cpan.org/dist/Locale-gettext/"
 license=('GPL' 'PerlArtistic')
 groups=()
-depends=('gettext' 'perl')
+depends=('perl')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_locale_gettext-1.07-chromeos-x86_64.tar.xz")
 sha256sums=('034808aee7e907baa2cd7d46c9892cd12e1f6be4932444ee272575e527d6176e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

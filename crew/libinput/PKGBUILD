@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://www.freedesktop.org/wiki/Software/libinput/"
 license=('custom:X11')
 groups=()
-depends=('libevdev' 'libwacom' 'mtdev' 'systemd')
+depends=('mtdev' 'libevdev' 'libwacom' 'libunwind' 'libcheck')
 makedepends=()
-optdepends=('gtk3: libinput debug-gui'
-            'python-evdev: libinput measure'
-            'python-pyudev: libinput measure')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libinput-1.10.2-chromeos-x86_64.tar.xz")
 sha256sums=('f1a15a0d4782ab26d86907f1228d1cc1c3ca1d67ba034a8a0458d9dc56d8ea11')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,17 +8,17 @@ arch=('x86_64')
 url="http://www.ruby-lang.org/en/"
 license=('BSD' 'custom')
 groups=()
-depends=('gdbm' 'gmp' 'libffi' 'libyaml' 'openssl' 'rubygems' 'zlib')
+depends=('readline' 'ncurses')
 makedepends=()
-optdepends=('ruby-docs: Ruby documentation'
-            'tk: for Ruby/TK')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ruby-2.5.3-chromeos-x86_64.tar.xz")
 sha256sums=('352b78fc883cf8936136991fda9ca5d49e90b2951626158d6af8ef4b58d67f97')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

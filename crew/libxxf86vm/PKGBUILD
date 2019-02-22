@@ -2,22 +2,23 @@
 
 pkgname=libxxf86vm
 pkgver=1.1.4
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 XFree86 video mode extension library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('libxext' 'xf86vidmodeproto')
+depends=('libxext' 'libx11')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libxxf86vm-1.1.4-0-chromeos-x86_64.tar.xz")
 sha256sums=('a841de7f515f3eff18afc1bc746e2b9c7f6146108fa6ddc9d76439d3d20374ed')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

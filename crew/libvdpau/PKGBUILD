@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=libvdpau
+pkgver=1.1.1
+pkgrel=1
+pkgdesc="Nvidia VDPAU library"
+arch=('x86_64')
+url="https://www.freedesktop.org/wiki/Software/VDPAU/"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/libvdpau-1.1.1-chromeos-x86_64.tar.xz")
+sha256sums=('2fd6efe5954f031570115bf0c32e03baf9418162e8f61df544f36231e902e3e1')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

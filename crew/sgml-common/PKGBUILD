@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.docbook.org/xml/"
 license=('GPL')
 groups=()
-depends=('sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/sgml_common-0.6.3-chromeos-x86_64.tar.xz")
 sha256sums=('48fcb41950ca59883d56b7285608121150c6a2c4969579847467606610d7c0a8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

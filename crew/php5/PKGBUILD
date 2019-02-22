@@ -1,23 +1,24 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=php5
-pkgver=5.6.39
+pkgver=5.6.40
 pkgrel=1
 pkgdesc="PHP is a popular general-purpose scripting language that is especially suited to web development."
 arch=('x86_64')
 url="http://www.php.net/"
 license=('custom')
 groups=()
-depends=('readline7' 'libgcrypt' 'libpng' 'libxslt' 'curl' 'pcre')
+depends=('readline7' 'libgcrypt' 'libpng' 'libxslt' 'libzip' 'curl' 'exif' 'freetype' 'pcre' 'tidy' 'unixodbc')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-source=("https://dl.bintray.com/chromebrew/chromebrew/php5-5.6.39-chromeos-x86_64.tar.xz")
-sha256sums=('fe93b5fd684e10bac3b6e74c8a4150c9231e6febfe80061917130a94b6f1e094')
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/php5-5.6.40-chromeos-x86_64.tar.xz")
+sha256sums=('26b5cc993b96db0bb251db8b5ed54d1b2f25c6c8f81b91e50bef35b4fc62d9ad')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

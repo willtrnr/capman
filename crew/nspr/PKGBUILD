@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=nspr
+pkgver=4.20
+pkgrel=1
+pkgdesc="Netscape Portable Runtime"
+arch=('x86_64')
+url="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR"
+license=('GPL' 'MPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/nspr-4.20-chromeos-x86_64.tar.xz")
+sha256sums=('3632fc729b387d06d9f4b551278f120c56549af288dcd1d78267a5df140fe031')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

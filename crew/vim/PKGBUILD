@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=vim
+pkgver=8.1.0648
+pkgrel=1
+pkgdesc="Vi Improved, a highly configurable, improved version of the vi text editor"
+arch=('x86_64')
+url="https://www.vim.org"
+license=('custom:vim')
+groups=()
+depends=('vim-runtime')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/vim-8.1.0648-chromeos-x86_64.tar.xz")
+sha256sums=('03d46bc71c2785601e95b5e898b198dac56fae7810907d0beab0f08fe7c576f2')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

@@ -2,7 +2,7 @@
 
 pkgname=gusb
 pkgver=0.2.11
-pkgrel=1
+pkgrel=0
 pkgdesc="GUsb is a GObject wrapper for libusb1"
 arch=('x86_64')
 url="https://www.openhub.net/p/gusb"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gusb-0.2.11-0-chromeos-x86_64.tar.xz")
 sha256sums=('fa9af05a8ab68391a7221b5b3b6feb986b66c40f1bbebde98bf1a1c4fd9089bd')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

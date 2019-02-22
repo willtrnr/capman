@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://github.com/ebassi/graphene"
 license=('MIT')
 groups=()
-depends=('glib2')
+depends=('meson')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/graphene-1.8.0-chromeos-x86_64.tar.xz")
 sha256sums=('851d4dee78563bee5938d43bd263781ac3851fc43db93d9d946055ea44831b7b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

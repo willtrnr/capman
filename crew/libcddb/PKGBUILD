@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://sourceforge.net/projects/libcddb/"
 license=('LGPL')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcddb-1.3.2-chromeos-x86_64.tar.xz")
 sha256sums=('e98cba9508a10e2a7388e1aea34d49b1387bd029bc35c152abeafae4b54f65f6')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

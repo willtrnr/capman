@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/perl_unicode_eastasianwidth-1.33-chromeos-x86_64.tar.xz")
 sha256sums=('ca7516e05ea52ad7c988209ee0fdce1aebf32434eb2ba7f6fc03015588088a6f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -2,7 +2,7 @@
 
 pkgname=libcheck
 pkgver=0.11.0
-pkgrel=1
+pkgrel=0
 pkgdesc="A unit testing framework for C"
 arch=('x86_64')
 url="https://github.com/libcheck/check"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libcheck-0.11.0-0-chromeos-x86_64.tar.xz")
 sha256sums=('bdb2058fa22945b9664cfc36a1357f6551f752594a9941106a9e58883c7a78fc')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

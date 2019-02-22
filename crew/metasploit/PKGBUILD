@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.metasploit.com/"
 license=('BSD')
 groups=()
-depends=('git' 'libpcap' 'libxml2' 'libxslt' 'postgresql-libs' 'ruby' 'ruby-bundler' 'sqlite')
+depends=('ruby' 'readline' 'openssl' 'libpcap' 'postgres' 'sqlite' 'libxslt' 'libxml2' 'bison')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/metasploit-4.16.19-chromeos-x86_64.tar.xz")
 sha256sums=('d3e70602086ffd04438aa6543318e5dc5e78995fe1eabfcfeb94fc7642372974')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

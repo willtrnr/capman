@@ -2,22 +2,23 @@
 
 pkgname=libpciaccess
 pkgver=0.13
-pkgrel=1
+pkgrel=0
 pkgdesc="X11 PCI access library"
 arch=('x86_64')
 url="https://xorg.freedesktop.org/"
 license=('custom')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libpciaccess-0.13-0-chromeos-x86_64.tar.xz")
 sha256sums=('879a01f506b6dcd404419520d814281dc732d07945ecce5089c1fe97113b20f7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/msttcorefonts-3.6-chromeos-x86_64.tar.xz")
 sha256sums=('ce135a84d46fa69fbc29638d389d4ac6cf4fef4b1921f4f9a1497d17d6f4fed7')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

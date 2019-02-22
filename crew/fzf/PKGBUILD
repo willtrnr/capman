@@ -8,19 +8,17 @@ arch=('x86_64')
 url="https://github.com/junegunn/fzf"
 license=('MIT')
 groups=()
-depends=('bash')
+depends=()
 makedepends=()
-optdepends=('fish: fish keybindings'
-            'tmux: fzf-tmux script for launching fzf in a tmux pane'
-            'vim: plugin'
-            'zsh: zsh keybindings')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fzf-0.17.3-chromeos-x86_64.tar.xz")
 sha256sums=('eed9f071b8f6fb2d551bc1730f2309f57ef2e54bb6585438cfd339f93ec3bb35')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

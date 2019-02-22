@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://memcached.org/"
 license=('GPL')
 groups=()
-depends=('libevent' 'libseccomp')
+depends=('libevent')
 makedepends=()
-optdepends=('perl: for memcached-tool usage')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/memcached-1.5.3-chromeos-x86_64.tar.xz")
 sha256sums=('0ae6afff645bddd1fdebe42fcc1289c9ec259901e89e6312e0c94054061402ee')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

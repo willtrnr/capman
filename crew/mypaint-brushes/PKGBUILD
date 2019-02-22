@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mypaint_brushes-1.3.0-chromeos-x86_64.tar.xz")
 sha256sums=('28166ca3a372eec0ef0d97193fb65225e9edbb6d2288821fcfa291d1ddb8b26a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

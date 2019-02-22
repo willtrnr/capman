@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/libudev_stub-0.9.0-chromeos-x86_64.tar.xz")
 sha256sums=('df1199025c15f1701e21355fe647270f0c8d7f3cd7a6c0b1683dc0bb96b786a0')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

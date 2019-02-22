@@ -8,18 +8,17 @@ arch=('x86_64')
 url="https://www.erlang.org"
 license=('Apache')
 groups=()
-depends=('glu' 'ncurses' 'openssl' 'wxgtk')
+depends=()
 makedepends=()
-optdepends=('erlang-unixodbc: database support'
-            'java-environment: for Java support'
-            'lksctp-tools: for SCTP support')
-provides=('erlang-nox')
-conflicts=('erlang-nox')
+optdepends=()
+provides=()
+conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/erlang-20.3-chromeos-x86_64.tar.xz")
 sha256sums=('8d3509fae44a1be086351f6fa97ecfb000c721eab0677316c7dbb7d2a3e96ccb')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

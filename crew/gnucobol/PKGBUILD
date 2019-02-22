@@ -2,7 +2,7 @@
 
 pkgname=gnucobol
 pkgver=3.0
-pkgrel=1
+pkgrel=rc1
 pkgdesc="GnuCOBOL (formerly OpenCOBOL) is a free COBOL compiler."
 arch=('x86_64')
 url="https://open-cobol.sourceforge.io/"
@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gnucobol-3.0-rc1-chromeos-x86_64.tar.xz")
 sha256sums=('00e04366fab756136bba0bcb07a285c1bda4d218b5f6555e0bc67583fb051963')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

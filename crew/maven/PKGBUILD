@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://maven.apache.org"
 license=('APACHE')
 groups=()
-depends=('bash' 'java-environment>=7' 'procps-ng')
+depends=('jdk8')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/maven-3.5.2-chromeos-x86_64.tar.xz")
 sha256sums=('62475788ab2144a67de31b08a946d613c277f9557f2122aff8cc996bd87bde2f')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://ezix.org/project/wiki/HardwareLiSter"
 license=('GPL')
 groups=()
-depends=('gcc-libs' 'hwids')
+depends=()
 makedepends=()
-optdepends=('gtk2')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lshw-B.02.18-chromeos-x86_64.tar.xz")
 sha256sums=('fe6c4b1a6936defcc6685777898cfbe2f9793c897fa5bdcc18d9518907c65406')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

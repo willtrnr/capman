@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/trousers-0.3.14-1-chromeos-x86_64.tar.xz")
 sha256sums=('9ffc0da97adbc542a44285882a8ace99e21986e11a7676da3314c9ab59a94700')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

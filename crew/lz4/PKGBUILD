@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.lz4.org/"
 license=('GPL2')
 groups=()
-depends=('glibc')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/lz4-1.8.0-chromeos-x86_64.tar.xz")
 sha256sums=('d03b3e792586b53bd57e586e1ffc06465ffc3db90d3fe685bf7ffaff0af480ae')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

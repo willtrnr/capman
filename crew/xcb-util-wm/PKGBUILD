@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://xcb.freedesktop.org"
 license=('custom')
 groups=()
-depends=('libxcb>=1.7')
+depends=('libxcb' 'm4')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xcb_util_wm-0.4.1-chromeos-x86_64.tar.xz")
 sha256sums=('076d76e8706ea6e25545f3878f06f481584066f57bbaea0be00964358ec38be5')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

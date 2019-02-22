@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/fasd-1.0.1-chromeos-x86_64.tar.xz")
 sha256sums=('860de1d2b40e13d439086a40f273e5dbf48e913c224e7e7274bca4625eaaffaa')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

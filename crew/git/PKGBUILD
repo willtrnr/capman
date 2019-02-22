@@ -8,29 +8,17 @@ arch=('x86_64')
 url="https://git-scm.com/"
 license=('GPL2')
 groups=()
-depends=('curl' 'expat' 'grep' 'openssl' 'pcre2' 'perl' 'perl-error' 'perl-mailtools' 'shadow')
+depends=('python27')
 makedepends=()
-optdepends=('gnome-keyring: GNOME keyring credential helper'
-            'libsecret: libsecret credential helper'
-            'perl-authen-sasl: git send-email TLS support'
-            'perl-cgi: gitweb (web interface) support'
-            'perl-datetime-format-iso8601: git mediawiki support'
-            'perl-libwww: git svn'
-            'perl-lwp-protocol-https: git mediawiki https support'
-            'perl-mediawiki-api: git mediawiki support'
-            'perl-mime-tools: git send-email'
-            'perl-net-smtp-ssl: git send-email TLS support'
-            'perl-term-readkey: git svn and interactive.singlekey setting'
-            'python2: various helper scripts'
-            'subversion: git svn'
-            'tk: gitk and git gui')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/git-2.20.1-chromeos-x86_64.tar.xz")
 sha256sums=('316842c20bf24202c794eb9c21e46d14bb95069d3667dc5d32e5058bdcdebd89')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

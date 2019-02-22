@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/stressng-0.09.02-chromeos-x86_64.tar.xz")
 sha256sums=('b1717d935512bca5caf350790b00d5a5f08fbfdec855a0221d95ea7f7879b383')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

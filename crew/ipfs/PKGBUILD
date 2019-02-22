@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ipfs-0.4.13-chromeos-x86_64.tar.xz")
 sha256sums=('b85e2441356ad171dd9ca0c23a7619fb7bd45086710d230aa7049d85fcae047a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

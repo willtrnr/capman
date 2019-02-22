@@ -14,10 +14,11 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/xorg_vmware_driver-13.2.1-chromeos-x86_64.tar.xz")
 sha256sums=('2f4c4dd3532057e2fa8bdfc6f09427987e840696eae2464a9806dcaac315aac8')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://www.funtoo.org/Keychain"
 license=('GPL2')
 groups=()
-depends=('sh')
+depends=()
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/keychain-2.8.5-chromeos-x86_64.tar.xz")
 sha256sums=('4b4aead7a52d97ef7acfc5695952e57b35c3c12935b4fde6ce3ed5e64705ec0a')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

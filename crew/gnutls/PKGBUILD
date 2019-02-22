@@ -8,16 +8,17 @@ arch=('x86_64')
 url="https://www.gnutls.org/"
 license=('GPL3' 'LGPL2.1')
 groups=()
-depends=('gcc-libs' 'libidn2' 'libtasn1' 'libunistring' 'nettle' 'p11-kit' 'readline' 'zlib')
+depends=('zlibpkg' 'libunistring' 'gmp' 'nettle' 'libtasn1' 'trousers' 'p11kit' 'libffi' 'libunbound' 'libidn2')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/gnutls-3.6.3-1-chromeos-x86_64.tar.xz")
 sha256sums=('70a7b1753ab61e09249f599bbad21e16e8eff71848787c8ad4e77c90582a6f1b')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,16 +8,17 @@ arch=('x86_64')
 url="http://homepage.boetes.org/software/mg/"
 license=('custom')
 groups=()
-depends=('libbsd' 'ncurses')
+depends=('ncurses')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/mg-20170917-chromeos-x86_64.tar.xz")
 sha256sums=('b33010e42645f5b311ca7b1ca3dcbab53ad033aab3cedab2ec6a3e73f7a1dafa')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }

@@ -8,29 +8,17 @@ arch=('x86_64')
 url="https://ranger.github.io"
 license=('GPL')
 groups=()
-depends=('python')
+depends=('less' 'ncurses' 'python27')
 makedepends=()
-optdepends=('atool: for previews of archives'
-            'elinks: for previews of html pages'
-            'ffmpegthumbnailer: for video previews'
-            'highlight: for syntax highlighting of code'
-            'libcaca: for ASCII-art image previews'
-            'lynx: for previews of html pages'
-            'mediainfo: for viewing information about media files'
-            'odt2txt: for OpenDocument texts'
-            'perl-image-exiftool: for viewing information about media files'
-            'poppler: for pdf previews'
-            'python-chardet: in case of encoding detection problems'
-            'sudo: to use the "run as root"-feature'
-            'transmission-cli: for viewing bittorrent information'
-            'w3m: for previews of images and html pages')
+optdepends=()
 provides=()
 conflicts=()
 replaces=()
+options=(!strip staticlibs !zipman !purge)
 source=("https://dl.bintray.com/chromebrew/chromebrew/ranger-1.8.1-chromeos-x86_64.tar.xz")
 sha256sums=('61ded76a93aa9206d72a2618732677990706ffe3666498fe3705a153ec40493e')
 
 package() {
-  install -dm 0755 "$pkgdir/usr"
+  install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
 }
