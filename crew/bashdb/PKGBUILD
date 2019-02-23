@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=bashdb
-pkgver=4.3
-pkgrel=0.91
+pkgver=4.3_0.91
+pkgrel=1
 pkgdesc="The Bash Debugger Project is a source-code debugger for bash that follows the gdb command syntax."
 arch=('x86_64')
 url="http://bashdb.sourceforge.net/"

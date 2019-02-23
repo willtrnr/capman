@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=jsonc
-pkgver=0.13
-pkgrel=nodoc
+pkgver=0.13_nodoc
+pkgrel=1
 pkgdesc="JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
 arch=('x86_64')
 url="https://github.com/json-c/json-c/wiki"

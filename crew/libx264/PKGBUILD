@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libx264
-pkgver=20171118
-pkgrel=stable
+pkgver=20171118_2245_stable
+pkgrel=1
 pkgdesc="x264 is a free software library and application for encoding video streams into the H.264/MPEG-4 AVC compression format."
 arch=('x86_64')
 url="http://www.videolan.org/developers/x264.html"

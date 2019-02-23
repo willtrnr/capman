@@ -71,10 +71,13 @@ while read -r line; do
 done < "$crewpkg"
 
 # Crew sometimes have pkgrels embedded in the version number
-pkgver="${crewver%%-*}"
-pkgrel=1
-if [[ "$crewver" == *-* ]]; then
+if [[ "$crewver" == *-[0-9] ]] || [[ "$crewver" == *-[0-9][0-9] ]]; then
+  pkgver="${crewver%-*}"
+  pkgver="${pkgver//-/_}"
   pkgrel="${crewver##*-}"
+else
+  pkgver="${crewver//-/_}"
+  pkgrel=1
 fi
 
 

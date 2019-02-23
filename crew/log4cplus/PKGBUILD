@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=log4cplus
-pkgver=1.2.1
-pkgrel=rc2
+pkgver=1.2.1_rc2
+pkgrel=1
 pkgdesc="A C++ logger very close to Java's log4j"
 arch=('x86_64')
 url="http://log4cplus.sourceforge.net/"

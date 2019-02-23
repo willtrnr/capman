@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libjpeg
-pkgver=9.0
-pkgrel=c
+pkgver=9.0_c
+pkgrel=1
 pkgdesc="JPEG is a free library for image compression."
 arch=('x86_64')
 url="http://www.ijg.org/"

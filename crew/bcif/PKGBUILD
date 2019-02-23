@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=bcif
-pkgver=1.0
-pkgrel=beta
+pkgver=1.0_beta
+pkgrel=1
 pkgdesc="The BCIF compression algorithm is an open source method for lossless image compression."
 arch=('x86_64')
 url="http://www.researchandtechnology.net/bcif/index.php"

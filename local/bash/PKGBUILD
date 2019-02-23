@@ -8,8 +8,6 @@ arch=('x86_64')
 url="http://www.gnu.org/software/bash/bash.html"
 license=('GPL')
 groups=('base')
-depends=('readline>=7.0' 'glibc' 'ncurses')
-optdepends=('bash-completions: for tab completion')
 provides=('sh')
 
 pkgver() {

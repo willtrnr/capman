@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gnucobol
-pkgver=3.0
-pkgrel=rc1
+pkgver=3.0_rc1
+pkgrel=1
 pkgdesc="GnuCOBOL (formerly OpenCOBOL) is a free COBOL compiler."
 arch=('x86_64')
 url="https://open-cobol.sourceforge.io/"

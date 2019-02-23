@@ -22,8 +22,10 @@ for pkg in "$MUTINY_PKG_PATH/"*; do
     (cd "$pkg"; makepkg -d --sign)
 
     msg "Adding package '%s' to the repo..." "$name"
+    for f in "$pkg/$name-"*.pkg.tar.xz{,.sig}; do
+      ln "$f" "$REPO_PATH/$(basename "$f")"
+    done
     repo-add "$REPO_DB" "$pkg/$name-"*.pkg.tar.xz
-    cp "$pkg/$name-"*.pkg.tar.xz{,.sig} "$REPO_PATH"
 
     msg "Cleaning up..."
     for f in "$pkg/"*; do
