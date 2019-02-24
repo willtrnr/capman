@@ -9,6 +9,7 @@ url="https://www.sudo.ws/sudo/"
 license=('custom')
 groups=('base-devel')
 source=('sudo.sh')
+options=(!strip)
 sha256sums=('5903106c32c9d71b3f1954d4d97525a6d3361b5e8dccbb42621919160d7375ff')
 
 pkgver() {
