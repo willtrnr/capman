@@ -9,6 +9,7 @@ url="http://www.gnu.org/software/bash/bash.html"
 license=('GPL')
 groups=('base')
 provides=('sh')
+options=(!strip)
 
 pkgver() {
   /bin/bash --version | head -n1 | sed -E 's/.*version ([0-9\.]+).*/\1/'
