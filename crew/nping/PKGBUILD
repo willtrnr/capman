@@ -3,12 +3,12 @@
 pkgname=nping
 pkgver=7.60
 pkgrel=1
-pkgdesc="Nping is part of the nmap suite - a network diagnostics tool`."
+pkgdesc="Nping is part of the nmap suite - a network diagnostics tool."
 arch=('x86_64')
 url="https://nmap.org/nping/"
 license=('custom')
 groups=()
-depends=('filecmd')
+depends=()
 makedepends=()
 optdepends=()
 provides=()

@@ -1,0 +1,22 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=google-cloud-sdk
+pkgver=235.0.0
+pkgrel=1
+pkgdesc="Set of tools that you can use to manage resources and applications hosted on Google Cloud Platform."
+arch=('x86_64')
+url="https://cloud.google.com/sdk/"
+license=('unknown')
+depends=('python27')
+source=("https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$pkgname-$pkgver-linux-x86_64.tar.gz")
+sha256sums=('a30b5af083774aa5d0dd2e030c86e615f7ac4e0d4ba400b84c1e6d75103f3a1f')
+
+package() {
+  install -d -m 755 "$pkgdir/usr/local/opt"
+  cp -a "$srcdir/$pkgname" "$pkgdir/usr/local/opt/$pkgname"
+
+  install -d -m 755 "$pkgdir/usr/local/bin"
+  for f in gcloud gsutil bq; do
+    ln -s "/usr/local/opt/$pkgname/bin/$f" "$pkgdir/usr/local/bin/$f"
+  done
+}

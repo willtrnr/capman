@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=aspell
-pkgver=0.60.7
+pkgver=0.60.7_rc1
 pkgrel=3
 pkgdesc="A spell checker designed to eventually replace Ispell"
 arch=('x86_64')

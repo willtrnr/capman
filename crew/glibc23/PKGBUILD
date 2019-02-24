@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=glibc23
+pkgver=2.23
+pkgrel=1
+pkgdesc="GNU C Library"
+arch=('x86_64')
+url="http://www.gnu.org/software/libc"
+license=('GPL' 'LGPL')
+groups=('base')
+depends=()
+makedepends=()
+optdepends=()
+provides=('glibc')
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/glibc-2.23-chromeos-x86_64.tar.xz")
+sha256sums=('2d09f88f6de0f3fbd9f01ffcf9d61d43df688826bf1df63d8f193d6ed69ded11')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

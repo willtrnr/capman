@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=powerline-fonts
-pkgver=2015
+pkgver=2015_12
 pkgrel=04
 pkgdesc="patched fonts for powerline"
 arch=('x86_64')

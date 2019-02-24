@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=nethack4
-pkgver=4.3.0
+pkgver=4.3.0_beta2
 pkgrel=1
 pkgdesc=" game following in the same tradition; the player controls an adventurer delving into a randomly generated dungeon to retrieve the Amulet of Yendor from its depths."
 arch=('x86_64')

@@ -1,0 +1,24 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=musl
+pkgver=1.1.21
+pkgrel=1
+pkgdesc="Lightweight implementation of C standard library"
+arch=('x86_64')
+url="http://www.musl-libc.org/"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/musl-1.1.21-chromeos-x86_64.tar.xz")
+sha256sums=('f205355013debc9b33ca9fffd46c5dda61eb74998f6ef6c310c4e2805619f83f')
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

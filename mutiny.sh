@@ -61,7 +61,7 @@ while read -r line; do
       ;;
     depends_on*)
       name="$(sanitize_name "$(echo "$line" | sed -E "s/^[^'\"]*['\"]([^'\"]+)['\"].*$/\1/")")"
-      if [[ "$line" == *:build ]]; then
+      if [[ "$line" == *:build* ]]; then
         makedepends+=("'$name'")
       else
         depends+=("'$name'")
@@ -78,6 +78,10 @@ if [[ "$crewver" == *-[0-9] ]] || [[ "$crewver" == *-[0-9][0-9] ]]; then
 else
   pkgver="${crewver//-/_}"
   pkgrel=1
+fi
+
+if [ -e "$MUTINY_OVERRIDE_PATH/$crewname" ]; then
+  source "$MUTINY_OVERRIDE_PATH/$crewname"
 fi
 
 

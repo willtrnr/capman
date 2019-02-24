@@ -5,7 +5,7 @@ source /usr/local/share/makepkg/util.sh
 colorize
 
 # Set the crew package folder path
-CREW_PKG_PATH="$(crew const CREW_LIB_PATH | cut -d= -f2)/packages"
+CREW_PKG_PATH="${MUTINY_PKG_PATH:-./chromebrew/packages}"
 
 # Set a default for our mutiny packages path
 MUTINY_PKG_PATH="${MUTINY_PKG_PATH:-./crew}"

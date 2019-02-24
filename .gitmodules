@@ -1,0 +1,3 @@
+[submodule "chromebrew"]
+	path = chromebrew
+	url = https://github.com/skycocker/chromebrew.git

@@ -1,0 +1,29 @@
+# Maintainer: William Turner <willtur.will@gmail.com>
+
+pkgname=android-studio
+pkgver=3.3.1.0
+pkgrel=1
+pkgdesc="Android Studio is the official IDE for Android development."
+arch=('x86_64')
+url="https://developer.android.com/studio"
+license=('custom')
+groups=()
+depends=('jdk8' 'xdg-base' 'sommelier')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=(staticlibs)
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build android_studio
+  tar xf "android_studio-3.3.1.0-chromeos-$arch.tar.xz"
+}
+
+package() {
+  install -d -m 0755 "$pkgdir/usr"
+  cp -a usr/local "$pkgdir/usr"
+}

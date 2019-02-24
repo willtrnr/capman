@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=freerdp
-pkgver=2.0.0
+pkgver=2.0.0_rc4
 pkgrel=1
 pkgdesc="Free RDP client"
 arch=('x86_64')

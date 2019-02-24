@@ -1,0 +1,1 @@
+depends=(brotli libmetalink libtirpc openldap rtmpdump libssh2)
