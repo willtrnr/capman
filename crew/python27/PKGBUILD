@@ -11,7 +11,7 @@ groups=()
 depends=()
 makedepends=()
 optdepends=()
-provides=()
+provides=(python2)
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
@@ -21,4 +21,5 @@ sha256sums=('f1f81eaf334c05e6895213a78b8f56b2077b56a3ddf03daea65df403b91bd798')
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

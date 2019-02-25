@@ -11,7 +11,7 @@ groups=()
 depends=('bz2' 'xzutils' 'sqlite' 'krb5' 'libtirpc')
 makedepends=()
 optdepends=()
-provides=()
+provides=(python)
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
@@ -21,4 +21,5 @@ sha256sums=('434f8f1156f89cb15dcbbdbf3a6e0448c931e5f5480dc1c5550694f014aab315')
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

@@ -154,5 +154,6 @@ $build
 package() {
   install -d -m 0755 "\$pkgdir/usr"
   cp -a usr/local "\$pkgdir/usr"
+  rm -f "\$pkgdir/usr/local/share/info/dir"{,.gz}
 }
 EOF
