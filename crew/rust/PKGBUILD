@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=rust
-pkgver=1.23.0
+pkgver=1.32.0
 pkgrel=1
 pkgdesc="Systems programming language focused on safety, speed and concurrency"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/rust-1.23.0-chromeos-x86_64.tar.xz")
-sha256sums=('f6c0ab056802e0d82a8e87664b8a3af8f536a2122e064596a795189bd73bed20')
+source=("https://dl.bintray.com/chromebrew/chromebrew/rust-1.32.0-chromeos-x86_64.tar.xz")
+sha256sums=('cd235a8998415b5456a709158188294296fe47f3ae147d033537046d8a716245')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

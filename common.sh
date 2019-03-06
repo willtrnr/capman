@@ -24,3 +24,22 @@ sanitize_name() {
     echo "${name//_/-}"
   fi
 }
+
+# Drops the pkgrel component that is sometimes baked in and sanitize the value
+sanitize_ver() {
+  local value="$1"
+  if [[ "$value" == *-[0-9] ]] || [[ "$value" == *-[0-9][0-9] ]]; then
+    value="${value%-*}"
+  fi
+  echo "${value//-/_}"
+}
+
+# Try to extract the pkgrel component from a version or just return 1
+sanitize_rel() {
+  local value="$1"
+  if [[ "$value" == *-[0-9] ]] || [[ "$value" == *-[0-9][0-9] ]]; then
+    echo "${value##*-}"
+  else
+    echo '1'
+  fi
+}

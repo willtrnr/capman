@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=composer
-pkgver=1.8.0
+pkgver=1.8.4
 pkgrel=1
 pkgdesc="Dependency Manager for PHP"
 arch=('x86_64')
@@ -20,10 +20,11 @@ sha256sums=()
 
 build() {
   yes | crew build composer
-  tar xf "composer-1.8.0-chromeos-$arch.tar.xz"
+  tar xf "composer-1.8.4-chromeos-$arch.tar.xz"
 }
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

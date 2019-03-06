@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=yarn
-pkgver=1.12.3
+pkgver=1.13.0
 pkgrel=1
 pkgdesc="Fast, reliable, and secure dependency management"
 arch=('x86_64')
@@ -20,10 +20,11 @@ sha256sums=()
 
 build() {
   yes | crew build yarn
-  tar xf "yarn-1.12.3-chromeos-$arch.tar.xz"
+  tar xf "yarn-1.13.0-chromeos-$arch.tar.xz"
 }
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

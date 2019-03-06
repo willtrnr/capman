@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=go
-pkgver=1.11.1
+pkgver=1.12
 pkgrel=1
 pkgdesc="Core compiler tools for the Go programming language"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/go-1.11.1-chromeos-x86_64.tar.xz")
-sha256sums=('5bccebc7b426d01ddfb9919b9ac7e2ab3e47776a131a21da70a54d2639c361c0')
+source=("https://dl.bintray.com/chromebrew/chromebrew/go-1.12-chromeos-x86_64.tar.xz")
+sha256sums=('2620b266c38b8a9dce103886346a40d66b9a8eaccf98e1cff7f0e958f2a53cb2')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

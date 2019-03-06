@@ -2,7 +2,7 @@
 
 pkgname=go-bootstrap
 pkgver=1.4
-pkgrel=0
+pkgrel=1
 pkgdesc="Bootstrap tool chain for the Go programming language."
 arch=('x86_64')
 url="https://golang.org/"
@@ -14,16 +14,12 @@ optdepends=()
 provides=()
 conflicts=()
 replaces=()
-options=(staticlibs)
-source=()
-sha256sums=()
-
-build() {
-  yes | crew build go_bootstrap
-  tar xf "go_bootstrap-1.4-0-chromeos-$arch.tar.xz"
-}
+options=(!strip staticlibs !zipman !purge)
+source=("https://dl.bintray.com/chromebrew/chromebrew/go_bootstrap-1.4-1-chromeos-x86_64.tar.xz")
+sha256sums=('d4a4c1fd6289e2fdbf031ed1da28f21b0f6e58f16e614f248f84f6fabab0555c')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

@@ -71,14 +71,8 @@ while read -r line; do
 done < "$crewpkg"
 
 # Crew sometimes have pkgrels embedded in the version number
-if [[ "$crewver" == *-[0-9] ]] || [[ "$crewver" == *-[0-9][0-9] ]]; then
-  pkgver="${crewver%-*}"
-  pkgver="${pkgver//-/_}"
-  pkgrel="${crewver##*-}"
-else
-  pkgver="${crewver//-/_}"
-  pkgrel=1
-fi
+pkgver="$(sanitize_ver "$crewver")"
+pkgrel="$(sanitize_rel "$crewver")"
 
 if [ -e "$MUTINY_OVERRIDE_PATH/$crewname" ]; then
   source "$MUTINY_OVERRIDE_PATH/$crewname"
