@@ -1,14 +1,14 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=sublime-text
-pkgver=3.1.1
+pkgver=3.2
 pkgrel=1
 pkgdesc="A sophisticated text editor for code, markup and prose."
 arch=('x86_64')
 url="https://www.sublimetext.com/"
 license=('custom')
 groups=()
-depends=('sommelier')
+depends=('gtk2' 'sommelier')
 makedepends=()
 optdepends=()
 provides=()
@@ -20,10 +20,11 @@ sha256sums=()
 
 build() {
   yes | crew build sublime_text
-  tar xf "sublime_text-3.1.1-chromeos-$arch.tar.xz"
+  tar xf "sublime_text-3.2-chromeos-$arch.tar.xz"
 }
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }
