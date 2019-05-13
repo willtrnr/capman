@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=curl
-pkgver=7.64.0
+pkgver=7.64.1
 pkgrel=1
 pkgdesc="An URL retrieval utility and library"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/curl-7.64.0-chromeos-x86_64.tar.xz")
-sha256sums=('68b0f48be8feefe01582c7fe05ef549d0fd63b581ab5d2821226f5d04c6c3dbe')
+source=("https://dl.bintray.com/chromebrew/chromebrew/curl-7.64.1-chromeos-x86_64.tar.xz")
+sha256sums=('b00a4605990253654ca1a57359d043c614a8e28acab6981c344ff2b45c5ff3ea')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

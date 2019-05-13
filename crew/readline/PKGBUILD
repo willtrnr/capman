@@ -1,8 +1,8 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=readline
-pkgver=6.3p8
-pkgrel=2
+pkgver=8.0
+pkgrel=1
 pkgdesc="GNU readline library"
 arch=('x86_64')
 url="http://tiswww.case.edu/php/chet/readline/rltop.html"
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/readline-6.3p8-2-chromeos-x86_64.tar.xz")
-sha256sums=('0b6095eabde0211a03f4af71e1497ba06cad8c20a075425d1fae69f0948ce27a')
+source=("https://dl.bintray.com/chromebrew/chromebrew/readline-8.0-chromeos-x86_64.tar.xz")
+sha256sums=('19575599c41f80d4fd0753a25f0591952c4eb4c552768432064605d195120626')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

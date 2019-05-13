@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=ffmpeg
-pkgver=4.1
+pkgver=4.1.3
 pkgrel=1
 pkgdesc="Complete solution to record, convert and stream audio and video"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/ffmpeg-4.1-1-chromeos-x86_64.tar.xz")
-sha256sums=('3720e339c273fd6d8913220e08a1c1ba8d25d056803747c8f077818c78d8b287')
+source=("https://dl.bintray.com/chromebrew/chromebrew/ffmpeg-4.1.3-chromeos-x86_64.tar.xz")
+sha256sums=('c7b7a20ec40f89e5881aaa45beca98c933f07669f4aa1b57eba222bce4f89240')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

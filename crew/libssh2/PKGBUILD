@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=libssh2
-pkgver=1.8.0
+pkgver=1.8.1
 pkgrel=1
 pkgdesc="A library implementing the SSH2 protocol as defined by Internet Drafts"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/libssh2-1.8.0-chromeos-x86_64.tar.xz")
-sha256sums=('6e026450389021c6267a9cc79b8722d15f48e2f8d812d5212501f686b4368e3c')
+source=("https://dl.bintray.com/chromebrew/chromebrew/libssh2-1.8.1-chromeos-x86_64.tar.xz")
+sha256sums=('1025b413f30c5ac27bfa340e41cb437bf19311e72b95030f64020e25be4cda31')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

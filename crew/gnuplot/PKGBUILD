@@ -1,24 +1,25 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gnuplot
-pkgver=5.2.4
+pkgver=5.2.6
 pkgrel=1
 pkgdesc="Plotting package which outputs to X11, PostScript, PNG, GIF, and others"
 arch=('x86_64')
 url="http://www.gnuplot.info"
 license=('custom')
 groups=()
-depends=('groff' 'libcerf' 'libxrender' 'libxxf86vm' 'lua' 'pango' 'readline7' 'readline')
+depends=('libcerf' 'libxrender' 'libxxf86vm' 'lua' 'pango')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/gnuplot-5.2.4-chromeos-x86_64.tar.xz")
-sha256sums=('59bebf199e3de46e405b1ef27b0037f7a05d59cd97f53fa36e32878a3eb677c7')
+source=("https://dl.bintray.com/chromebrew/chromebrew/gnuplot-5.2.6-chromeos-x86_64.tar.xz")
+sha256sums=('13dec5a3289609f06c963ce97dfe5157c34fd816e71842806401e6d9727cc7b0')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

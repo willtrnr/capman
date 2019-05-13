@@ -2,7 +2,7 @@
 
 pkgname=xdg-base
 pkgver=0.7
-pkgrel=2
+pkgrel=5
 pkgdesc="XDG Base Directory Specification Configuration"
 arch=('x86_64')
 url="https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html"
@@ -20,10 +20,11 @@ sha256sums=()
 
 build() {
   yes | crew build xdg_base
-  tar xf "xdg_base-0.7-2-chromeos-$arch.tar.xz"
+  tar xf "xdg_base-0.7-5-chromeos-$arch.tar.xz"
 }
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

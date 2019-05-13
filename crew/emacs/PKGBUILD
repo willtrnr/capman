@@ -1,24 +1,30 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=emacs
-pkgver=26.1
+pkgver=26.2
 pkgrel=1
 pkgdesc="The extensible, customizable, self-documenting real-time display editor"
 arch=('x86_64')
 url="http://www.gnu.org/software/emacs/emacs.html"
 license=('GPL3')
 groups=()
-depends=('lcms' 'libjpeg')
+depends=('lcms' 'libjpeg' 'libpng')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/emacs-26.1-1-chromeos-x86_64.tar.xz")
-sha256sums=('20adfa13c8b999da71d4efe1c6e86521ad83481e1d593bdcab20eac5c2cb589e')
+options=(staticlibs)
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build emacs
+  tar xf "emacs-26.2-chromeos-$arch.tar.xz"
+}
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

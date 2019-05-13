@@ -1,24 +1,30 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=gemacs
-pkgver=26.1
+pkgver=26.2
 pkgrel=1
 pkgdesc="An extensible, customizable, free/libre text editor - and more."
 arch=('x86_64')
 url="http://www.gnu.org/software/emacs/"
 license=('custom')
 groups=()
-depends=('emacs' 'giflib' 'libjpeg' 'libtiff' 'sommelier')
+depends=('emacs' 'giflib' 'libtiff' 'imagemagick6' 'sommelier')
 makedepends=()
 optdepends=()
 provides=()
 conflicts=()
 replaces=()
-options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/gemacs-26.1-chromeos-x86_64.tar.xz")
-sha256sums=('7d646d49bec0acf2c7eb79ff589c6f311537233565f43646dafa927de1adbb8c')
+options=(staticlibs)
+source=()
+sha256sums=()
+
+build() {
+  yes | crew build gemacs
+  tar xf "gemacs-26.2-chromeos-$arch.tar.xz"
+}
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=llvm
-pkgver=7.0.0
+pkgver=version=\$(gcc _dumpversion)
 pkgrel=1
 pkgdesc="Collection of modular and reusable compiler and toolchain technologies"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/llvm-7.0.0-chromeos-x86_64.tar.xz")
-sha256sums=('882659f61d8a60a1022307f350d67a772d8a014ad2f70fb59091612aceb0dd78')
+source=("https://dl.bintray.com/chromebrew/chromebrew/llvm-8.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('7f476d4b2300e337d6ac98c4116dc481964d5939fe459126737992b121eaf885')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

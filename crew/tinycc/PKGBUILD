@@ -1,11 +1,11 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=tinycc
-pkgver=0.9.26
+pkgver=0.9.27
 pkgrel=1
 pkgdesc="TinyCC (aka TCC) is a small but hyper fast C compiler."
 arch=('x86_64')
-url="http://bellard.org/tcc/"
+url="https://bellard.org/tcc/"
 license=('custom')
 groups=()
 depends=()
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/tinycc-0.9.26-chromeos-x86_64.tar.xz")
-sha256sums=('45ee7ac7842428d52742be8b4aa873b0bb7fa301995a4cf303c85b22751897f8')
+source=("https://dl.bintray.com/chromebrew/chromebrew/tinycc-0.9.27-chromeos-x86_64.tar.xz")
+sha256sums=('cff32a0b7312e376565d3b380e8d933c6e979caa940e64bc12872f6e2673c6be')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

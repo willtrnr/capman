@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=git
-pkgver=2.20.1
+pkgver=2.21.0
 pkgrel=1
 pkgdesc="the fast distributed version control system"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/git-2.20.1-chromeos-x86_64.tar.xz")
-sha256sums=('316842c20bf24202c794eb9c21e46d14bb95069d3667dc5d32e5058bdcdebd89')
+source=("https://dl.bintray.com/chromebrew/chromebrew/git-2.21.0-chromeos-x86_64.tar.xz")
+sha256sums=('d3a74f5cb87e17c6108fd4a1fa297f34ce154f56301b63911ee3f603a0faa756')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

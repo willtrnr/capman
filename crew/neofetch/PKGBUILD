@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=neofetch
-pkgver=3.3.0
+pkgver=6.0.0
 pkgrel=1
 pkgdesc="A CLI system information tool written in BASH that supports displaying images."
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/neofetch-3.3.0-chromeos-x86_64.tar.xz")
-sha256sums=('f3ffcb5a6b7c3c5e5f663293db150fd6fde371b65067cc5dc3306a449e8eca75')
+source=("https://dl.bintray.com/chromebrew/chromebrew/neofetch-6.0.0-chromeos-x86_64.tar.xz")
+sha256sums=('4c8f2e53031f299c5933d5442d7caafc6647bfd4eaa3f97434d93c9387c3a757')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }

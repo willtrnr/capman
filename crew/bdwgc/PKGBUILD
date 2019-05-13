@@ -1,7 +1,7 @@
 # Maintainer: William Turner <willtur.will@gmail.com>
 
 pkgname=bdwgc
-pkgver=7.6.6
+pkgver=8.0.4
 pkgrel=1
 pkgdesc="The Boehm-Demers-Weiser conservative C/C++ Garbage Collector"
 arch=('x86_64')
@@ -15,10 +15,11 @@ provides=()
 conflicts=()
 replaces=()
 options=(!strip staticlibs !zipman !purge)
-source=("https://dl.bintray.com/chromebrew/chromebrew/bdwgc-7.6.6-chromeos-x86_64.tar.xz")
-sha256sums=('68478976c635ab5948a15e04ad3c5ca4e2f41b96cfff433d32526928bb99a5b8')
+source=("https://dl.bintray.com/chromebrew/chromebrew/bdwgc-8.0.4-chromeos-x86_64.tar.xz")
+sha256sums=('3195a44840152f6e67ca5f8f27118186af4422d7ab145e0276aa0af4dfd84378')
 
 package() {
   install -d -m 0755 "$pkgdir/usr"
   cp -a usr/local "$pkgdir/usr"
+  rm -f "$pkgdir/usr/local/share/info/dir"{,.gz}
 }
